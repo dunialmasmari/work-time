@@ -15,7 +15,8 @@ class UserProf extends Migration
     {
         Schema::create('userProfs', function (Blueprint $table) {
             $table->bigIncrements('userProfs_id');
-            $table->string('userProfs_email');
+            $table->string('userProfs_name');
+            $table->string('userProfs_email')->unique();
             
          
         });

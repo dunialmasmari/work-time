@@ -22,10 +22,10 @@ class CreateTendersTable extends Migration
             $table->string('company');
             $table->longText('description');
             $table->string('filenames');
-            $table->longText('description');
-            $table->datetime('start_date');
-            $table->datetime('deadline');
-            $table->datetime('posted_date');
+            //$table->longText('description');
+            $table->date('start_date');
+            $table->date('deadline');
+            $table->date('posted_date');
             $table->boolean('active');
             $table->string('location');
             $table->timestamps();

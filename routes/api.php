@@ -60,6 +60,7 @@ Route::delete('delete/{id}', 'Tender\TenderDashboarController@delete');
 
 Route::post('login', 'login\loginController@login');
 Route::get('checklogin', 'login\loginController@checklogin');
+Route::get('logout', 'login\loginController@logout');
 
 Route::namespace('ContactUs')->group(function(){
 Route::post('ContactUs','ContactUSController@sendEmail');
