@@ -16,8 +16,8 @@ class loginController extends Controller
         ]);
  
         if (auth()->attempt($data)) {
-            //$token = auth()->user()->createToken('LaravelAuthApp')->accessToken; 
-            return response()->json(['message' => 'login sucessfuly', 'data' => $data], 200);
+            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken; 
+            return response()->json(['message' => 'login sucessfuly', 'data' => $data,'token'=> $token], 200);
         } else {
             return response()->json(['message' => 'Unauthorised'], 401);
         }
