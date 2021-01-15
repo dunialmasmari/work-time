@@ -1,0 +1,63 @@
+.body{
+  direction:ltr;
+  text-align: left;
+}
+.container-fluid,.container{
+  direction:ltr;
+  text-align: left;
+}
+.justify-content-end {
+  justify-content: flex-end !important;
+  direction: rtl;
+  text-align: left;
+}
+.card
+{
+  margin:12px;
+    margin-right:2px;
+    width:105%;
+    direction:ltr;
+    text-align: left;
+}
+.card-image
+{
+  margin-top:-20px;
+  border-radius: 07%;
+  padding: 20px;
+  width: 200px;
+  height: 28vh;
+  margin-left:40px;
+}
+.vl 
+{
+    border-right: 1.5px solid white;
+    
+   
+  }
+.nopaddingnomagrin{
+    margin:0px;padding: 0px;
+    
+}
+.footer{
+
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+    font-size: 25px;
+    border:0px  solid;
+    outline: none;
+    background-color:rgb(233, 229, 229) ;
+    color: black;
+    cursor: pointer;
+    padding: 17px;
+    border-radius:50%;
+  }
+  
+  #myBtn:hover {
+    background-color:#228bd1;
+    
+  }
