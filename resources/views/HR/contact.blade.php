@@ -13,14 +13,14 @@
                             <div class='col-sm-4 col-md-12 ' ></div>
                             <div class='col-sm-4 col-md-12 ' align="center">
                                  <br><br>
-                                 <a href="#"><img src="assets/images/hrlogo.jpg" height="75vw" alt=""/></a>
+                                 <a href="#"><img src="{{URL::asset('assets/images/hrlogo.jpg')}}" height="75vw" alt=""/></a>
                                   <br><br>
-                                  <h3>تواصل معنا </h3>
+                                  <h3>{{__('fields_web.ContactUS.Tittle')}} </h3>
                             </div>
                             <div class='col-sm-4 col-md-12' ></div>
                             <div class='col-sm-6 col-md-6 ' ></div>
                             <div class="container ">
-                                <p>إذا كانت لديك أي أسئلة بخصوص خدماتنا ، يرجى ملء النموذج أدناه وسنحاول الرد عليك في أقرب وقت ممكن.</p>
+                                <p>{{__('fields_web.ContactUS.description')}}</p>
                                 <div  align="center" style='direction:ltr;' align="left">
                                     <a href="https://twitter.com/worktim1231?s=08" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp; &nbsp;
                                     <a href="https://www.instagram.com/worktime66/" target="_blank" rel="noopener noreferrer" > <i class="fab fa-instagram" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp;&nbsp;
@@ -40,25 +40,25 @@
                            <div class='col-sm-12 '  style='direction:;background-color:white'>
                             <form action="/action_page.php" class="was-validated">
                                 <div class="form-group">
-                                 <label for="name">اسمك </label>
-                                 <input type="text" class="form-control" id="name" placeholder="اخل الاسم " name="name" required>
-                                    <div class="valid-feedback">صحيح.</div>
-                                    <div class="invalid-feedback">يجب اخال الاسم </div>
+                                 <label for="name">{{__('fields_web.ContactUS.Name')}} </label>
+                                 <input type="text" class="form-control" id="name" placeholder="{{__('fields_web.ContactUS.Name')}} " name="name" required>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">{{__('fields_web.validation.emptyfieldrequired')}} </div>
                                 </div>
                                 <div class="form-group">
-                                 <label for="email">بريدك الالكتروني </label>
-                                 <input type="email" class="form-control" id="email" placeholder="بريدك الالكتروني" name="email" required>
-                                    <div class="valid-feedback">صحيح.</div>
-                                    <div class="invalid-feedback">ادخل بريد الكتروني صحيح .</div>
+                                 <label for="email">{{__('fields_web.ContactUS.Email')}} </label>
+                                 <input type="email" class="form-control" id="email" placeholder="{{__('fields_web.ContactUS.Email')}}" name="email" required>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">{{__('fields_web.validation.emailvalidation')}}</div>
                                 </div>
                                 <div class="form-group">
-                                 <label for="name">ضع رسالتك هنا </label>
-                                 <textarea name="message" required class="form-control" placeholder='ضع رسالتك هنا '></textarea>
+                                 <label for="name">{{__('fields_web.ContactUS.Message')}} </label>
+                                 <textarea name="message" required class="form-control" placeholder="{{__('fields_web.ContactUS.Message')}} "></textarea>
                                    <div class="valid-feedback"></div>
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="form-group" align="center">
-                                 <button type="submit" class="btn btn-primary" >ارسل </button> 
+                                 <button type="submit" class="btn btn-primary" >{{__('fields_web.ContactUS.Send')}} </button> 
                                 </div>
                             </form> <br>
                            </div>

@@ -20,7 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+],
+ function()
+{
 Route::get('/homehr', function () {
     return view ('HR.home');
 })->name('homehr');
@@ -40,3 +44,4 @@ Route::get('/tenders', function () {
 Route::get('/tenderDetails', function () {
     return view ('HR.tenderDetails');
 })->name('tenderDetails');
+});

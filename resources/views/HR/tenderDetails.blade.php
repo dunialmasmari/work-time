@@ -8,7 +8,7 @@
              <div class="row">
                <div class='col-12'>
                    <br>
-                  <h2 style=""> المناقصات </h3>
+                  <h2 class='label'> {{__('fields_web.Tenders.Title')}} </h3>
                   <br><br><br>
                 </div>
              </div>
@@ -19,7 +19,7 @@
              <div class='col-12 col-sm-12 col-md-12 col-lg-3 '>
                 <div class="card shadow-lg  bg-white card-image" >
                  <div class="card-body ">
-                    <img >image <br> <br> <br>
+                    <img src="{{URL::asset('assets/images/')}}">image <br> <br> <br>
                    </div>
                 </div>
               </div>
@@ -29,14 +29,14 @@
                  <div class="card-body">
                    <div class='row'>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                          <p>القسم: </p>
-                          <p> المنطقة: </p>
-                          <p> تاريخ النشر: </p>
+                          <p>{{__('fields_web.Tenders.major')}}:... </p>
+                          <p>{{__('fields_web.Tenders.location')}}:... </p>
+                          <p> {{__('fields_web.Tenders.startDate')}}:... </p>
                         </div>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                          <p>الشركة/المنظمة: </p>
-                          <p>رابط التقديم: </p>
-                          <p>تاريخ الانتهاء: </p>
+                          <p>{{__('fields_web.Tenders.company')}}:.... </p>
+                          <p>{{__('fields_web.Tenders.applyLink')}}:... </p>
+                          <p style="color:red">{{__('fields_web.Tenders.Deadline')}}:... </p>
                         </div>
                    </div>
 
@@ -56,14 +56,14 @@
              <div class="row">
                
                 <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br> 
-                  <h3>  وصف المناقصة:  </h3>
+                  <h3> {{__('fields_web.Tenders.description')}}:  </h3>
                 </div>
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br> 
-                <button type="" class="btn btn-primary" width='90%' height="50px" > تحميل الملفات  </button>
+                <button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button>
                 </div>
 
              </div>

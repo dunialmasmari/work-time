@@ -1,23 +1,40 @@
 .body{
-  direction: rtl;
-  text-align: right;
+  direction:rtl ;
+  text-align: right;    
+
+  
 }
-.container-fluid,.container{
-    direction: rtl;
-    text-align: right;
+.container-fluid,.container:lang(ar){
+  direction:;
+  text-align: right;    
+}
+.container-fluid,.container:lang(en){
+  direction:;
+  text-align: left;
 }
 .justify-content-end {
-  justify-content: flex-end !important;
+  justify-content: flex-start !important;
   direction:;
   text-align: ;
 }
-.card
+.justify-content-start{
+  justify-content: flex-end;
+}
+.card:lang(ar)
 {
     margin:12px;
     margin-right:2px;
     width:105%;
-    direction: rtl;
+    direction: ;
     text-align: right;
+}
+.card:lang(en)
+{
+  margin:12px;
+    margin-right:2px;
+    width:105%;
+    direction:ltr;
+    text-align: left;
 }
 .card-image
 {
@@ -28,12 +45,15 @@
   height: 28vh;
   margin-right:40px;
 }
-.vl 
+.vl:lang(en) 
 {
-    border-left: 1.5px solid white;
-    
-   
+    border-right: 1px solid white;
   }
+  .vl:lang(ar) 
+{
+    border-left: 1px solid white;
+  }
+
 .nopaddingnomagrin{
     margin:0px;padding: 0px;
     
@@ -60,4 +80,7 @@
   #myBtn:hover {
     background-color:#228bd1;
     
+  }
+  .label:lang(ar){
+    text-align: right;
   }
