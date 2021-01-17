@@ -34,6 +34,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::namespace('Tender')->group(function(){
         Route::get('tenders','TenderController@viewTenders')->name('tenders');
         Route::get('tender/{id}','TenderController@viewTenderid')->name('tender/{id}');
+        Route::get('Tender/dowenloadFile/{filename}','TenderController@dowenloadFile');
+
     });
     
     Route::namespace('ContactUS')->group(function(){

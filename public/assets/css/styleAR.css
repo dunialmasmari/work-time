@@ -84,3 +84,8 @@
   .label:lang(ar){
     text-align: right;
   }
+  .img-fluidDetails {
+    max-width: 80%;
+    height: 80%;
+    
+  }

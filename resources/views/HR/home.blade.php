@@ -38,8 +38,8 @@
 </div>
 
 <!-- Left and right controls -->
-<a class="carousel-control-prev" href="#demo" data-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
+<a class="carousel-control-prev"  href="#demo" data-slide="prev">
+  <span class="carousel-control-prev-icon" style='color: red;'></span>
 </a>
 <a class="carousel-control-next" href="#demo" data-slide="next">
   <span class="carousel-control-next-icon"></span>
@@ -72,7 +72,7 @@
                     <div class="col-lg-3 col-md-6 ">
                       <div class="card"> <br>
                            <div class='card-image'>
-                             <img class="card-img-top img-fluid" src="{{URL::asset('assets/images/'.$tender->image)}}" alt="image" />
+                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/images/'.$tender->image)}}" alt="image" />
                            </div>
                            <div class="card-body">
                                <h3 class="card-title"> {{$tender->title}}</h3> 

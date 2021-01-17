@@ -15,11 +15,11 @@
              
              
            <div class="row">
-
+           @foreach($tenders as $tender)
              <div class='col-12 col-sm-12 col-md-12 col-lg-3 '>
                 <div class="card shadow-lg  bg-white card-image" >
                  <div class="card-body ">
-                    <img src="{{URL::asset('assets/images/')}}">image <br> <br> <br>
+                    <img class="card-img-top img-fluidDetails" src="{{URL::asset('assets/images/'.$tender->image)}}"> <br> <br> <br>
                    </div>
                 </div>
               </div>
@@ -29,14 +29,14 @@
                  <div class="card-body">
                    <div class='row'>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                          <p>{{__('fields_web.Tenders.major')}}:... </p>
-                          <p>{{__('fields_web.Tenders.location')}}:... </p>
-                          <p> {{__('fields_web.Tenders.startDate')}}:... </p>
+                          <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Tenders.major')}}:{{$tender->major_name}} </p>
+                          <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Tenders.location')}}:{{$tender->location}} </p>
+                          <p><i class='far fa-calendar-check'> &nbsp; </i> {{__('fields_web.Tenders.startDate')}}:{{$tender->start_date}} </p>
                         </div>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                          <p>{{__('fields_web.Tenders.company')}}:.... </p>
-                          <p>{{__('fields_web.Tenders.applyLink')}}:... </p>
-                          <p style="color:red">{{__('fields_web.Tenders.Deadline')}}:... </p>
+                          <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Tenders.company')}}:{{$tender->company}}</p>
+                          <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Tenders.applyLink')}}:{{$tender->company}} </p>
+                          <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}}:{{$tender->deadline}} </p>
                         </div>
                    </div>
 
@@ -62,8 +62,8 @@
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='  col-md-2 col-lg-2'></div>
                 <div class='  col-md-2 col-lg-2'></div>
-                <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br> 
-                <button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button>
+                <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br>
+                <a href="{{url('Tender/dowenloadFile/'.$tender->filenames)}}"><button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button></a>
                 </div>
 
              </div>
@@ -71,10 +71,10 @@
              
              <div class="row ">
              <div class='col-12 col-sm-12 col-md-12 col-lg-12'></div>
-               description
+             {{$tender->description}}
              </div>
              
-             
+             @endforeach
              
           </div>
 
