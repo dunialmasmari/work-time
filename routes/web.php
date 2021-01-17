@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -25,30 +25,26 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 ],
  function()
 {
-Route::get('/homehr', function () {
-    return view ('HR.home');
-})->name('homehr');
 
-Route::get('/abouthr', function () {
-    return view ('HR.about');
-})->name('abouthr');
+    Route::namespace('Home')->group(function(){
+        Route::get('/','HomeController@viewHome');
+        Route::get('homehr','HomeController@viewHome');
+    });
+    
+    Route::namespace('Tender')->group(function(){
+        Route::get('tenders','TenderController@viewTenders');
+        Route::get('tender/{id}','TenderController@viewTenderid');
+    });
+    
+    Route::namespace('ContactUS')->group(function(){
+        Route::get('contacthr','ContactUSController@viewContact');
+        Route::get('contactus','ContactUSController@sendEmail');
+    });
+    
+    Route::namespace('aboutus')->group(function(){
+        Route::get('abouthr','AboutUsController@viewAbout');
+    });
 
-//Route::get('/contacthr', function () {
-    //return view ('HR.contact');
-//})->name('contacthr');
 
-Route::get('/tenders', function () {
-    return view ('HR.tenders');
-})->name('tenders');
-
-Route::get('/tenderDetails', function () {
-    return view ('HR.tenderDetails');
-})->name('tenderDetails');
-
-Route::namespace('ContactUS')->group(function(){
-    Route::get('contacthr','ContactUSController@viewContact');
-    Route::get('contactus','ContactUSController@sendEmail');
-
-}); 
 
 });

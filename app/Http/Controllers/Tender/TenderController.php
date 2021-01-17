@@ -15,7 +15,16 @@ use Carbon\Carbon;
 
 class TenderController extends Controller
 {
-    //
+    public function viewTenders()
+    {
+        return view('HR.tenders');
+    }
+
+    public function viewTenderid($id)
+    {
+        return view('HR.tenderDetails');
+    } 
+    
     public function getActiveTenders()
     {
 
