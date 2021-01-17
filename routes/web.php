@@ -27,22 +27,22 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 {
 
     Route::namespace('Home')->group(function(){
-        Route::get('/','HomeController@viewHome');
-        Route::get('homehr','HomeController@viewHome');
+        Route::get('/','HomeController@viewHome')->name('/');
+        Route::get('homehr','HomeController@viewHome')->name('homehr');
     });
     
     Route::namespace('Tender')->group(function(){
-        Route::get('tenders','TenderController@viewTenders');
-        Route::get('tender/{id}','TenderController@viewTenderid');
+        Route::get('tenders','TenderController@viewTenders')->name('tenders');
+        Route::get('tender/{id}','TenderController@viewTenderid')->name('tender/{id}');
     });
     
     Route::namespace('ContactUS')->group(function(){
-        Route::get('contacthr','ContactUSController@viewContact');
+        Route::get('contacthr','ContactUSController@viewContact')->name('contacthr');
         Route::get('contactus','ContactUSController@sendEmail');
     });
     
     Route::namespace('aboutus')->group(function(){
-        Route::get('abouthr','AboutUsController@viewAbout');
+        Route::get('abouthr','AboutUsController@viewAbout')->name('abouthr');
     });
 
 
