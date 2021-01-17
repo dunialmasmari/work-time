@@ -33,9 +33,9 @@ Route::get('/abouthr', function () {
     return view ('HR.about');
 })->name('abouthr');
 
-Route::get('/contacthr', function () {
-    return view ('HR.contact');
-})->name('contacthr');
+//Route::get('/contacthr', function () {
+    //return view ('HR.contact');
+//})->name('contacthr');
 
 Route::get('/tenders', function () {
     return view ('HR.tenders');
@@ -44,4 +44,11 @@ Route::get('/tenders', function () {
 Route::get('/tenderDetails', function () {
     return view ('HR.tenderDetails');
 })->name('tenderDetails');
+
+Route::namespace('ContactUS')->group(function(){
+    Route::get('contacthr','ContactUSController@viewContact');
+    Route::get('contactus','ContactUSController@sendEmail');
+
+}); 
+
 });
