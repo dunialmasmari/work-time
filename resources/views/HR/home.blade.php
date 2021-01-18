@@ -56,7 +56,7 @@
    </div>
 </div>
 
-<div class="container-fluid bg-primary">
+<div class="container-fluid btn-primary"  style='background-color:rgb(79, 157, 213);'>
   <div class="row" style="height:20px">
   &nbsp;
   </div> 

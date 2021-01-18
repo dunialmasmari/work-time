@@ -8,7 +8,7 @@
             <div class="container">
                   <div class='row container shadow-sm  bg-white nopaddingnomagrin border border-primary' >
                       <br><br>
-                      <div class='col-sm-6 col-md-12 col-lg-6 btn-primary ' style="">
+                      <div class='col-sm-6 col-md-12 col-lg-6 btn-primary '  style='background-color:rgb(79, 157, 213);'>
                         <div class='row'>
                             <div class='col-sm-4 col-md-12 ' ></div>
                             <div class='col-sm-4 col-md-12 ' align="center">

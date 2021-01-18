@@ -17,11 +17,11 @@
    <div class="row">
    <div class="card shadow-lg  bg-white" >
   <div class="card-body">
-    <h4 style="color:blue">{{__('fields_web.Footer.about_us')}}</h4>
+    <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.Footer.about_us')}}</h4>
    <p>{{__('fields_web.aboutus.description')}}</p>
-   <h4 style="color:blue">{{__('fields_web.aboutus.vesion')}}</h4>
+   <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.aboutus.vesion')}}</h4>
    <p>{{__('fields_web.aboutus.vesionDes')}}</p>
-   <h4 style="color:blue">{{__('fields_web.aboutus.services')}}</h4>
+   <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.aboutus.services')}}</h4>
    <p>{{__('fields_web.aboutus.servicesDes')}}</p>  
 </div>
 </div>
