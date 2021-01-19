@@ -21,7 +21,7 @@
               <div class="modal-body">
               <p id="message" class="text-dark"></p>
               <p id="msg"></p>
-                <form id="add-major-form" action="/major" method="post" >
+                <form id="add-major-form" action="/controlpanel/major" method="post" >
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -70,13 +70,13 @@
               @endif 
               @if($major->active == 1)
                 <td> active </td>
-                <td><a href="{{  url('majoractivation/'.$major->major_id) }}" class="btn ">الغاء التفعيل</a>
-                <a href="{{  url('major/'.$major->major_id) }}" class="btn ">edit </a></td>
+                <td><a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">الغاء التفعيل</a>
+                <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a></td>
               @else 
                 <td> not active </td>
                 <td>
-                <a href="{{  url('majoractivation/'.$major->major_id) }}" class="btn ">تفعيل</a>
-                <a href="{{  url('major/'.$major->major_id) }}" class="btn ">edit </a>
+                <a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">تفعيل</a>
+                <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a>
               </td>
               @endif  
             </tr>

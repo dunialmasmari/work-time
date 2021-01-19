@@ -11,7 +11,7 @@
 		
 					<div class="card-body">
 					@foreach ($tenders as $tender)
-		    <form class="form-horizontal" action="/update" method="post" enctype="multipart/form-data">
+		    <form class="form-horizontal" action="/controlpanel/updatetender" method="post" enctype="multipart/form-data">
            
 			<input type="hidden" class="form-control" name="tender_id" value="{{ $tender->tender_id }}">
 							<div class="form-group row">

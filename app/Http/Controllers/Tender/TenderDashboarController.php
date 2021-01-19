@@ -136,7 +136,7 @@ class TenderDashboarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updatetender(Request $request)
     {
         // if (session()->has('data')) 
         // {
@@ -169,7 +169,7 @@ class TenderDashboarController extends Controller
                 $tender->Update($request->all());
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'tenders.*' )->get();
-                   // return view('admin.tender.tender',['tenders' => $tenders]);
+                return view('admin.tender.tender',['tenders' => $tenders]);
             // $tender->Update($request->all());
              //   return response()->json($tender->paginate(), 200);
             }

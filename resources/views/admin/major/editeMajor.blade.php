@@ -2,7 +2,7 @@
 @foreach ($majors as $major)
 
 
-<form id="add-major-form" action="/update" method="post" >
+<form id="add-major-form" action="/controlpanel/updatemajor" method="post" >
                 <input type="hidden" class="form-control" name="major_id" value="{{ $major->major_id }}">
                   <div class="row">
                     <div class="col-12">

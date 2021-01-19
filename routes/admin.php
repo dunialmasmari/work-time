@@ -21,22 +21,24 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
  /** major Route */
-
-Route::apiResource('/major', 'Major\MajorController'); 
-Route::post('/update','Major\MajorController@update');
-Route::get('/majoractivation/{id}','Major\MajorController@majoractivation');
+ Route::group(['namespace' => 'Major', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
+ {
+    Route::get('/home', function () {return view('admin/home');});
+    Route::apiResource('/major', 'MajorController'); 
+    Route::post('/updatemajor','MajorController@updatemajor');
+    Route::get('/majoractivation/{id}','MajorController@majoractivation');
+  });
 
 /** tender Route */
-
-Route::apiResource('/tender', 'Tender\TenderDashboarController'); 
-Route::post('/update','Tender\TenderDashboarController@update');
-Route::get('/addtender', 'Tender\TenderDashboarController@addtender'); 
-Route::get('/tenderactivation/{id}','Tender\TenderDashboarController@tenderactivation');
-
-
-Route::get('/controlpanel', function () {
-    return view('admin/home');
+Route::group(['namespace' => 'Tender', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
+ {
+    Route::apiResource('/tender', 'TenderDashboarController'); 
+    Route::post('/updatetender','TenderDashboarController@updatetender');
+    Route::get('/addtender', 'TenderDashboarController@addtender'); 
+    Route::get('/tenderactivation/{id}','TenderDashboarController@tenderactivation');
 });
+
+
 /*Route::get('/major', function () {
     return view('admin/major');
 });

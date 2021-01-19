@@ -94,7 +94,7 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updatemajor(Request $request)
     {
             $major = Major::where('major_id',$request->major_id);
             if($major->exists())
@@ -105,7 +105,7 @@ class MajorController extends Controller
                // return response()->json($major->get(), 200);
             }
             else{
-                return response()->json(['message' => 'major not found'], 404);
+                return response()->json(['message' => 'major not  found'], 404);
             }
     }
 

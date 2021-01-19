@@ -9,7 +9,7 @@
 <div class="show-data tender">
 	<div class="show-data">
 	<section class="get-in-touch">
-	<form class="form-horizontal" action="/tender" method="post" enctype="multipart/form-data"> 
+	<form class="form-horizontal" action="/controlpanel/tender" method="post" enctype="multipart/form-data"> 
 		<div class="container">
 			<div class="add-form row">
 			  <div class="conter">
