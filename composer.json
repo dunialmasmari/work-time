@@ -15,7 +15,8 @@
         "laravel/framework": "^7.29",
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "mcamara/laravel-localization": "^1.6"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
