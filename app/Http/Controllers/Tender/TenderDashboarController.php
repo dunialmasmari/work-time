@@ -17,22 +17,15 @@ class TenderDashboarController extends Controller
      */
     public function index()
     {	
-        // if (session()->has('data')) 
-        // {
-            $tender = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
-            ->select('majors.major_name', 'tenders.*' );//->where('tenders.active','1');
-            if($tender->exists())
-            {
-                return response()->json($tender->paginate(10), 200);
-            }
-            else{
-                return response()->json(['message' => 'You do not have active tenders '], 404);
-            } 
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
+            $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+            ->select('majors.major_name', 'tenders.*' )->get();
+                return view('admin.tender.tender',['tenders' => $tenders]);
+    }
+
+    public function addtender()
+    {
+        $majors=Major::select()->get();
+            return view('admin.tender.addtender',['majors' => $majors]);
     }
 
     public function getactivetender()
@@ -72,9 +65,7 @@ class TenderDashboarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
-        // if (session()->has('data')) 
-        // {
+    {   
             $tender = new tender();
             $tender->user_id = $request->input('user_id');
             $tender->major_id = $request->input('major_id');
@@ -90,22 +81,20 @@ class TenderDashboarController extends Controller
             if($request->hasfile('filename'))
             {
             $filename = time().'.'.$request->file('filename')->extension();
-            $result = $request->file('filename')->move(public_path().'/files/', $filename); //store('files');
+            $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
             $tender->filename = $filename;
             }
             if($request->hasfile('image'))
             {
             $imagename = time().'.'.$request->file('image')->extension();
-            $result = $request->file('image')->move(public_path().'/images/', $imagename); //store('files');
+            $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
             $tender->image = $imagename;
             }
             $tender->save();
-            return response()->json(['message' => 'add sucessful', 'data' => $tender], 201);  
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
+          
+            $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+            ->select('majors.major_name', 'tenders.*' )->get();
+                return view('admin.tender.tender',['tenders' => $tenders]);
     }
 
     /**
@@ -116,22 +105,17 @@ class TenderDashboarController extends Controller
      */
     public function show( $id)
     {
-        // if (session()->has('data')) 
-        // {
             $tender = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->where('tenders.tender_id', $id);
             if($tender->exists())
             {
-                return response()->json(['data' => $tender->get(), 'path the folder of files' => public_path('files/'), 'path the folder of images' => public_path('images/')], 200);
+                $tenders = $tender->get();
+                $majors=Major::select()->get();
+                return view('admin.tender.editetender',['tenders'=> $tenders, 'majors' => $majors]);
             }
             else{
                 return response()->json(['message' => 'You do not have active tenders '], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
     }
 
     /**
@@ -225,6 +209,25 @@ class TenderDashboarController extends Controller
         //     return response()->json(['message' => 'The pages not found'], 401);
         // } 
     }
+
+    public function activation($id)
+    {
+            $tender = tender::where('tender_id',$id)->where('active','1');
+            if($tender->exists())
+            {
+                    $tender->Update(['active' => '0']);
+                    $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    ->select('majors.major_name', 'tenders.*' )->get();
+                    return view('admin.tender.tender',['tenders' => $tenders]);
+            }
+            else{
+                $tender = tender::where('tender_id',$id);
+                $tender->Update(['active' => '1']);
+                $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                 ->select('majors.major_name', 'tenders.*' )->get();
+                    return view('admin.tender.tender',['tenders' => $tenders]);
+                }
+    } 
 
     public function delete($id)
     {

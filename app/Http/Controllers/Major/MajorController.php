@@ -16,27 +16,12 @@ class MajorController extends Controller
      */
     public function index()
     {
-        // if (session()->has('data')) 
-        // {
-            $major = Major::select('majors.major_name','majors.major_id','majors.type','majors.active');
-            if($major->exists())
-            {
-                return response()->json($major->get(), 200);
-            }
-            else{
-                return response()->json(['message' => 'You do not have active major '], 404);
-            }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
+            $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+                return view('admin.major.major',['majors' => $majors]);
     }
 
     public function getactivemajors()
     {
-        // if (session()->has('data')) 
-        // {
             $major = Major::select('majors.major_name','majors.major_id','majors.type')->where('major_id',$id);
             if($major->exists())
             {
@@ -45,11 +30,6 @@ class MajorController extends Controller
             else{
                 return response()->json(['message' => 'You do not have active major '], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
     }
 
     /**
@@ -70,15 +50,9 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        // if (session()->has('data')) 
-        // {
             $major = Major::create($request->all());
-            return response()->json($major, 201);
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
+            $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+            return view('admin.major.major',['majors' => $majors]);
     }
 
     /**
@@ -89,22 +63,17 @@ class MajorController extends Controller
      */
     public function show($id)
     {
-        // if (session()->has('data')) 
-        // {
-            $major = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->where('major_id',$id);
+            $major = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')
+            ->where('major_id',$id);
             if($major->exists())
             {
-                return response()->json($major->get(), 200);
+                $majors = $major->get();
+                return view('admin.major.editeMajor',['majors'=> $majors]);
             }
             else
             {
                 return response()->json(['message' => 'major not found'], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
     }
 
     /**
@@ -127,8 +96,6 @@ class MajorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // if (session()->has('data')) 
-        // {
             $major = Major::where('major_id',$id);
             if($major->exists())
             {
@@ -138,11 +105,6 @@ class MajorController extends Controller
             else{
                 return response()->json(['message' => 'major not found'], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
     }
 
     /**
@@ -151,36 +113,25 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function activation($id)
     {
-        // if (session()->has('data')) 
-        // {
-            $major = Major::where('major_id',$id);
+            $major = Major::where('major_id',$id)->where('active','1');
             if($major->exists())
             {
-                if($major->active = 1){
                     $major->Update(['active' => '0']);
-                    return response()->json(['message' => 'major not active'], 200);
-                }
+                    $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+                    return view('admin.major.major',['majors' => $majors]);
+            }
             else{
+                $major = Major::where('major_id',$id);
                 $major->Update(['active' => '1']);
-                return response()->json(['message' => 'major active'], 200);
+                $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+                return view('admin.major.major',['majors' => $majors]);
                 }
-            }
-            else{
-                return response()->json(['message' => 'major not found'], 404);
-            }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
     } 
 
     public function delete($id)
     {
-        // if (session()->has('data')) 
-        // {
             $major = Major::where('major_id',$id);
             if($major->exists())
             {
@@ -191,10 +142,5 @@ class MajorController extends Controller
             {
                 return response()->json(['message' => 'major not found'], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // }
     }
 }
