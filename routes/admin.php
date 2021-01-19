@@ -18,21 +18,22 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::apiResource('major', 'Major\MajorController'); 
-Route::get('/update/{id}','Major\MajorController@update');
-Route::get('/activation/{id}','Major\MajorController@activation');
+ /** major Route */
 
+Route::apiResource('/major', 'Major\MajorController'); 
+Route::post('/update','Major\MajorController@update');
+Route::get('/majoractivation/{id}','Major\MajorController@majoractivation');
 
-Route::apiResource('tender', 'Tender\TenderDashboarController'); 
+/** tender Route */
+
+Route::apiResource('/tender', 'Tender\TenderDashboarController'); 
+Route::post('/update','Tender\TenderDashboarController@update');
 Route::get('/addtender', 'Tender\TenderDashboarController@addtender'); 
-Route::get('/activation/{id}','Tender\TenderDashboarController@activation');
+Route::get('/tenderactivation/{id}','Tender\TenderDashboarController@tenderactivation');
 
-/*Route::get('/addtender', function () {
-    return view('admin/tender/addtender');
-});*/
+
 Route::get('/controlpanel', function () {
     return view('admin/home');
 });

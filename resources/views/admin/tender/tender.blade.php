@@ -38,13 +38,13 @@
                 <td>
                 <a href="{{  url('tender/'.$tender->tender_id) }}"class="btn"> تعديل</a>
                 <a href="" class="btn"> عرض التفاصيل</a>
-                <a href="{{  url('activation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a></td>
+                <a href="{{  url('tenderactivation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a></td>
               @else 
                 <td> not active </td>
                 <td><!-- {{  url('addtender/'.$tender->tender_id) }}-->
                 <a href="{{  url('tender/'.$tender->tender_id) }}" class="btn"> تعديل</a>
                 <a href="" class="btn"> عرض التفاصيل</a>
-                <a href="{{  url('activation/'.$tender->tender_id) }}" class="btn">تفعيل</a></td>
+                <a href="{{  url('tenderactivation/'.$tender->tender_id) }}" class="btn">تفعيل</a></td>
               @endif  
             </tr>
             @endforeach
