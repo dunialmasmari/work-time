@@ -8,7 +8,7 @@
             <div class="container">
                   <div class='row container shadow-sm  bg-white nopaddingnomagrin border border-primary' >
                       <br><br>
-                      <div class='col-sm-6 col-md-12 col-lg-6 btn-primary ' style="">
+                      <div class='col-sm-6 col-md-12 col-lg-6 btn-primary '  style='background-color:rgb(79, 157, 213);'>
                         <div class='row'>
                             <div class='col-sm-4 col-md-12 ' ></div>
                             <div class='col-sm-4 col-md-12 ' align="center">
@@ -38,7 +38,13 @@
 
                       <div class='col-sm-6 col-md-12 col-lg-6'><br>
                            <div class='col-sm-12 '  style='direction:;background-color:white'>
-                            <form action="/action_page.php" class="was-validated">
+                           @if(Session :: has('success'))
+                                  <div class="  alert alert-success" role='alert'>
+                                {{Session :: get('success')}}
+                                  </div>
+                                @endif
+                            <form  method="get" action="{{url('contactus')}}"  class="was-validated"  >
+                                @csrf
                                 <div class="form-group">
                                  <label for="name">{{__('fields_web.ContactUS.Name')}} </label>
                                  <input type="text" class="form-control" id="name" placeholder="{{__('fields_web.ContactUS.Name')}} " name="name" required>
@@ -53,9 +59,9 @@
                                 </div>
                                 <div class="form-group">
                                  <label for="name">{{__('fields_web.ContactUS.Message')}} </label>
-                                 <textarea name="message" required class="form-control" placeholder="{{__('fields_web.ContactUS.Message')}} "></textarea>
+                                 <textarea  minlength="50" name="message" required class="form-control" placeholder="{{__('fields_web.ContactUS.Message')}} "></textarea>
                                    <div class="valid-feedback"></div>
-                                    <div class="invalid-feedback"></div>
+                                   <div class="invalid-feedback">{{__('fields_web.validation.undermainlimitation')}}</div>
                                 </div>
                                 <div class="form-group" align="center">
                                  <button type="submit" class="btn btn-primary" >{{__('fields_web.ContactUS.Send')}} </button> 
