@@ -1,6 +1,6 @@
 <!--footer -->
 <footer><br>
-<div class="container-fluid " style='background-color:black;'>
+<div class="container-fluid " style='background-color: rgb(4, 25, 41);'>
 <div class="container ">
 <div class="row">
 

@@ -38,8 +38,8 @@
 </div>
 
 <!-- Left and right controls -->
-<a class="carousel-control-prev" href="#demo" data-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
+<a class="carousel-control-prev"  href="#demo" data-slide="prev">
+  <span class="carousel-control-prev-icon" style='color: red;'></span>
 </a>
 <a class="carousel-control-next" href="#demo" data-slide="next">
   <span class="carousel-control-next-icon"></span>
@@ -56,7 +56,7 @@
    </div>
 </div>
 
-<div class="container-fluid bg-primary">
+<div class="container-fluid btn-primary"  style='background-color:rgb(79, 157, 213);'>
   <div class="row" style="height:20px">
   &nbsp;
   </div> 
@@ -67,7 +67,28 @@
 <div class="container-fluid cards bg-light">
 <div class="container ">
 <div class="row">
-<div class="col-lg-3 col-md-6 ">
+@foreach($tenders as $tender)
+
+                    <div class="col-lg-3 col-md-6 ">
+                      <div class="card"> <br>
+                           <div class='card-image'>
+                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/images/'.$tender->image)}}" alt="image" />
+                           </div>
+                           <div class="card-body">
+                               <h3 class="card-title"> {{$tender->title}}</h3> 
+                               <hr class='btn-primary'>
+                                   <p class="card-text"><i class="fa fa-home"> &nbsp; </i>{{$tender->location}} </p> 
+                                   <p class="card-text"><i class='fa fa-map-marker'> &nbsp; </i>{{$tender->company}} </p> 
+                                   <p class="card-text" style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}} : {{$tender->deadline}}</p>
+                                   <a href='tender/{{$tender->tender_id}}'> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
+                             </div>
+                        </div>
+                   </div> 
+@endforeach
+
+
+
+                   {{--<div class="col-lg-3 col-md-6 ">
                       <div class="card"> <br>
                            <div class='card-image'>
                              <img class="card-img-top img-fluid" src="{{URL::asset('assets/images/hrlogo.png')}}" alt="image" />
@@ -80,21 +101,7 @@
                                    <a href= ''> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
                              </div>
                         </div>
-                   </div> 
-                   <div class="col-lg-3 col-md-6 ">
-                      <div class="card"> <br>
-                           <div class='card-image'>
-                             <img class="card-img-top img-fluid" src="{{URL::asset('assets/images/hrlogo.png')}}" alt="image" />
-                           </div>
-                           <div class="card-body">
-                               <h3 class="card-title"> اسم المناقصة</h3> 
-                               <hr class='btn-primary'>
-                                   <p class="card-text">اسم الشركة </p>
-                                   <p class="card-text" style="color:red">{{__('fields_web.Tenders.Deadline')}}</p>
-                                   <a href= ''> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
-                             </div>
-                        </div>
-                   </div> 
+                   </div> --}}
   
 
   
@@ -107,6 +114,7 @@
 </div>
 
 <br>
+{{--
 <div class="container-fluid">
    <div class="row">
      <div class='col-12' >
@@ -118,14 +126,16 @@
   <div class="row" style="height:20px">
   &nbsp;
   </div> 
-</div>
+</div>--}}
 <br>
 <!--part2 -->
 
 <div class="container-fluid cards bg-light">
 <div class="container ">
 <div class="row">
-<div class="col-lg-3 col-md-6 ">
+
+
+{{--<div class="col-lg-3 col-md-6 ">
 <div class="card" >
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
@@ -134,14 +144,7 @@
 </div>
 </div>
 
-<div class="col-lg-3 col-md-6 ">
-<div class="card" >
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    
-  </div>
-</div>
-</div>
+--}}
 
 
 

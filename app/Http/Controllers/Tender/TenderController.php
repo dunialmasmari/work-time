@@ -15,7 +15,40 @@ use Carbon\Carbon;
 
 class TenderController extends Controller
 {
-    //
+    public function viewTenders()
+    {
+        $tenders=tender::where('active','1')
+            ->where('deadline','>=',now())
+            ->where('start_date','<=',now())
+            ->orderByRaw('start_date DESC')
+            ->paginate(4);
+            $data=['tenders' => $tenders];
+
+        return view('HR.tenders',$data);
+    }
+
+    public function viewTenderid($id)
+    {
+        $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+            ->select('majors.major_name','tenders.*')
+            ->where('tenders.tender_id', $id);
+            
+            
+            if ($tenders->exists())
+            {
+                $tenders=$tenders->get();
+                $data=['tenders' => $tenders];
+                return view('HR.tenderDetails',$data);           
+             } 
+            else 
+            {
+            return response()->json(["message" => "Tender not found!"], 404);
+            }
+            
+            
+        
+    } 
+    
     public function getActiveTenders()
     {
 

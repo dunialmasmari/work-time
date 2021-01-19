@@ -13,21 +13,21 @@
             
         <ul class="navbar-nav navbar-right " style="margin:10px;margin-right:60px">
            <li class="nav-item">
-            <a class="nav-link menu active btn btn-md" href="homehr">{{__('fields_web.Navbar.Home')}}</a>
+            <a class="nav-link menu  btn btn-md" href="{{route('homehr')}}">{{__('fields_web.Navbar.Home')}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu  btn btn-md" href="tenders">{{__('fields_web.Navbar.tenders')}} </a>
+            <a class="nav-link menu  btn btn-md" href="{{route('tenders')}}">{{__('fields_web.Navbar.tenders')}} </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu  btn btn-md" href="abouthr">{{__('fields_web.Navbar.about_us')}} </a>
+            <a class="nav-link menu  btn btn-md" href="{{route('abouthr')}}">{{__('fields_web.Navbar.about_us')}} </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu  btn btn-md  "  href="contacthr">{{__('fields_web.Navbar.contact_us')}}</a>
+            <a class="nav-link menu  btn btn-md  "  href="{{route('contacthr')}}">{{__('fields_web.Navbar.contact_us')}}</a>
           </li>
         <li class="nav-item dropdown ">
             <a class="nav-link  menu  btn btn-lg" data-toggle="dropdown" href="#">
               <i class="material-icons" style="font-size:1.3">translate</i></a>
-            <div class="dropdown-menu btn btn-lg">
+            <div class=" btn btn-lg dropdown-menu">
                   @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                       <a class="dropdown-item menu btn btn-lg" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                         
