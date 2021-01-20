@@ -19,7 +19,7 @@
             <a class="nav-link menu  btn btn-md" href="{{route('tenders')}}">{{__('fields_web.Navbar.tenders')}} </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu  btn btn-md" href="{{route('jobs')}}">Jobs </a>
+            <a class="nav-link menu  btn btn-md" href="{{route('jobs')}}">{{__('fields_web.Jobs.Title')}} </a>
           </li>
           <li class="nav-item">
             <a class="nav-link menu  btn btn-md" href="{{route('abouthr')}}">{{__('fields_web.Navbar.about_us')}} </a>
