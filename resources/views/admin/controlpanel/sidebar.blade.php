@@ -29,6 +29,12 @@
               <span>Tender</span>
             </a>
           </li>
+          <li>
+            <a href="{{ url('/controlpanel/job') }}">
+              <i class="bi bi-markdown"></i>
+              <span>job</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
