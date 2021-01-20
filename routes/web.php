@@ -47,6 +47,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('abouthr','AboutUsController@viewAbout')->name('abouthr');
     });
 
-
-
 });
+

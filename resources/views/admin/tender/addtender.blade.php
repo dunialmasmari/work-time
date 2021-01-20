@@ -7,6 +7,83 @@
     </div>
 </div>
 <div class="show-data tender">
+	<div class="show-data">
+	<section class="get-in-touch">
+	<form class="form-horizontal" action="/controlpanel/tender" method="post" enctype="multipart/form-data"> 
+		<div class="container">
+			<div class="add-form row">
+			  <div class="conter">
+				<div class="form-filed col-lg-12">
+				  <div class="preview">
+					<img id="file-ip-1-preview"> 
+				  </div>
+				  <label for="file-ip-1" class="image-label">Upload Image</label>
+				 <input type="file" name="image" id="file-ip-1" class="image" accept="image/*" multiple="false" onchange="showPreview(event);">
+				 <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="1">
+				 <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="1">  
+				</div>
+			  </div>
+				<div class="form-filed col-lg-6">
+				  <input id="name" class="input-text" type="text"  name="title" placeholder="title">
+				</div>
+				<div class="form-filed col-lg-6">
+				  <select class="form-select" aria-label="Default select example" name="major_id">
+					<option selected>major</option>
+					@foreach ($majors as $major)  
+					<option value="{{ $major->major_id}} ">{{ $major->major_name}} </option>
+					@endforeach
+				  </select>
+			  </div>
+				<div class="form-filed col-lg-6">
+				  <select class="form-select" aria-label="Default select example" name="location">
+					<option selected>location</option>
+					<option value="sana">sana</option>
+					<option value="Taze">Taze</option>
+					<option value="marib">marib</option>
+				  </select>
+				</div>
+				<div class="form-filed col-lg-6">
+				  <input id="company" class="input-text" type="text" name="company" placeholder="company">
+				</div>
+				<div class="form-filed col-lg-6">
+				  <input id="apply_link" class="input-text" type="text" name="apply_link" placeholder="apply_link">
+				</div>
+				<div class="form-filed col-lg-6">
+				  <label>start_date</label>
+				  <input id="start_date" class="input-text" type="date" name="start_date" placeholder="start_date">
+				</div>
+				<div class="form-filed col-lg-6">
+				  <label>deadline</label>
+				  <input id="deadline" class="input-text" type="date" name="deadline" placeholder="deadline">
+				</div>
+				<div class="form-filed col-lg-6">
+				  <label>posted_date</label>
+				  <input id="posted_date" class="input-text" type="date" name="posted_date" placeholder="posted_date">
+				</div>
+				<div class="file-icon file-field col-lg-6">
+				  <input type="file" class="form-control" id="filename" name="filename" placeholder="filename" />
+				</div>
+				<!--<div class="file-icon file-field col-lg-6">
+					  <div class=" " style="font-size: 30px;">
+						<i class="bi bi-markdown"></i>
+						<input type="file" name="filename" placeholder="filename">
+					  </div>
+				</div>
+				<div class="file-path-wrapper col-lg-6 ">
+					<input class="file-path validate" type="text">
+				</div>-->
+				<div class="form-filed col-lg-12">
+				     <textarea cols="80" id="editor3" name="description" rows="2" data-sample-short></textarea>
+				</div>
+				<div class="form-filed col-lg-12">
+				  <input class="submit-btn" type="submit" value="submit" name="">
+				</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	</div>
+	<!--
 <div class="container">
 		<div >
 			<div class="col-sm-8 offset-sm-2">
@@ -14,7 +91,7 @@
 				<div class="card">
 					
 					<div class="card-body">
-						<form class="form-horizontal" action="tender" method="post" enctype="multipart/form-data">
+						<form class="form-horizontal" action="/tender" method="post" enctype="multipart/form-data">
 							<div class="form-group row">
               <div class="preview">
                 <img id="file-ip-1-preview">
@@ -22,7 +99,7 @@
             </div>
 								<label class="col-sm-4 col-form-label" for="image">image</label>
 								<div class="col-sm-6">
-									<input type="file" class="form-control" id="image" name="image" id="file-ip-1" accept="image/*" multiple="false" onchange="showPreview(event);" />
+									<input type="file" class="form-control"  name="image" id="file-ip-1" accept="image/*" multiple="false" onchange="showPreview(event);" />
 								</div>
 							</div>
               
@@ -117,7 +194,7 @@
 		</div>
   </div>
 </div>
-<!--
+
 <form id="add-major-form" action="tender" method="post" enctype="multipart/form-data" >
 <div class="input-group mb-3">
 

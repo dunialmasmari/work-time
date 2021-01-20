@@ -1,6 +1,9 @@
 @include('admin.controlpanel.top')
 @foreach ($majors as $major)
-<form id="add-major-form" action="{{'update/'.$major->major_id}}" method="post" >
+
+
+<form id="add-major-form" action="/controlpanel/updatemajor" method="post" >
+                <input type="hidden" class="form-control" name="major_id" value="{{ $major->major_id }}">
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -23,7 +26,7 @@
                       </div>	
                       @endforeach
                       <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" value="{{ $major->major_id}}" >Add major
+                <input type="submit" class="btn btn-primary" >Add major
               </div>
                 </form>
 

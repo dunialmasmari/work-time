@@ -21,7 +21,7 @@
               <div class="modal-body">
               <p id="message" class="text-dark"></p>
               <p id="msg"></p>
-                <form id="add-major-form" action="major" method="post" >
+                <form id="add-major-form" action="/controlpanel/major" method="post" >
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -35,7 +35,7 @@
                         <label>type </label>
                         <select class="form-control type" name="type" id="type">
                         <option value=1>tender</opiton>
-                        <option value=0>jobs</option>;
+                        <option value=0>jobs</option>
                         </select>
                       </div>	
                 </form>
@@ -63,16 +63,20 @@
           @foreach ($majors as $major) 
             <tr>
               <td> {{ $major->major_name}}  </td>
-              <td> {{ $major->type}} </td>
+              @if($major->type == 1)
+              <td> tender </td>
+              @else
+              <td> jobs </td>
+              @endif 
               @if($major->active == 1)
                 <td> active </td>
-                <td><a href="{{  url('activation/'.$major->major_id) }}" class="btn ">الغاء التفعيل</a>
-                <a href="{{  url('major/'.$major->major_id) }}" class="btn ">edit </a></td>
+                <td><a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">الغاء التفعيل</a>
+                <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a></td>
               @else 
                 <td> not active </td>
                 <td>
-                <a href="{{  url('activation/'.$major->major_id) }}" class="btn ">تفعيل</a>
-                <a href="{{  url('major/'.$major->major_id) }}" class="btn ">edit </a>
+                <a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">تفعيل</a>
+                <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a>
               </td>
               @endif  
             </tr>

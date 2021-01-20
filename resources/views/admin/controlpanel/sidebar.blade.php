@@ -12,19 +12,19 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="{{ url('/controlpanel') }}">
+            <a href="{{ url('/controlpanel/home') }}">
             <i class="material-icons">assignment</i>
               <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="{{ url('/major') }}">
+            <a href="{{ url('/controlpanel/major') }}">
               <i class="bi bi-diagram-2"></i>
               <span>major</span>
             </a>
           </li>
           <li>
-            <a href="{{ url('/tender') }}">
+            <a href="{{ url('/controlpanel/tender') }}">
               <i class="bi bi-markdown"></i>
               <span>Tender</span>
             </a>

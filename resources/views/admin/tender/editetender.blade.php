@@ -8,9 +8,12 @@
 				  
 				<div class="card">
 					
+		
 					<div class="card-body">
-            <form class="form-horizontal" action="tender" method="post" enctype="multipart/form-data">
-            @foreach ($tenders as $tender)
+					@foreach ($tenders as $tender)
+		    <form class="form-horizontal" action="/controlpanel/updatetender" method="post" enctype="multipart/form-data">
+           
+			<input type="hidden" class="form-control" name="tender_id" value="{{ $tender->tender_id }}">
 							<div class="form-group row">
               <div class="preview">
                 <img id="file-ip-1-preview" src="NRC.png">
