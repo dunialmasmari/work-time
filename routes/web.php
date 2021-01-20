@@ -49,4 +49,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
 
 
+    Route::namespace('Job')->group(function(){
+        Route::get('jobs','JobController@viewJobs')->name('jobs');
+        Route::get('job/{id}','JobController@viewJobId');
+    });
+    
+
+
 });
