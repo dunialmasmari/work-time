@@ -94,16 +94,18 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatemajor(Request $request)
     {
-            $major = Major::where('major_id',$id);
+            $major = Major::where('major_id',$request->major_id);
             if($major->exists())
             {
                 $major->Update($request->all());
-                return response()->json($major->get(), 200);
+                $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+                return view('admin.major.major',['majors' => $majors]);
+               // return response()->json($major->get(), 200);
             }
             else{
-                return response()->json(['message' => 'major not found'], 404);
+                return response()->json(['message' => 'major not  found'], 404);
             }
     }
 
@@ -113,21 +115,22 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function activation($id)
+    public function majoractivation($id)
     {
             $major = Major::where('major_id',$id)->where('active','1');
             if($major->exists())
             {
-                    $major->Update(['active' => '0']);
-                    $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                    return view('admin.major.major',['majors' => $majors]);
+                $major->Update(['active' => '0']);
+                $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+                return view('admin.major.major',['majors' => $majors]);
             }
-            else{
+            else
+            {
                 $major = Major::where('major_id',$id);
                 $major->Update(['active' => '1']);
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
                 return view('admin.major.major',['majors' => $majors]);
-                }
+            }
     } 
 
     public function delete($id)

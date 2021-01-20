@@ -136,11 +136,12 @@ class TenderDashboarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatetender(Request $request)
     {
         // if (session()->has('data')) 
         // {
-            $tender = tender::where('tender_id',$id);
+            echo $request->image;
+            $tender = tender::where('tender_id',$request->tender_id);
             if($tender->exists())
             {
                 $tender->title = $request->input('title');
@@ -155,27 +156,26 @@ class TenderDashboarController extends Controller
                 if($request->hasfile('filename'))
                 {
                 $filename = time().'.'.$request->file('filename')->extension();
-                $result = $request->file('filename')->move(public_path().'/files/', $filename); //store('files');
+                $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
                 $tender->filename = $filename;
                 }
                 if($request->hasfile('image'))
                 {
                 $imagename = time().'.'.$request->file('image')->extension();
-                $result = $request->file('image')->move(public_path().'/images/', $imagename); //store('files');
+                $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
                 $tender->image = $imagename;
                 }
-                $tender->Update();
+                
+                $tender->Update($request->all());
+                $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                ->select('majors.major_name', 'tenders.*' )->get();
+                return view('admin.tender.tender',['tenders' => $tenders]);
             // $tender->Update($request->all());
-                return response()->json($tender->paginate(), 200);
+             //   return response()->json($tender->paginate(), 200);
             }
             else{
                 return response()->json(['message' => 'tender not found'], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
     }
 
     /**
@@ -186,31 +186,10 @@ class TenderDashboarController extends Controller
      */
     public function destroy($id)
     {
-        // if (session()->has('data')) 
-        // {
-            $tender = tender::where('tender_id',$id);
-            if($tender->exists())
-            {
-                if($tender->active = 1){
-                    $tender->Update(['active' => '0']);
-                    return response()->json(['message' => 'tender not active'], 200);
-                }
-            else{
-                $tender->Update(['active' => '1']);
-                return response()->json(['message' => 'tender active'], 200);
-                }
-            }
-            else{
-                return response()->json(['message' => 'tender not found'], 404);
-            }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
+       
     }
 
-    public function activation($id)
+    public function tenderactivation($id)
     {
             $tender = tender::where('tender_id',$id)->where('active','1');
             if($tender->exists())
@@ -231,8 +210,7 @@ class TenderDashboarController extends Controller
 
     public function delete($id)
     {
-        // if (session()->has('data')) 
-        // {
+        
             $tender = tender::where('tender_id',$id);
             if($tender->exists())
             {
@@ -241,13 +219,9 @@ class TenderDashboarController extends Controller
                     return response()->json(['message' => 'tender deleted'], 200);
             }
             else{
-                return response()->json(['message' => 'tender not found'], 404);
+              //  return response()->json(['message' => 'tender not found'], 404);
             }
-        // }
-        // else
-        // {
-        //     return response()->json(['message' => 'The pages not found'], 401);
-        // } 
+      
     }
 
 

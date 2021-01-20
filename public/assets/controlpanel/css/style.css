@@ -130,3 +130,71 @@ footer span{
     margin: 20px;
     font-size: 1.2rem;
 }
+/* form add tender*/
+
+*{
+    direction: rtl;
+}
+.get-in-touch{
+    max-width: 700px;
+    margin: 50px auto;
+    position: relative;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.add-form .form-filed{
+    position: relative;
+    margin: 25px 0;
+}
+.add-form .input-text{
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}
+.add-form .input-text:focus{
+    outline: none;
+}
+.conter{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.form-filed .image{
+    display: none;
+}
+.form-filed .image-label{
+    display: block;
+    width: 40%;
+    height: 45px;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 200px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.form-filed img{
+    width: 30%;
+    height: 150px;
+    margin-right: 230px;
+    margin-top:10px ;
+}
+.form-filed .file{
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+
+}
+
+.form-filed textarea{
+    margin-right: 100px;
+}

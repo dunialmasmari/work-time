@@ -1,12 +1,12 @@
 @include('admin.controlpanel.top')
-
+@include('admin.controlpanel.sidebar')
 @include('admin.controlpanel.header')
 <div class="contant">
     <div class="title">
        <h3>tender</h3>
     </div>
     <div class="button">
-        <a href="{{ url('/controlpanel/addtender') }}"  class="btn btn-primary" > 
+        <a href="{{ url('/controlpanel/addjob') }}"  class="btn btn-primary" > 
         Add new tender
         </a>
     </div>
@@ -15,9 +15,9 @@
         <table class="table table-hover" id="table" >
           <thead>
             <tr>
-              <th >tenders title</th>
+              <th >job title</th>
               <th>major</th>
-              <th > location </th>
+             
               <th > company </th>
               <th > deadline </th>
               <th > الحالة </th>
@@ -26,14 +26,14 @@
             </tr>
           </thead>
           <tbody>
-          @foreach ($tenders  as $tender)
+          @foreach ($jobs  as $job)
             <tr> 	   
-              <td> {{ $tender->title}} </td>
-              <td> {{ $tender->major_name}} </td>
-              <td> {{ $tender->location}} </td>
-              <td> {{ $tender->company}} </td>
-              <td> {{ $tender->deadline}} </td>
-              @if($tender->active == 1)
+              <td> {{ $job->title}} </td>
+              <td> {{ $job->major_name}} </td>
+              <td> {{ $job->location}} </td>
+              <td> {{ $job->company}} </td>
+              <td> {{ $job->deadline}} </td>
+              @if($job->active == 1)
                 <td> active </td>
                 <td>
                 <a href="{{  url('/controlpanel/tender/'.$tender->tender_id) }}"class="btn"> تعديل</a>
@@ -51,4 +51,5 @@
           </tbody>
     </table>
 </div>
+      
 @include('admin.controlpanel.footer')

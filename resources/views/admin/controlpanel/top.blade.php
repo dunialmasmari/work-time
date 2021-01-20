@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="{{URL::asset('assets/controlpanel/css/style.css')}}">
     <script src="gen_validatorv4.js" type="text/javascript"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js"></script>
+      <!-- Compiled and minified CSS
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ -->
     <title>Hello, world!</title>
+
   </head>
   <body>
