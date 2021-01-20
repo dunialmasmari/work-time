@@ -29,7 +29,7 @@
             </div>
             <div class='row'>
                 <div class='col-3 col-sm-3 col-md-3 col-lg-3'>
-                    <img class="card-img img-fluid " src="{{URL::asset('assets/images/'.$job->image)}}" alt="image" />
+                    <img class="card-img img-fluid " src="{{URL::asset('images/job_img/'.$job->image)}}" alt="image" />
                  </div>
                  <div class='col-6 col-sm-6 col-md-6 col-lg-6'>
                     <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}:{{$job->company}}</p>
