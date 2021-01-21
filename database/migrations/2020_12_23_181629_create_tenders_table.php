@@ -21,7 +21,7 @@ class CreateTendersTable extends Migration
             $table->string('image');
             $table->string('company');
             $table->longText('description');
-            $table->string('filenames');
+            $table->string('filename');
             $table->string('apply_link');
             $table->date('start_date');
             $table->date('deadline');

@@ -1,7 +1,15 @@
 @include('admin.controlpanel.top')
+@include('admin.controlpanel.sidebar')
+@include('admin.controlpanel.header')
+<div class="contant"> 	    	    
+    <div class="title">       
+       <h3>edite tender</h3>
+    </div>
+</div>
+<div class="show-data tender">
+	<div class="show-data">
+
 @foreach ($majors as $major)
-
-
 <form id="add-major-form" action="/controlpanel/updatemajor" method="post" >
                 <input type="hidden" class="form-control" name="major_id" value="{{ $major->major_id }}">
                   <div class="row">
@@ -29,5 +37,6 @@
                 <input type="submit" class="btn btn-primary" >Add major
               </div>
                 </form>
-
+                </div>
+</div>
 @include('admin.controlpanel.footer')

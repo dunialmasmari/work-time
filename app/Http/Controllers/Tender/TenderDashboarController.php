@@ -138,9 +138,6 @@ class TenderDashboarController extends Controller
      */
     public function updatetender(Request $request)
     {
-        // if (session()->has('data')) 
-        // {
-            echo $request->image;
             $tender = tender::where('tender_id',$request->tender_id);
             if($tender->exists())
             {
@@ -153,25 +150,43 @@ class TenderDashboarController extends Controller
                 $tender->posted_date = $request->input('posted_date');
                 $tender->active = $request->input('active');
                 $tender->location = $request->input('location');
-                if($request->hasfile('filename'))
+
+                if($request->filename != '')
                 {
-                $filename = time().'.'.$request->file('filename')->extension();
-                $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
-                $tender->filename = $filename;
+                    if($request->hasfile('filename'))
+                        {
+                            $filename = time().'.'.$request->file('filename')->extension();
+                            $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
+                            $tender->filename = $filename;
+                        }
+                  $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                  'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
+                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
+                  'filename' => $tender->filename,]);  
                 }
-                if($request->hasfile('image'))
+
+                if($request->image != '')
                 {
-                $imagename = time().'.'.$request->file('image')->extension();
-                $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
-                $tender->image = $imagename;
+                    if($request->hasfile('image'))
+                    {
+                        $imagename = time().'.'.$request->file('image')->extension();
+                        $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
+                        $tender->image = $imagename;
+                    }
+                  $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                  'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
+                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
+                  'image' => $tender->image,]);
                 }
-                
-                $tender->Update($request->all());
+
+                if($request->image = '' && $request->image = '') 
+                {
+                    $tender->Update($request->all());
+                } 
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'tenders.*' )->get();
                 return view('admin.tender.tender',['tenders' => $tenders]);
-            // $tender->Update($request->all());
-             //   return response()->json($tender->paginate(), 200);
+            
             }
             else{
                 return response()->json(['message' => 'tender not found'], 404);
@@ -199,13 +214,14 @@ class TenderDashboarController extends Controller
                     ->select('majors.major_name', 'tenders.*' )->get();
                     return view('admin.tender.tender',['tenders' => $tenders]);
             }
-            else{
+            else
+            {
                 $tender = tender::where('tender_id',$id);
                 $tender->Update(['active' => '1']);
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                  ->select('majors.major_name', 'tenders.*' )->get();
                     return view('admin.tender.tender',['tenders' => $tenders]);
-                }
+            }
     } 
 
     public function delete($id)
