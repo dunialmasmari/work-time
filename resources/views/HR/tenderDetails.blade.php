@@ -35,7 +35,7 @@
                         </div>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Tenders.company')}}:{{$tender->company}}</p>
-                          <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Tenders.applyLink')}}:{{$tender->company}} </p>
+                          <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Tenders.applyLink')}}:https://{{$tender->apply_link}} </p>
                           <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}}:{{$tender->deadline}} </p>
                         </div>
                    </div>
@@ -69,7 +69,7 @@
              </div>
              
              
-             <div class="row ">
+             <div class="">
              <div class='col-12 col-sm-12 col-md-12 col-lg-12'></div>
              {{$tender->description}}
              </div>

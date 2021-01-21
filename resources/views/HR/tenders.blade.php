@@ -8,7 +8,9 @@
    <div class="row">
      <div class='col-12' >
      <br><br>
+     <div class="row container" style="background-color:">
        <h2 class='label'>{{__('fields_web.Tenders.Title')}} </h3>
+       </div>
         <hr> <br>
        <div class="container-fluid cards bg-light">
           <div class="container ">
@@ -62,14 +64,20 @@
 
       
      </div>
+
    </div>
-        <div class="row">
-             <div class="col-12 pagination pagination-lg justify-content-center" style="margin:20px;padding:5px ">
-               {!! $tenders -> links() !!}
-            </div>
-        </div>
+
    </div>
    </div>
 </div>
+
+<div class="container-fluid bg-light">
+   <div class="row">
+             <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
+             {!! $tenders -> links() !!}
+            </div>
+        </div>
+</div>
+
 
 @stop

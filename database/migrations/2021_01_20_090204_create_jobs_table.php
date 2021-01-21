@@ -20,6 +20,7 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('company');
+            $table->string('apply_link');
             $table->longText('description');
             $table->date('start_date');
             $table->date('deadline');
