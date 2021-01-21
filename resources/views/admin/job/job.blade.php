@@ -7,7 +7,7 @@
     </div>
     <div class="button">
         <a href="{{ url('/controlpanel/addjob') }}"  class="btn btn-primary" > 
-        Add new tender
+        Add new Job
         </a>
     </div>
 </div>
@@ -17,11 +17,11 @@
             <tr>
               <th >job title</th>
               <th>major</th>
-             
+              <th> location </th>
               <th > company </th>
               <th > deadline </th>
-              <th > الحالة </th>
               <th> الحدث </th>
+              <th > الحالة </th>
               
             </tr>
           </thead>
@@ -36,15 +36,15 @@
               @if($job->active == 1)
                 <td> active </td>
                 <td>
-                <a href="{{  url('/controlpanel/tender/'.$tender->tender_id) }}"class="btn"> تعديل</a>
+                <a href="{{  url('/controlpanel/job/'.$job->job_id) }}"class="btn"> تعديل</a>
                 <a href="" class="btn"> عرض التفاصيل</a>
-                <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a></td>
+                <a href="{{  url('/controlpanel/jobactivation/'.$job->job_id) }}" class="btn">الغاء التفعيل</a></td>
               @else 
                 <td> not active </td>
-                <td><!-- {{  url('addtender/'.$tender->tender_id) }}-->
-                <a href="{{  url('/controlpanel/tender/'.$tender->tender_id) }}" class="btn"> تعديل</a>
+                <td>
+                <a href="{{  url('/controlpanel/job/'.$job->job_id) }}" class="btn"> تعديل</a>
                 <a href="" class="btn"> عرض التفاصيل</a>
-                <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">تفعيل</a></td>
+                <a href="{{  url('/controlpanel/jobactivation/'.$job->job_id) }}" class="btn">تفعيل</a></td>
               @endif  
             </tr>
             @endforeach

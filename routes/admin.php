@@ -41,9 +41,9 @@ Route::group(['namespace' => 'Tender', 'prefix' => 'controlpanel', 'middleware' 
 Route::group(['namespace' => 'Job', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
  {
     Route::apiResource('/job', 'JobDashboarController'); 
-    Route::post('/updatetender','TenderDashboarController@updatetender');
-    Route::get('/addjob', 'TenderDashboarController@addjob'); 
-    Route::get('/tenderactivation/{id}','TenderDashboarController@tenderactivation');
+    Route::post('/updatejob','JobDashboarController@updatejob');
+    Route::get('/addjob', 'JobDashboarController@addjob'); 
+    Route::get('/jobactivation/{id}','JobDashboarController@jobactivation');
 });
 /*Route::get('/major', function () {
     return view('admin/major');

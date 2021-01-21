@@ -30,7 +30,9 @@
 				  <select class="form-select" aria-label="Default select example" name="major_id">
 					<option selected>major</option>
 					@foreach ($majors as $major)  
+					@if($major->type == 1)
 					<option value="{{ $major->major_id}} ">{{ $major->major_name}} </option>
+					@endif
 					@endforeach
 				  </select>
 			  </div>
@@ -76,13 +78,13 @@
 				     <textarea cols="80" id="editor3" name="description" rows="2" data-sample-short></textarea>
 				</div>
 				<div class="form-filed col-lg-12">
-				  <input class="submit-btn" type="submit" value="submit" name="">
+				<button type="submit" class="btn btn-primary" >add tender</button>
 				</div>
 				</form>
 			</div>
 		</div>
 	</section>
-	</div>
+</div>
 	<!--
 <div class="container">
 		<div >

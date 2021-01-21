@@ -19,6 +19,7 @@ class Job extends Model
             'deadline',
             'posted_date',
             'active',
+            'location',
             'created_at',
             'updated_at',
         ];
