@@ -8,21 +8,21 @@
      <div class='col-4' align="center">
          <br>
          <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="90" alt=""/></a>
-         <h2>{{__('fields_web.Footer.about_us')}}</h2>
+         <!-- <h2>{{__('fields_web.Footer.about_us')}}</h2> -->
      </div>
      <div class='col-4' ></div>
   </div>
 
   <div class="container ">
    <div class="row">
-   <div class="card shadow-lg  bg-white" >
+   <div class="card shadow-sm  bg-white" >
   <div class="card-body">
-    <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.Footer.about_us')}}</h4>
-   <p>{{__('fields_web.aboutus.description')}}</p>
-   <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.aboutus.vesion')}}</h4>
-   <p>{{__('fields_web.aboutus.vesionDes')}}</p>
-   <h4 style="color:rgb(79, 157, 213);">{{__('fields_web.aboutus.services')}}</h4>
-   <p>{{__('fields_web.aboutus.servicesDes')}}</p>  
+    <h5 style="color:rgb(79, 157, 213);"  class="py-2">{{__('fields_web.Footer.about_us')}}</h5>
+   <p class="py-2">{{__('fields_web.aboutus.description')}}</p>
+   <h5 style="color:rgb(79, 157, 213);" class="py-2">{{__('fields_web.aboutus.vesion')}}</h5>
+   <p class="py-2">{{__('fields_web.aboutus.vesionDes')}}</p>
+   <h5 style="color:rgb(79, 157, 213);" class="py-2">{{__('fields_web.aboutus.services')}}</h5>
+   <p class="py-2">{{__('fields_web.aboutus.servicesDes')}}</p>  
 </div>
 </div>
    </div>

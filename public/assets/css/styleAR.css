@@ -24,7 +24,7 @@
 {
     margin:12px;
     margin-right:2px;
-    width:105%;
+    /* width:105%; */
     direction: ;
     text-align: right;
 }
@@ -32,7 +32,7 @@
 {
   margin:12px;
     margin-right:2px;
-    width:105%;
+    /* width:105%; */
     direction:ltr;
     text-align: left;
 }
@@ -45,14 +45,7 @@
   height: 28vh;
   margin-right:40px;
 }
-.vl:lang(en) 
-{
-    border-right: 1px solid white;
-  }
-  .vl:lang(ar) 
-{
-    border-left: 1px solid white;
-  }
+
 
 .nopaddingnomagrin{
     margin:0px;padding: 0px;
@@ -73,12 +66,14 @@
     background-color:rgb(233, 229, 229) ;
     color: black;
     cursor: pointer;
-    padding: 17px;
+    text-align: center;
+    padding: 10PX 20PX;
     border-radius:50%;
   }
   
   #myBtn:hover {
-    background-color:#228bd1;
+    background-color:rgb(79, 157, 213);
+    color: #FFF;
     
   }
   .label:lang(ar){
@@ -136,4 +131,14 @@
     font-size: smaller;
     border-radius:5%;
     border: 1px solid  rgb(79, 157, 213);
+  }
+  @media (min-width:770px){
+    .vl:lang(en) 
+{
+    border-right: 1px solid white;
+  }
+  .vl:lang(ar) 
+{
+    border-left: 1px solid white;
+  }
   }
