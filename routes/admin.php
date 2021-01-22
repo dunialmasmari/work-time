@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//Auth::logout();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
  /** major Route */
