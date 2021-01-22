@@ -1,5 +1,5 @@
 @include('admin.controlpanel.top')
-
+@include('admin.controlpanel.sidebar')
 @include('admin.controlpanel.header')
 <div class="contant">
     <div class="title">

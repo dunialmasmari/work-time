@@ -17,7 +17,7 @@ class MajorController extends Controller
     public function index()
     {
             $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major',['majors' => $majors]);
+                return view('admin.major.major_list',['majors' => $majors]);
     }
 
     public function getactivemajors()
@@ -52,7 +52,7 @@ class MajorController extends Controller
     {
             $major = Major::create($request->all());
             $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-            return view('admin.major.major',['majors' => $majors]);
+            return view('admin.major.major_list',['majors' => $majors]);
     }
 
     /**
@@ -68,7 +68,7 @@ class MajorController extends Controller
             if($major->exists())
             {
                 $majors = $major->get();
-                return view('admin.major.editeMajor',['majors'=> $majors]);
+                return view('admin.major.major_edite',['majors'=> $majors]);
             }
             else
             {
@@ -96,12 +96,14 @@ class MajorController extends Controller
      */
     public function updatemajor(Request $request)
     {
+        //dd($request);
             $major = Major::where('major_id',$request->major_id);
             if($major->exists())
             {
-                $major->Update($request->all());
+                $major->Update(['major_name' => $request->major_name, 'type' => $request->type,]);
+              //  $major->Update($request->all());
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major',['majors' => $majors]);
+                return view('admin.major.major_list',['majors' => $majors]);
                // return response()->json($major->get(), 200);
             }
             else{
@@ -122,14 +124,14 @@ class MajorController extends Controller
             {
                 $major->Update(['active' => '0']);
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major',['majors' => $majors]);
+                return view('admin.major.major_list',['majors' => $majors]);
             }
             else
             {
                 $major = Major::where('major_id',$id);
                 $major->Update(['active' => '1']);
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major',['majors' => $majors]);
+                return view('admin.major.major_list',['majors' => $majors]);
             }
     } 
 

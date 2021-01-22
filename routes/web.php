@@ -20,7 +20,9 @@ Route::get('/welcome', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-/**/Route::group(['prefix' => LaravelLocalization::setLocale(),
+
+/**/
+Route::group(['prefix' => LaravelLocalization::setLocale(),
 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ],
  function()
@@ -50,12 +52,6 @@ Route::get('/home', 'HomeController@index')->name('home');
         Route::get('jobs','JobController@viewJobs')->name('jobs');
         Route::get('job/{id}','JobController@viewJobId');
     });
-    
+
 });
-
-
-    
-    
-
-
 

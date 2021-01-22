@@ -72,7 +72,7 @@
                     <div class="col-lg-3 col-md-6 ">
                       <div class="card"> <br>
                            <div class='card-image'>
-                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/images/'.$tender->image)}}" alt="image" />
+                             <img class="card-img-top img-fluid"  src="{{URL::asset('images/tender_img/'.$tender->image)}}" alt="image" />
                            </div>
                            <div class="card-body">
                                <h3 class="card-title"> {{$tender->title}}</h3> 

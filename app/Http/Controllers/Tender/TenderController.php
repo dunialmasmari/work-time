@@ -271,9 +271,10 @@ class TenderController extends Controller
 
         return response()->json($filters,200);
     } 
+
     public function dowenloadFile($filename)
     {
-            return response()->download(public_path('files/'.$filename), 'filename');
+            return response()->download(public_path('files/tender_file'));
     }
     
     /* public function userNotify()

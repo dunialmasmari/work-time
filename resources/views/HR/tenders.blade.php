@@ -8,7 +8,9 @@
    <div class="row">
      <div class='col-12' >
      <br><br>
+     <div class="row container" style="background-color:">
        <h2 class='label'>{{__('fields_web.Tenders.Title')}} </h3>
+       </div>
         <hr> <br>
        <div class="container-fluid cards bg-light">
           <div class="container ">
@@ -20,7 +22,7 @@
                     <div class="col-lg-3 col-md-6 ">
                       <div class="card"> <br>
                            <div class='card-image'>
-                             <img class="card-img-top img-fluid " src="{{URL::asset('assets/images/'.$tender->image)}}" alt="image" />
+                             <img class="card-img-top img-fluid " src="{{URL::asset('images/tender_img/'.$tender->image)}}" alt="image" />
                            </div>
                            <div class="card-body">
                                <h3 class="card-title"> {{$tender->title}}</h3> 
@@ -62,14 +64,20 @@
 
       
      </div>
+
    </div>
-        <div class="row">
-             <div class="col-12 pagination pagination-lg justify-content-center" style="margin:20px;padding:5px ">
-               {!! $tenders -> links() !!}
-            </div>
-        </div>
+
    </div>
    </div>
 </div>
+
+<div class="container-fluid bg-light">
+   <div class="row">
+             <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
+             {!! $tenders -> links() !!}
+            </div>
+        </div>
+</div>
+
 
 @stop
