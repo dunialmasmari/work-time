@@ -57,7 +57,7 @@
 </div>
 
 <div class="container-fluid btn-primary"  style='background-color:rgb(79, 157, 213);'>
-  <div class="row" style="height:20px">
+  <div class="row" style="height:15px">
   &nbsp;
   </div> 
 </div>
@@ -65,22 +65,24 @@
 
 
 <div class="container-fluid cards bg-light">
-<div class="container ">
+<div class="container-fluid ">
 <div class="row">
 @foreach($tenders as $tender)
 
-                    <div class="col-lg-3 col-md-6 ">
-                      <div class="card"> <br>
-                           <div class='card-image'>
-                             <img class="card-img-top img-fluid"  src="{{URL::asset('images/tender_img/'.$tender->image)}}" alt="image" />
+                    <div class="mx-auto">
+                      <div class="card" style="width:280px; height:460px;">
+                           <div class='card-image mx-auto'>
+                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/upload/tenders/images/'.$tender->image)}}" alt="image" />
                            </div>
                            <div class="card-body">
-                               <h3 class="card-title"> {{$tender->title}}</h3> 
+                               <h5 class="card-title" style=" height: 90px;"> {{\Illuminate\Support\Str::limit($tender->title, $limit = 45, $end = '...')}}</h5> 
                                <hr class='btn-primary'>
-                                   <p class="card-text"><i class="fa fa-home"> &nbsp; </i>{{$tender->location}} </p> 
-                                   <p class="card-text"><i class='fa fa-map-marker'> &nbsp; </i>{{$tender->company}} </p> 
-                                   <p class="card-text" style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}} : {{$tender->deadline}}</p>
-                                   <a href='tender/{{$tender->tender_id}}'> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
+                                   <span class="card-text"><i class="fa fa-home"> &nbsp; </i>{{$tender->location}} </span>
+                                   <br> 
+                                   <span class="card-text"><i class='fa fa-map-marker'> &nbsp; </i>{{$tender->company}} </span> 
+                                   <br>
+                                   <span class="card-text" style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}} : {{$tender->deadline}}</span>
+                                   <a href='tender/{{$tender->tender_id}}'> <button class="btn btn-primary btn-sm my-2">{{__('fields_web.Tenders.more')}}</button></a>
                              </div>
                         </div>
                    </div> 

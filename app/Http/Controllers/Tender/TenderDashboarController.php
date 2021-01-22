@@ -158,7 +158,7 @@ class TenderDashboarController extends Controller
                     if($request->hasfile('filename'))
                         {
                             $filename = time().'.'.$request->file('filename')->extension();
-                            $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
+                            $result = $request->file('filename')->move(public_path().'/assets/uploads/tenders/pdf/', $filename); //store('files');
                             $tender->filename = $filename;
                         }
                   $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
@@ -172,7 +172,7 @@ class TenderDashboarController extends Controller
                     if($request->hasfile('image'))
                     {
                         $imagename = time().'.'.$request->file('image')->extension();
-                        $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
+                        $result = $request->file('image')->move(public_path().'/assets/uploads/tenders/images/', $imagename); //store('files');
                         $tender->image = $imagename;
                     }
                   $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,

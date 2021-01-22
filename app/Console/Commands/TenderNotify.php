@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Tender;
 use App\Models\userProf;
+use App\Models\userNotify;
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\Notifies\NotifyEmail;
 use Carbon\Carbon;
@@ -42,6 +43,78 @@ class TenderNotify extends Command
      */
     public function handle()
     {
+        {
+            $date=Carbon::today();
+            $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+            ->select('majors.major_name','tenders.*')
+            ->where('tenders.active','1')
+            ->where('tenders.start_date',$date)->get(); //get all tenders where active and show today
+            //print_r($tenders); echo $date;
+          foreach($tenders as $tender)
+            {
+                //$user=userprof::select('userProfs_email')->get();
+                //$emails=userprof::pluck('userProfs_email')->toArray(); //get all email of table that want notify emails for all tenders
+                $users=userNotify::select('user_email','major_name','location_name')->get();
+                foreach($users as $user)
+                   { 
+                    $major_ar=explode(',', $user->major_name);
+                    $location_ar=explode(',', $user->location_name);
+                    $tender_loc_ar=explode(',', $tender->location);
+                        foreach($major_ar as $maj)
+                        { 
+                            
+                            if($tender->major_name == $maj)
+                            {
+                                foreach($location_ar as $loc)
+                                {
+                                    foreach($tender_loc_ar as $loc_tend)
+
+                                   { 
+                                       if($loc_tend == $loc)
+                                    {
+                                        $data=[
+                                                    'major_name'=>$tender->major_name,
+                                                    'tender_id'=> $tender->tender_id,
+                                                    'major_id'=> $tender->major_id,
+                                                    'title'=> $tender->title,
+                                                    'image'=>$tender->image,
+                                                    'company'=> $tender->company,
+                                                    'location'=> $tender->location,
+                                                ];
+                                                 echo $user->user_email;
+                                                 print_r($data);
+                                                 $delay=now()->addSeconds(20);
+                                                 Mail::To($user->user_email)->send(new NotifyEmail ($data) );
+                                                //$job = (Mail::To($user->user_email)->send(new NotifyEmail ($data) ));
+                                                //->delay($delay);
+                                                 //echo $delay;
+                                                    
+                                                 
+                                    
+                                           //dispatch($job);
+                                                
+                                            //break;
+                                    }
+                                    else
+                                    {
+                                      continue;
+                                    }
+                                   }
+                                }
+                                
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                            
+                        }
+                   }
+            }
+         }
+    
+    }
+     /*  { 
         $date=Carbon::today();
         $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
         ->select('majors.major_name','tenders.*')
@@ -50,19 +123,28 @@ class TenderNotify extends Command
       foreach($tenders as $tender)
         {
             //$user=userprof::select('userProfs_email')->get();
-            $emails=userprof::pluck('userProfs_email')->toArray(); //get all email of table that want notify emails for all tenders
-                foreach($emails as $email)
+            //$emails=userprof::pluck('userProfs_email')->toArray(); //get all email of table that want notify emails for all tenders
+            $users=usernotifies::select('user_email','major_name','location_name')->get();
+            foreach($users as $user)
                { 
-                   $data=[
-                    'major_name'=>$tender->major_name,
-                    'tender_id'=> $tender->tender_id,
-                    'major_id'=> $tender->major_id,
-                    'title'=> $tender->title,
-                    'image'=>$tender->image,
-                    'company'=> $tender->company,
-                ];
-                   Mail::To($email)->send(new NotifyEmail ($data) ); //send notify 
+                   if(array_search($tender->major_name, $user->major_name)==true)
+                   {
+                      if(array_search($tender->location, $user->location_name)==true)
+                      {
+                        $data=[
+                            'major_name'=>$tender->major_name,
+                            'tender_id'=> $tender->tender_id,
+                            'major_id'=> $tender->major_id,
+                            'title'=> $tender->title,
+                            'image'=>$tender->image,
+                            'company'=> $tender->company,
+                        ];
+                           //Mail::To($email)->send(new NotifyEmail ($data) ); //send notify
+                      }
+
+                   }
+                   
                }
         }
-     }
+     }*/
 }

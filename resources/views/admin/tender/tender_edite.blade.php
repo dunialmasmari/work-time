@@ -144,7 +144,7 @@
                         <div class="col-sm-12">
                           <div class="timeline-item">
                               <div class="timeline-body preview">
-                                <img id="file-ip-1-preview" src="{{URL::asset('images/tender_img/'.$tender->image)}}" style="width: 150px;height: 150px;margin-top:10px;">
+                                <img id="file-ip-1-preview" src="{{URL::asset('assets/uploads/tenders/images/'.$tender->image)}}" style="width: 150px;height: 150px;margin-top:10px;">
                                 </div>
                             </div>
                         </div>

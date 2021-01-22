@@ -1,8 +1,8 @@
 @extends('HR.layouts.master')
 @section('content')
 <br><br>
- <div class="container-fluid md-light">
-   <div class="row">
+ <div class="container-fluid md-light" style="overflow-x:hidden;">
+   <div class="row" >
         <div class="container-fluid">
 
              <div class="row">
@@ -14,18 +14,18 @@
              </div>
              
              
-           <div class="row">
+           <div class="row justify-content-center align-content-center">
            @foreach($tenders as $tender)
-             <div class='col-12 col-sm-12 col-md-12 col-lg-3 '>
-                <div class="card shadow-lg  bg-white card-image" >
-                 <div class="card-body ">
-                    <img class="card-img-top img-fluidDetails" src="{{URL::asset('images/tender_img/'.$tender->image)}}"> <br> <br> <br>
-                   </div>
-                </div>
+             <div class=' mx-auto my-auto' style="height:200px;width:200px;">
+               
+                 <!-- <div class="card-body "> -->
+               <img class="card-img-top  " style="height:200px;width:200px;" src="{{URL::asset('assets/images/'.$tender->image)}}"> 
+                   <!-- </div> -->
+                
               </div>
 
-             <div class='col-12 col-sm-12 col-md-12 col-lg-8'>
-               <div class="card shadow-lg  bg-white" >
+             <div class='col-11 col-sm-11 col-md-8 col-lg-8 mx-2  my-auto'>
+               <div class="card shadow-sm  bg-white" >
                  <div class="card-body">
                    <div class='row'>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
@@ -35,7 +35,7 @@
                         </div>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Tenders.company')}}:{{$tender->company}}</p>
-                          <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Tenders.applyLink')}}:https://{{$tender->apply_link}} </p>
+                          <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Tenders.applyLink')}}:{{$tender->company}} </p>
                           <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}}:{{$tender->deadline}} </p>
                         </div>
                    </div>
@@ -53,25 +53,20 @@
               
              
 
-             <div class="row">
+             <div class="row justify-content-between  px-3 py-3">
                
-                <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br> 
+                <div class=''>
                   <h3> {{__('fields_web.Tenders.description')}}:  </h3>
                 </div>
-                <div class='  col-md-2 col-lg-2'></div>
-                <div class='  col-md-2 col-lg-2'></div>
-                <div class='  col-md-2 col-lg-2'></div>
-                <div class='  col-md-2 col-lg-2'></div>
-                <div class='col-4 col-sm-6 col-md-2 col-lg-2'><br>
-                <a href="{{url('Tender/dowenloadFile/'.$tender->filename)}}"><button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button></a>
+                <div class=''>
+                <a href="{{url('Tender/dowenloadFile/'.$tender->filenames)}}"><button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button></a>
                 </div>
 
              </div>
              
              
-             <div class="">
-             <div class='col-12 col-sm-12 col-md-12 col-lg-12'></div>
-             {{!!$tender->description!!}}
+             <div class="row  px-3 py-3">
+             {!!$tender->description!!}
              </div>
              
              @endforeach

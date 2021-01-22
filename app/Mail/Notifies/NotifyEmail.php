@@ -17,6 +17,7 @@ class NotifyEmail extends Mailable
      * @return void
      */
     public $data;
+    public $timeout = 7200;
     public function __construct($data)
     {
         $this->data = $data;

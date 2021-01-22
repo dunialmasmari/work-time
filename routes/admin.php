@@ -25,7 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
  /** major Route */
  Route::group(['namespace' => 'Major', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
  {
-    Route::get('/home', function () {return view('admin/home');});
+    //Route::get('/home', function () {return view('admin/home');});
+    Route::get('/home','MajorController@index');
+
     Route::apiResource('/major', 'MajorController'); 
     Route::post('/updatemajor','MajorController@updatemajor');
     Route::get('/majoractivation/{id}','MajorController@majoractivation');

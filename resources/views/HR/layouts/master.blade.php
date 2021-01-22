@@ -4,12 +4,14 @@
   <title>Work Time</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <!-- s -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
+<!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script> -->
+<script src="{{URL::asset('assets/js/kitfontawesome.js')}}"></script>
+
+<link href="{{URL::asset('assets/css/materialIcons.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/css/bootstrap4.css')}}" rel="stylesheet" />
 <link href="{{URL::asset('assets/css/styleAR.css')}}" rel="stylesheet" />
 <style>
 
@@ -25,9 +27,11 @@
 
 @include('HR.includes.footer')
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{URL::asset('assets/js/jquery4.js')}}"></script>
+<script src="{{URL::asset('assets/js/popper.js')}}"></script>
+<script src="{{URL::asset('assets/js/bootstrap4.js')}}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 </body>
 </html>
