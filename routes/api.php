@@ -41,6 +41,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
   Route::namespace('Tender')->group(function(){
     Route::get('Tender/get','TenderController@getActiveTenders'); // for get all tenders 
+    Route::get('Tender/not','TenderController@userNotify'); // for get all tenders 
     Route::get('Tender/get/{id}','TenderController@getTenderById'); //for get tender by its id 
     Route::get('Tender/major','TenderController@getTenderMajor'); // for get all major and its count in tenders 
     Route::get('Tender/filters','TenderController@filterAllActiveTender');
