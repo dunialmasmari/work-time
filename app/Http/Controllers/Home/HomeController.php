@@ -11,6 +11,7 @@ use validator;
 use Carbon\Carbon;
 
 
+
 class HomeController extends Controller
 {
     public function viewHome()

@@ -164,4 +164,27 @@ return [
     ],
   //]
 
+  'Jobs'=> [
+    'Title'=> 'Jobs',
+    'Titles'=> 'Jobs list',
+    'name'=> 'Title of the Job',
+    'image'=> 'Tender image',
+    'downloadpdfs'=> 'File Upload',
+    'major'=> 'the major',
+    'more'=> 'More information',
+    'location'=> 'location',
+    'company'=> 'Company / organization',
+    'applyLink'=> 'Apply Link',
+    'startDate'=> 'Start Date',
+    'postedDate'=> 'Posted Date ',
+    'Deadline'=> 'Deadline ',
+    'description'=> 'description ',
+    'save'=> 'Save',
+    'action'=> 'Action',
+    'AddNew'=> ' Add a new Job ',
+    'filter'=> 'filter ',
+    'Notify'=> 'create notify jobs'
+
+  ],
+
 ];
