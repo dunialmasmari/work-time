@@ -19,13 +19,13 @@ class TenderDashboarController extends Controller
     {	
             $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender',['tenders' => $tenders]);
+                return view('admin.tender.tender_list',['tenders' => $tenders]);
     }
 
-    public function addtender()
+    public function tender_add()
     {
         $majors=Major::select()->get();
-            return view('admin.tender.addtender',['majors' => $majors]);
+            return view('admin.tender.tender_add',['majors' => $majors]);
     }
 
     public function getactivetender()
@@ -77,24 +77,24 @@ class TenderDashboarController extends Controller
             $tender->deadline = $request->input('deadline');
             $tender->posted_date = $request->input('posted_date');
             $tender->active = $request->input('active');
-            $tender->location = $request->input('location');
+            $tender->location = implode(",", $request->input('location'));
             if($request->hasfile('filename'))
             {
             $filename = time().'.'.$request->file('filename')->extension();
-            $result = $request->file('filename')->move(public_path().'/files/tender_file/', $filename); //store('files');
+            $result = $request->file('filename')->move(public_path().'/assets/uploads/tenders/pdf/', $filename); //store('files');
             $tender->filename = $filename;
             }
             if($request->hasfile('image'))
             {
             $imagename = time().'.'.$request->file('image')->extension();
-            $result = $request->file('image')->move(public_path().'/images/tender_img/', $imagename); //store('files');
+            $result = $request->file('image')->move(public_path().'/assets/uploads/tenders/images/', $imagename); //store('files');
             $tender->image = $imagename;
             }
             $tender->save();
           
             $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender',['tenders' => $tenders]);
+                return view('admin.tender.tender_list',['tenders' => $tenders]);
     }
 
     /**
@@ -111,7 +111,7 @@ class TenderDashboarController extends Controller
             {
                 $tenders = $tender->get();
                 $majors=Major::select()->get();
-                return view('admin.tender.editetender',['tenders'=> $tenders, 'majors' => $majors]);
+                return view('admin.tender.tender_edite',['tenders'=> $tenders, 'majors' => $majors]);
             }
             else{
                 return response()->json(['message' => 'You do not have active tenders '], 404);
@@ -138,6 +138,8 @@ class TenderDashboarController extends Controller
      */
     public function updatetender(Request $request)
     {
+       // dd($request);
+        //echo $request->tender_id;
             $tender = tender::where('tender_id',$request->tender_id);
             if($tender->exists())
             {
@@ -149,7 +151,7 @@ class TenderDashboarController extends Controller
                 $tender->deadline = $request->input('deadline');
                 $tender->posted_date = $request->input('posted_date');
                 $tender->active = $request->input('active');
-                $tender->location = $request->input('location');
+                $tender->location = implode(",", $request->input('location'));
 
                 if($request->filename != '')
                 {
@@ -179,13 +181,16 @@ class TenderDashboarController extends Controller
                   'image' => $tender->image,]);
                 }
 
-                if($request->image = '' && $request->image = '') 
-                {
-                    $tender->Update($request->all());
-                } 
+               // if($request->image = '' && $request->image = '') 
+               // {
+                    $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                    'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
+                    'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,]);
+               // } 
+
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender',['tenders' => $tenders]);
+                return view('admin.tender.tender_list',['tenders' => $tenders]);
             
             }
             else{
@@ -212,7 +217,7 @@ class TenderDashboarController extends Controller
                     $tender->Update(['active' => '0']);
                     $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                     ->select('majors.major_name', 'tenders.*' )->get();
-                    return view('admin.tender.tender',['tenders' => $tenders]);
+                    return view('admin.tender.tender_list',['tenders' => $tenders]);
             }
             else
             {
@@ -220,7 +225,7 @@ class TenderDashboarController extends Controller
                 $tender->Update(['active' => '1']);
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                  ->select('majors.major_name', 'tenders.*' )->get();
-                    return view('admin.tender.tender',['tenders' => $tenders]);
+                    return view('admin.tender.tender_list',['tenders' => $tenders]);
             }
     } 
 

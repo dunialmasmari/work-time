@@ -23,6 +23,13 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   
+   <script src='https://cdn.tiny.cloud/1/6wl1nevqatxsvyjrcm8i6p1r0hpm8esjt0jsxa10y69sswtg/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+  </script>
+  <script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
     <!-- preview image-->
     <script>
         function showPreview(event){
@@ -46,20 +53,7 @@
   </script>
 
       
-<script  type="text/javascript">
- var frmvalidator = new Validator("myform");
- frmvalidator.addValidation("image","req","Please enter image","extension=jpg|jpeg|png|JPG|JPEG|PNG");
- frmvalidator.addValidation("title","req",
-		"enter title");
- frmvalidator.addValidation("company","req");
- frmvalidator.addValidation("apply_link","req");
 
- frmvalidator.addValidation("start_date","req","Please enter start_date");
- frmvalidator.addValidation("deadline","req","greaterThan start_date");
-
- frmvalidator.addValidation("filename","req","Please enter image","extension=pdf|zip|rar");
-
-</script>
 
 
     <script>
