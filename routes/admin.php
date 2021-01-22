@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Tender', 'prefix' => 'controlpanel', 'middleware' 
  {
     Route::apiResource('/tender', 'TenderDashboarController'); 
     Route::post('/updatetender','TenderDashboarController@updatetender');
-    Route::get('/addtender', 'TenderDashboarController@addtender'); 
+    Route::get('/tender_add', 'TenderDashboarController@tender_add'); 
     Route::get('/tenderactivation/{id}','TenderDashboarController@tenderactivation');
 });
 

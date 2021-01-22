@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-12">
                       <div class="form-group">
-                        <label>type </label>
+                       <!-- <label>type </label>
                         <select class="form-control type" name="type" id="type">
                         @if($major->type == 1)
                         <option value="{{ $major->type}}">tender</opiton>
@@ -30,11 +30,12 @@
                         <option value="{{ $major->type}}">jobs</opiton>
                         <option value=1>tender</opiton>
                         @endif 
-                        </select>
+                        </select>-->
                       </div>	
                       @endforeach
+                    </dive>
                       <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" >Add major
+                <button type="submit" class="btn btn-primary" >edit major</button>
               </div>
                 </form>
                 </div>

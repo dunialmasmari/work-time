@@ -75,7 +75,7 @@
 					<input class="file-path validate" type="text">
 				</div>-->
 				<div class="form-filed col-lg-12">
-				     <textarea cols="80" id="editor3" name="description" rows="2" data-sample-short></textarea>
+				     <textarea cols="80" id="mytextarea" name="description"></textarea>
 				</div>
 				<div class="form-filed col-lg-12">
 				<button type="submit" class="btn btn-primary" >add tender</button>
@@ -85,6 +85,9 @@
 		</div>
 	</section>
 </div>
+
+<!-- <textarea cols="80" id="editor3" name="description" rows="2" data-sample-short></textarea> -->
+
 	<!--
 <div class="container">
 		<div >
