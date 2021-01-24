@@ -144,6 +144,8 @@ class TenderDashboarController extends Controller
             if($tender->exists())
             {
                 $tender->title = $request->input('title');
+                $tender->user_id = $request->input('user_id');
+                $tender->major_id = $request->input('major_id');
                 $tender->company = $request->input('company');
                 $tender->description = $request->input('description');
                 $tender->apply_link = $request->input('apply_link');
@@ -161,7 +163,7 @@ class TenderDashboarController extends Controller
                             $result = $request->file('filename')->move(public_path().'/assets/uploads/tenders/pdf/', $filename); //store('files');
                             $tender->filename = $filename;
                         }
-                  $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                  $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                   'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
                   'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
                   'filename' => $tender->filename,]);  
@@ -175,7 +177,7 @@ class TenderDashboarController extends Controller
                         $result = $request->file('image')->move(public_path().'/assets/uploads/tenders/images/', $imagename); //store('files');
                         $tender->image = $imagename;
                     }
-                  $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                  $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                   'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
                   'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
                   'image' => $tender->image,]);
@@ -183,7 +185,7 @@ class TenderDashboarController extends Controller
 
                // if($request->image = '' && $request->image = '') 
                // {
-                    $tender->Update(['title' => $tender->title, 'company' => $tender->company, 'description' => $tender->description,
+                    $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                     'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
                     'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,]);
                // } 

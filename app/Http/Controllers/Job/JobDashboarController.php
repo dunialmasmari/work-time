@@ -18,13 +18,13 @@ class JobDashboarController extends Controller
     {
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
-            return view('admin.job.job',['jobs' => $jobs]);
+            return view('admin.job.job_list',['jobs' => $jobs]);
     }
 
-    public function addjob()
+    public function job_add()
     {
         $majors=Major::select()->get();
-        return view('admin.job.addjob',['majors' => $majors]);
+        return view('admin.job.job_add',['majors' => $majors]);
     }
     /**
      * Show the form for creating a new resource.
@@ -55,18 +55,18 @@ class JobDashboarController extends Controller
         $job->deadline = $request->input('deadline');
         $job->posted_date = $request->input('posted_date');
         $job->active = $request->input('active');
-        $job->location = $request->input('location');
+        $job->location = implode(",", $request->input('location'));
         if($request->hasfile('image'))
         {
         $imagename = time().'.'.$request->file('image')->extension();
-        $result = $request->file('image')->move(public_path().'/images/job_img/', $imagename); //store('files');
+        $result = $request->file('image')->move(public_path().'/assets/uploads/jobs/images/', $imagename); //store('files');
         $job->image = $imagename;
         }
         $job->save();
       
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
-            return view('admin.job.job',['jobs' => $jobs]);
+            return view('admin.job.job_list',['jobs' => $jobs]);
     }
 
     /**
@@ -83,7 +83,7 @@ class JobDashboarController extends Controller
         {
             $jobs = $job->get();
             $majors=Major::select()->get();
-            return view('admin.job.editejob',['jobs'=> $jobs, 'majors' => $majors]);
+            return view('admin.job.job_edite',['jobs'=> $jobs, 'majors' => $majors]);
         }
         else{
             return response()->json(['message' => 'You do not have active job '], 404);
@@ -114,6 +114,8 @@ class JobDashboarController extends Controller
         if($job->exists())
         {
             $job->title = $request->input('title');
+            $job->user_id = $request->input('user_id');
+            $job->major_id = $request->input('major_id');
             $job->company = $request->input('company');
             $job->description = $request->input('description');
             $job->apply_link = $request->input('apply_link');
@@ -121,27 +123,29 @@ class JobDashboarController extends Controller
             $job->deadline = $request->input('deadline');
             $job->posted_date = $request->input('posted_date');
             $job->active = $request->input('active');
-            $job->location = $request->input('location');
+            $job->location = implode(",", $request->input('location'));
             if($request->image != '')
             {
                 if($request->hasfile('image'))
                 {
                     $imagename = time().'.'.$request->file('image')->extension();
-                    $result = $request->file('image')->move(public_path().'/images/job_img/', $imagename); //store('files');
+                    $result = $request->file('image')->move(public_path().'/assets/uploads/jobs/images/', $imagename); //store('files');
                     $job->image = $imagename;
                 }
-                $job->Update(['title' => $job->title, 'company' => $job->company, 'description' => $job->description,
+                $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
                 'apply_link' => $job->apply_link, 'location' => $job->location, 'start_date' => $job->start_date,
                 'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,
                 'image' => $job->image,]);
             }
           else 
           {
-            $job->Update($request->all());
+            $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
+            'apply_link' => $job->apply_link, 'location' => $job->location, 'start_date' => $job->start_date,
+            'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,]);
           }
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'jobs.*' )->get();
-            return view('admin.job.job',['jobs' => $jobs]);
+            return view('admin.job.job_list',['jobs' => $jobs]);
         }
         else{
             return response()->json(['message' => 'job not found'], 404);
@@ -166,7 +170,7 @@ class JobDashboarController extends Controller
                 $job->Update(['active' => '0']);
                 $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'jobs.*' )->get();
-                return view('admin.job.job',['jobs' => $jobs]);
+                return view('admin.job.job_list',['jobs' => $jobs]);
         }
         else
         {
@@ -174,7 +178,7 @@ class JobDashboarController extends Controller
             $job->Update(['active' => '1']);
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
              ->select('majors.major_name', 'jobs.*' )->get();
-                return view('admin.job.job',['jobs' => $jobs]);
+                return view('admin.job.job_list',['jobs' => $jobs]);
         }
     }
 }

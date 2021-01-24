@@ -73,7 +73,30 @@
                     </li>
                   </ul>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Jobs Managment
+                    <i class="right fas fa-angle-left"></i>
 
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ url('/controlpanel/job_add') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Job</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ url('/controlpanel/job') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>show all Jobs</p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
  <!--         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
