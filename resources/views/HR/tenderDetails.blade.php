@@ -59,13 +59,14 @@
                   <h3> {{__('fields_web.Tenders.description')}}:  </h3>
                 </div>
                 <div class=''>
-                <a href="{{url('Tender/dowenloadFile/'.$tender->filenames)}}"><button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button></a>
+                <a href="{{url('Tender/dowenloadFile/'.$tender->filename)}}"><button type="" class="btn btn-primary" width='90%' height="50px" > {{__('fields_web.Tenders.downloadpdfs')}}  </button></a>
                 </div>
 
              </div>
              
              
              <div class="row  px-3 py-3">
+             {{$tender->filename}}
              {!!$tender->description!!}
              </div>
              

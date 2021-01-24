@@ -274,7 +274,7 @@ class TenderController extends Controller
 
     public function dowenloadFile($filename)
     {
-            return response()->download(public_path('assets/upload/tenders/pdf/'));
+            return response()->download(public_path('assets/uploads/tenders/pdf/'.$filename));
     }
     
     /* public function userNotify()

@@ -72,14 +72,14 @@
                     <div class="mx-auto">
                       <div class="card" style="width:280px; height:460px;">
                            <div class='card-image mx-auto'>
-                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/upload/tenders/images/'.$tender->image)}}" alt="image" />
+                             <img class="card-img-top img-fluid"  src="{{URL::asset('assets/uploads/tenders/images/'.$tender->image)}}" alt="image" />
                            </div>
                            <div class="card-body">
-                               <h5 class="card-title" style=" height: 90px;"> {{\Illuminate\Support\Str::limit($tender->title, $limit = 45, $end = '...')}}</h5> 
+                               <h5 class="card-title" style=" height: 90px;"> {{\Illuminate\Support\Str::limit($tender->title, $limit = 30, $end = '...')}}</h5> 
                                <hr class='btn-primary'>
-                                   <span class="card-text"><i class="fa fa-home"> &nbsp; </i>{{$tender->location}} </span>
+                               <span class="card-text"><i class='fa fa-home'> &nbsp; </i>{{\Illuminate\Support\Str::limit($tender->company, $limit = 20, $end = '...')}} </span> 
                                    <br> 
-                                   <span class="card-text"><i class='fa fa-map-marker'> &nbsp; </i>{{$tender->company}} </span> 
+                                   <span class="card-text"><i class="fa fa-map-marker"> &nbsp; </i>{{\Illuminate\Support\Str::limit($tender->location, $limit = 20, $end = '...')}} </span>
                                    <br>
                                    <span class="card-text" style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}} : {{$tender->deadline}}</span>
                                    <a href='tender/{{$tender->tender_id}}'> <button class="btn btn-primary btn-sm my-2">{{__('fields_web.Tenders.more')}}</button></a>
