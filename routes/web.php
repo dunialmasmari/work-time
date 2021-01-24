@@ -40,7 +40,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     });
     
-    Route::namespace('ContactUS')->group(function(){
+    Route::namespace('ContactUs')->group(function(){
         Route::get('contacthr','ContactUSController@viewContact')->name('contacthr');
         Route::get('contactus','ContactUSController@sendEmail');
     });
