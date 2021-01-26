@@ -9,13 +9,19 @@
                 <img class='justify-content-start' src="{{URL::asset('assets/images/hrlogo.png')}}" height="65" alt="" style="margin-top:0px;"
                   />
                </a>
+               
        </div> 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Navbar links -->    
       <div class="collapse navbar-collapse justify-content-end " id="collapsibleNavbar">
-            
+               {{--<button class="btn btn-primary " >
+                  <a class="btn btn-md " href="{{route('loginhr')}}">{{__('fields_web.Navbar.login')}} </a>
+                </button>
+               <button class="btn btn-primary ">
+                  <a class=" btn btn-md " href="{{route('abouthr')}}">{{__('fields_web.Navbar.signup')}} </a>
+                </button>--}}
         <ul class="navbar-nav navbar-right " style="margin:10px;margin-right:60px">
            <li class="nav-item">
             <a class="nav-link menu  btn btn-md" href="{{route('homehr')}}">{{__('fields_web.Navbar.Home')}}</a>
@@ -45,7 +51,6 @@
           </li>
           <?php  }
           ?>
-        
         </ul>
       </div>
       <!-- Brand -->
