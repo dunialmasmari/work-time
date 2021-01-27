@@ -53,5 +53,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('job/{id}','JobController@viewJobId');
     });
 
+    Route::namespace('Sign')->group(function(){
+        Route::get('loginhr','SignupLoginController@loginShow')->name('loginhr');
+        Route::get('signuphr','SignupLoginController@signupShow')->name('signuphr');
+    });
+
 });
 
