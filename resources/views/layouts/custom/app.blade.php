@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>cpanal</title>
  <!-- Scripts -->
- <script src="{{ asset('js/app.js') }}" defer></script>
+ <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

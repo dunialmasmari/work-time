@@ -43,7 +43,7 @@ Route::group(['namespace' => 'Job', 'prefix' => 'controlpanel', 'middleware' => 
  {
     Route::apiResource('/job', 'JobDashboarController'); 
     Route::post('/updatejob','JobDashboarController@updatejob');
-    Route::get('/addjob', 'JobDashboarController@addjob'); 
+    Route::get('/job_add', 'JobDashboarController@job_add'); 
     Route::get('/jobactivation/{id}','JobDashboarController@jobactivation');
 });
 /*Route::get('/major', function () {
