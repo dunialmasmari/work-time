@@ -11,7 +11,7 @@ class CreateJobsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up()  
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('job_id');
@@ -20,8 +20,11 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('company');
+            $table->boolean('register_here');
             $table->string('apply_link');
+            $table->string('email');
             $table->longText('description');
+            $table->longText('requerment');
             $table->date('start_date');
             $table->date('deadline');
             $table->date('posted_date');

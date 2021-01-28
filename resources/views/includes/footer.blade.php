@@ -1,4 +1,120 @@
+<script> 
 
+  var form = document.getElementById("form");
+//  var title = document.getElementById("title");
+//  var filename = document.getElementById("filename"); 
+//  var location = document.getElementById("location");
+//  var otharlocation = document.getElementById("otharlocation");
+  var apply_link = document.getElementById("apply_link").value;
+  var company = document.getElementById("company");
+  var start_date = document.getElementById("start_date");
+  var deadline = document.getElementById("deadline");
+//  var posted_date = document.getElementById("posted_date");
+
+  var companyFormat = /^[A-Za-z-0-9-ا-ب-ت-ث-ج-ح-خ-د-ذ-ر-ز-س-ش-ص-ض-ط-ظ-ع-غ-ف-ق-ك-ل-م-ن-ه-و-ي-ة]+$/;
+  var linkformat=/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+/** Titel validation */ 
+form[3].addEventListener("keyup", function confirmName() {
+      if (form[3].value != "") {
+      // title.innerHTML = "*This field must be filled .  ";
+          title.style.borderColor = "green";
+          return true;
+      }
+      else {
+          title.style.borderColor = "red";
+          return false;
+      }
+}); 
+
+// /**Company validation */
+form[8].addEventListener("keyup", function confirmName() {
+ 
+    if (company.value.match(companyFormat)) {
+      company.style.borderColor = "green";
+        return true;
+    }
+    else {
+      company.style.borderColor = "red";
+        return false;
+    }
+});
+
+/**Apply Link validation */
+form[9].addEventListener("keyup", function confirmName() {
+ 
+ if (apply_link.value.match(emailformat)) {
+    apply_link.style.borderColor = "green";
+     return true;
+ }
+ else {
+  apply_link.style.borderColor = "red";
+     return false;
+ }
+});
+
+/**deedlin validation */
+form[11].addEventListener("keyup", function confirmName() {
+ 
+ if (deadline.value > start_date.value) {
+  deadline.style.borderColor = "green";
+     return true;
+ }
+ else {
+  deadline.style.borderColor = "red";
+     return false;
+ }
+});
+
+// var _validFileExtensions = [".pdf", ".zip", ".rar"];    
+// function Validate(oForm) {
+//     var arrInputs = oForm.getElementById("filename");
+//     for (var i = 0; i < arrInputs.length; i++) {
+//         var oInput = arrInputs[i];
+//         if (oInput.type == "file") {
+//             var sFileName = oInput.value;
+//             if (sFileName.length > 0) {
+//                 var blnValid = false;
+//                 for (var j = 0; j < _validFileExtensions.length; j++) {
+//                     var sCurExtension = _validFileExtensions[j];
+//                     if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+//                         blnValid = true;
+//                         break;
+//                     }
+//                 }
+                
+//                 if (!blnValid) {
+//                     alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+//                     return false;
+//                 }
+//             }
+//         }
+//     }
+  
+//     return true;
+// }
+</script> 
+
+<script> 
+function yesnoCheck() {
+  
+    var filed=document.getElementById("div");
+    var no = "link <input type='link' id='yes' name='apply_link'><br>";
+    var yes = "email <input type='email' id='yes' name='email' ><br> requerment <input type='text' id='yes' name='requerment'><br>";
+    var both = "link <input type='link' id='yes' name='apply_link'><br> email <input type='email' id='yes' name='email'><br> requerment <input type='text' id='yes' name='requerment'><br>";
+     if (document.getElementById('yesCheck').checked) {
+      filed.innerHTML=yes;
+     }
+    else if (document.getElementById('noCheck').checked) {
+      filed.innerHTML=no;
+     }
+    else if (document.getElementById('BothCheck').checked) {
+      filed.innerHTML=both;
+     }
+  
+}
+</script>
 <!-- run editor-->
 <script src='https://cdn.tiny.cloud/1/6wl1nevqatxsvyjrcm8i6p1r0hpm8esjt0jsxa10y69sswtg/tinymce/5/tinymce.min.js' referrerpolicy="origin"> </script>
   <script>
@@ -149,8 +265,8 @@
   };
 </script>
 
-<script src="{{url("assets/plugins/summernote/summernote-bs4.min.js")}}"></script>
-<script src="{{url("assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
+<script src="{{url("assets/controlpanel/plugins/summernote/summernote-bs4.min.js")}}"></script>
+<script src="{{url("assets/controlpanel/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
 <script>
     $(function () {
 

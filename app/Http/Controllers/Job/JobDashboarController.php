@@ -43,12 +43,16 @@ class JobDashboarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {    
+        dd($request);
         $job = new job();
         $job->user_id = $request->input('user_id');
         $job->major_id = $request->input('major_id');
         $job->title = $request->input('title');
         $job->company = $request->input('company');
+        $job->email = $request->input('email');
+        $job->register_here = $request->input('register_here');
+        $job->requerment = $request->input('requerment');
         $job->description = $request->input('description');
         $job->apply_link = $request->input('apply_link');
         $job->start_date = $request->input('start_date');
@@ -62,7 +66,7 @@ class JobDashboarController extends Controller
         $result = $request->file('image')->move(public_path().'/assets/uploads/jobs/images/', $imagename); //store('files');
         $job->image = $imagename;
         }
-        $job->save();
+       // $job->save();
       
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
@@ -116,6 +120,9 @@ class JobDashboarController extends Controller
             $job->title = $request->input('title');
             $job->user_id = $request->input('user_id');
             $job->major_id = $request->input('major_id');
+            $job->email = $request->input('email');
+            $job->register_here = $request->input('register_here');
+            $job->requerment = $request->input('requerment');
             $job->company = $request->input('company');
             $job->description = $request->input('description');
             $job->apply_link = $request->input('apply_link');
@@ -133,14 +140,16 @@ class JobDashboarController extends Controller
                     $job->image = $imagename;
                 }
                 $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
-                'apply_link' => $job->apply_link, 'location' => $job->location, 'start_date' => $job->start_date,
+                'apply_link' => $job->apply_link, 'location' => $job->location, 'requerment' => $job->requerment, 
+                'email' => $job->email,  'register_here' => $job->register_here,  'start_date' => $job->start_date,
                 'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,
                 'image' => $job->image,]);
             }
           else 
           {
             $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
-            'apply_link' => $job->apply_link, 'location' => $job->location, 'start_date' => $job->start_date,
+            'apply_link' => $job->apply_link, 'location' => $job->location, 'requerment' => $job->requerment, 
+            'email' => $job->email,  'register_here' => $job->register_here, 'start_date' => $job->start_date,
             'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,]);
           }
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')

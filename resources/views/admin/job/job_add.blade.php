@@ -83,7 +83,12 @@
                                 </select>
                               </div>
                         </div>
-
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Othar Location :</label>
+                                <input type="text" name="location[]"   class="form-control" >
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -98,13 +103,6 @@
                             <div class="form-group">
                                 <label> Company:</label>
                                 <input type="text" name="company" placeholder="company" class="form-control"  required>
-                              </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label> Apply Link:</label>
-                                <input type="text" name="apply_link" placeholder="apply_link" class="form-control"  required>
                               </div>
                         </div>
 
@@ -153,11 +151,24 @@
                           <div class="timeline-item">
                               <div class="timeline-body preview">
                                 <img id="file-ip-1-preview" style="width: 150px;height: 150px;margin-top:10px;">
-                                </div>
+                              </div>
                             </div>
-                        </div>
-                    </div>
-                  </div>
+                         </div>
+                       </div>    
+                       <div class="col-sm-4">
+                          No <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck"><br>
+                          Yes <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
+                          Both <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck"><br>
+                          <div id="div">
+                          </div>
+                      </div>
+                     </div>
+                     <!-- <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Apply Link:</label>
+                                <input type="text" name="apply_link" placeholder="apply_link" class="form-control"  required>
+                              </div>
+                        </div> -->
                     <div class="row">
                        <div class="col-md-12">
                           <textarea cols="80" id="mytextarea" name="description"></textarea>

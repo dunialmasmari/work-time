@@ -11,7 +11,7 @@ class CreateJobsQueueEmailTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('jobs_queue_email', function (Blueprint $table) {
             $table->bigIncrements('id');

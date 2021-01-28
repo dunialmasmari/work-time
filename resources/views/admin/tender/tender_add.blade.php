@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/tender" method="post" enctype="multipart/form-data">
+                <form method="post" id="form" action="/controlpanel/tender" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="card-body">
                       <div class="row">
@@ -38,9 +38,11 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label> Title:</label>
-                                <input type="text" name="title" placeholder="title" class="form-control"  required>
+                                <input type="text" id="title" name="title" placeholder="title" class="form-control"  required>
+                                <small class="text-muted">*This field must be filled .</small>
                               </div>
                         </div>
+                        
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Major :</label>
@@ -51,6 +53,7 @@
                                   @endif
                                   @endforeach
                                 </select>
+                                <small class="text-muted">*This field must be filled .</small>
                               </div>
                         </div>
                         
@@ -59,13 +62,16 @@
                                 <label for="exampleInputFile">Tender file</label>
                                 <div class="input-group">
                                 <div class="custom-file">
-                                  <input  name="filename"  type="file" class="custom-file-input" required>
-                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                <label id="filename" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                  <input name="filename"  type="file" class="custom-file-input">
                                 </div>
                                 </div>
+                                <small  class="text-muted">*This field is optional.<br> 
+                                  *The file format should be zip or pdf.
+                                </small>
                               </div>
                         </div>
-
+                        
                     </div>
 
                     <div class="row">
@@ -73,7 +79,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Location :</label>
-                                <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
+                                <select id="location" class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
                                   <option value="Sanaa">Sanaa</option>
                                   <option value="Amran">Amran</option>
                                   <option value="Abyan">Abyan</option>
@@ -97,53 +103,53 @@
                                   <option value="Socotra">Socotra</option> 
                                   <option value="Taiz">Taiz</option>
                                 </select>
+                                <small class="text-muted">*You can choose one or more location .</small>
                               </div>
                         </div>
-
-
-
-
-
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Othar Location :</label>
+                                <input id="otharlocation" type="text" name="location[]" placeholder="Othar Location"  class="form-control" >
+                                <small  class="text-muted" >*This field is optional.<br>
+                                *When writing more than one Location, please writing a comma (,) between them.
+                                </small>
+                            </div>
+                        </div>
+                        
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label> Company:</label>
-                                <input type="text" name="company" placeholder="company" class="form-control"  required>
-                              </div>
+                                <input id="company" type="text" name="company" placeholder="company" class="form-control"  required>
+                                <small class="text-muted">*This field must be filled . *The text must be charecter</small>
+                            </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label> Apply Link:</label>
-                                <input type="text" name="apply_link" placeholder="apply_link" class="form-control"  required>
-                              </div>
-                        </div>
-
-
-
-
                     </div>
 
                     <div class="row">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Apply Link:</label>
+                                <input id="apply_link" type="text" name="apply_link" placeholder="apply_link" class="form-control" >
+                                <small class="text-muted">*This field is optional. *Must be link or email</small>
+                              </div>
+                        </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label> start_date:</label>
-                                <input type="date" name="start_date"  class="form-control"  required>
+                                <input id="start_date" type="date" name="start_date"  class="form-control"  required>
+                                <small class="text-muted">*This field must be filled.</small>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> deadline :</label>
-                                <input type="date" name="deadline" class="form-control"  required>
+                                <label> deadline :</label> 
+                                <input id="deadline" type="date" name="deadline" class="form-control"  required>
+                                <small class="text-muted">*The tender deadline date should be smaller than the start date.</small>
                               </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label> Posted Date:</label>
-                                <input type="date" name="posted_date"  class="form-control"  required>
-                              </div>
-                        </div>
                     </div>
                     <div class="row">
                     <div class="col-md-4">
@@ -155,9 +161,18 @@
                                   <label class="custom-file-label" for="exampleInputFile">Choose image</label>
                                   </div>
                                 </div>
+                                <small class="text-muted">*This field must be filled.</small>
+                              </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Posted Date:</label>
+                                <input id="posted_date" type="date" name="posted_date"  class="form-control"  required>
+                                <small class="text-muted">*The tender publication date should be smaller than the end date.</small>
                               </div>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-sm-12">
                           <div class="timeline-item">
