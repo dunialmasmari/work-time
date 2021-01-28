@@ -15,7 +15,7 @@ class JobController extends Controller
         ->where('deadline','>=',now())
         ->where('start_date','<=',now())
         ->orderByRaw('start_date DESC')
-        ->paginate(1);
+        ->paginate(2);
         $data=['jobs' => $jobs];
 
         return view('HR.jobs',$data);

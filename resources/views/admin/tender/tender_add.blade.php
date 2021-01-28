@@ -46,7 +46,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Major :</label>
-                                <select class="form-control select2" name="major_id" style="width: 100%;">
+                                <select class="form-control select2" name="major_id" style="width: 100%;" required>
                                   @foreach ($majors as $major)  
                                   @if($major->type == 1)
                                   <option value="{{ $major->major_id}} ">{{ $major->major_name}} </option>
@@ -79,7 +79,9 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Location :</label>
-                                <select id="location" class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
+
+                                <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;" required>
+
                                   <option value="Sanaa">Sanaa</option>
                                   <option value="Amran">Amran</option>
                                   <option value="Abyan">Abyan</option>
@@ -185,7 +187,8 @@
                   </div>
                     <div class="row">
                        <div class="col-md-12">
-                          <textarea cols="80" id="mytextarea" name="description"></textarea>
+                          <textarea cols="80" id="mytextarea" name="description"   ></textarea>
+
                        </div>
                     </div>
         
