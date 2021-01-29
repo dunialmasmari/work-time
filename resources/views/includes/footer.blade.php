@@ -5,7 +5,7 @@
 //  var filename = document.getElementById("filename"); 
 //  var location = document.getElementById("location");
 //  var otharlocation = document.getElementById("otharlocation");
-  var apply_link = document.getElementById("apply_link").value;
+  var apply_link = document.getElementById("apply_link").type;
   var company = document.getElementById("company");
   var start_date = document.getElementById("start_date");
   var deadline = document.getElementById("deadline");
@@ -16,8 +16,8 @@
   var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 /** Titel validation */ 
-form[3].addEventListener("keyup", function confirmName() {
-      if (form[3].value != "") {
+form[3].addEventListener("nameup", function confirmName() {
+      if (form[3].type != "") {
       // title.innerHTML = "*This field must be filled .  ";
           title.style.borderColor = "green";
           return true;
@@ -29,9 +29,9 @@ form[3].addEventListener("keyup", function confirmName() {
 }); 
 
 // /**Company validation */
-form[8].addEventListener("keyup", function confirmName() {
+form[8].addEventListener("nameup", function confirmName() {
  
-    if (company.value.match(companyFormat)) {
+    if (company.type.match(companyFormat)) {
       company.style.borderColor = "green";
         return true;
     }
@@ -42,9 +42,9 @@ form[8].addEventListener("keyup", function confirmName() {
 });
 
 /**Apply Link validation */
-form[9].addEventListener("keyup", function confirmName() {
+form[9].addEventListener("nameup", function confirmName() {
  
- if (apply_link.value.match(emailformat)) {
+ if (apply_link.type.match(emailformat)) {
     apply_link.style.borderColor = "green";
      return true;
  }
@@ -55,9 +55,9 @@ form[9].addEventListener("keyup", function confirmName() {
 });
 
 /**deedlin validation */
-form[11].addEventListener("keyup", function confirmName() {
+form[11].addEventListener("nameup", function confirmName() {
  
- if (deadline.value > start_date.value) {
+ if (deadline.type > start_date.type) {
   deadline.style.borderColor = "green";
      return true;
  }
@@ -73,7 +73,7 @@ form[11].addEventListener("keyup", function confirmName() {
 //     for (var i = 0; i < arrInputs.length; i++) {
 //         var oInput = arrInputs[i];
 //         if (oInput.type == "file") {
-//             var sFileName = oInput.value;
+//             var sFileName = oInput.type;
 //             if (sFileName.length > 0) {
 //                 var blnValid = false;
 //                 for (var j = 0; j < _validFileExtensions.length; j++) {
@@ -101,8 +101,8 @@ function yesnoCheck() {
   
     var filed=document.getElementById("div");
     var no = "link <input type='link' id='yes' name='apply_link'><br>";
-    var yes = "email <input type='email' id='yes' name='email' ><br> requerment <input type='text' id='yes' name='requerment'><br>";
-    var both = "link <input type='link' id='yes' name='apply_link'><br> email <input type='email' id='yes' name='email'><br> requerment <input type='text' id='yes' name='requerment'><br>";
+    var yes = "email <input type='email' id='yes' name='email' ><br> <div class='form-group'><label for='requerment'>requerment</label><div class='row'><div class='col-md-2'>name:</div><div class='col-md-4'>type:</div></div>@for ($i=0; $i <= 4; $i++)<div class='row'><div class='col-md-2'style='margin-bottom: 2px;'><input type='text' name='requerment[{{ $i }}][name]' class='form-control form-control-sm' type='{{ old('requerment['.$i.'][name]') }}'></div><div class='col-md-4'><input type='text' name='requerment[{{ $i }}][type]' class='form-control form-control-sm' type='{{ old('requerment['.$i.'][type]') }}'></div></div>@endfor</div><div><br>";
+    var both = "link <input type='link' id='yes' name='apply_link'><br> email <input type='email' id='yes' name='email'><br>  <div class='form-group'><label for='requerment'>requerment</label><div class='row'><div class='col-md-2'>name:</div><div class='col-md-4'>type:</div></div>@for ($i=0; $i <= 4; $i++)<div class='row'><div class='col-md-2'style='margin-bottom: 2px;'><input type='text' name='requerment[{{ $i }}][name]' class='form-control form-control-sm' type='{{ old('requerment['.$i.'][name]') }}'></div><div class='col-md-4'><input type='text' name='requerment[{{ $i }}][type]' class='form-control form-control-sm' type='{{ old('requerment['.$i.'][type]') }}'></div></div>@endfor</div><div><br>";
      if (document.getElementById('yesCheck').checked) {
       filed.innerHTML=yes;
      }

@@ -44,7 +44,7 @@ class JobDashboarController extends Controller
      */
     public function store(Request $request)
     {    
-        dd($request);
+      //  dd($request);
         $job = new job();
         $job->user_id = $request->input('user_id');
         $job->major_id = $request->input('major_id');
@@ -66,7 +66,7 @@ class JobDashboarController extends Controller
         $result = $request->file('image')->move(public_path().'/assets/uploads/jobs/images/', $imagename); //store('files');
         $job->image = $imagename;
         }
-       // $job->save();
+        $job->save();
       
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
