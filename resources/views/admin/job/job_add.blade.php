@@ -155,13 +155,7 @@
                             </div>
                          </div>
                        </div>    
-                       <div class="col-sm-4">
-                          No <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck"><br>
-                          Yes <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
-                          Both <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck"><br>
-                          <div id="div">
-                          </div>
-                      </div>
+                     
                      </div>
                      <!-- <div class="col-md-4">
                             <div class="form-group">
@@ -174,7 +168,15 @@
                           <textarea cols="80" id="mytextarea" name="description"></textarea>
                        </div>
                     </div>
-        
+                    <div class="row">
+                    <div class="col-sm-4">
+                          No <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck"><br>
+                          Yes <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
+                          Both <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck"><br>
+                          <div id="div">
+                          </div>
+                      </div>
+                      </div>
                   <!-- /.card-body -->
 
                   <div class="card-footer">
