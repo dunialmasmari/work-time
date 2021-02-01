@@ -23,4 +23,23 @@ class Job extends Model
             'created_at',
             'updated_at',
         ];
+    
+        protected $guarded = [];
+
+        protected $casts = [
+            'requerment' => 'array'
+        ];
+    
+        public function setrequermentAttribute($type)
+        {
+            $requerment = [];
+    
+            foreach ($type as $array_item) {
+                if (!is_null($array_item['name'])) {
+                    $requerment[] = $array_item;
+                }
+            }
+    
+            $this->attributes['requerment'] = json_encode($requerment);
+        }
 }

@@ -11,7 +11,7 @@ class Jobs extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up()  
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('job_id');
