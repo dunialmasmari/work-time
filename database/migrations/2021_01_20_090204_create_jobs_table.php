@@ -24,7 +24,7 @@ class CreateJobsTable extends Migration
             $table->string('apply_link');
             $table->string('email');
             $table->longText('description');
-            $table->json('requerment');
+            $table->boolean('recommendation');
             $table->date('start_date');
             $table->date('deadline');
             $table->date('posted_date');

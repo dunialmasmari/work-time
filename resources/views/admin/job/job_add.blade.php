@@ -83,17 +83,16 @@
                                 </select>
                               </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Othar Location :</label>
-                                <input type="text" name="location[]"   class="form-control" >
-                            </div>
-                        </div>
                     </div>
 
                     <div class="row">
 
-                      
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Othar Location :</label>
+                                <input type="text" name="location[]"   class="form-control" >
+                            </div>
+                    </div>
 
 
 
@@ -144,7 +143,7 @@
                               </div>
                         </div>
                     </div>
-                    <div class="row">
+                  
                  
                     <div class="row">
                         <div class="col-sm-12">
@@ -152,11 +151,11 @@
                               <div class="timeline-body preview">
                                 <img id="file-ip-1-preview" style="width: 150px;height: 150px;margin-top:10px;">
                               </div>
-                            </div>
+                          </div>
                          </div>
-                       </div>    
+                    </div>    
                      
-                     </div>
+                   
                      <!-- <div class="col-md-4">
                             <div class="form-group">
                                 <label> Apply Link:</label>
@@ -165,23 +164,41 @@
                         </div> -->
                     <div class="row">
                        <div class="col-md-12">
-                          <textarea cols="80" id="mytextarea" name="description"></textarea>
+                          <div class="form-group">
+                            <label> Description:</label>
+                            <textarea cols="80" id="mytextarea" name="description"></textarea>
+                          </div>
                        </div>
                     </div>
+
                     <div class="row">
-                    <div class="col-sm-4">
-                          No <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck"><br>
-                          Yes <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
-                          Both <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck"><br>
-                          <div id="div">
-                          </div>
+                        <label> Can the application be via the website or communication with the company?</label>
+                        <div class="col-sm-4">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck">
+                          <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
+                          <label class="form-check-label" for="inlineRadio2">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck">
+                          <label class="form-check-label" for="inlineRadio2">Both</label>
+                        </div>
+                       
+                    </div>
+                   </div>
+                   <div class="row">
+                      <div id="div">
                       </div>
-                      </div>
+                    </div>
                   <!-- /.card-body -->
 
-                  <div class="card-footer">
+                  <div class="">
                     <button type="submit" class="btn btn-primary">Create Job</button>
                   </div>
+                </div>  
                 </form>
               </div>
               <!-- /.card -->
@@ -190,3 +207,9 @@
     </div>
 </section>
 @endSection
+<!-- <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck"><br>
+                           <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
+                           <input type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck"><br>
+                          -->
+
+                         

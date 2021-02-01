@@ -13,8 +13,11 @@ class Job extends Model
             'title',
             'image',
             'company',
-            'description',
+            'email',
             'apply_link',
+            'register_here',
+            'requerment',
+            'description',
             'start_date',
             'deadline',
             'posted_date',
@@ -24,7 +27,7 @@ class Job extends Model
             'updated_at',
         ];
     
-        protected $guarded = [];
+      /*  protected $guarded = [];
 
         protected $casts = [
             'requerment' => 'array'
@@ -41,5 +44,5 @@ class Job extends Model
             }
     
             $this->attributes['requerment'] = json_encode($requerment);
-        }
+        }*/
 }
