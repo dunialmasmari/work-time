@@ -50,6 +50,7 @@
                             <td> {{ $job->location}} </td>
                             <td> {{ $job->company}} </td>
                             <td> {{ $job->deadline}} </td>
+                            
                              @if($job->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>

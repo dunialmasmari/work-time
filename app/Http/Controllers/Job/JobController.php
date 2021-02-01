@@ -41,12 +41,9 @@ class JobController extends Controller
         
         if ($jobs->exists())
         {
-            $reqs=job::select('requerment')->where('job_id', $id)->get();
-            $reqs_ar=json_decode($reqs);
             $jobs=$jobs->get();
             $data=['jobs' => $jobs,
                    'jobsAll' => $jobsAll,
-                   'reqs_ar' => $reqs_ar
                    ];
             return view('HR.jobDetails',$data);           
          } 

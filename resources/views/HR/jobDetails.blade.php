@@ -140,13 +140,14 @@
 
                    <div class="row shadow-lg  bg-white">
 
-                      <div class="card shadow-lg  bg-white " >
-                        <div class=" card-body ">
+                      <div class="card shadow-lg  bg-white full-width " >
+                        <div class=" card-body " >
                               <div class='col-12 col-sm-12 col-md-12 col-lg-12 .justify-content-start'> 
                                         <h3> {{__('fields_web.Jobs.description')}}: </h3>
                                  </div>
-                                <div class='col-12 col-sm-12 col-md-12 col-lg-12'>
-                                      {{!!$job->description!!}}
+                                <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
+                                      {!!$job->description!!}
+
 
                                 </div>
                         </div>
@@ -189,7 +190,7 @@
                                              <div class="valid-feedback"></div>
                                              <div class="invalid-feedback">{{__('fields_web.Jobs.req_pdf')}} </div>
                                        </div>
-                                     @if($job->requerment == 1)
+                                     @if($job->recommendation == 1)
                                      <div class="form-group" >
                                           <label for="name_RCOM">{{__('fields_web.Jobs.RCom')}} </label>
                                           <input type="file" id='name_RCOM' class="form-control" name="user_recommendation" accept=".pdf" style="display: " required/>
