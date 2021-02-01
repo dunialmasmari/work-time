@@ -24,7 +24,7 @@
         <div class="card-body">
             <div class='row'>
                   <div class='col-12 col-sm-12 col-md-12 col-lg-12'>
-                     <h5 style="text-align:center;"> {{$job->title}}</h5>
+                     <h5 style="text-align:center;">{{\Illuminate\Support\Str::limit($job->title, $limit = 30, $end = '...')}}</h5>
                 </div>
             </div>
             <div class='row'>
@@ -32,9 +32,9 @@
                     <img class="card-img img-fluid " src="{{URL::asset('images/job_img/'.$job->image)}}" alt="image" />
                  </div>
                  <div class='col-6 col-sm-6 col-md-6 col-lg-6'>
-                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}:{{$job->company}}</p>
-                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}:{{$job->location}}</p>
-                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}:{{$job->deadline}}</p>
+                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 20, $end = '...')}}</i> </p>
+                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 20, $end = '...')}}</i> </p>
+                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <i>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 20, $end = '...')}}</i></p>
  
                  </div>
                  <div class='col-3 col-sm-3 col-md-3 col-lg-3'>

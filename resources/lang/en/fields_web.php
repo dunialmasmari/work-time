@@ -187,7 +187,14 @@ return [
     'action'=> 'Action',
     'AddNew'=> ' Add a new Job ',
     'filter'=> 'filter ',
-    'Notify'=> 'create notify jobs'
+    'Notify'=> 'create notify jobs',
+    'cv' => 'upload your cv here',
+    'RCom' => 'upload your recommendation here',
+    'req_pdf'=>'must be pdf ',
+    'submit'=>'Apply now',
+    'applaying'=>'To apply through our website, please enter your information',
+
+    
 
   ],
 

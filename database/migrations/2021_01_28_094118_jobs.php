@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobsTable extends Migration
+class Jobs extends Migration
 {
     /**
      * Run the migrations.
@@ -20,8 +20,11 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('company');
+            $table->boolean('register_here');
             $table->string('apply_link');
+            $table->string('email');
             $table->longText('description');
+            $table->longText('requerment');
             $table->date('start_date');
             $table->date('deadline');
             $table->date('posted_date');
@@ -29,6 +32,7 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -38,6 +42,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        //
     }
 }

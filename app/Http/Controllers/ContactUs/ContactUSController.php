@@ -29,7 +29,13 @@ class ContactUSController extends Controller
         //return response()->json(['name' => $request->name,
         //'message' => $request->message,
         //'Email'=> $request->email,"message_sent" => "Your message has been sent successfully"],200);
-        return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+        //return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+        //return redirect()->route('contacthr')->withSuccess([__('fields_web.apisuccessmesages.title')]);//->with(['success' => __('fields_web.apisuccessmesages.title')]);
+        return redirect()->route('contacthr')->with(['success' => __('fields_web.apisuccessmesages.title')]);
+    //     Session::flash('success', 'Hello &nbsp;'.$data['name'].'&nbsp;Thank You for choosing us. Will reply to your query as soon as possible');
+
+    // return redirect()->back();
+
 
     }
 }

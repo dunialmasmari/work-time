@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>Contact Work-time</title>
+    <title>Job Applying from Work-time</title>
 
     <style type="text/css"></style>
 
@@ -55,7 +55,7 @@
                             <div style="line-height: 35px">
 
                             <h4 class=' py-3' >
-                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">MESSAGE</span>
+                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">JOB APPLY</span>
                                  </h4>
 
                             </div>
@@ -63,20 +63,93 @@
                     </tr>
                     <tr>
                         <td align="center">
+                            <table  width="40" align="center" cellpadding="0" cellspacing="0" bgcolor="eeeeee">
+                                <tr>
+                                    <td height="2" style="font-size: 2px; line-height: 2px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center">
                             <table  width="400" align="center" cellpadding="0" cellspacing="0" class="container590">
                                 <tr>
                                     <td align="center" style="color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
 
-<!-- data of contact ////////////////////////////////////////////////////-->
+<!-- data of user ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                             <h1>Contact  <span style="color: #5caad2;text-align:center">Message </span></h1>
-                                             <p>Name:  {{$data['name']}}</p>
-                                             <p>Email: {{$data['Email']}}</p>
-                                             <p>Message:  {{$data['message']}}</p>
+                                        <h1>Titel :{{$data['job_name']}} </h1>
+                                        <h3>User Name :{{$data['user_name']}}  <h3>
+                                        <h3>User Email :{{$data['user_email']}}  <h3>
+                                         
+
                                         </div>
                                     </td>
                                 </tr>
+
+<!-- link of user cv ////////////////////////////////////////////////////-->
+
+                    <tr>
+                    @if($data['user_cv'] !=null)
+                        <td align="center">
+                            <table  align="center" width="160" cellpadding="0" cellspacing="0" bgcolor="5caad2" style="">
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
+
+<!--  ////////////////////////////////////////////////////-->
+                                  
+                                            <div style="line-height: 26px;">
+                                              <a href="{{$message->embed(public_path('assets/Jobs_req/user_cv/'.$data['user_cv']))}}" style="color: #ffffff; text-decoration: none;">User CV</a>
+                                           </div>
+                                           @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr><br><br>
+<!-- link of user recomm ////////////////////////////////////////////////////-->
+
+                    <tr>
+                    @if($data['user_recom'] !=null)
+                        <td align="center">
+                            <table  align="center" width="160" cellpadding="0" cellspacing="0" bgcolor="5caad2" style="">
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
+
+<!--  ////////////////////////////////////////////////////-->
+                                        
+                                           <div style="line-height: 26px;">
+                                              <a href="{{$message->embed(public_path('assets/Jobs_req/user_recom/'.$data['user_recom']))}}" style="color: #ffffff; text-decoration: none;">User Recommendation</a>
+                                           </div>
+                                           @endif
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+
                             </table>
                         </td>
                     </tr>
@@ -154,7 +227,7 @@
                 </table>
             </td>
         </tr>
-    </table> <br><br>
+    </table> <br>
     <!-- end section -->
 
     <!-- footer ====== -->

@@ -42,7 +42,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     
     Route::namespace('ContactUs')->group(function(){
         Route::get('contacthr','ContactUSController@viewContact')->name('contacthr');
-        Route::get('contactus','ContactUSController@sendEmail');
+        Route::post('contactus','ContactUSController@sendEmail')->name('contactus');
     });
     
     Route::namespace('aboutus')->group(function(){
@@ -50,8 +50,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
     Route::namespace('Job')->group(function(){
         Route::get('jobs','JobController@viewJobs')->name('jobs');
-        Route::get('job/{id}','JobController@viewJobId');
+        Route::get('job/{id}','JobController@viewJobId')->name('job');
+       // Route::post('sendingCV','JobController@sendCV');
     });
+    Route::namespace('Job')->group(function(){
+        Route::post('sendingCV','JobController@sendCV')->name('sendCV');
+    });
+    
 
     Route::namespace('Sign')->group(function(){
         Route::get('loginhr','SignupLoginController@loginShow')->name('loginhr');

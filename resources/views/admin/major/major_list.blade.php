@@ -13,7 +13,7 @@
                  <!-- general form elements -->
                  <div class="card card-success">
                     <div class="card-header">
-                      <h3 class="card-title">Add New Major</h3>
+                      <h3 class="card-title">Add New Major {{__('fields_web.Jobs.submit')}}</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
