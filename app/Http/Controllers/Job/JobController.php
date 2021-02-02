@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\Major;
 use App\Mail\ApplyJob\ApplayingJobMail;
 use Mail;
+use App\Models\JobApplyer;
 set_time_limit(300);
 
 class JobController extends Controller
@@ -72,6 +73,7 @@ class JobController extends Controller
             {
                 $user_recom = null;
             }
+            
         $data=[
             'job_id'=> $request->job_id,
             'job_name'=> $request->job_name,
@@ -82,9 +84,19 @@ class JobController extends Controller
             'user_cv'=> $user_cv,
             'user_recom'=> $user_recom,
         ];
+        
 
         //print_r($data);
         Mail::to($request->comp_email)->send(new ApplayingJobMail($data));
+
+        $applyer=new jobapplyer();
+        $applyer->job_id = $request->job_id;
+        $applyer->user_name = $request->user_name;
+        $applyer->user_email = $request->user_email;
+        $applyer->cv_file = $user_cv;
+        $applyer->recom_file = $user_recom;
+        $applyer->save();
+
        return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
     }
 }
