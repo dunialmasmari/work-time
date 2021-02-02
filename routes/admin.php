@@ -62,6 +62,15 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'controlpanel', 'middleware' =>
     Route::get('/blog_add', 'BlogDashboarControlle@blog_add'); 
     Route::get('/blogactivation/{id}','BlogDashboarControlle@blogactivation');
 });
+
+
+Route::group(['namespace' => 'Advertisement', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
+ {
+    Route::apiResource('/Advertising', 'AdvertisementDashboarControlle'); 
+    Route::post('/updateAdvertising','AdvertisementDashboarControlle@updateAdvertising');
+    Route::get('/Advertising_add', 'AdvertisementDashboarControlle@Advertising_add'); 
+    Route::get('/Advertisingactivation/{id}','AdvertisementDashboarControlle@Advertisingactivation');
+});
 /*Route::get('/major', function () {
     return view('admin/major');
 });
