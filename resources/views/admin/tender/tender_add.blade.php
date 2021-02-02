@@ -63,7 +63,7 @@
                                 <div class="input-group">
                                 <div class="custom-file">
                                 <label id="filename" class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                  <input name="filename"  type="file" class="custom-file-input">
+                                  <input name="filename" accept="file/*" type="file" class="custom-file-input">
                                 </div>
                                 </div>
                                 <small  class="text-muted">*This field is optional.<br> 
