@@ -19,7 +19,7 @@ class JobController extends Controller
         ->where('deadline','>=',now())
         ->where('start_date','<=',now())
         ->orderByRaw('start_date DESC')
-        ->paginate(2);
+        ->paginate(8);
         $data=['jobs' => $jobs];
 
         return view('HR.jobs',$data);
@@ -76,6 +76,7 @@ class JobController extends Controller
             'job_id'=> $request->job_id,
             'job_name'=> $request->job_name,
             'user_name' =>$request->user_name,
+            'comp_name' =>$request->comp_name,
             'comp_email' => $request->comp_email,
             'user_email' => $request->user_email,
             'user_cv'=> $user_cv,

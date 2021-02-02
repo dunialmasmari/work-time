@@ -17,6 +17,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/hh', function () {
+    return view('email.jobsApplying');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

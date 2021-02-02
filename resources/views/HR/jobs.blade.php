@@ -28,16 +28,16 @@
                 </div>
             </div>
             <div class='row'>
-                <div class='col-3 col-sm-3 col-md-3 col-lg-3'>
-                    <img class="card-img img-fluid " src="{{URL::asset('images/job_img/'.$job->image)}}" alt="image" />
+                <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
+                    <img class="card-img img-fluid " src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" />
                  </div>
-                 <div class='col-6 col-sm-6 col-md-6 col-lg-6'>
-                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 20, $end = '...')}}</i> </p>
-                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 20, $end = '...')}}</i> </p>
-                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <i>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 20, $end = '...')}}</i></p>
+                 <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
+                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...')}}</i> </p>
+                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 15, $end = '...')}}</i> </p>
+                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <i>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...')}}</i></p>
  
                  </div>
-                 <div class='col-3 col-sm-3 col-md-3 col-lg-3'>
+                 <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
                      <a href="https://{{$job->apply_link}}"><button class='btn size-btn-job'>{{__('fields_web.Jobs.applyLink')}}</button></a><br><br>
                      <a href="job/{{$job->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
                   </div>

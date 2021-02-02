@@ -34,9 +34,17 @@
         
 
 
-
+        <div class='row '>
+                    <div class="col-md-12 d-none d-md-block" >
+                      <div class="card  px-5  py-2" style="border:0px">
+                      <div class="card-body">
+                       <img class="card-img  " style="height:200px;width:200px;" src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" />
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 <!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel carousel-multi-item vert slide " data-ride="carousel" data-interval="5000">
+<div id="multi-item-example" class="  carousel carousel-multi-item vert slide " data-ride="carousel" data-interval="5000">
 
   <!--Controls-->
         <div class="">
@@ -60,12 +68,15 @@
   <!--/.Indicators-->
 
   <!--Slides-->
-  <div class="carousel-inner" role="listbox">
+
+  <div class="carousel-inner " role="listbox">
      <!--First slide-->
+     
  @foreach($jobsAll->chunk(4) as $jobslides)
  <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                   
  @foreach($jobslides as $jobslide)
-     <div class="row">
+     <div class="row ">
         <div class="col-md-12 d-none d-md-block">
           <div class="card mb-2">
             <div class="card-body">
@@ -114,9 +125,9 @@
                      </div>
                    </div>--}}
                     
-                   <div class="row shadow-lg  bg-white">
+                   <div class="row shadow-lg  bg-white" >
                      <div class="col-lg-6"> 
-                     <div class="card shadow-lg  bg-white " >
+                     <div class="card shadow-lg  bg-white " style="height:17vw" >
                         <div class="card-body ">
                              <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
                              <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: {{$job->location}}</p>
@@ -126,10 +137,12 @@
                      </div>
                       
                      <div class="col-lg-6">
-                        <div class="card shadow-lg  bg-white " >
+                        <div class="card shadow-lg  bg-white " style="height:17vw" >
                            <div class="card-body ">
                                 <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}:{{$job->company}}</p>
+                                @if($job->apply_link !=null)
                                 <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Jobs.applyLink')}}:{{$job->apply_link}} </p>
+                                @endif
                                 <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}:{{$job->deadline}} </p>
                            </div>
                         </div>
@@ -172,6 +185,7 @@
                                 <input type="text" class="form-control" name="job_id" hidden  value='{{$job->job_id}}'>
                                 <input type="text" class="form-control" name="job_name" hidden  value='{{$job->title}}'>
                                 <input type="email" class="form-control" name="comp_email" hidden  value='{{$job->email}}'>
+                                <input type="text" class="form-control" name="comp_name" hidden  value='{{$job->company}}'>
                                       <div class="form-group">
                                          <label for="name">{{__('fields_web.ContactUS.Name')}} </label>
                                          <input type="text" class="form-control" name="user_name" placeholder="{{__('fields_web.ContactUS.Name')}} "  required>
