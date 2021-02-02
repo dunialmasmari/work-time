@@ -121,6 +121,30 @@
                     </li>
                   </ul>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  Blogs Managment
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ url('/controlpanel/blog_add') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Blog</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ url('/controlpanel/blog') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>show all Blogs</p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
  <!--         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
