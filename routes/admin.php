@@ -46,6 +46,14 @@ Route::group(['namespace' => 'Job', 'prefix' => 'controlpanel', 'middleware' => 
     Route::get('/job_add', 'JobDashboarController@job_add'); 
     Route::get('/jobactivation/{id}','JobDashboarController@jobactivation');
 });
+
+Route::group(['namespace' => 'Service', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
+ {
+    Route::apiResource('/service', 'ServiceDashboarControlle'); 
+    Route::post('/updateservice','ServiceDashboarControlle@updateservice');
+    Route::get('/service_add', 'ServiceDashboarControlle@service_add'); 
+    Route::get('/serviceactivation/{id}','ServiceDashboarControlle@serviceactivation');
+});
 /*Route::get('/major', function () {
     return view('admin/major');
 });
