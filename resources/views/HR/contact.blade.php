@@ -46,7 +46,7 @@
                                 {{Session :: get('success')}}
                                   </div>
                                 @endif
-                            <form  method="get" action="{{url('contactus')}}"  class="was-validated"  >
+                            <form  method="post" action="{{route('contactus')}}"  class="was-validated"  >
                                 @csrf
                                 <div class="form-group">
                                  <label for="name">{{__('fields_web.ContactUS.Name')}} </label>

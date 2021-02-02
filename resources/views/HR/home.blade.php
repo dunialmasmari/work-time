@@ -90,23 +90,6 @@
 
 
 
-                   {{--<div class="col-lg-3 col-md-6 ">
-                      <div class="card"> <br>
-                           <div class='card-image'>
-                             <img class="card-img-top img-fluid" src="{{URL::asset('assets/images/hrlogo.png')}}" alt="image" />
-                           </div>
-                           <div class="card-body">
-                               <h3 class="card-title"> اسم المناقصة</h3> 
-                               <hr class='btn-primary'>
-                                   <p class="card-text">اسم الشركة </p>
-                                   <p class="card-text" style="color:red">{{__('fields_web.Tenders.Deadline')}}</p>
-                                   <a href= ''> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
-                             </div>
-                        </div>
-                   </div> --}}
-  
-
-  
 
   
 
@@ -114,6 +97,78 @@
 </div> 
 </div>
 </div>
+
+
+  
+<div class="container-fluid">
+   <div class="row">
+     <div class='col-12' >
+       <h3 class='label'> {{__('fields_web.Jobs.Title')}}  </h3>
+   </div>
+</div>
+
+<div class="container-fluid bg-primary">
+  <div class="row" style="height:20px">
+  &nbsp;
+  </div> 
+</div>
+<br>
+            
+<div class="container cards bg-light">
+<div class="container ">
+            <div class='row'>
+            @foreach($jobs as $job)
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 col-md-12 py-mx">
+    <div class="card"> <br>
+        <div class="card-body">
+            <div class='row'>
+                  
+            </div>
+            <div class='row'>
+                <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
+                    <img class=" img-fluid img-fluidDetails " src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" width='' height='' />
+                 </div>
+
+                     <div class='col-9 col-sm-9 col-md-9 col-lg-9'>
+                     <div class='row'>
+
+                       <div class='col-12 col-sm-8 col-md-8 col-lg-8'>
+                            <h5 style="text-align:center;">{{\Illuminate\Support\Str::limit($job->title, $limit = 30, $end = '...')}}</h5>
+
+                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 20, $end = '...')}}</i> </p>
+                           <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 20, $end = '...')}}</i> </p>
+                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
+                           <p><i class='far fa-calendar-check'> &nbsp; </i> {{__('fields_web.Jobs.startDate')}}: {{$job->start_date}} 
+                           <i class="far fa-calendar-times" style="color:red"> &nbsp; </i> <i style="color:red">{{__('fields_web.Jobs.Deadline')}}:</i> <i style="color:red">{{\Illuminate\Support\Str::limit($job->deadline, $limit = 20, $end = '...')}}</i></p>
+                       </div>
+                    <div class='col-12 col-sm-4 col-md-4 col-lg-4'>
+                        <br>
+                      <a href="{{route('jobs')}}"><button class='btn btn-primary size-btn-job'>{{__('fields_web.Jobs.Titles')}}</button></a><br><br>
+                     @if($job->apply_link !=null)
+                     <a href="https://{{$job->apply_link}}"><button class='btn size-btn-job'>{{__('fields_web.Jobs.applyLink')}}</button></a><br><br>
+                    @endif
+                      <a href="job/{{$job->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a><br><br>
+
+                     </div>
+
+                    </div>
+                   </div> 
+
+            </div>
+            <div class='row'>
+            </div>
+         </div>  
+      </div>
+ </div><div class="col-lg-1"></div>
+@endforeach
+
+
+ </div>
+
+</div> 
+</div>
+  
 
 <br>
 {{--

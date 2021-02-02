@@ -3,7 +3,7 @@
 @section('content')
 
 <div class=" register-con"><br><br>
-<div class="container register">
+<div class=" register container-fluid">
 
                 <div class="row">
                     <div class="col-lg-3  register-left"> <br><br>

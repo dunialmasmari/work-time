@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>Contact Work-time</title>
+    <title>Job Applying from Work-time</title>
 
     <style type="text/css"></style>
 
@@ -16,27 +16,7 @@
     
     <!-- pre-header end -->
     <!-- header -->
-    <table  width="100%" cellpadding="0" cellspacing="0" bgcolor="ffffff">
 
-        <tr>
-            <td align="center">
-                <table  align="center" width="590" cellpadding="0" cellspacing="0" class="container590">
-                    <tr>
-                        <td align="center">
-
-                            <table  align="center" width="590" cellpadding="0" cellspacing="0" class="container590">
-                                <tr> <br><br>
-                                    <td align="center" height="70" style="height:70px;">
-                                        <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width: 290px;" src="{{ $message->embed(public_path().'\imgProj\hrlogo.png') }}" alt="" /></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
     <!-- end header -->
 
     <!-- big image section -->
@@ -53,9 +33,13 @@
 
 
                             <div style="line-height: 35px">
+                                        <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width:110px;" src="{{ $message->embed(public_path().'\imgProj\hrlogo.png') }}" alt="" /></a>
 
-                            <h4 class=' py-3' >
-                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">MESSAGE</span>
+                            <h4 class=' ' >
+                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">JOB APPLY</span>
+                                 </h4>
+                                 <h4 class='' >
+                                <span style="color: #5caad2;text-align:center"> &nbsp;&nbsp; طلب</span>  تقديم وظيفة 
                                  </h4>
 
                             </div>
@@ -63,20 +47,111 @@
                     </tr>
                     <tr>
                         <td align="center">
+                            <table   align="center" cellpadding="0" cellspacing="0" bgcolor="eeeeee">
+                                <tr>
+                                <td align="center" style="color: #343434; font-size: 24px; font-family: Quicksand, Calibri, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
+                                               <div style="line-height: 35px;text-align:right; background-color:white">
+                                                   
+                                                    <p>  هذا ايميل تم ارسالة بواسطة موقع ورك تايم work-time 
+                                   </p> لوظيفة {{$data['job_name']}} 
+                                    لدى شركة \منظمة{{$data['comp_name']}}
+                                     حسب الاعلان المضاف في موقعنا <a href="http://localhost:8000/en/job/{{$data['job_id']}}">{{$data['job_name']}}</a>
+
+                                   <p> بيانات مقدم الوظيفة </p>
+                                   <p>الاسم  :{{$data['user_name']}}</p>  
+                                   <p> الايميل {{$data['user_email']}} </p> 
+                                     
+                                                </div>
+                                </td>
+                                
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center">
                             <table  width="400" align="center" cellpadding="0" cellspacing="0" class="container590">
                                 <tr>
                                     <td align="center" style="color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
 
-<!-- data of contact ////////////////////////////////////////////////////-->
+<!-- data of user ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                             <h1>Contact  <span style="color: #5caad2;text-align:center">Message </span></h1>
-                                             <p>Name:  {{$data['name']}}</p>
-                                             <p>Email: {{$data['Email']}}</p>
-                                             <p>Message:  {{$data['message']}}</p>
+                                        {{--<h1>Titel :{{$data['job_name']}} </h1>
+                                        <h3>User Name :{{$data['user_name']}}  <h3>
+                                        <h3>User Email :{{$data['user_email']}}  <h3>--}}
+                                         
+
                                         </div>
                                     </td>
                                 </tr>
+
+<!-- link of user cv ////////////////////////////////////////////////////-->
+
+                    <tr>
+                    @if($data['user_cv'] !=null)
+                        <td align="center">
+                            <table  align="center" width="160" cellpadding="0" cellspacing="0" bgcolor="5caad2" style="">
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                     
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
+
+<!--  ////////////////////////////////////////////////////-->
+                                  
+                                            <div style="line-height: 26px;">
+                                            <p style="color: #ffffff; text-decoration: none;">لتنزيل السيرة الذاتية للمستخدم</p>
+                                              <a href="{{$message->embed(public_path('assets/Jobs_req/user_cv/'.$data['user_cv']))}}" style="color: #ffffff; text-decoration: none;">User CV</a>
+                                           </div>
+                                           @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr><br><br>
+<!-- link of user recomm ////////////////////////////////////////////////////-->
+
+                    <tr>
+                    @if($data['user_recom'] !=null)
+                        <td align="center">
+                            <table  align="center" width="160" cellpadding="0" cellspacing="0" bgcolor="5caad2" style="">
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                    
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
+
+<!--  ////////////////////////////////////////////////////-->
+                                        
+                                           <div style="line-height: 26px;">
+                                           <p style="color: #ffffff; text-decoration: none;">لتنزيل توصيات المقدم </p>
+                                              <a href="{{$message->embed(public_path('assets/Jobs_req/user_recom/'.$data['user_recom']))}}" style="color: #ffffff; text-decoration: none;">User Recommendation</a>
+                                           </div>
+                                           @endif
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+
                             </table>
                         </td>
                     </tr>
@@ -115,7 +190,7 @@
                                 <tr>
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
-
+                                                  <p> مع تحيات work-time</p>
                                             Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktime.com@gmail.com</a>
 
                                         </div>
@@ -154,7 +229,7 @@
                 </table>
             </td>
         </tr>
-    </table> <br><br>
+    </table> <br>
     <!-- end section -->
 
     <!-- footer ====== -->
@@ -201,7 +276,7 @@
                                         <table align="center"  cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center">
-                                                <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="80"  style="display: block; width: 80px;" src="{{ $message->embed(public_path().'\imgProj\hrlogao.png') }}" alt="" /></a>
+                                                    <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="80"  style="display: block; width: 80px;" src="{{ $message->embed(public_path().'\imgProj\hrlogao.png') }}" alt="" /></a>
                                                 </td>
                                             </tr>
                                         </table>

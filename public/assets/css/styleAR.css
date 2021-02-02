@@ -5,17 +5,14 @@
   
 }
 .container-fluid,.container:lang(ar){
-  direction:;
   text-align: right;    
 }
 .container-fluid,.container:lang(en){
-  direction:;
   text-align: left;
 }
 .justify-content-end {
   justify-content: flex-start !important;
-  direction:;
-  text-align: ;
+
 }
 .justify-content-start{
   justify-content: flex-end;
@@ -25,7 +22,6 @@
     margin:12px;
     margin-right:2px;
     /* width:105%; */
-    direction: ;
     text-align: right;
 }
 .card:lang(en)
@@ -80,8 +76,8 @@
     text-align: right;
   }
   .img-fluidDetails {
-    max-width: 80%;
-    height: 80%;
+    max-width: 85%;
+    height: 10vw;
     
   }
   .bg-primary{
@@ -241,7 +237,7 @@
   padding: 2%;
   background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213),#0062cc );
   color: #fff;
-  font-weight: 600;
+  font-weight: 60vw;
   width: 50%;
   cursor: pointer;
 }
@@ -250,6 +246,16 @@
 }
 .btnRegister:lang(ar){
   float: left;
+}
+.flot:lang(ar){
+  float: right;
+  width: 40%;
+}
+.flot:lang(en){
+  float: left;
+  width: 40%;
+
+  
 }
 .register .nav-tabs{
   margin-top: 3%;
@@ -283,4 +289,76 @@
   margin-top: 8%;
   margin-bottom: -15%;
   color: #495057;
+}
+.full-width{
+  width: 100%;
+}
+.full-width input{
+  width: 80%;
+  
+  
+}
+.lable-background
+{color:white; 
+text-align: center;
+background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157, 213));
+}
+.vert .carousel-item-next.carousel-item-left,
+.vert .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.vert .carousel-item-next,
+.vert .active.carousel-item-right {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100% 0);
+}
+
+.vert .carousel-item-prev,
+.vert .active.carousel-item-left {
+-webkit-transform: translate3d(0,-100%, 0);
+        transform: translate3d(0,-100%, 0);
+}
+
+
+.multi-item-carousel .carousel-inner > .carousel-item{
+  transition: 500ms ease-in-out left;
+}
+.multi-item-carousel .carousel-inner .active.left {
+  left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+  left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .multi-item-carousel .carousel-inner > .carousel-item{
+    transition: 500ms ease-in-out left;
+    transition: 500ms ease-in-out all;
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+    -webkit-transform: none!important;
+            transform: none!important;
+  }
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+  background-image: none;
+}
+
+.left .glyphicon,.right .glyphicon{
+  position:absolute;
+  top:13px;
+  left:16px;
+  color:#004C70;
+}
+.right .glyphicon{
+  top:16px;
+  left:15px;
 }

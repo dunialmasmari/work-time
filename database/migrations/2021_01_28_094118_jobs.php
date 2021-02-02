@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobsTable extends Migration
+class Jobs extends Migration
 {
     /**
      * Run the migrations.
@@ -32,6 +32,7 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -41,6 +42,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        //
     }
 }
