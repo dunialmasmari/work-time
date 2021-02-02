@@ -86,7 +86,7 @@
                
                   <!-- /.card-body -->
 
-                  <div class="">
+                  <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Edite Service</button>
                   </div>
                 </div>  
