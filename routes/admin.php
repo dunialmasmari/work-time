@@ -54,6 +54,14 @@ Route::group(['namespace' => 'Service', 'prefix' => 'controlpanel', 'middleware'
     Route::get('/service_add', 'ServiceDashboarControlle@service_add'); 
     Route::get('/serviceactivation/{id}','ServiceDashboarControlle@serviceactivation');
 });
+
+Route::group(['namespace' => 'Blog', 'prefix' => 'controlpanel', 'middleware' => 'auth' ],function()
+ {
+    Route::apiResource('/blog', 'BlogDashboarControlle'); 
+    Route::post('/updateblog','BlogDashboarControlle@updateblog');
+    Route::get('/blog_add', 'BlogDashboarControlle@blog_add'); 
+    Route::get('/blogactivation/{id}','BlogDashboarControlle@blogactivation');
+});
 /*Route::get('/major', function () {
     return view('admin/major');
 });
