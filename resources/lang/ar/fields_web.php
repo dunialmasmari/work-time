@@ -81,7 +81,8 @@ return [
     'Tenders'=> 'المناقصات',
     'latestTenders'=> 'اخر المناقصات',
     'majorsTenders'=> 'المناقصات على حسب الاقسام',
-    'Tenders&JobsAlerts'=> 'إشعارات '
+    'Tenders&JobsAlerts'=> 'إشعارات ',
+    'visti_website' =>' زيارة الموقع ',
   ],
   'LogIn'=> [
     'LogInTitle'=> 'تسجيل الدخول ',

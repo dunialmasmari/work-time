@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use validator;
 use Carbon\Carbon;
 use App\Models\job;
+use App\Models\Advertising;
 
 
 
@@ -31,8 +32,13 @@ class HomeController extends Controller
              ->where('jobs.start_date','<=',now())
              ->orderByRaw('jobs.start_date DESC')
              ->paginate(4);
-            $data=['tenders' => $tenders,
-                   'jobs' => $jobs
+
+             $advers=Advertising::select('*')->where('active','1')->get();
+             //print_r($advers);
+            
+             $data=['tenders' => $tenders,
+                   'jobs' => $jobs,
+                   'advers'=>$advers,
                   ];
 
         return view('HR.home',$data);
