@@ -197,12 +197,15 @@ return [
     'req_pdf'=>'must be pdf ',
     'submit'=>'Apply now',
     'applaying'=>'To apply through our website, please enter your information',
+    'others' => 'Other Jobs',
+
 
   ],
 
   'Services'=> [
     'Title'=> '  Services list ',
-    
+    'others'=>  'Other Services',
+    'description' =>'Service Description',
   ],
 
 ];

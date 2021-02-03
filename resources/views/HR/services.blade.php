@@ -24,7 +24,7 @@
                          </div>    
                      <h4 class="my-3">{{$ser->title}}</h4>
                         <p class="text-muted">{{\Illuminate\Support\Str::limit($ser->description, $limit = 60, $end = '...')}}</p>
-                        <a href="service/{{$ser->service_id}}"><button class='btn btn-primary btn-md my-2 color-logo' style="float: none;width:60%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+                        <a href="service/{{$ser->service_id}}"><button class='btn btn-primary btn-md my-2 color-logo' style="float: none;width:60%" >  {{__('fields_web.Tenders.more')}} </button></a>
                      </div>
                </div>
             @endforeach

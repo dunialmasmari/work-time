@@ -25,9 +25,13 @@ class ServiceController extends Controller
             
             if ($services->exists())
             {
+                $allservices=service::where('active','1')->get();
+
                 $services=$services->get();
-                $data=['services' => $services];
-                return view('HR.serviceDetails',$data);           
+                $data=['services' => $services,
+                       'allservices'=>$allservices,
+            ];
+                return view('HR.serviceDetails',$data);
              } 
             else 
             {

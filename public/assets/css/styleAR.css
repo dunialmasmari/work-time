@@ -397,9 +397,9 @@ background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157,
 
 .color-logo{
   background-color: transparent;
-  /* background: -webkit-linear-gradient(left, rgb(79, 157, 213),white) ; */
-   background: -webkit-linear-gradient(left, rgb(79, 157, 213),black) ;
- /* background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
+   /* background: -webkit-linear-gradient(left, rgb(79, 157, 213),white) ; color:black; */
+  background: -webkit-linear-gradient(left, rgb(79, 157, 213),black) ;color:white;
+  /* /*background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
 }
 .avatar-big {
   height:13vw;
@@ -428,5 +428,6 @@ object-fit: cover;
 border-radius: 50%!important;
 }
 .text-primary{
+  border: solid;
 
 }

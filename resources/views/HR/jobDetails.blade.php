@@ -1,19 +1,24 @@
 @extends('HR.layouts.master')
 @section('content')
 <br><br><br>
- <div class="container-fluid md-light">
+ <div class="container-fluid ">
    <div class="row">
       <div class="container">
-@foreach($jobs as $job)
-             <div class="row">
-               <div class='col-12'>
-                   <br>
-                  <h2 class='label'  style="text-align: center"> {{$job->title}} </h3>
-                  {{--<input type="submit"  class=" btnRegister " value="التقديم الان " style='width:20vh;height:9vh;padding:0px;' />--}}
+      
+     @foreach($jobs as $job)
+                 <div class="row ">
+                   <div class="col-lg-12"> 
+                     <div class="card shadow-lg bg-white full-width " >
+                           <div class=" card-body " >
+                                           <br>
+                                     <h2 class='label'  style="text-align: center"> {{$job->title}} </h3>
+                                      {{--<input type="submit"  class=" btnRegister " value="التقديم الان " style='width:20vh;height:9vh;padding:0px;' />--}}
 
-                  <br><br><br>
-                </div>
-             </div>
+                                      <br><br><br>
+                             </div>
+                         </div>
+                    </div>
+                 </div>
 
              <div class="row">
                 <div class=" col-lg-4" >
@@ -34,7 +39,7 @@
         
 
 
-        <div class='row '>
+        <div class='row shadow-lg'>
                     <div class="col-md-12 d-none d-md-block" >
                       <div class="card  px-5  py-2" style="border:0px">
                       <div class="card-body">
@@ -42,6 +47,14 @@
                     </div>
                     </div>
                     </div>
+                    </div>
+
+                    <div class="row ">
+                     <div class="card   bg-white full-width " >
+                        <div class=" card-body " >
+                        <h2 class='label mb-5 label lable-background'  style="text-align: center;">{{__('fields_web.Jobs.others')}}</h3>
+                        </div>
+                        </div>
                     </div>
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="  carousel carousel-multi-item vert slide " data-ride="carousel" data-interval="5000">
@@ -79,10 +92,10 @@
      <div class="row ">
         <div class="col-md-12 d-none d-md-block">
           <div class="card mb-2">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h4 class="card-title">{{$jobslide->title}}</h4>
               <p class="card-text">{{$jobslide->company}}</p>
-              <a href="/job/{{$jobslide->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
+              <a href="/job/{{$jobslide->job_id}}"><button class="btn btn-primary size-btn-job  lable-background"> {{__('fields_web.Jobs.more')}}  </button></a>
 
             </div>
           </div>
@@ -99,7 +112,7 @@
 
 
 
-        {{--<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <!-- {{--<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -108,14 +121,14 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>--}}
+</div>--}} -->
 
                 </div>
 
 
                 <div class="col-lg-8">
                 
-                     {{--<div class="row shadow-lg  bg-white" >
+                     <!-- {{--<div class="row shadow-lg  bg-white" >
                         <div class="col-lg-12"> 
                         <div class="card shadow-lg  bg-white " >
                            <div class="card-body " style="text-align: center">
@@ -123,9 +136,9 @@
                            </div>
                         </div>
                      </div>
-                   </div>--}}
+                   </div>--}} -->
                     
-                   <div class="row shadow-lg  bg-white" >
+                   <div class="row " >
                      <div class="col-lg-6"> 
                      <div class="card shadow-lg  bg-white " style="height:17vw" >
                         <div class="card-body ">
@@ -151,7 +164,7 @@
                    </div>
                   
 
-                   <div class="row shadow-lg  bg-white">
+                   <div class="row ">
 
                       <div class="card shadow-lg  bg-white full-width " >
                         <div class=" card-body " >
@@ -160,15 +173,13 @@
                                  </div>
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
                                       {!!$job->description!!}
-
-
                                 </div>
                         </div>
                       </div>
                      </div>
                      @if($job->register_here == 1 || $job->register_here == 2)
                         @if($job->email !=null || $job->email !='' )
-                      <div class='row shadow-lg  bg-white'>
+                      <div class='row '>
                          <div class="card shadow-lg  bg-white full-width">
                            <div class=" card-body ">
                              <div class='col-12 col-sm-12 col-md-12 col-lg-12 '>
