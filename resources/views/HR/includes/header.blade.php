@@ -38,6 +38,12 @@
           <li class="nav-item">
             <a class="nav-link menu  btn btn-md  "  href="{{route('contacthr')}}">{{__('fields_web.Navbar.contact_us')}}</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link menu  btn btn-md  "  href="{{route('services')}}">{{__('fields_web.Navbar.service')}}</a>
+          </li>
+          {{--<li class="nav-item">
+            <a class="nav-link menu  btn btn-md  "  href="{{route('contacthr')}}">{{__('fields_web.Navbar.blog')}}</a>
+          </li>--}}
           <?php if(app()->getLocale() == 'ar' )
           {
           ?>

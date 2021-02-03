@@ -38,7 +38,9 @@ return [
         'en'=> 'English',
         'ar'=> 'عربي',
         'login'=> 'login',
-        'signup'=> 'signup'
+        'signup'=> 'signup',
+        'service'=>'Service',
+        'blog'=> 'blogs',
       ],
       'aboutus'=> [
         'description'=>'work time هو موقع الكتروني    مصمم علئ شبكه الانترنت متخصص في اعلان ونشر كل  المناقصات بكل انواعها سواء كانت مناقصات توريدات او مناقصات انشائيه خدميه اومناقصات اخرئ..واعلانات التأهيل المسبق للمقاولين والموردين ومقدمي الخدمات وكذالك اعلان الوظائف المهنيه لكي يصل اعلاننا للمناقصه والوظائف الئ اكبر شريحه ممكنه .. تم اطلاق موقع work time عام 2021 حيث يساعد جميع الافراد والشركات والمقاولين والموردين علئ متابعه العطاءات والوظائف الجديده ...',
@@ -196,8 +198,11 @@ return [
     'submit'=>'Apply now',
     'applaying'=>'To apply through our website, please enter your information',
 
-    
+  ],
 
+  'Services'=> [
+    'Title'=> '  Services list ',
+    
   ],
 
 ];

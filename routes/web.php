@@ -67,5 +67,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('signuphr','SignupLoginController@signupShow')->name('signuphr');
     });
 
+    Route::namespace('Service')->group(function(){
+        Route::get('services','ServiceController@viewService')->name('services');
+        Route::get('service/{id}','ServiceController@viewServiceId')->name('service');
+
+    });
+
 });
 
