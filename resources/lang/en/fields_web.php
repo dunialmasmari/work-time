@@ -81,7 +81,9 @@ return [
       'Tenders'=> 'Tenders',
       'latestTenders'=> 'latestTenders',
       'majorsTenders'=> 'Tenders according to the departments',
-      'Tenders&JobsAlerts'=> 'Tenders Jobs Alerts'
+      'Tenders&JobsAlerts'=> 'Tenders Jobs Alerts',
+      'visti_website' =>' visit web site',
+
     ],
     'LogIn'=> [
       'LogInTitle'=> 'Login',

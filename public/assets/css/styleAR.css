@@ -362,3 +362,35 @@ background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157,
   top:16px;
   left:15px;
 }
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 30vw;
+  left: 15%;
+  z-index: 10;
+  padding-top: 2vh;
+  padding-bottom:2vh;
+  color: #fff;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .carousel-caption {
+  }
+}
+@media (min-width: 481px) and (max-width: 767px)  {
+  
+}
+@media (min-width: 767px) and (max-width: 890px){
+  .carousel-caption {
+  }
+}
+.second-layer{
+  z-index:1;
+  position: absolute;
+  height: 40vw;
+  width: 100%;
+  background-color:black; 
+  opacity: .3;
+  color:rgb(79, 157, 213);
+        }

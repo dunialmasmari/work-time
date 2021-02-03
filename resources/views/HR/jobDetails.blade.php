@@ -141,7 +141,7 @@
                            <div class="card-body ">
                                 <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}:{{$job->company}}</p>
                                 @if($job->apply_link !=null)
-                                <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Jobs.applyLink')}}:{{$job->apply_link}} </p>
+                                <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Jobs.applyLink')}}:<a href="https://www.{{$job->apply_link}}">{{$job->apply_link}}</a> </p>
                                 @endif
                                 <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}:{{$job->deadline}} </p>
                            </div>

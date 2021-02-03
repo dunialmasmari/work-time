@@ -4,37 +4,27 @@
 @section('content')
 <br>
 <!--slide -->
-      <div id="demo" class="carousel slide" data-ride="carousel">
+<div class='second-layer'></div>
+      <div id="demo" class="carousel slide " data-ride="carousel">
 <!-- Indicators -->
-<ul class="carousel-indicators">
-  <li data-target="#demo" data-slide-to="0" class="active"></li>
-  <li data-target="#demo" data-slide-to="1"></li>
-  <li data-target="#demo" data-slide-to="2"></li>
+<ul class="carousel-indicators" style='background-clip: content-box;'>
+@foreach($advers as $adv)
+  <li data-target="#demo" data-slide-to="0" class="{{ $loop->first ? 'active' : '' }}"></li>
+  @endforeach
 </ul>
 
 <!-- The slideshow -->
-<div class="carousel-inner" style='max-height: 70vh !important;'>
-  <div class="carousel-item active" >
-    <img src="{{URL::asset('assets/images/d.jpeg')}}" alt=""  width="100%" height="20%">
-    <div class="carousel-caption">
-    <h3></h3>
-    <p></p>
-  </div>
-  </div>
-  <div class="carousel-item" style="">
-    <img src="{{URL::asset('assets/images/2.jpg')}}" alt=""  width="100%" height="20%">
-    <div class="carousel-caption">
-    <h3></h3>
-    <p></p>
-  </div>
-  </div>
-  <div class="carousel-item">
-    <img src="{{URL::asset('assets/images/1.jpg')}}" alt=""  width="100%" height="20%">
-    <div class="carousel-caption">
-    <h3></h3>
-    <p></p>
-  </div>
-  </div>
+<div class="carousel-inner" style='max-height: 40vw !important;'>
+@foreach($advers as $adv)
+      <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+              <img src="{{URL::asset('assets/uploads/Advertisement/images/'.$adv->image)}}" class="d-block w-100" alt=""  width="100%" height="20%">
+              <div class="carousel-caption d-md-block ">  <!--d-none-->
+                  <h4>{{$adv->title}}</h4>
+                  <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width: 15%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+              </div>
+       </div>
+@endforeach
+
 </div>
 
 <!-- Left and right controls -->
