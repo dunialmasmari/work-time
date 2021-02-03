@@ -167,10 +167,8 @@
                    <div class="row ">
 
                       <div class="card shadow-lg  bg-white full-width " >
-                        <div class=" card-body " >
-                              <div class='col-12 col-sm-12 col-md-12 col-lg-12 .justify-content-start'> 
-                                        <h3> {{__('fields_web.Jobs.description')}}: </h3>
-                                 </div>
+                        <div class=" card-body " > 
+                               <h2 class='label mb-5 label lable-background'  style="text-align: center;">{{__('fields_web.Jobs.description')}} :</h3>
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
                                       {!!$job->description!!}
                                 </div>
