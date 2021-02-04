@@ -205,6 +205,12 @@ return [
     'description' => 'وصف الخدمة ',
 
   ],
+  'blogs'=> [
+    'Title'=> 'المدونة',
+    'others'=> 'مقالات  اخرى ',
+    'description' => 'وصف المقال ',
+
+  ],
 
 ];
 //]

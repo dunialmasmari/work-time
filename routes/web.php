@@ -72,6 +72,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('service/{id}','ServiceController@viewServiceId')->name('service');
 
     });
-
+    Route::namespace('Blog')->group(function(){
+        Route::get('blogs','BlogController@viewBlogs')->name('blogs');
+        Route::get('blog/{id}','BlogController@viewBlogId')->name('blog');
+       // Route::post('sendingCV','JobController@sendCV');
+    });
 });
 
