@@ -375,6 +375,9 @@ background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157,
   text-align: center;
 }
 @media (max-width: 480px) {
+  .pageheaderlogo{
+    display: none;
+  }
   .carousel-caption {
   }
 }
@@ -395,11 +398,19 @@ background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157,
   color:rgb(79, 157, 213);
         }
 
-.color-logo{
-  background-color: transparent;
+.colors-logo{
    /* background: -webkit-linear-gradient(left, rgb(79, 157, 213),white) ; color:black; */
-  background: -webkit-linear-gradient(left, rgb(79, 157, 213),black) ;color:white;
+color:white;
+  background-image: url('../images/2.jpg');
+  padding: 0px;;
   /* /*background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
+}
+.color-logo{
+  background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
+  /* /*background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
+}
+.pageheaderlogo{
+  position:absolute; left:5px;
 }
 .avatar-big {
   height:13vw;

@@ -4,15 +4,13 @@
 <br><br>
 @foreach($blogs as $blog)
 
-<div class='container-fluid color-logo'>
-   <div class="container py-3 px-3 mx-auto"  style='background-color: transparent;'>
-      <div class="row " style='background-color: transparent;'>
-        <div class="  py-3 px-3 mx-auto " align="center" style='background-color: transparent;'>
-              <div class="card-body ">
-                   <img src="{{URL::asset('assets/uploads/blogs/images/'.$blog->image)}}" class='' alt="" width="65%" height="15%" >
+<div class='container-fluid colors-logo'>
+<div class="color-logo">
+              <div class="card-body text-center " style="padding:80px;">
+                   <h1>{{__('fields_web.blogs.Title')}}</h1>
+   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
+
               </div>
-        </div>
-     </div>
    </div>
 </div>
 

@@ -1,19 +1,17 @@
 @extends('HR.layouts.master')
 @section('content')
 <br><br>
-<div class='container-fluid color-logo'>
-   <div class="container py-3 px-3 mx-auto"  style='background-color: transparent;'>
-      <div class="row " style='background-color: transparent;'>
-        <div class="  py-3 px-3 mx-auto " align="center" style='background-color: transparent;'>
-              <div class="card-body ">
-                   <img src="{{URL::asset('assets/images/hrlogo1.png')}}" class='' alt="" width="50%" height="15%" >
+
+<div class='container-fluid colors-logo'>
+<div class="color-logo">
+              <div class="card-body text-center " style="padding:80px;">
+                   <h1>{{__('fields_web.Services.Title')}}</h1>
+   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
+
               </div>
-        </div>
-     </div>
    </div>
 </div>
 <br>
-               <h2 class='label'  style="text-align: center"> {{__('fields_web.Services.Title')}}</h3><br>
 <div class='container py-4 px-4 mx-auto bg-light'>
         <div class="row text-center py-4 px-4  mx-auto">
           @foreach($services as $ser)
