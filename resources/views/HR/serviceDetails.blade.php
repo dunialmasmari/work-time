@@ -65,7 +65,7 @@
                  
 @foreach($servicesslides as $service)
    <div class="row ">
-      <div class="col-md-12 d-none d-md-block ">
+      <div class="col-md-12  d-md-block ">
                     <div class='card-body bg-white  mb-4 ' align='center'>
                          <div class="avatar-med">
                              <img class="avatar-img rounded-circle" src="{{URL::asset('assets/uploads/services/images/'.$ser->image)}}" />

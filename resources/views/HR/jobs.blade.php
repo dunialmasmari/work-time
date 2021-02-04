@@ -32,13 +32,15 @@
                     <img class="card-img img-fluid " src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" />
                  </div>
                  <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...')}}</i> </p>
-                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 15, $end = '...')}}</i> </p>
-                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <i>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...')}}</i></p>
+                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <span>{{\Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...')}}</span> </p>
+                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <span>{{\Illuminate\Support\Str::limit($job->location, $limit = 15, $end = '...')}}</span> </p>
+                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <span>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...')}}</span></p>
  
                  </div>
                  <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
+                     @if($job->apply_link !=null)
                      <a href="https://{{$job->apply_link}}"><button class='btn size-btn-job'>{{__('fields_web.Jobs.applyLink')}}</button></a><br><br>
+                     @endif
                      <a href="job/{{$job->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
                   </div>
             </div>

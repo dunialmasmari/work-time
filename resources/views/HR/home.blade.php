@@ -126,11 +126,11 @@
                        <div class='col-12 col-sm-8 col-md-8 col-lg-8'>
                             <h5 style="text-align:center;">{{\Illuminate\Support\Str::limit($job->title, $limit = 30, $end = '...')}}</h5>
 
-                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <i>{{\Illuminate\Support\Str::limit($job->company, $limit = 20, $end = '...')}}</i> </p>
-                           <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <i>{{\Illuminate\Support\Str::limit($job->location, $limit = 20, $end = '...')}}</i> </p>
-                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
+                           <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <span>{{\Illuminate\Support\Str::limit($job->company, $limit = 25, $end = '...')}}</span> </p>
+                           <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <span>{{\Illuminate\Support\Str::limit($job->location, $limit = 25, $end = '...')}}</span> </p>
+                           <p><i class='fas fa-ellipsis-v'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
                            <p><i class='far fa-calendar-check'> &nbsp; </i> {{__('fields_web.Jobs.startDate')}}: {{$job->start_date}} 
-                           <i class="far fa-calendar-times" style="color:red"> &nbsp; </i> <i style="color:red">{{__('fields_web.Jobs.Deadline')}}:</i> <i style="color:red">{{\Illuminate\Support\Str::limit($job->deadline, $limit = 20, $end = '...')}}</i></p>
+                           <i class="far fa-calendar-times" style="color:red"> &nbsp; </i> <span style="color:red">{{__('fields_web.Jobs.Deadline')}}:</span> <span style="color:red">{{\Illuminate\Support\Str::limit($job->deadline, $limit = 25, $end = '...')}}</span></p>
                        </div>
                     <div class='col-12 col-sm-4 col-md-4 col-lg-4'>
                         <br>
