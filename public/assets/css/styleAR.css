@@ -394,3 +394,40 @@ background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157,
   opacity: .3;
   color:rgb(79, 157, 213);
         }
+
+.color-logo{
+  background-color: transparent;
+   /* background: -webkit-linear-gradient(left, rgb(79, 157, 213),white) ; color:black; */
+  background: -webkit-linear-gradient(left, rgb(79, 157, 213),black) ;color:white;
+  /* /*background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
+}
+.avatar-big {
+  height:13vw;
+  width:13vw;
+}
+
+.avatar-small {
+  height:50px;
+  width:50px;
+}
+
+.avatar-med {
+  height:75px;
+  width:75px;
+}
+
+
+.avatar-img {
+width: 100%;
+height: 100%;
+-o-object-fit: cover;
+object-fit: cover;
+}
+
+.rounded-circle {
+border-radius: 50%!important;
+}
+.text-primary{
+  border: solid;
+
+}
