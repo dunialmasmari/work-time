@@ -1,20 +1,23 @@
+
 @extends('HR.layouts.master')
 @section('content')
 <br><br>
-@foreach($services as $ser)
+@foreach($blogs as $blog)
 
 <div class='container-fluid colors-logo'>
 <div class="color-logo">
               <div class="card-body text-center " style="padding:80px;">
-                   <h1>{{__('fields_web.Services.Title')}}</h1>
+                   <h1>{{__('fields_web.blogs.Title')}}</h1>
    <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
 
               </div>
    </div>
 </div>
+
+
 <br>
 
-               <h2 class='label'  style="text-align: center"> {{$ser->title}}</h3><br>
+               <h2 class='label'  style="text-align: center"> {{$blog->title}}</h3><br>
 
 
 
@@ -24,7 +27,7 @@
                  <div class="row ">
                      <div class="card   bg-white full-width " >
                         <div class=" card-body " >
-                        <h2 class='label mb-5 color-logo'  style="text-align: center;">{{__('fields_web.Services.others')}}</h3>
+                        <h2 class='label mb-5 color-logo'  style="text-align: center;">{{__('fields_web.blogs.others')}}</h3>
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
                                 </div>
                         </div>
@@ -60,18 +63,18 @@
 <div class="carousel-inner " role="listbox">
    <!--First slide-->
    
-@foreach($allservices->chunk(4) as $servicesslides)
+@foreach($blogsAll->chunk(4) as $blogsslides)
 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                  
-@foreach($servicesslides as $service)
+@foreach($blogsslides as $blog)
    <div class="row ">
       <div class="col-md-12 d-none d-md-block ">
                     <div class='card-body bg-white  mb-4 ' align='center'>
                          <div class="avatar-med">
-                             <img class="avatar-img rounded-circle" src="{{URL::asset('assets/uploads/services/images/'.$ser->image)}}" />
+                             <img class="avatar-img rounded-circle" src="{{URL::asset('assets/uploads/blogs/images/'.$blog->image)}}" />
                          </div>    
-                        <h4 class="my-3">{{$ser->title}}</h4>
-                        <a href="service/{{$ser->service_id}}"><button class='btn btn-primary btn-md my-2 color-logo' style="float: none;width:60%" >  {{__('fields_web.Tenders.more')}} </button></a>
+                        <h4 class="my-3">{{$blog->title}}</h4>
+                        <a href="service/{{$blog->blog_id}}"><button class='btn btn-primary btn-md my-2 color-logo' style="float: none;width:60%" >  {{__('fields_web.Tenders.more')}} </button></a>
                      </div>
       </div>
     </div> 
@@ -89,10 +92,10 @@
                      <div class="card   bg-white full-width " >
                         <div class=" card-body " >
                         <!-- <h2 class='label mb-5 color-logo'  style="text-align: center;color:#fff">{{__('fields_web.Services.others')}}</h3> -->
-                        <h1 class='label mb-5 color-logo'  style="text-align: center;"> {{__('fields_web.Services.description')}} : </h1>
+                        <h1 class='label mb-5 color-logo'  style="text-align: center;"> {{__('fields_web.blogs.description')}} : </h1>
 
                         <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
-                             {!!$ser->description!!}
+                             {!!$blog->description!!}
                           </div>
                         </div>
                         </div></div>
@@ -105,7 +108,7 @@
 <div class="container-fluid bg-light">
    <div class="row">
              <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
-              {{--{!! $services -> links() !!}--}}
+              {{--{!! $blogs -> links() !!}--}}
             </div>
         </div>
 </div>
