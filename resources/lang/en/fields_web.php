@@ -207,5 +207,10 @@ return [
     'others'=>  'Other Services',
     'description' =>'Service Description',
   ],
+  'blogs'=> [
+    'Title'=> 'The blog',
+    'others'=> 'Other Articals ',
+    'description' => 'Artical Description ',
 
+  ],
 ];
