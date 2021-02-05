@@ -13,28 +13,26 @@
 </div>
 <br>
 <div class='container py-4 px-4 mx-auto bg-light'>
-        <div class="row text-center py-4 px-4  mx-auto">
+        <div class="row  py-4 px-4  mx-auto">
           @foreach($blogs as $blog)
-                    <div class="col-md-4 ">
-                       <div class='card-body bg-white ' align='center' style='  border:.2px solid'>
-                         <div class="avatar-big">
+                    <div class="col-md-12 my-5">
+                       <div class='card-body bg-white  row' style="box-shadow:0 0.3rem 0.5rem rgba(0,0,0,.175)!important" >
+                       <div >
+                       <div class="avatar-big">
                              <img class="avatar-img rounded-circle" src="{{URL::asset('assets/uploads/blogs/images/'.$blog->image)}}" />
-                         </div>    
-                     <h4 class="my-3">{{$blog->title}}</h4>
-                        <p class="text-muted">{{\Illuminate\Support\Str::limit($blog->sub_title, $limit = 60, $end = '...')}}</p>
-                        <a href="blog/{{$blog->blog_id}}"><button class='btn btn-primary btn-md my-2 color-logo' style="float: none;width:60%" >  {{__('fields_web.Tenders.more')}} </button></a>
-                     </div>
+                         </div> 
+                         </div>  
+                         <div class="col-md-7 ">
+                        <h4 class="my-3">{{$blog->title}}</h4>
+                        <p class="text-muted">{{$blog->sub_title}}</p>
+                        <a href="blog/{{$blog->blog_id}}"><button class='btn px-0 py-0' style="color:#4F9DD5;" >  {{__('fields_web.Tenders.more')}} </button></a>
+                        </div>  
+                    </div>
                </div>
             @endforeach
         </div>
 </div>
 
-
-<div class='container-fluid '>
-   <div class="row ">
-        
-   </div>
-</div>
 
 
 <div class="container-fluid bg-light">
