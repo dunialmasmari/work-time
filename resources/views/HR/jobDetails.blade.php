@@ -8,8 +8,9 @@
      @foreach($jobs as $job)
                  <div class="row ">
                    <div class="col-lg-12"> 
-                     <div class="card shadow-lg bg-white full-width " >
+                     <div class="card shadow-lg bg-white full-width color-logo" >
                            <div class=" card-body " >
+                                <h2 class='label'  style="text-align: center">{{__('fields_web.Jobs.Title')}}</h3>
                                            <br>
                                      <h2 class='label'  style="text-align: center"> {{$job->title}} </h3>
                                       {{--<input type="submit"  class=" btnRegister " value="التقديم الان " style='width:20vh;height:9vh;padding:0px;' />--}}
@@ -40,7 +41,7 @@
 
 
         <div class='row shadow-lg'>
-                    <div class="col-md-12 d-none d-md-block" >
+                    <div class="col-md-12  d-md-block" >
                       <div class="card  px-5  py-2" style="border:0px">
                       <div class="card-body">
                        <img class="card-img  " style="height:200px;width:200px;" src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" />
@@ -90,7 +91,7 @@
                    
  @foreach($jobslides as $jobslide)
      <div class="row ">
-        <div class="col-md-12 d-none d-md-block">
+        <div class="col-md-12  d-md-block">
           <div class="card mb-2">
             <div class="card-body text-center">
               <h4 class="card-title">{{$jobslide->title}}</h4>
@@ -139,27 +140,29 @@
                    </div>--}} -->
                     
                    <div class="row " >
-                     <div class="col-lg-6"> 
-                     <div class="card shadow-lg  bg-white " style="height:17vw" >
+                     
+                     <div class="col-lg-12"> 
+                     <div class="card shadow-lg  bg-white " style="height:auto" >
                         <div class="card-body ">
-                             <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
+                        <div class="row " >
+                          
+                          <div class="col-lg-6 col-md-12 col-sm-12">
+                             <p><i class='fas fa-ellipsis-v'> &nbsp; </i>{{__('fields_web.Jobs.major')}}: {{$job->major_name}} </p>
                              <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: {{$job->location}}</p>
                              <p><i class='far fa-calendar-check'> &nbsp; </i> {{__('fields_web.Jobs.startDate')}}: {{$job->start_date}}</p>
-                        </div>
-                     </div>
-                     </div>
-                      
-                     <div class="col-lg-6">
-                        <div class="card shadow-lg  bg-white " style="height:17vw" >
-                           <div class="card-body ">
+                          </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12">
                                 <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}:{{$job->company}}</p>
                                 @if($job->apply_link !=null)
                                 <p><i class='fas fa-link'> &nbsp; </i>{{__('fields_web.Jobs.applyLink')}}:<a href="https://www.{{$job->apply_link}}">{{$job->apply_link}}</a> </p>
                                 @endif
                                 <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}:{{$job->deadline}} </p>
-                           </div>
+                          </div>
+
                         </div>
                      </div>
+                    </div>
+                    </div>
                      
                    </div>
                   
@@ -231,8 +234,36 @@
                                       <input type="submit"  class=" btnRegister flot" value="{{__('fields_web.Jobs.submit')}} " style='' />
                                     </div>
                             </form>
+
                              </div>
+
                           </div>
+                          @if($job->email !=null || $job->email !='' || $job->apply_link !=null)
+                          <div class='col-12 col-sm-12 col-md-12 col-lg-12 '>
+                                 <h2 class='label lable-background' style="text-align: center;"> {{__('fields_web.Jobs.toapplying')}}  </h3>
+                                 <div class='row'>
+                                    @if($job->apply_link !=null)
+                                    <div class='col-lg-6'>
+                                    <span>{{__('fields_web.Jobs.applaylink')}} </span>
+                                    <a href="https://www.{{$job->apply_link}}"><button class='btnRegister flot ' style=' width:60%'>{{$job->apply_link}}
+                                        </button> 
+                                       </a>
+                                    </div>
+                                    @endif
+                                    @if($job->email !=null || $job->email !='' )
+                                    <div class='col-lg-6'>
+                                    <span>{{__('fields_web.Jobs.applayEmail')}} </span>
+                                    <a href="https://www.{{$job->email}}"><button class='btnRegister flot ' style=' width:60%'>{{$job->email}}
+                                        </button>
+                                     </a>
+                                    </div>
+                                    @endif
+                                 </div>
+                                 <!-- <a href="" class=" btnRegister flot" ></a>
+                                 <a href="" class='btnRegister ' style=' width: 40%'> </a> -->
+                          </div><br>
+                          @endif
+
                          </div>
                     </div>
                     @endif
@@ -246,6 +277,12 @@
                  
 
              </div>
+
+
+
+
+
+             
        </div>
    </div>
  </div>

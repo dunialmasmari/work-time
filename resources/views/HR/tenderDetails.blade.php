@@ -29,7 +29,7 @@
                  <div class="card-body">
                    <div class='row'>
                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                          <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Tenders.major')}}: <i> {{$tender->major_name}} </i> </p>
+                          <p><i class='fas fa-ellipsis-v'> &nbsp; </i>{{__('fields_web.Tenders.major')}}: <i> {{$tender->major_name}} </i> </p>
                           <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Tenders.location')}}: <i> {{$tender->location}}</i> </p>
                           <p><i class='far fa-calendar-check'> &nbsp; </i> {{__('fields_web.Tenders.startDate')}}: <i> {{$tender->start_date}}</i> </p>
                         </div>

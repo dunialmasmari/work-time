@@ -198,6 +198,10 @@ return [
     'submit'=>'Apply now',
     'applaying'=>'To apply through our website, please enter your information',
     'others' => 'Other Jobs',
+    'applaylink'=> 'Visit website Applaying  ',
+    'applayEmail'=> 'Sending Email Applaying  ',
+    'toapplying'=>'To visit the Link or Email of applying '
+
 
 
   ],
