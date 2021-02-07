@@ -20,7 +20,9 @@
               <img src="{{URL::asset('assets/uploads/Advertisement/images/'.$adv->image)}}" class="d-block w-100" alt=""  width="100%" height="20%">
               <div class="carousel-caption d-md-block ">  <!--d-none-->
                   <h4>{{$adv->title}}</h4>
+                  @if($adv->link !='' || $adv->link !=null)
                   <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width: 15%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+                  @endif
               </div>
        </div>
 @endforeach

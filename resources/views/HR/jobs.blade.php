@@ -1,6 +1,15 @@
 @extends('HR.layouts.master')
 @section('content')
 <br><br>
+<div class='container-fluid colors-logo'>
+<div class="color-logo">
+              <div class="card-body text-center " style="padding:90px;">
+              <h2 class='label'>{{__('fields_web.Jobs.Titles')}}</h3>
+   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
+
+              </div>
+   </div>
+</div>
 <div class="container-fluid bg-light">
    <div class="row">
    <div class="container-fluid">
@@ -9,7 +18,6 @@
      <div class='col-12'  >
      <br><br>
               <div class="row container" style="background-color:">
-                   <h2 class='label'>{{__('fields_web.Jobs.Titles')}}</h3>
               </div>
         <hr> <br>
 
