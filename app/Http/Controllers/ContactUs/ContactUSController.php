@@ -25,7 +25,7 @@ class ContactUSController extends Controller
             'Email'=> $request->email,
         ];
         
-        Mail::to('infoworktime.com@gmail.com')->send(new ContactUsMail($data));
+        Mail::to('infoworktimeym@gmail.com')->send(new ContactUsMail($data));
         //return response()->json(['name' => $request->name,
         //'message' => $request->message,
         //'Email'=> $request->email,"message_sent" => "Your message has been sent successfully"],200);

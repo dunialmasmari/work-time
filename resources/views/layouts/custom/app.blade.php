@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}" dir="<?php if(app()->getLocale() == 'ar' ) {echo 'rtl'; }?>">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +24,8 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-@include("includes.navbar");
-@include("includes.sidebar");
+@include("includes.navbar")
+@include("includes.sidebar")
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 

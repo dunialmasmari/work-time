@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+],
+ function()
+{
+
 Auth::routes();
 //Auth::logout();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -79,4 +85,4 @@ Route::namespace('Major')->group(function(){
     Route::post('addmajor','MajorController@store');
 
     });*/
-
+});

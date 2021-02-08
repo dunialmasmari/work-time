@@ -265,8 +265,8 @@ function yesnoCheck() {
   };
 </script>
 
-<script src="{{url("assets/controlpanel/plugins/summernote/summernote-bs4.min.js")}}"></script>
-<script src="{{url("assets/controlpanel/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
+<script src="{{url('assets/controlpanel/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<script src="{{url('assets/controlpanel/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
 <script>
     $(function () {
 
