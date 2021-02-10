@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/updatejob" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('updatejob')}}" method="post" enctype="multipart/form-data">
                     @csrf
                 @foreach ($jobs as $job)
                 <input type="hidden" class="form-control" name="job_id" value="{{ $job->job_id }}">

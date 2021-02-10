@@ -50,10 +50,12 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-            $major = Major::create($request->all());
-            $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-            return view('admin.major.major_list',['majors' => $majors]);
-    }
+        $major = Major::create($request->all());
+        $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+        //return view('admin.major.major_list',['majors' => $majors]);
+        return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
+
+}
 
     /**
      * Display the specified resource.
@@ -103,8 +105,9 @@ class MajorController extends Controller
                 $major->Update(['major_name' => $request->major_name, 'type' => $request->type,]);
               //  $major->Update($request->all());
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major_list',['majors' => $majors]);
+                //return view('admin.major.major_list',['majors' => $majors]);
                // return response()->json($major->get(), 200);
+               return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
             else{
                 return response()->json(['message' => 'major not  found'], 404);
@@ -124,14 +127,16 @@ class MajorController extends Controller
             {
                 $major->Update(['active' => '0']);
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major_list',['majors' => $majors]);
+                //return view('admin.major.major_list',['majors' => $majors]);
+                return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
             else
             {
                 $major = Major::where('major_id',$id);
                 $major->Update(['active' => '1']);
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major_list',['majors' => $majors]);
+                //return view('admin.major.major_list',['majors' => $majors]);
+                return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
     } 
 

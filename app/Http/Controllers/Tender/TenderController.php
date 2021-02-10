@@ -25,9 +25,10 @@ class TenderController extends Controller
 {
     public function viewTenders()
     {
+        $date=Carbon::today();
         $tenders=tender::where('active','1')
-            ->where('deadline','>=',now())
-            ->where('start_date','<=',now())
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
             ->orderByRaw('start_date DESC')
             ->paginate(4);
             $data=['tenders' => $tenders];

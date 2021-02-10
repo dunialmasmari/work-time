@@ -17,8 +17,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="/controlpanel/updatemajor" method="post">
-                        @csrf
+                    <form action="{{route('updatemajor')}}" method="post">
                         <input type="hidden" class="form-control" name="major_id" value="{{ $major->major_id }}">
                       <div class="card-body">
                           <div class="row">

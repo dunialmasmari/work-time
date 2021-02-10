@@ -112,26 +112,52 @@
                   <div class="modal-body">
                   <p id="message" class="text-dark"></p>
                   <p id="msg"></p>
-                    <form id="add-major-form" action="/controlpanel/major" method="post" >
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="form-group">
-                          <input type="hidden" name="active" class="form-control" value="1">
-                          <input type="hidden" name="type" class="form-control" value="0">
-                            <label>Job major Name</label>
-                            <input type="text" name="major_name" class="form-control" placeholder="Enter major Name" id="major_name">
+                  <form action="/controlpanel/major" method="post">
+                        @csrf
+                        <input type="hidden" name="active" class="form-control" value="1">
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-md-12">
+
+                                @if(session('success'))
+                                    <div class="alert alert-success">
+                                    {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if(session('error'))
+                                <div class="alert alert-danger">
+                                {{ session('error') }}
+                                </div>
+                            @endif
+
+
+                              </div>
                           </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label> Mjaor Name :</label>
+                                    <input type="text" name="major_name" class="form-control" placeholder="major name" required>
+                                  </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Type :</label>
+                                    <select class="form-control select2" name='type' style="width: 100%;">
+                                      <option  value="1">Tender</option>
+                                      <option  value="0">Job</option>
+                                    </select>
+                                  </div>
+                            </div>
                         </div>
-                        <div class="col-12">
-                          <div class="form-group">
-                            <!--<label>type </label>
-                            <select class="form-control type" name="type" id="type">
-                            <option value=1>tender</opiton>
-                            <option value=0>jobs</option>
-                            </select>-->
-                          </div>
-                          
-                    
+                       
+                      </div>
+                      <!-- /.card-body -->
+
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Create Major</button>
+                      </div>
                     </form>
                   </div>
                   <br>

@@ -17,7 +17,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="/controlpanel/major" method="post">
+                    <form action="{{route('controlpanel.major.store')}}" method="post">
                         @csrf
                         <input type="hidden" name="active" class="form-control" value="1">
                       <div class="card-body">
@@ -120,15 +120,15 @@
                                 @if($major->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                   <a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                              </td>
+                                    <a href="{{  route('controlpanel.major.edite',$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('majoractivation' ,$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                  </td>
                               @else 
                               <td><span class="badge badge-danger">not Active</span></td>
                               <td>
-                                  <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                 <a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                              </td>
+                                    <a href="{{  route('controlpanel.major.edite',$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('majoractivation' ,$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                </td>
                               @endif 
                             </tr>
  

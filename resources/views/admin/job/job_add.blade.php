@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/job" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('controlpanel.job.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="card-body">
                       <div class="row">
@@ -80,6 +80,8 @@
                                   <option value="Shabwah">Shabwah</option>
                                   <option value="Socotra">Socotra</option> 
                                   <option value="Taiz">Taiz</option>
+                                  <option value="Yemen">Yemen</option>
+
                                 </select>
                               </div>
                         </div>

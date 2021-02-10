@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" id="form" action="/controlpanel/tender" method="post" enctype="multipart/form-data">
+                <form method="post" id="form" action="{{route('controlpanel.tender.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="card-body">
                       <div class="row">

@@ -19,17 +19,18 @@ class HomeController extends Controller
 {
     public function viewHome()
     {
+            $date=Carbon::today();
             $tenders=tender::where('active','1')
-            ->where('deadline','>=',now())
-            ->where('start_date','<=',now())
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
             ->orderByRaw('start_date DESC')
             ->paginate(4);
             
             $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
             ->select('majors.major_name','jobs.*')
             ->where('jobs.active','1')
-             ->where('jobs.deadline','>=',now())
-             ->where('jobs.start_date','<=',now())
+             ->where('jobs.deadline','>=',$date)
+             ->where('jobs.start_date','<=',$date)
              ->orderByRaw('jobs.start_date DESC')
              ->paginate(4);
 
