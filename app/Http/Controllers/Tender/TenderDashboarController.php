@@ -94,7 +94,9 @@ class TenderDashboarController extends Controller
           
             $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender_list',['tenders' => $tenders]);
+                //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
     }
 
     /**
@@ -192,7 +194,8 @@ class TenderDashboarController extends Controller
 
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender_list',['tenders' => $tenders]);
+                //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
             
             }
             else{
@@ -219,7 +222,9 @@ class TenderDashboarController extends Controller
                     $tender->Update(['active' => '0']);
                     $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                     ->select('majors.major_name', 'tenders.*' )->get();
-                    return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
             }
             else
             {
@@ -227,7 +232,9 @@ class TenderDashboarController extends Controller
                 $tender->Update(['active' => '1']);
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
                  ->select('majors.major_name', 'tenders.*' )->get();
-                    return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
             }
     } 
 

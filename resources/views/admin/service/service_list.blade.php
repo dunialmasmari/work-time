@@ -52,14 +52,14 @@
                              @if($service->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a href="{{  url('/controlpanel/service/'.$service->service_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  url('/controlpanel/serviceactivation/'.$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.service.edite' ,$service->service_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('serviceactivation' ,$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">not Active</span></td>
                               <td>
-                                  <a href="{{  url('/controlpanel/service/'.$service->service_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                  <a href="{{  url('/controlpanel/serviceactivation/'.$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.service.edite' ,$service->service_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('serviceactivation' ,$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @endif  
                           </tr>

@@ -27,7 +27,7 @@
                             <table  align="center" width="590" cellpadding="0" cellspacing="0" class="container590">
                                 <tr> <br><br>
                                     <td align="center" height="70" style="height:70px;">
-                                        <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width: 290px;" src="{{ $message->embed(public_path().'\imgProj\hrlogo.png') }}" alt="" /></a>
+                                        <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width: 290px;" src="{{ $message->embed(public_path().'/imgProj/hrlogo.png') }}" alt="" /></a>
                                     </td>
                                 </tr>
                             </table>
@@ -116,7 +116,7 @@
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
 
-                                            Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktime.com@gmail.com</a>
+                                            Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
 
                                         </div>
                                     </td>
@@ -178,9 +178,9 @@
 <!-- socail media  ///////////////////////////////////////////////////////////////////-->
                                             <span style="color: #333333;"></span>
                                             <div class="layout justify-center align-center">
-                                            <a href="https://www.facebook.com/work.time.35728" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'\imgProj\facebook.png') }}" alt="" /></a> 
-                                            <a href="https://www.instagram.com/worktime66/" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'\imgProj\instgram.png') }}" alt="" /></a> 
-                                            <a href="https://twitter.com/worktim1231?s=08" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'\imgProj\twitter.png') }}" alt="" /></a>
+                                            <a href="https://www.facebook.com/worktimeym/" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'/imgProj/facebook.png') }}" alt="" /></a> 
+                                            <a href="https://instagram.com/work_timeym?igshid=caft2w76jz6l" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'/imgProj/instgram.png') }}" alt="" /></a> 
+                                            <a href="https://twitter.com/worktim43494692?s=09" ><img style=" width: 20px;" src="{{ $message->embed(public_path().'/imgProj/twitter.png') }}" alt="" /></a>
                                             </div>
 
                                         </div>
@@ -201,7 +201,7 @@
                                         <table align="center"  cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center">
-                                                <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="80"  style="display: block; width: 80px;" src="{{ $message->embed(public_path().'\imgProj\hrlogao.png') }}" alt="" /></a>
+                                                <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="80"  style="display: block; width: 80px;" src="{{ $message->embed(public_path().'/imgProj/hrlogao.png') }}" alt="" /></a>
                                                 </td>
                                             </tr>
                                         </table>

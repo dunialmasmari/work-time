@@ -70,7 +70,8 @@ class JobDashboarController extends Controller
       
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
-            return view('admin.job.job_list',['jobs' => $jobs]);
+        return redirect()->route('controlpanel.job.index')->with(['jobs' => $jobs]);
+            //return view('admin.job.job_list',);
     }
 
     /**
@@ -154,7 +155,8 @@ class JobDashboarController extends Controller
           }
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'jobs.*' )->get();
-            return view('admin.job.job_list',['jobs' => $jobs]);
+            return redirect()->route('controlpanel.job.index')->with(['jobs' => $jobs]);
+            //return view('admin.job.job_list',['jobs' => $jobs]);
         }
         else{
             return response()->json(['message' => 'job not found'], 404);
@@ -179,7 +181,8 @@ class JobDashboarController extends Controller
                 $job->Update(['active' => '0']);
                 $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
                 ->select('majors.major_name', 'jobs.*' )->get();
-                return view('admin.job.job_list',['jobs' => $jobs]);
+                return redirect()->route('controlpanel.job.index')->with(['jobs' => $jobs]);
+                //return view('admin.job.job_list',['jobs' => $jobs]);
         }
         else
         {
@@ -187,7 +190,8 @@ class JobDashboarController extends Controller
             $job->Update(['active' => '1']);
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
              ->select('majors.major_name', 'jobs.*' )->get();
-                return view('admin.job.job_list',['jobs' => $jobs]);
+             return redirect()->route('controlpanel.job.index')->with(['jobs' => $jobs]);
+                //return view('admin.job.job_list',['jobs' => $jobs]);
         }
     }
 }

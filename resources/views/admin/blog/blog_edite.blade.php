@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/updateblog" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('updateblog')}}" method="post" enctype="multipart/form-data">
                 @foreach ($blogs as $blog)
                     @csrf
                   <div class="card-body">

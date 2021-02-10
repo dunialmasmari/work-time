@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/updatetender" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('updatetender')}}" method="post" enctype="multipart/form-data">
                     @csrf
                 @foreach ($tenders as $tender)
                 <input type="hidden" class="form-control" name="tender_id" value="{{ $tender->tender_id }}">

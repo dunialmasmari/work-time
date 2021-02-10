@@ -57,7 +57,9 @@ class AdvertisementDashboarControlle extends Controller
           $Advertising->save();
         
           $Advertisement = Advertising::get();
-              return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+              //return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+              return redirect()->route('controlpanel.Advertising.index')->with(['Advertisement' => $Advertisement]);
+
     }
 
     /**
@@ -125,7 +127,9 @@ class AdvertisementDashboarControlle extends Controller
             'link' => $Advertising->link, 'active' => $Advertising->active,]);
           }
             $Advertisement = Advertising::get();
-            return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+            //return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+            return redirect()->route('controlpanel.Advertising.index')->with(['Advertisement' => $Advertisement]);
+
         }
         else{
             return response()->json(['message' => 'Advertising not found'], 404);
@@ -150,14 +154,18 @@ class AdvertisementDashboarControlle extends Controller
             {
                 $Advertising->Update(['active' => '0']);
                 $Advertisement = Advertising::get();
-                return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+                //return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+                return redirect()->route('controlpanel.Advertising.index')->with(['Advertisement' => $Advertisement]);
+
             }
             else
             {
                 $Advertising = Advertising::where('Advertising_id',$id);
                 $Advertising->Update(['active' => '1']);
                 $Advertisement = Advertising::get();
-                return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+                //return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);
+                return redirect()->route('controlpanel.Advertising.index')->with(['Advertisement' => $Advertisement]);
+
             }
     } 
 }

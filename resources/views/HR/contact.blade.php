@@ -20,16 +20,16 @@
                                 <p>{{__('fields_web.ContactUS.description')}}</p>
                                 <div  class="mx-auto py-2" style='direction:ltr;' >
                                 <div   class="mx-auto py-2"   style='direction:ltr;' >
-                                    <a href="https://twitter.com/worktim1231?s=08" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp; &nbsp;
-                                    <a href="https://www.instagram.com/worktime66/" target="_blank" rel="noopener noreferrer" > <i class="fab fa-instagram" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp;&nbsp;
-                                    <a href="https://www.facebook.com/work.time.35728" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"hh style='font-size:22px;color:white'></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="https://twitter.com/worktim43494692?s=09" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp; &nbsp;
+                                    <a href="https://instagram.com/work_timeym?igshid=caft2w76jz6l" target="_blank" rel="noopener noreferrer" > <i class="fab fa-instagram" style='font-size:22px;color:white'></i></a> &nbsp;&nbsp;&nbsp;
+                                    <a href="https://www.facebook.com/worktimeym/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"hh style='font-size:22px;color:white'></i></a>&nbsp;&nbsp;&nbsp;
                                     </div>
                                     <div  class="mx-auto py-2" style='direction:ltr;' >
                                     
-                                    <span class=" my-2" >+967 777 986 662</span><br>
+                                    <span class=" my-2" >+967 </span><br>
                                     </div>
                                     <div  class="mx-auto py-2" style='direction:ltr;' >
-                                    <span >+967 775 527 633</span>
+                                    <span >+967 </span>
                                     </div>
                                 </div>
                                 

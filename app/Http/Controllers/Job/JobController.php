@@ -9,6 +9,7 @@ use App\Models\Major;
 use App\Mail\ApplyJob\ApplayingJobMail;
 use Mail;
 use App\Models\JobApplyer;
+use Carbon\Carbon;
 set_time_limit(300);
 
 class JobController extends Controller
@@ -16,9 +17,10 @@ class JobController extends Controller
     
     public function viewJobs()
     {
+        $date=Carbon::today();
         $jobs=job::where('active','1')
-        ->where('deadline','>=',now())
-        ->where('start_date','<=',now())
+        ->where('deadline','>=',$date)
+        ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->paginate(8);
         $data=['jobs' => $jobs];
@@ -28,14 +30,14 @@ class JobController extends Controller
 
     public function viewJobId($id)
     {
-        
+        $date=Carbon::today();
         $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
         ->select('majors.major_name','jobs.*')
         ->where('jobs.job_id', $id);
         
         $jobsAll=job::where('active','1')
-        ->where('deadline','>=',now())
-        ->where('start_date','<=',now())
+        ->where('deadline','>=',$date)
+        ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->get();
         //$data=['jobs' => $jobs];

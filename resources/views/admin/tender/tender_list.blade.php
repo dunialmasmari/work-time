@@ -54,18 +54,18 @@
                              @if($tender->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a href="{{  url('/controlpanel/tender/'.$tender->tender_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                     <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a> -->
-                                    <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">not Active</span></td>
                               <td>
-                                  <a href="{{  url('/controlpanel/tender/'.$tender->tender_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                  <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                   <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                   <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">تفعيل</a> -->
-                                  <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                  <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @endif  
                           </tr>

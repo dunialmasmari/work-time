@@ -57,7 +57,9 @@ class ServiceDashboarControlle extends Controller
             $service->save();
           
             $services = service::get();
-                return view('admin.service.service_list',['services' => $services]);
+                //return view('admin.service.service_list',['services' => $services]);
+                return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
+
     }
 
     /**
@@ -125,7 +127,9 @@ class ServiceDashboarControlle extends Controller
              'description' => $service->description, 'active' => $service->active,]);
           }
             $services = service::get();
-            return view('admin.service.service_list',['services' => $services]);
+            //return view('admin.service.service_list',['services' => $services]);
+            return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
+
         }
         else{
             return response()->json(['message' => 'service not found'], 404);
@@ -151,14 +155,17 @@ class ServiceDashboarControlle extends Controller
             {
                 $service->Update(['active' => '0']);
                 $services = service::get();
-                return view('admin.service.service_list',['services' => $services]);
+                //return view('admin.service.service_list',['services' => $services]);
+                return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
+
             }
             else
             {
                 $service = service::where('service_id',$id);
                 $service->Update(['active' => '1']);
                 $services = service::get();
-                return view('admin.service.service_list',['services' => $services]);
+                //return view('admin.service.service_list',['services' => $services]);
+                return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
             }
     } 
 }

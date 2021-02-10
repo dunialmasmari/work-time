@@ -1,25 +1,38 @@
 @extends('HR.layouts.master')
 @section('content')
 <br><br><br>
+     @foreach($jobs as $job)
+<div class='container-fluid colors-logo'>
+<div class="color-logo">
+              <div class="card-body text-center " style="padding:90px;">
+              <h2 class='label'>{{__('fields_web.Jobs.Titles')}}</h3>
+   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
+
+              </div>
+   </div>
+</div>
+<br>
+<h2 class='label'  style="text-align: center;color:"> {{$job->title}} </h3>
+
  <div class="container-fluid ">
    <div class="row">
       <div class="container">
       
-     @foreach($jobs as $job)
+<!-- 
                  <div class="row ">
                    <div class="col-lg-12"> 
                      <div class="card shadow-lg bg-white full-width color-logo" >
-                           <div class=" card-body " >
-                                <h2 class='label'  style="text-align: center">{{__('fields_web.Jobs.Title')}}</h3>
+                           <div class=" card-body ">
+                                <h2 class='label'  style="text-align: center;color:white">{{__('fields_web.Jobs.Title')}}</h3>
                                            <br>
-                                     <h2 class='label'  style="text-align: center"> {{$job->title}} </h3>
+                                     <h2 class='label'  style="text-align: center;color:white"> {{$job->title}} </h3>
                                       {{--<input type="submit"  class=" btnRegister " value="التقديم الان " style='width:20vh;height:9vh;padding:0px;' />--}}
 
                                       <br><br><br>
                              </div>
                          </div>
                     </div>
-                 </div>
+                 </div> -->
 
              <div class="row">
                 <div class=" col-lg-4" >
