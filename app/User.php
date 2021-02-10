@@ -7,10 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, LaratrustUserTrait;
   //  use Notifiable;
 
     /**
@@ -18,6 +19,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    // protected $guard_name = 'api';
     protected $primaryKey = 'user_id';
     protected $fillable = [
         'user_id', 'name', 'email', 'password', 'username',

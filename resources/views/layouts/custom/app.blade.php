@@ -15,12 +15,16 @@
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- Theme style -->
+
   <!-- <link rel="stylesheet" href="{{url('assets/controlpanel/dist/__(fields_web.Dashbord.cpanal_css)')}}"> -->
   <!-- <link rel="stylesheet" href="{{asset(__('fields_web.Dashbord.cpanal_css'))}}"> -->
 
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/dist/css/adminlte.css')}}">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
