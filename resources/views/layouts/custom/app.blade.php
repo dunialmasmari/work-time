@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{url("assets/controlpanel/dist/css/adminlte.min.css")}}">
   <link rel="stylesheet" href="{{url("assets/controlpanel/plugins/icheck-bootstrap/icheck-bootstrap.min.css")}}">
   <link rel="stylesheet" href="{{url("assets/controlpanel/plugins/summernote/summernote-bs4.min.css")}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
 </head>
