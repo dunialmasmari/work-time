@@ -52,4 +52,14 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+    
+
+    // public function render($request, ExceptionHandler $exception)
+    // {
+    //     if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+    //         return redirect('/');
+    //     }
+
+    //     return parent::render($request, $exception);
+    // }
 }
