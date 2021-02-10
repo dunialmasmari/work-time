@@ -217,8 +217,134 @@ return [
     'description' => 'Artical Description ',
 
   ],
-  'Dashbord'=>
-  [
-    'cpanal_css'=>"assets/controlpanel/dist/css/adminlte.css",
-  ]
+  
+  
+ // Dashbored
+
+  /** Advertisment */
+  /**Show Advertising */
+  'Advertising'=>[
+    'Title'=> 'Advertisement List',
+    'image'=> 'image',
+    'link'=> 'link',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Advertising*/
+  'AdvertisingAdd'=>[
+    'TitlePage'=> 'Create New Advertising',
+    'image'=> 'Advertising image',
+    'choose'=> 'Choose image',
+    'Title'=> 'Title',
+    'link'=> 'link',
+    'Submit'=> 'Create Advertising',
+  ],
+  /**Edite Advertising*/
+  'AdvertisingEdite'=>[
+    'Tilte'=> 'Edite Advertising',
+    'Submit'=> 'Edite Advertising',
+  ],
+
+  /** Blogs */
+  /**Show Blogs */
+  'Blog'=>[
+    'TitlePage'=> 'Blogs List',
+    'Title'=> 'blogs title',
+    'SubTiltle'=> 'sub_title',
+    'image'=> 'image',
+    'description'=> 'description',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Blogs */
+  'BlogAdd'=>[
+    'TitlePage'=> 'Create New Blog',
+    'image'=> 'Blog image',
+    'choose'=> 'Choose image',
+    'Title'=> 'Title',
+    'SubTiltle'=> 'Sub_Title',
+    'description'=> 'Description',
+    'Submit'=> 'Create Blog'
+  ],
+  /**Edite Blogs */
+  'BlogEdite'=>[
+    'Title'=> 'Edite blog',
+    'Submit'=> 'Edite blog',
+  ],
+
+  /** Jobs */
+  /**Show Jobs */
+  'Jobs'=>[
+    'TitlePage'=> 'Job List',
+    'Title'=> 'jobs title',
+    'location'=> 'location',
+    'company'=> 'company',
+    'deadline'=> 'deadline',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Jobs */
+  'JobsAdd'=>[
+    'TitlePage'=> 'Create New Job',
+    'Title'=> 'Title',
+    'Major'=> 'Major',
+    'Location'=> 'Location',
+    'OtharLocation'=> 'Othar Location',
+    'Company'=> 'Company',
+    'start_date'=> 'start_date',
+    'image'=> 'Job image',
+    'choose'=> 'Choose image',
+    'deadline'=> 'deadline',
+    'PostedDate'=> 'Posted Date',
+    'Description'=> 'Description',
+    'massege'=> 'Can the application be via the website or communication with the company?',
+    'No'=> 'No',
+    'Yes'=> 'Yes',
+    'Both'=> 'Both',
+    'link'=> 'link',
+    'email'=> 'email',
+    'Recommendation'=> 'Recommendation',
+    'Submit'=> 'Create Job',
+  ],
+  /**Edite Jobs */
+  'JobsEdite'=>[
+    'Title'=> 'Edite job',
+    'Submit'=> 'Eidte job',
+  ],
+
+  /** Majors */
+  /**Show Major */
+  'Major'=>[
+    'Title'=> 'Major List',
+    'Name'=> 'Mjaor Name',
+    'type'=> 'type',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Major */
+  'MajorAdd'=>[
+    'Title'=> 'Add New Major',
+    'Name'=> 'Mjaor Name',
+    'Type'=> 'Type',
+    'Tender'=> 'Tender',
+    'Job'=> 'Job',
+    'Submit'=> 'Create Major',
+  ],
+  /**Edite Major */
+  'MajorEdite'=>[
+    'Title'=> 'Edite Major',
+    'Name'=> 'Mjaor Name',
+    'Type'=> 'Type',
+    'Tender'=> 'Tender',
+    'Job'=> 'Job',
+    'Submit'=> 'Edite Major',
+  ],
 ];
