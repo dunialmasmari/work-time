@@ -48,7 +48,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Parent :</label>
+                                    <label>Type :</label>
                                     <select class="form-control select2" name='type' style="width: 100%;">
                                     @if($major->type == 1)
                                         <option value="{{ $major->type}}">Tender</opiton>

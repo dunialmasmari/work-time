@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Create New Advertising</h3>
+                  <h3 class="card-title">Edite Advertising</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
