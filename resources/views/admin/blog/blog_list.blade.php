@@ -54,14 +54,14 @@
                              @if($blog->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a href="{{  url('/controlpanel/blog/'.$blog->blog_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  url('/controlpanel/blogactivation/'.$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.blog.edite' ,$blog->blog_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('blogactivation' ,$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">not Active</span></td>
                               <td>
-                                  <a href="{{  url('/controlpanel/blog/'.$blog->blog_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                  <a href="{{  url('/controlpanel/blogactivation/'.$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.blog.edite' ,$blog->blog_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('blogactivation' ,$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @endif  
                           </tr>

@@ -9,6 +9,7 @@ use App\Models\Major;
 use App\Mail\ApplyJob\ApplayingJobMail;
 use Mail;
 use App\Models\JobApplyer;
+use Carbon\Carbon;
 set_time_limit(300);
 
 class JobController extends Controller

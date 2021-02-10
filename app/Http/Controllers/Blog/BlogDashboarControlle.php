@@ -59,7 +59,9 @@ class BlogDashboarControlle extends Controller
             $blog->save();
           
             $blogs = blog::get();
-                return view('admin.blog.blog_list',['blogs' => $blogs]);
+                //return view('admin.blog.blog_list',['blogs' => $blogs]);
+                return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
+
     }
 
     /**
@@ -129,7 +131,9 @@ class BlogDashboarControlle extends Controller
             'description' => $blog->description, 'active' => $blog->active,]);
           }
             $blogs = blog::get();
-            return view('admin.blog.blog_list',['blogs' => $blogs]);
+            //return view('admin.blog.blog_list',['blogs' => $blogs]);
+            return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
+
         }
         else{
             return response()->json(['message' => 'blog not found'], 404);
@@ -155,14 +159,17 @@ class BlogDashboarControlle extends Controller
             {
                 $blog->Update(['active' => '0']);
                 $blogs = blog::get();
-                return view('admin.blog.blog_list',['blogs' => $blogs]);
+                //return view('admin.blog.blog_list',['blogs' => $blogs]);
+                return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
             }
             else
             {
                 $blog = blog::where('blog_id',$id);
                 $blog->Update(['active' => '1']);
                 $blogs = blog::get();
-                return view('admin.blog.blog_list',['blogs' => $blogs]);
+                //return view('admin.blog.blog_list',['blogs' => $blogs]);
+                return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
+
             }
     } 
 }

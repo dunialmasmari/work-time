@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/updateservice" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('updateservice')}}" method="post" enctype="multipart/form-data">
                 @foreach ($services as $service)
                     @csrf
                   <div class="card-body">

@@ -217,4 +217,8 @@ return [
     'description' => 'Artical Description ',
 
   ],
+  'Dashbord'=>
+  [
+    'cpanal_css'=>"assets/controlpanel/dist/css/adminlte.css",
+  ]
 ];

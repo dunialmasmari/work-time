@@ -52,14 +52,14 @@
                              @if($Advertising->active == 1)
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a href="{{  url('/controlpanel/Advertising/'.$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  url('/controlpanel/Advertisingactivation/'.$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">not Active</span></td>
                               <td>
-                                  <a href="{{  url('/controlpanel/Advertising/'.$Advertising->Advertising_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                  <a href="{{  url('/controlpanel/Advertisingactivation/'.$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @endif  
                           </tr>

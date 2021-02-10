@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/Advertising" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('controlpanel.Advertising.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="card-body">
                       <div class="row">

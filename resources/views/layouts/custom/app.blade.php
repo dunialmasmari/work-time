@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{app()->getLocale()}}" dir="<?php if(app()->getLocale() == 'ar' ) {echo 'rtl'; }?>">
+<html lang="{{app()->getLocale()}}" dir="<?php if(app()->getLocale() == 'ar' ) {echo 'rtl'; }?>" text-align="<?php if(app()->getLocale() == 'ar' ) {echo 'right'; }?>">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +15,13 @@
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{url('assets/controlpanel/dist/css/adminlte.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{url('assets/controlpanel/dist/__(fields_web.Dashbord.cpanal_css)')}}"> -->
+  <!-- <link rel="stylesheet" href="{{asset(__('fields_web.Dashbord.cpanal_css'))}}"> -->
+
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="{{url('assets/controlpanel/dist/css/adminlte.css')}}">
+
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
 </head>

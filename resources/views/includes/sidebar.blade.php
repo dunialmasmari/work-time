@@ -41,7 +41,12 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ url('/controlpanel/major') }}" class="nav-link">
+                  @if(app()->getLocale() == 'en' )
+                  <a href="{{url('en/controlpanel/major') }}" class="nav-link">
+                  @endif
+                  @if(app()->getLocale() == 'ar' )
+                  <a href="{{url('ar/controlpanel/major') }}" class="nav-link">
+                  @endif
                     <i class="far fa-circle nav-icon"></i>
                     <p>show all Majors</p>
                   </a>
@@ -60,13 +65,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/tender_add') }}" class="nav-link">
+                  <a href="{{ route('tender_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>New Tender</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/tender') }}" class="nav-link">
+                  <a href="{{ route('controlpanel.tender.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>show all Tenders</p>
                       </a>
@@ -84,13 +89,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/job_add') }}" class="nav-link">
+                    <a href="{{ route('job_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>New Job</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/job') }}" class="nav-link">
+                     <a href="{{ route('controlpanel.job.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>show all Jobs</p>
                       </a>
@@ -108,13 +113,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/service_add') }}" class="nav-link">
+                    <a href="{{ route('service_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>New Service</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/service') }}" class="nav-link">
+                    <a href="{{ route('controlpanel.service.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>show all Services</p>
                       </a>
@@ -132,13 +137,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/blog_add') }}" class="nav-link">
+                    <a href="{{route('blog_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>New Blog</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/blog') }}" class="nav-link">
+                    <a href="{{ route('controlpanel.blog.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>show all Blogs</p>
                       </a>
@@ -157,13 +162,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/Advertising_add') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                    <a href="{{ route('Advertising_add') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
                         <p>New Advertising</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ url('/controlpanel/Advertising') }}" class="nav-link">
+                    <a href="{{ route('controlpanel.Advertising.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>show all Advertisement</p>
                       </a>

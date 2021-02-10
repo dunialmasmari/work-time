@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/controlpanel/updateAdvertising" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{route('updateAdvertising')}}" method="post" enctype="multipart/form-data">
                 @foreach ($Advertisement as $Advertising)
                     @csrf
                   <div class="card-body">
