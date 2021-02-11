@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Advertisement List</h3>
+                  <h3 class="card-title">{{__('fields_web.Advertising.TitlePage')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,11 +34,11 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th >Advertisement title</th>
-                          <th> image </th>
-                          <th> link </th>
-                          <th> status </th>
-                          <th> Actions </th>
+                          <th>{{__('fields_web.Advertising.Title')}} </th>
+                          <th>{{__('fields_web.Advertising.image')}}  </th>
+                          <th>{{__('fields_web.Advertising.link')}}  </th>
+                          <th>{{__('fields_web.Advertising.status')}}  </th>
+                          <th>{{__('fields_web.Advertising.Actions')}}  </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -50,13 +50,13 @@
                             </td>
                             <td> {{$Advertising->link}} </td>
                              @if($Advertising->active == 1)
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Advertising.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">not Active</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Advertising.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>

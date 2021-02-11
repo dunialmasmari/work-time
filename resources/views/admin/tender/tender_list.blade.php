@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Tender List</h3>
+                  <h3 class="card-title">{{__('fields_web.Tender.TitlePage')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,13 +34,13 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th >tenders title</th>
+                          <th >{{__('fields_web.Tender.Title')}}</th>
                           <!-- <th>major Name</th> -->
-                          <th> location </th>
-                          <th> company </th>
-                          <th> deadline </th>
-                          <th> status </th>
-                          <th> Actions </th>
+                          <th>{{__('fields_web.Tender.location')}}</th>
+                          <th>{{__('fields_web.Tender.company')}}</th>
+                          <th>{{__('fields_web.Tender.deadline')}}</th>
+                          <th>{{__('fields_web.Tender.status')}}</th>
+                          <th>{{__('fields_web.Tender.Actions')}}</th>
                           </tr>
                           </thead>
                           <tbody>
@@ -52,7 +52,7 @@
                             <td> {{ $tender->company}} </td>
                             <td> {{ $tender->deadline}} </td>
                              @if($tender->active == 1)
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Tender.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
@@ -60,7 +60,7 @@
                                     <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">not Active</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Tender.notActive')}}</span></td>
                               <td>
                                   <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                   <!-- <a href="" class="btn"> عرض التفاصيل</a> -->

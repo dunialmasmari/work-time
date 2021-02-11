@@ -216,11 +216,217 @@ return [
 
   ],
 
+   // Dashbored
+
+  /** Advertisment */
+  /**Show Advertising */
+  'Advertising'=>[
+    'Title'=> 'قائمة الإعلانات',
+    'Title'=> 'عنوان الإعلان ',
+    'image'=> 'الصورة',
+    'link'=> 'الرابط',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Advertising*/
+  'AdvertisingAdd'=>[
+    'TitlePage'=> 'اضافة اعلان جديد',
+    'image'=> ' صورة الإعلان',
+    'choose'=> 'اختار صورة',
+    'Title'=> 'عنوان الاعلان',
+    'link'=> 'الرابط',
+    'Submit'=> 'اضافة الإعلان',
+  ],
+  /**Edite Advertising*/
+  'AdvertisingEdite'=>[
+    'Tilte'=> 'تعديل الإعلان',
+    'Submit'=> 'تعديل الإعلان ',
+  ],
+
+  /** Blogs */
+  /**Show Blogs */
+  'Blog'=>[
+    'TitlePage'=> 'قائمة المدونات',
+    'Title'=> 'عنوان المدونة',
+    'SubTiltle'=> 'العنوان الفرعي',
+    'image'=> 'الصورة',
+    'description'=> 'الوصف',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Blogs */
+  'BlogAdd'=>[
+    'TitlePage'=> 'اضافة مدونة جديدة',
+    'image'=> 'صورة المدونة',
+    'choose'=> 'اختار صورة',
+    'Title'=> 'عنوان المدونة',
+    'SubTiltle'=> 'العنوان الفرعي',
+    'description'=> 'وصف المدونة',
+    'Submit'=> 'اضافة المدونة'
+  ],
+  /**Edite Blogs */
+  'BlogEdite'=>[
+    'Title'=> 'تعديل المدونة',
+    'Submit'=> 'تعيل المدونة',
+  ],
+
+  /** Jobs */
+  /**Show Jobs */
+  'Jobs'=>[
+    'TitlePage'=> 'قائمة الوظائف',
+    'Title'=> 'عنوان الوظيفة',
+    'Location'=> 'الموقع',
+    'Company'=> 'الشركة',
+    'deadline'=> 'تاريخ اٌنتهاء ',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Jobs */
+  'JobsAdd'=>[
+    'TitlePage'=> 'اضافة وظيفة جديدة',
+    'Title'=> 'العنوان',
+    'Major'=> 'القسم',
+    'Location'=> 'الموقع',
+    'OtharLocation'=> 'موقع اخر',
+    'Company'=> 'الشركة',
+    'start_date'=> 'تاريخ البدء',
+    'image'=> 'صورة الوظيفة ',
+    'choose'=> ' اختار صورة',
+    'deadline'=> 'تاريخ اٌنتهاء ',
+    'PostedDate'=> 'تاريخ النشر',
+    'Description'=> 'وصف الوظيفة',
+    'massege'=> 'هل يكون التقديم للوظيفة بواسطة الموقع أو التواصل مع الشركة?',
+    'No'=> 'لا',
+    'Yes'=> 'نعم',
+    'Both'=> 'كلاهما',
+    'link'=> 'الرابط',
+    'email'=> 'البريد الالكتروني',
+    'Recommendation'=> 'التوصية',
+    'Submit'=> 'اضافة وظيفة',
+  ],
+  /**Edite Jobs */
+  'JobsEdite'=>[
+    'Title'=> 'تعديل الوظيفة',
+    'Submit'=> ' تعديل الوظيفة',
+  ],
+
+  /** Majors */
+  /**Show Major */
+  'Major'=>[
+    'Title'=> 'قائمة الأقسام',
+    'Name'=> 'اسم القسم ',
+    'Type'=> 'النوع',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Major */
+  'MajorAdd'=>[
+    'Title'=> 'اضافة قسم جديد',
+    'Name'=> 'اسم القسم ',
+    'Type'=> 'النوع',
+    'Tender'=> 'مناقصة',
+    'Job'=> 'وظيفة',
+    'Submit'=> 'اضافة قسم',
+  ],
+  /**Edite Major */
+  'MajorEdite'=>[
+    'Title'=> 'تعديل القسم',
+    'Name'=> 'اسم القسم ',
+    'Type'=> 'النوع',
+    'Tender'=> 'مناقصة',
+    'Job'=> 'وظيفة',
+    'Submit'=> 'تعديل القسم',
+  ],
+
+  /** Services */
+  /**Show Service */
+  'Service'=>[
+    'TitlePage'=> 'قائمة الخدمات',
+    'Title'=> 'عنوان الخدمة',
+    'image'=> 'الصورة',
+    'description'=> 'الوصف',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Service */
+  'ServiceAdd'=>[
+    'TitlePage'=> 'إضافة خدمة جديدة',
+    'image'=> 'صورة الخدمة ',
+    'choose'=> 'اختار الصورة',
+    'Title'=> 'عنوان الخدمة',
+    'description'=> 'وصف الخدمة',
+    'Submit'=> 'اضافة الخدمة',
+  ],
+  /** Edite Service */
+  'ServiceEdite'=>[
+    'Title'=> 'تعديل الخدمة',
+    'Submit'=> 'تعديل الخدمة',
+  ],
+
+  /**Tender */
+  /** Show Tender */
+  'Tender'=>[
+    'TitlePage'=> 'قائمة المناقصة ',
+    'Title'=> 'عنوان المناقصة ',
+    'location'=> 'الموقع',
+    'company'=> 'الشركة',
+    'deadline'=> 'تاريخ الإنتهاء',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+  /**Add Tender */
+  'TenderAdd'=>[
+    'TitlePage'=> 'إضافة مناقصة جديدة',
+    'Title'=> 'عنوان المناقصة',
+    'Major'=> 'القسم',
+    'File'=> 'ملف المناقصة ',
+    'chooseFile'=> ' اختار الملف',
+    'Location'=> 'الموقع',
+    'OtharLocation'=> 'موقع اخر ',
+    'Company'=> 'الشركة',
+    'Link'=> 'رابط التقديم ',
+    'start_date'=> 'تاريخ البدء',
+    'image'=> 'صورة المناقصة ',
+    'choose'=> ' اختار صورة',
+    'deadline'=> 'تاريخ الإنتهاء',
+    'PostedDate'=> 'تاريخ النشر ',
+    'Description'=> 'وصف المناقصة',
+    'Submit'=> 'إضافة مناقصة',
+  ],
+  /**Validte Tender */
+  'TenderValidate'=>[
+    'requerMassage'=> '*يجب ملئ هذا الحقل.',
+    'OptionMassage'=> '*هذا الحقل اختاري.',
+    'fileMassage'=> '*يجب أن يكون الملف من نوع pdf,zip .',
+    'locationMassage'=> '*يمكنك اختيار موقع واحد او اكثر .',
+    'otharLocationMassage'=> '*عند كتابة أكثر من موقع يرجى كتابة فاصلة (,) بينهم.',
+    'companyMassage'=> '* أرالنص المدخل يجب أن يكون حروف فقط ولايحتوي على رموز أو أرقام  ',
+    'linkMassage'=> '*يجب أن يكون ايميل او رابط',
+    'deadlineMassage'=> '*تاريخ الإنتهاء يجب أن يكون أصغر من تاريخ البدء.',
+    'PosteDateMassage'=> '*تاريخ النشر يجب أن يكون أصغر من تاريخ البدء.',
+  ],
+   /**Edite Tender */
+   'TenderEdite'=>[
+    'Title'=> 'تعديل المناقصة',
+    'Submit'=> 'تعديل المناقصة',
+  ],
 
   'Dashbord'=>
   [
     'cpanal_css'=>"assets/controlpanel/dist/css/style.css",
   ]
 
+
 ];
-//]

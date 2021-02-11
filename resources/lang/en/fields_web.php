@@ -224,7 +224,8 @@ return [
   /** Advertisment */
   /**Show Advertising */
   'Advertising'=>[
-    'Title'=> 'Advertisement List',
+    'TitlePage'=> 'Advertisement List',
+    'Title'=> 'Advertisement title',
     'image'=> 'image',
     'link'=> 'link',
     'status'=> 'status',
@@ -323,7 +324,7 @@ return [
   'Major'=>[
     'Title'=> 'Major List',
     'Name'=> 'Mjaor Name',
-    'type'=> 'type',
+    'type'=> 'Type',
     'status'=> 'status',
     'Actions'=> 'Actions',
     'Active'=> 'Active',
@@ -346,5 +347,82 @@ return [
     'Tender'=> 'Tender',
     'Job'=> 'Job',
     'Submit'=> 'Edite Major',
+  ],
+
+  /** Services */
+  /**Show Service */
+  'Service'=>[
+    'TitlePage'=> 'Services List',
+    'Title'=> 'services title',
+    'image'=> 'image',
+    'description'=> 'description',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Service */
+  'ServiceAdd'=>[
+    'TitlePage'=> 'Create New Service',
+    'image'=> 'Service image',
+    'choose'=> 'Choose image',
+    'Title'=> 'Title',
+    'description'=> 'Description',
+    'Submit'=> 'Create Service',
+  ],
+  /** Edite Service */
+  'ServiceEdite'=>[
+    'Title'=> 'Edite Service',
+    'Submit'=> 'Edite Service',
+  ],
+
+  /**Tender */
+  /** Show Tender */
+  'Tender'=>[
+    'TitlePage'=> 'Tender List',
+    'Title'=> 'tenders title',
+    'location'=> 'location',
+    'company'=> 'company',
+    'deadline'=> 'deadline',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+  /**Add Tender */
+  'TenderAdd'=>[
+    'TitlePage'=> 'Create New Tender',
+    'Title'=> 'Title',
+    'Major'=> 'Major',
+    'File'=> 'Tender file',
+    'chooseFile'=> 'Choose file',
+    'Location'=> 'Location',
+    'OtharLocation'=> 'Othar Location',
+    'Company'=> 'Company',
+    'Link'=> 'Apply Link',
+    'start_date'=> 'start_date',
+    'image'=> 'Tender image',
+    'choose'=> 'Choose image',
+    'deadline'=> 'deadline',
+    'PostedDate'=> 'Posted Date',
+    'Description'=> 'Description',
+    'Submit'=> 'Create Tender',
+  ],
+  /**Validte Tender */
+  'TenderValidate'=>[
+    'requerMassage'=> '*This field must be filled .',
+    'OptionMassage'=> '*This field is optional.',
+    'fileMassage'=> '*The file format should be zip or pdf.',
+    'locationMassage'=> '*You can choose one or more location .',
+    'otharLocationMassage'=> '*When writing more than one Location, please writing a comma (,) between them.',
+    'companyMassage'=> '*The text must be charecter',
+    'linkMassage'=> '*Must be link or email',
+    'deadlineMassage'=> '*The tender deadline date should be smaller than the start date.',
+    'PosteDateMassage'=> '*The tender publication date should be smaller than the end date.',
+  ],
+   /**Edite Tender */
+   'TenderEdite'=>[
+    'Title'=> 'Edite Tender',
+    'Submit'=> 'Eidte Tender',
   ],
 ];
