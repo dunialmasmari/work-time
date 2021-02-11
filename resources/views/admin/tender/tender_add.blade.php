@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Create New Tender</h3>
+                  <h3 class="card-title">{{__('fields_web.TenderAdd.TitlePage')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -37,15 +37,15 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Title:</label>
-                                <input type="text" id="title" name="title" placeholder="title" class="form-control"  required>
-                                <small class="text-muted">*This field must be filled .</small>
+                                <label>{{__('fields_web.TenderAdd.Title')}} :</label>
+                                <input type="text" id="title" name="title" placeholder="{{__('fields_web.TenderAdd.Title')}}" class="form-control"  required>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.requerMassage')}}</small>
                               </div>
                         </div>
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Major :</label>
+                                <label>{{__('fields_web.TenderAdd.Major')}} :</label>
                                 <select class="form-control select2" name="major_id" style="width: 100%;" required>
                                   @foreach ($majors as $major)  
                                   @if($major->type == 1)
@@ -53,21 +53,21 @@
                                   @endif
                                   @endforeach
                                 </select>
-                                <small class="text-muted">*This field must be filled .</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.requerMassage')}}</small>
                               </div>
                         </div>
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">Tender file</label>
+                                <label for="exampleInputFile">{{__('fields_web.TenderAdd.File')}} </label>
                                 <div class="input-group">
                                 <div class="custom-file">
-                                <label id="filename" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                <label id="filename" class="custom-file-label" for="exampleInputFile">{{__('fields_web.TenderAdd.chooseFile')}}</label>
                                   <input name="filename" accept="file/*" type="file" class="custom-file-input">
                                 </div>
                                 </div>
-                                <small  class="text-muted">*This field is optional.<br> 
-                                  *The file format should be zip or pdf.
+                                <small  class="text-muted">{{__('fields_web.TenderValidate.OptionMassage')}}<br> 
+                                {{__('fields_web.TenderValidate.fileMassage')}}
                                 </small>
                               </div>
                         </div>
@@ -78,7 +78,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Location :</label>
+                                <label>{{__('fields_web.TenderAdd.Location')}} :</label>
 
                                 <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;" required>
 
@@ -105,24 +105,25 @@
                                   <option value="Socotra">Socotra</option> 
                                   <option value="Taiz">Taiz</option>
                                 </select>
-                                <small class="text-muted">*You can choose one or more location .</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.locationMassage')}}</small>
                               </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Othar Location :</label>
-                                <input id="otharlocation" type="text" name="location[]" placeholder="Othar Location"  class="form-control" >
-                                <small  class="text-muted" >*This field is optional.<br>
-                                *When writing more than one Location, please writing a comma (,) between them.
+                                <label>{{__('fields_web.TenderAdd.OtharLocation')}} :</label>
+                                <input id="otharlocation" type="text" name="location[]" placeholder="{{__('fields_web.TenderAdd.OtharLocation')}}"  class="form-control" >
+                                <small  class="text-muted" >{{__('fields_web.TenderValidate.OptionMassage')}}<br>
+                                {{__('fields_web.TenderValidate.otharLocationMassage')}}
+                    
                                 </small>
                             </div>
                         </div>
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Company:</label>
-                                <input id="company" type="text" name="company" placeholder="company" class="form-control"  required>
-                                <small class="text-muted">*This field must be filled . *The text must be charecter</small>
+                                <label>{{__('fields_web.TenderAdd.Company')}} :</label>
+                                <input id="company" type="text" name="company" placeholder="{{__('fields_web.TenderAdd.Company')}}" class="form-control"  required>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.requerMassage')}}  {{__('fields_web.TenderValidate.companyMassage')}}</small>
                             </div>
                         </div>
                     </div>
@@ -130,25 +131,25 @@
                     <div class="row">
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> Apply Link:</label>
-                                <input id="apply_link" type="text" name="apply_link" placeholder="apply_link" class="form-control" >
-                                <small class="text-muted">*This field is optional. *Must be link or email</small>
+                                <label>{{__('fields_web.TenderAdd.Link')}} :</label>
+                                <input id="apply_link" type="text" name="apply_link" placeholder="{{__('fields_web.TenderAdd.Link')}}" class="form-control" >
+                                <small class="text-muted">{{__('fields_web.TenderValidate.OptionMassage')}} {{__('fields_web.TenderValidate.linkMassage')}}</small>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> start_date:</label>
+                                <label>{{__('fields_web.TenderAdd.start_date')}} :</label>
                                 <input id="start_date" type="date" name="start_date"  class="form-control"  required>
-                                <small class="text-muted">*This field must be filled.</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.requerMassage')}}</small>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> deadline :</label> 
+                                <label>{{__('fields_web.TenderAdd.deadline')}} :</label> 
                                 <input id="deadline" type="date" name="deadline" class="form-control"  required>
-                                <small class="text-muted">*The tender deadline date should be smaller than the start date.</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.deadlineMassage')}}</small>
                               </div>
                         </div>
 
@@ -156,21 +157,21 @@
                     <div class="row">
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">Tender image</label>
+                                <label for="exampleInputFile">{{__('fields_web.TenderAdd.image')}}</label>
                                 <div class="input-group">
                                   <div class="custom-file">
                                   <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" required>
-                                  <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.TenderAdd.choose')}} </label>
                                   </div>
                                 </div>
-                                <small class="text-muted">*This field must be filled.</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.requerMassage')}}</small>
                               </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Posted Date:</label>
+                                <label>{{__('fields_web.TenderAdd.PostedDate')}} :</label>
                                 <input id="posted_date" type="date" name="posted_date"  class="form-control"  required>
-                                <small class="text-muted">*The tender publication date should be smaller than the end date.</small>
+                                <small class="text-muted">{{__('fields_web.TenderValidate.PosteDateMassage')}}</small>
                               </div>
                         </div>
                     </div>
@@ -187,15 +188,17 @@
                   </div>
                     <div class="row">
                        <div class="col-md-12">
-                          <textarea cols="80" id="mytextarea" name="description"   ></textarea>
-
+                        <div class="form-group">
+                            <label>{{__('fields_web.TenderAdd.Description')}} :</label>
+                            <textarea cols="80" id="mytextarea" name="description"   ></textarea>
+                         </div>
                        </div>
                     </div>
         
                   <!-- /.card-body -->
 
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Create Tender</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.TenderAdd.Submit')}} </button>
                   </div>
                 </form>
               </div>

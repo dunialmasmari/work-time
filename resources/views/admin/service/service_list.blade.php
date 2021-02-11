@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Services List</h3>
+                  <h3 class="card-title">{{__('fields_web.Service.TitlePage')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,11 +34,11 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th >services title</th>
-                          <th> image </th>
-                          <th> description </th>
-                          <th> status </th>
-                          <th> Actions </th>
+                          <th >{{__('fields_web.Service.Title')}}</th>
+                          <th>{{__('fields_web.Service.image')}}  </th>
+                          <th>{{__('fields_web.Service.description')}}  </th>
+                          <th>{{__('fields_web.Service.status')}}  </th>
+                          <th>{{__('fields_web.Service.Actions')}}  </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -50,13 +50,13 @@
                             </td>
                             <td> {!!$service->description!!} </td>
                              @if($service->active == 1)
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Service.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.service.edite' ,$service->service_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('serviceactivation' ,$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">not Active</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Service.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.service.edite' ,$service->service_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('serviceactivation' ,$service->service_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>

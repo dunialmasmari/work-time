@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Edite Tender</h3>
+                  <h3 class="card-title">{{__('fields_web.TenderEdite.Title')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -25,13 +25,13 @@
                    <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Title:</label>
+                                <label> {{__('fields_web.TenderAdd.Title')}} :</label>
                                 <input type="text" name="title" placeholder="title" class="form-control" value="{{$tender->title}}"  required>
                               </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Major :</label>
+                                <label>{{__('fields_web.TenderAdd.Major')}} :</label>
                                 <select class="form-control select2" style="width: 100%;" name="major_id">
                                     <option value="{{$tender->major_id}}">{{$tender->major_name}}</option>
                                         @foreach ($majors as $major) 
@@ -45,11 +45,11 @@
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">Tender file</label>
+                                <label for="exampleInputFile">{{__('fields_web.TenderAdd.File')}}</label>
                                 <div class="input-group">
                                 <div class="custom-file">
                                   <input  name="filename"  type="file" class="custom-file-input" >
-                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.TenderAdd.chooseFile')}}</label>
                                 </div>
                                 </div>
                               </div>
@@ -61,7 +61,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Location :</label>
+                                <label>{{__('fields_web.TenderAdd.Location')}} :</label>
                                 <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
                                  <option selected value="{{$tender->location}}">{{$tender->location}}</option>
                                   <option value="Sanaa">Sanaa</option>
@@ -91,15 +91,15 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Company:</label>
-                                <input type="text" name="company" placeholder="company" class="form-control" value="{{$tender->company}}"  required>
+                                <label> {{__('fields_web.TenderAdd.Company')}} :</label>
+                                <input type="text" name="company" placeholder="{{__('fields_web.TenderAdd.Company')}}" class="form-control" value="{{$tender->company}}"  required>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Apply Link:</label>
-                                <input type="text" name="apply_link" placeholder="apply_link" class="form-control" value="{{$tender->apply_link}}" required>
+                                <label> {{__('fields_web.TenderAdd.Link')}} :</label>
+                                <input type="text" name="apply_link" placeholder="{{__('fields_web.TenderAdd.Link')}}" class="form-control" value="{{$tender->apply_link}}" required>
                               </div>
                         </div>
 
@@ -108,21 +108,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> start_date:</label>
+                                <label> {{__('fields_web.TenderAdd.start_date')}}:</label>
                                 <input type="date" name="start_date"  class="form-control" value="{{$tender->start_date}}"  required>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> deadline :</label>
+                                <label> {{__('fields_web.TenderAdd.deadline')}} :</label>
                                 <input type="date" name="deadline" class="form-control" value="{{$tender->deadline}}" required>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Posted Date:</label>
+                                <label> {{__('fields_web.TenderAdd.PostedDate')}}:</label>
                                 <input type="date" name="posted_date"  class="form-control" value="{{$tender->posted_date}}"  required>
                               </div>
                         </div>
@@ -130,11 +130,11 @@
                     <div class="row">
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">Tender image</label>
+                                <label for="exampleInputFile">{{__('fields_web.TenderAdd.image')}} </label>
                                 <div class="input-group">
                                   <div class="custom-file">
                                   <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" >
-                                  <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.TenderAdd.choose')}} </label>
                                   </div>
                                 </div>
                               </div>
@@ -152,14 +152,17 @@
                   </div>
                     <div class="row">
                        <div class="col-md-12">
-                          <textarea cols="80" id="mytextarea" name="description">{!!$tender->description!!}</textarea>
+                       <div class="form-group">
+                            <label>{{__('fields_web.TenderAdd.Description')}} :</label>
+                            <textarea cols="80" id="mytextarea" name="description">{!!$tender->description!!}</textarea>
+                        </div>
                        </div>
                     </div>
                     @endforeach
                   <!-- /.card-body -->
 
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Eidte Tender</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.TenderEdite.Submit')}}</button>
                   </div>
                 </form>
               </div>

@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Blogs List</h3>
+                  <h3 class="card-title">{{__('fields_web.Blog.TitlePage')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,12 +34,12 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th >blogs title</th>
-                          <th > sub_title</th>
-                          <th> image </th>
-                          <th> description </th>
-                          <th> status </th>
-                          <th> Actions </th>
+                          <th>{{__('fields_web.Blog.Title')}}</th>
+                          <th>{{__('fields_web.Blog.SubTiltle')}} </th>
+                          <th>{{__('fields_web.Blog.image')}}  </th>
+                          <th>{{__('fields_web.Blog.description')}}  </th>
+                          <th>{{__('fields_web.Blog.status')}}  </th>
+                          <th>{{__('fields_web.Blog.Actions')}}  </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -52,13 +52,13 @@
                             </td>
                             <td> {!!$blog->description!!} </td>
                              @if($blog->active == 1)
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Blog.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.blog.edite' ,$blog->blog_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('blogactivation' ,$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">not Active</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Blog.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.blog.edite' ,$blog->blog_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('blogactivation' ,$blog->blog_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
