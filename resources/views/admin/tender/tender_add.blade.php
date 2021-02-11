@@ -147,7 +147,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.TenderAdd.deadline')}}  :</label> 
+                                <label>{{__('fields_web.TenderAdd.deadline')}} :</label> 
                                 <input id="deadline" type="date" name="deadline" class="form-control"  required>
                                 <small class="text-muted">{{__('fields_web.TenderValidate.deadlineMassage')}}</small>
                               </div>

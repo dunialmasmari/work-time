@@ -316,6 +316,7 @@ return [
   /**Edite Jobs */
   'JobsEdite'=>[
     'Title'=> 'Edite job',
+    'Link'=> 'Apply Link',
     'Submit'=> 'Eidte job',
   ],
 

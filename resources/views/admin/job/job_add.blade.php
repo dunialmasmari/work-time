@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Create New Job</h3>
+                  <h3 class="card-title">{{__('fields_web.Jobs.TitlePage')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -37,13 +37,13 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Title:</label>
+                                <label>{{__('fields_web.JobsAdd.Title')}} :</label>
                                 <input type="text" name="title" placeholder="title" class="form-control"  required>
                               </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Major :</label>
+                                <label>{{__('fields_web.JobsAdd.Major')}} :</label>
                                 <select class="form-control select2" name="major_id" style="width: 100%;">
                                   @foreach ($majors as $major)  
                                   @if($major->type == 1)
@@ -56,7 +56,7 @@
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Location :</label>
+                                <label>{{__('fields_web.JobsAdd.Location')}} :</label>
                                 <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
                                   <option value="Sanaa">Sanaa</option>
                                   <option value="Amran">Amran</option>
@@ -91,7 +91,7 @@
 
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>Othar Location :</label>
+                                <label>{{__('fields_web.JobsAdd.OtharLocation')}} :</label>
                                 <input type="text" name="location[]"   class="form-control" >
                             </div>
                     </div>
@@ -102,14 +102,14 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Company:</label>
-                                <input type="text" name="company" placeholder="company" class="form-control"  required>
+                                <label>{{__('fields_web.JobsAdd.Company')}} :</label>
+                                <input type="text" name="company" placeholder="{{__('fields_web.JobsAdd.Company')}}" class="form-control"  required>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> start_date:</label>
+                                <label>{{__('fields_web.JobsAdd.start_date')}} :</label>
                                 <input type="date" name="start_date"  class="form-control"  required>
                               </div>
                         </div>
@@ -121,11 +121,11 @@
                        
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">Job image</label>
+                                <label for="exampleInputFile">{{__('fields_web.JobsAdd.image')}} </label>
                                 <div class="input-group">
                                   <div class="custom-file">
                                   <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" required>
-                                  <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.JobsAdd.choose')}} </label>
                                   </div>
                                </div>
                          </div>
@@ -133,14 +133,14 @@
                     
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> deadline :</label>
+                                <label>{{__('fields_web.JobsAdd.deadline')}} :</label>
                                 <input type="date" name="deadline" class="form-control"  required>
                               </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label> Posted Date:</label>
+                                <label>{{__('fields_web.JobsAdd.PostedDate')}} :</label>
                                 <input type="date" name="posted_date"  class="form-control"  required>
                               </div>
                         </div>
@@ -167,26 +167,26 @@
                     <div class="row">
                        <div class="col-md-12">
                           <div class="form-group">
-                            <label> Description:</label>
+                            <label>{{__('fields_web.JobsAdd.Description')}} :</label>
                             <textarea cols="80" id="mytextarea" name="description"></textarea>
                           </div>
                        </div>
                     </div>
 
                     <div class="row">
-                        <label> Can the application be via the website or communication with the company?</label>
+                        <label>{{__('fields_web.JobsAdd.massege')}}</label>
                         <div class="col-sm-4">
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="0" id="noCheck">
-                          <label class="form-check-label" for="inlineRadio1">No</label>
+                          <label class="form-check-label" for="inlineRadio1">{{__('fields_web.JobsAdd.No')}}</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="1" id="yesCheck">
-                          <label class="form-check-label" for="inlineRadio2">Yes</label>
+                          <label class="form-check-label" for="inlineRadio2">{{__('fields_web.JobsAdd.Yes')}}</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" onclick="javascript:yesnoCheck();" name="register_here" value="2" id="BothCheck">
-                          <label class="form-check-label" for="inlineRadio2">Both</label>
+                          <label class="form-check-label" for="inlineRadio2">{{__('fields_web.JobsAdd.Both')}}</label>
                         </div>
                        
                     </div>
@@ -198,7 +198,7 @@
                   <!-- /.card-body -->
 
                   <div class="">
-                    <button type="submit" class="btn btn-primary">Create Job</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.JobsAdd.Submit')}}</button>
                   </div>
                 </div>  
                 </form>
