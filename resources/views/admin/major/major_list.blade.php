@@ -11,8 +11,8 @@
             <!-- left column -->
             <div class="col-md-12">
                  <!-- general form elements -->
-                 <div class="card card-success">
-                    <div class="card-header">
+                 <div class="card card-success" >
+                    <div class="card-header" >
                       <h3 class="card-title">Add New Major</h3>
                     </div>
                     <!-- /.card-header -->

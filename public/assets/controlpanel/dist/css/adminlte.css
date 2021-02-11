@@ -31320,4 +31320,9 @@ a.text-muted:hover {
   color: #fff;
 }
 /*# sourceMappingURL=adminlte.css.map */
+.card-title:lang(ar)
+{
+  float: right;
+
+}
 
