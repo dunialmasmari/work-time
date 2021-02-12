@@ -34,7 +34,11 @@ Route::post('major', 'Major\MajorController@majorSave');
 Route::put('major/{id}', 'Major\MajorController@majorUpdate');
 Route::delete('major/{id}', 'Major\MajorController@majorDelete');
 */
-
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+],
+ function()
+{
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -72,3 +76,4 @@ Route::namespace('UserProf')->group(function(){
     Route::get('getUser','userProfController@getActiveUser');
 
     });
+});

@@ -67,4 +67,4 @@
 
 <!-- Navbar -->
 <!--end navbar-->
-<header>
+  </header>
