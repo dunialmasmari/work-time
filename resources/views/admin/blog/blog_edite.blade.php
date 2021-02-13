@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Create New blog</h3>
+                  <h3 class="card-title">{{__('fields_web.BlogEdite.Title')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -43,11 +43,11 @@
                        
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputFile">blog image</label>
+                                <label for="exampleInputFile">{{__('fields_web.BlogAdd.image')}}</label>
                                 <div class="input-group">
                                   <div class="custom-file">
                                   <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" >
-                                  <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.BlogAdd.choose')}}</label>
                                   </div>
                                </div>
                          </div>
@@ -55,15 +55,15 @@
                     
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> Title:</label>
-                                <input type="text" name="title" placeholder="title" class="form-control"  value="{{ $blog->title }}" >
+                                <label> {{__('fields_web.BlogAdd.Title')}} :</label>
+                                <input type="text" name="title" placeholder="{{__('fields_web.BlogAdd.Title')}} " class="form-control"  value="{{ $blog->title }}" >
                               </div>
                     </div>
 
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> Sub_Title:</label>
-                                <input type="text" name="sub_title" placeholder="sub_title" class="form-control"  value="{{ $blog->sub_title }}" >
+                                <label> {{__('fields_web.BlogAdd.SubTiltle')}}:</label>
+                                <input type="text" name="sub_title" placeholder="{{__('fields_web.BlogAdd.SubTiltle')}}" class="form-control"  value="{{ $blog->sub_title }}" >
                               </div>
                     </div>
 
@@ -84,7 +84,7 @@
                     <div class="row">
                        <div class="col-md-12">
                           <div class="form-group">
-                            <label> Description:</label>
+                            <label> {{__('fields_web.BlogAdd.description')}} :</label>
                             <textarea cols="80" id="mytextarea" name="description">{{ $blog->description }}</textarea>
                           </div>
                        </div>
@@ -94,7 +94,7 @@
                   <!-- /.card-body -->
 
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Edite blog</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.BlogEdite.Submit')}}</button>
                   </div>
                 </div>  
                 </form>

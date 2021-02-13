@@ -13,7 +13,7 @@
                  <!-- general form elements -->
                  <div class="card card-success">
                     <div class="card-header">
-                      <h3 class="card-title">Edite Major</h3>
+                      <h3 class="card-title">{{__('fields_web.MajorEdite.Title')}} </h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -40,21 +40,21 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> Mjaor Name :</label>
+                                    <label>{{__('fields_web.MajorEdite.Name')}}   :</label>
                                     <input type="text" name="major_name"  value="{{ $major->major_name}}" class="form-control" placeholder="major name" >
                                   </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Parent :</label>
+                                    <label>{{__('fields_web.MajorEdite.Type')}} :</label>
                                     <select class="form-control select2" name='type' style="width: 100%;">
                                     @if($major->type == 1)
-                                        <option value="{{ $major->type}}">Tender</opiton>
-                                        <option value=0>Job</option>
+                                        <option value="{{ $major->type}}">{{__('fields_web.MajorEdite.Tender')}}</opiton>
+                                        <option value=0>{{__('fields_web.MajorEdite.Job')}}</option>
                                         @else 
-                                        <option value="{{ $major->type}}">job</opiton>
-                                        <option value=1>Tender</opiton>
+                                        <option value="{{ $major->type}}">{{__('fields_web.MajorEdite.Job')}}</opiton>
+                                        <option value=1>{{__('fields_web.MajorEdite.Tender')}}</opiton>
                                     @endif 
                                     </select>
                                   </div>
@@ -65,7 +65,7 @@
                       <!-- /.card-body -->
 
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Edite Major</button>
+                        <button type="submit" class="btn btn-primary">{{__('fields_web.MajorEdite.Submit')}}</button>
                       </div>
                     </form>
                   </div>

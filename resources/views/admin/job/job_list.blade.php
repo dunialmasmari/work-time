@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Major List</h3>
+                  <h3 class="card-title">{{__('fields_web.Jobs.TitlePage')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,13 +34,13 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th >jobs title</th>
+                          <th >{{__('fields_web.Jobs.Title')}} </th>
                           <!-- <th>major Name</th> -->
-                          <th> location </th>
-                          <th> company </th>
-                          <th> deadline </th>
-                          <th> status </th>
-                          <th> Actions </th>
+                          <th>{{__('fields_web.Jobs.location')}} </th>
+                          <th>{{__('fields_web.Jobs.company')}}  </th>
+                          <th>{{__('fields_web.Jobs.deadline')}}  </th>
+                          <th>{{__('fields_web.Jobs.status')}}  </th>
+                          <th>{{__('fields_web.Jobs.Actions')}} </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -52,13 +52,13 @@
                             <td> {{ $job->deadline}} </td>
                             
                              @if($job->active == 1)
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Jobs.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.job.edite',$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('jobactivation',$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">not Active</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
                               <td>
                                   <a href="{{  route('controlpanel.job.edite' ,$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                   <a href="{{  route('jobactivation' ,$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
