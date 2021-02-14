@@ -423,10 +423,27 @@ return [
     'Submit'=> 'تعديل المناقصة',
   ],
 
-  'Dashbord'=>
-  [
-    'cpanal_css'=>"assets/controlpanel/dist/css/style.css",
-  ]
+  'Sidebar'=>[
+    'Dashboard'=>'لوحة التحكم',
+    'majorMang'=> 'إدراة الاقسام ',
+    'majorsAll'=>'عرض كافة الاقسام ',
+    'tenderMang'=>'إدارة المناقصات ',
+    'tendersAll'=>'عرض كافة المناقصات ',
+    'addTender'=> 'إضافة مناقصة جديدة ',
+    'jobMang'=> 'إدارة الوظائف ',
+    'jobAll'=> 'عرض كافة الوظائف ',
+    'addJob'=> 'إضافة وظيفة جديدة ',
+    'serviceMang'=> 'إدارة الخدمات ',
+    'servAll'=> 'عرض كافة الخدمات ',
+    'addServ'=> 'إضافة خدممة جديدة ',
+    'blogMang'=>'إدارة المقالات ',
+    'blogAll'=> 'عرض كافة المقالات ',
+    'addBlog'=> 'اضافة مقالة جديدة ',
+    'adverMang'=>'إدارة الإعلانات ',
+    'adverAll'=> 'عرض كافة الإعلانات ',
+    'addAdver'=> 'إضافةإعلان جديد  ',
+    'logout' => 'تسجيل الخروج',
+  ],
 
 
 ];
