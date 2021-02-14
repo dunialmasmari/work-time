@@ -33,8 +33,8 @@ return [
       'Navbar'=> [
         'Home'=> 'Home',
         'tenders'=> 'Tenders',
-        'about_us'=> 'about us ',
-        'contact_us'=> 'Connect us',
+        'about_us'=> 'About us ',
+        'contact_us'=> 'Contact us',
         'en'=> 'English',
         'ar'=> 'عربي',
         'login'=> 'login',
@@ -447,5 +447,5 @@ return [
     'adverBlog'=> 'Add New Advertisement',
     'logout' => 'logout',
   ],
-  
+
 ];
