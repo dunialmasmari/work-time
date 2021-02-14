@@ -17,7 +17,7 @@ return [
     
       'Footer'=> [
         'about_us'=> 'about WorkTime ',
-        'contact_us'=> 'Connect us',
+        'contact_us'=> ' Contact us',
         'allrights'=> 'All Rights Reserved Worktime-2021'
       ],
       'Header'=> [
@@ -140,7 +140,7 @@ return [
       'title'=> 'Sorry'
     ],
     'ContactUS'=> [
-      'Tittle'=> ' Connect us',
+      'Tittle'=> ' Contact us',
       'Name'=> 'Name',
       'Email'=> 'Email ',
       'Send'=> 'Send',
@@ -426,4 +426,26 @@ return [
     'Title'=> 'Edite Tender',
     'Submit'=> 'Eidte Tender',
   ],
+  'sidbar'=>[
+    'Dashboard'=>'Dashboard',
+    'majorMang'=> 'Major Managment',
+    'majorsAll'=>'Show All Majors',
+    'tenderMang'=>'Tenders Managment',
+    'tendersAll'=>'Show All Tenders',
+    'addTender'=> 'Add New Tender',
+    'jobMang'=> 'Jobs Managment',
+    'jobAll'=> 'Show All Jobs',
+    'addJob'=> 'Add New Job',
+    'serviceMang'=> 'Services Managment',
+    'servAll'=> 'Show All Services',
+    'addServ'=> 'Add New Service',
+    'blogMang'=>'Blogs Managment',
+    'blogAll'=> 'Show All Blogs',
+    'addBlog'=> 'Add New Blog',
+    'adverMang'=>'Advertisements Managment',
+    'adverAll'=> 'Show All Advertisements',
+    'adverBlog'=> 'Add New Advertisement',
+    'logout' => 'logout',
+  ],
+  
 ];
