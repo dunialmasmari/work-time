@@ -426,7 +426,7 @@ return [
     'Title'=> 'Edite Tender',
     'Submit'=> 'Eidte Tender',
   ],
-  'sidbar'=>[
+  'Sidebar'=>[
     'Dashboard'=>'Dashboard',
     'majorMang'=> 'Major Managment',
     'majorsAll'=>'Show All Majors',
