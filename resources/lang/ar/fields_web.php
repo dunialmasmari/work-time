@@ -276,7 +276,7 @@ return [
 
   /** Jobs */
   /**Show Jobs */
-  'Jobs'=>[
+  'Jobsshow'=>[
     'TitlePage'=> 'قائمة الوظائف',
     'Title'=> 'عنوان الوظيفة',
     'Location'=> 'الموقع',

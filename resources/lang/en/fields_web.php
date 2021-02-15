@@ -279,7 +279,7 @@ return [
 
   /** Jobs */
   /**Show Jobs */
-  'Jobs'=>[
+  'Jobsshow'=>[
     'TitlePage'=> 'Job List',
     'Title'=> 'jobs title',
     'location'=> 'location',
