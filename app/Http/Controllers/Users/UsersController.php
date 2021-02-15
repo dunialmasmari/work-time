@@ -195,7 +195,7 @@ class UsersController extends Controller
             //return view('admin.tender.tender_list',['tenders' => $tenders]);
             return redirect()->route('viewTenders')->with(['tenders' => $tenders]);
     }
-
+///////////////////////////////cv//////////////////////////////////
     public function viewCv1()
     {
         return view('HR.userProfile.resume.cvTemplete1');
@@ -225,6 +225,39 @@ class UsersController extends Controller
     {
         $data = ['title' => 'Welcome to ItSolutionStuff.com'];
         $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete3', $data);
+        return $pdf->download('cvTemplete3.pdf');
+    }
+
+    ///////////////////////////////cover//////////////////////////////////
+    public function viewCover1()
+    {
+        return view('HR.userProfile.coverletter.coverTemplete1');
+    }
+    public function generateCover1()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.coverletter.coverTemplete1', $data);
+        return $pdf->download('itsolutionstuff.pdf');
+    }
+
+    public function viewCover2()
+    {
+        return view('HR.userProfile.coverletter.coverTemplete2');
+    }
+    public function generateCover2()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.coverletter.coverTemplete2', $data);
+        return $pdf->download('cvTemplete2.pdf');
+    }
+    public function viewCover3()
+    {
+        return view('HR.userProfile.coverletter.coverTemplete3');
+    }
+    public function generateCover3()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.coverletter.coverTemplete3', $data);
         return $pdf->download('cvTemplete3.pdf');
     }
 
