@@ -95,7 +95,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('updateInfo','UsersController@updateInfo')->name('updateInfo');
         Route::post('updateLogo','UsersController@updateLogo')->name('updateLogo');
         Route::get('cvviewfirst','UsersController@viewCv1')->name('cvviewfirst');
-        Route::get('cvviewfirstdown','UsersController@generatePDF');
+        Route::get('cvviewfirstdown','UsersController@generatePDF1');
+        Route::get('cvviewsecond','UsersController@viewCv2')->name('cvviewsecond');
+        Route::get('cvviewseconddown','UsersController@generatePDF2');
+        Route::get('cvviewthired','UsersController@viewCv3')->name('cvviewthired');
+        Route::get('cvviewthireddown','UsersController@generatePDF3');
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });

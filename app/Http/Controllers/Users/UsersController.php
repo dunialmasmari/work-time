@@ -200,11 +200,32 @@ class UsersController extends Controller
     {
         return view('HR.userProfile.resume.cvTemplete1');
     }
-    public function generatePDF()
+    public function generatePDF1()
     {
         $data = ['title' => 'Welcome to ItSolutionStuff.com'];
         $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete1', $data);
         return $pdf->download('itsolutionstuff.pdf');
+    }
+
+    public function viewCv2()
+    {
+        return view('HR.userProfile.resume.cvTemplete2');
+    }
+    public function generatePDF2()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete2', $data);
+        return $pdf->download('cvTemplete2.pdf');
+    }
+    public function viewCv3()
+    {
+        return view('HR.userProfile.resume.cvTemplete3');
+    }
+    public function generatePDF3()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete3', $data);
+        return $pdf->download('cvTemplete3.pdf');
     }
 
 }
