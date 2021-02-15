@@ -17,6 +17,7 @@ use validator;
 use Carbon\Carbon;
 use App\Models\job;
 use App\Models\Advertising;
+use PDF;
 
 
 
@@ -193,6 +194,17 @@ class UsersController extends Controller
         ->select('majors.major_name', 'tenders.*' )->get();
             //return view('admin.tender.tender_list',['tenders' => $tenders]);
             return redirect()->route('viewTenders')->with(['tenders' => $tenders]);
+    }
+
+    public function viewCv1()
+    {
+        return view('HR.userProfile.resume.cvTemplete1');
+    }
+    public function generatePDF()
+    {
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete1', $data);
+        return $pdf->download('itsolutionstuff.pdf');
     }
 
 }
