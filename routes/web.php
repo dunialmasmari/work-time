@@ -90,5 +90,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });
+    Route::namespace('Users')->group(function(){
+        Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+        Route::post('updateInfo','UsersController@updateInfo')->name('updateInfo');
+        Route::post('updateLogo','UsersController@updateLogo')->name('updateLogo');
+     // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
+
+    });
 });
 
