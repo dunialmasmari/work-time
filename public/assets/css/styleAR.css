@@ -446,42 +446,50 @@ border-radius: 50%!important;
 /* sub silder */
 
 .img-html5 {
-  top:18vh;
-  width:40%;
+  top:;
+  width:70%;
   z-index:1;
   position: absolute;
   right: 25vw;
   border-radius: 20%;
   font-size: 2vw;
-  left:30vw ;
-
+  left:15vw ;
 
 
 }
 @media (min-width: 767px) and (max-width: 890px){
   .img-html5 {
-    top: 12vh;
+    top: 2vh;
     right: ;
+    left:18vw ;
+    width: 55%;
+
+
 
     }
 }
     @media (min-width: 481px) and (max-width: 767px)  {
       .img-html5 {
-        top: 12vh;
+        top: 1vh;
         right: 15vw;
+        width: 55%;
+        left:18vw ;
+
+
 
         }
     }
     @media (max-width: 480px) {
       .img-html5 {
-        top:5vh;
-        width:;
-        right: ;
+          top: -2vh;
+          width: 55%;
+          right:25vw ;
+          left:13vw ;
         }
     }
     @media (min-width: 480px) {
       .img-html5 {
-        top:5vh;
+        top:;
         width:;
         right: ;
         }
