@@ -17,13 +17,13 @@
                                 <h3 class="register-heading">Apply as a Employee</h3>
                                 <div class="row register-form">
                                 <div class="col-md-11">
-                                <form class="was-validated">
-                       <!-- <div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
-						</div> -->
+                                <form  method="post" action=""  class="was-validated"  >
+                                @csrf                                          <!-- <div class="input-group mb-3">
+						                      	<div class="input-group-append">
+								                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+							                     </div>
+							                     <input type="text" name="" class="form-control input_user" value="" placeholder="username">
+						                    </div> -->
                              <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Your Email *" value="" />
                                     <div class="valid-feedback"></div>
@@ -41,16 +41,17 @@
                                     
                                </div>
                             <div class='col-12'>
-                             <div class="form-group">
-                                <input type="submit"  class="btnRegister " value="Login" style='' />
-                             </div>
+                             
                              </div>
                              <div class="form-group">
                                 <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
                              </div>
+                             <div class="form-group">
+                                <input type="submit"  class="btnRegister " value="Login" style='' />
+                             </div>
 
-                            <div class="row">
-                                <!--<div class='col-6'>
+                            <!--<div class="row">
+                                <div class='col-6'>
                                      <div class="form-group">
                                        <a href=""> <input type="button" class="btnSubmit" value="singup as user" style='width:100%; height: 6vh;'/></a>
                                      </div>
@@ -59,9 +60,9 @@
                                     <div class="form-group">
                                        <a href=""> <input type="button" class="btnSubmit" value="singup as company" style='width:100%; height: 6vh;'/></a>
                                    </div>
-                               </div>-->
+                               </div>
                                
-                        </div>
+                        </div>-->
                     </form>
 
 
