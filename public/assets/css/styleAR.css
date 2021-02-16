@@ -1,6 +1,9 @@
 .body{
   direction:rtl ;
-  text-align: right;    
+  text-align: right;   
+  color: aliceblue;
+  border: 2px solid; 
+  border-top: ;
 
   
 }
