@@ -94,6 +94,22 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('userProfile','UsersController@userInfo')->name('userProfile');
         Route::post('updateInfo','UsersController@updateInfo')->name('updateInfo');
         Route::post('updateLogo','UsersController@updateLogo')->name('updateLogo');
+
+        Route::get('cvviewfirst','UsersController@viewCv1')->name('cvviewfirst');
+        Route::get('cvviewfirstdown','UsersController@generatePDF1');
+        Route::get('cvviewsecond','UsersController@viewCv2')->name('cvviewsecond');
+        Route::get('cvviewseconddown','UsersController@generatePDF2');
+        Route::get('cvviewthired','UsersController@viewCv3')->name('cvviewthired');
+        Route::get('cvviewthireddown','UsersController@generatePDF3');
+
+        Route::get('coverviewfirst','UsersController@viewCover1')->name('');
+        Route::get('coverviewfirstdown','UsersController@generateCover1');
+        Route::get('coverviewsecond','UsersController@viewCover2')->name('');
+        Route::get('coverviewseconddown','UsersController@generateCover2');
+        Route::get('coverviewthired','UsersController@viewCover3')->name('');
+        Route::get('coverviewthireddown','UsersController@generateCover3');
+
+
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });

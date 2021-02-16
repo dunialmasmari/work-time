@@ -17,7 +17,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
         "mcamara/laravel-localization": "^1.6",
-        "santigarcor/laratrust": "5.0.*"
+        "santigarcor/laratrust": "5.2.*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
