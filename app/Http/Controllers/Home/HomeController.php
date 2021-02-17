@@ -11,6 +11,10 @@ use validator;
 use Carbon\Carbon;
 use App\Models\job;
 use App\Models\Advertising;
+use App\Models\service;
+use App\Models\blog;
+
+
 
 
 
@@ -35,11 +39,17 @@ class HomeController extends Controller
              ->paginate(4);
 
              $advers=Advertising::select('*')->where('active','1')->get();
+             $services =service::where('active','1')->get();
+             $blogs=blog::where('active','1')->orderByRaw('created_at DESC')->get();
+
+
              //print_r($advers);
             
              $data=['tenders' => $tenders,
                    'jobs' => $jobs,
                    'advers'=>$advers,
+                   'services'=>$services,
+                   'blogs'=>$blogs,
                   ];
 
         return view('HR.home',$data);

@@ -137,6 +137,86 @@
     </div>
 </div>--}} -->
 
+
+<br><br>
+
+<div class="row container" >
+
+                     <div class="col-lg-12"> 
+                     <h2 class='label mb-5 label lable-background'  style="text-align: center;">{{__('fields_web.Advertising.title')}}</h3>
+<!--slide -->
+<div class='second'></div>
+      <div id="demo" class="carousel slide " data-ride="carousel">
+<!-- Indicators -->
+<!-- <ul class="carousel-indicators" style='background-clip: content-box;'>
+@foreach($advers as $adv)
+  <li data-target="#demo" data-slide-to="0" class="{{ $loop->first ? 'active' : '' }}"></li>
+  @endforeach
+</ul> -->
+
+<!-- The slideshow -->
+<div class="carousel-inner" style='max-height:'>
+@foreach($advers as $adv)
+      <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+                  <img src="{{URL::asset('assets/uploads/Advertisement/images/'.$adv->image)}}" class="d-block w-100" alt=""  width="100%" height="20%">
+                  <div class="carousel-caption d-md-block ">  <!--d-none-->
+                        <!-- <h4>{{$adv->title}}</h4> -->
+                  </div>
+                  <div class="text-center">
+                         <h4>{{\Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...')}}</h4>
+                              @if($adv->link !='' || $adv->link !=null)
+                                    <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width:100%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+                              @endif
+                 </div>
+       </div>
+@endforeach
+
+</div>
+
+<!-- Left and right controls -->
+<!-- <a class="carousel-control-prev"  href="#demo" data-slide="prev">
+  <span class="carousel-control-prev-icon" style='background-color:black;'></span>
+</a>
+<a class="carousel-control-next" href="#demo" data-slide="next">
+  <span class="carousel-control-next-icon" style='background-color:black;'></span>
+</a> -->
+</div>
+  </div>
+</div>
+<!-- <br><br><br><br>
+<div class="row container" >
+                     
+                     <div class="col-lg-12"> 
+  <br>
+<!-slide ->
+      <div id="demo" class="carousel slide " data-ride="carousel">
+<!- Indicators->
+<ul class="carousel-indicators" style='background-clip: content-box;'>
+<!- The slideshow ->
+<div class="carousel-inner" style='max-height: 40vw !important;'>
+@foreach($advers as $adv)
+      <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+      <!- <div class="row ">
+        <div class="col-md-12  d-md-block"> ->
+          <div class="">
+            <div class="text-center">
+            <h4>{{\Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...')}}</h4>
+                 @if($adv->link !='' || $adv->link !=null)
+                  <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width:100%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+                  @endif
+            </div>
+          </div>
+        <!- </div>
+      </div>  ->
+       </div>
+@endforeach
+
+</div>
+
+</div>
+  </div>
+</div> -->
+
                 </div>
 
 
@@ -251,7 +331,7 @@
                              </div>
 
                           </div>
-                          @if($job->email !=null || $job->email !='' || $job->apply_link !=null)
+                          {{--@if($job->email !=null || $job->email !='' || $job->apply_link !=null)
                           <div class='col-12 col-sm-12 col-md-12 col-lg-12 '>
                                  <h2 class='label lable-background' style="text-align: center;"> {{__('fields_web.Jobs.toapplying')}}  </h3>
                                  <div class='row'>
@@ -275,7 +355,7 @@
                                  <!-- <a href="" class=" btnRegister flot" ></a>
                                  <a href="" class='btnRegister ' style=' width: 40%'> </a> -->
                           </div><br>
-                          @endif
+                          @endif--}}
 
                          </div>
                     </div>

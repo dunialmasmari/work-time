@@ -23,7 +23,9 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Apply as a Employee</h3>
+                                <h3 class="register-heading">Apply as a user</h3>
+                                <form  method="post" action="{{route('contactus')}}"  class="was-validated"  >
+                                @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -72,9 +74,12 @@
                                         <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <h3  class="register-heading">Apply as a company</h3>
+                                <form  method="post" action="{{route('contactus')}}"  class="was-validated"  >
+                                @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -89,9 +94,8 @@
                                         <div class="form-group">
                                             <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
                                         </div>
-
-
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Password *" value="" />
@@ -112,7 +116,11 @@
                                         </div>
                                         <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
+
                                 </div>
+
+                                </form>
+
                             </div>
                         </div>
                     </div>
