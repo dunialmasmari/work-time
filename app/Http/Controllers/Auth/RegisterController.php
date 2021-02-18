@@ -72,37 +72,24 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);  
         $user_role = new role_user();
         $user_role->user_id = $user->user_id;
-        $user_role->role_id = $data['role_id'];
+        if($data['type_search'] == 'Jobs')
+        {
+            $user_role->role_id = '2';
+        }
+        elseif($data['type_search'] == 'Tenders')
+        {
+            $user_role->role_id = '3';
+        }
+        elseif($data['type_search'] == 'Jobs&Tender')
+        {
+            $user_role->role_id = '3';
+        }
         $user_role->user_type =  'App/User';
         $user_role->save();
-       //$user_id = $user->user_id;
-        // $user_type = 'App/User';
-        // $user_role = role_user::create([
-        //     'role_id' => $data['role_id'],
-        //     'user_id' => $data['user_id'],
-        //     'user_type' => $data['user_type'],
-        // ]);
-        // dd( $user_id);
-       // return redirect('welcome');
-      //  return $user;
     }
 
-    //     /**
-    //  * Create a new user instance after a valid registration.
-    //  *
-    //  * @param  $user
-    //  * @return \App\role_user
-    //  */
-    //  protected function createrole(array $data)
-    //  {
-    //      return User::create([
-    //          'name' => $data['name'],
-    //          'email' => $data['email'],
-    //          'username' => $data['username'],
-    //          'password' => Hash::make($data['password']),
-    //      ]);
-    //  }
+
 }
