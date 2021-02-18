@@ -207,14 +207,16 @@ return [
   ],
 
   'Services'=> [
-    'Title'=> '  Services list ',
+    'Title'=> '  Services ',
+    'Titles'=> '  Services list ',
     'others'=>  'Other Services',
     'description' =>'Service Description',
   ],
   'blogs'=> [
+    'Titles'=> 'Blogs',
     'Title'=> 'The blog',
-    'others'=> 'Other Articals ',
-    'description' => 'Artical Description ',
+    'others'=> 'Other Blogs ',
+    'description' => 'Blog Description ',
 
   ],
   
@@ -224,6 +226,7 @@ return [
   /** Advertisment */
   /**Show Advertising */
   'Advertising'=>[
+    'title'=>'Advertisement',
     'TitlePage'=> 'Advertisement List',
     'Title'=> 'Advertisement title',
     'image'=> 'image',

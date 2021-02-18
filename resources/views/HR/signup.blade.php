@@ -24,7 +24,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Apply as a user</h3>
-                                <form  method="post" action="{{route('register')}}"  class="was-validated"  >
+<form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
@@ -91,7 +91,7 @@
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Apply as a company</h3>
-                                <form  method="post" action="{{route('register')}}"  class="was-validated"  >
+ <form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
@@ -120,8 +120,9 @@
                                                     </span>
                                                 @enderror
                                         </div>
-                                      
+
                                     </div>
+
                                     <div class="col-md-6">
                                         
                                         <div class="form-group">

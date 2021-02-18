@@ -16,7 +16,7 @@
                                 <h3 class="register-heading">Apply as a Employee</h3>
                                 <div class="row register-form">
                                 <div class="col-md-11">
-                    <form method="POST" action="{{ route('login') }}" >
+ <form method="POST" action="{{ route('login') }}" >
                         @csrf
 
                                                      
@@ -47,12 +47,12 @@
                                 </div>
                                     
                                </div>
-                           
+
                              <div class="form-group">
                                 <input type="submit"  class="btnRegister " value="Login" style='' />
                              </div>
 
-                          
+
                     </form>
                     </div> 
                              </div>

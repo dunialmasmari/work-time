@@ -8,6 +8,8 @@ use App\Models\blog;
 use App\Mail\ApplyBlog\ApplayingBlogMail;
 use Mail;
 use App\Models\BlogApplyer;
+use App\Models\Advertising;
+
 set_time_limit(300);
 
 class BlogController extends Controller
@@ -32,6 +34,8 @@ class BlogController extends Controller
         $blogsAll=blog::where('active','1')
         ->orderByRaw('created_at DESC')
         ->get();
+        $advers=Advertising::select('*')->where('active','1')->get();
+
         //$data=['blogs' => $blogs];
         
         if ($blogs->exists())
@@ -39,6 +43,7 @@ class BlogController extends Controller
             $blogs=$blogs->get();
             $data=['blogs' => $blogs,
                    'blogsAll' => $blogsAll,
+                   'advers' => $advers,
                    ];
             return view('HR.blogDetails',$data);           
          } 
