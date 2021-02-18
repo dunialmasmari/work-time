@@ -38,7 +38,7 @@ class HomeController extends Controller
              ->orderByRaw('jobs.start_date DESC')
              ->paginate(4);
 
-             $advers=Advertising::select('*')->where('active','1')->get();
+             $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
              $services =service::where('active','1')->get();
              $blogs=blog::where('active','1')->orderByRaw('created_at DESC')->get();
 
