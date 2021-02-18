@@ -91,10 +91,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     });
     Route::namespace('Users')->group(function(){
-        Route::get('userProfile','UsersController@userInfo')->name('userProfile');
-        Route::post('updateInfo','UsersController@updateInfo')->name('updateInfo');
-        Route::post('updateLogo','UsersController@updateLogo')->name('updateLogo');
-     // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
+         Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+        Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
+        Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
+        Route::post('userProfile/AddCvDetails','UsersController@AddCvDetails')->name('AddCvDetails');
+        Route::post('userProfile/updateCvDetails','UsersController@updateCvDetails')->name('updateCvDetails');
+        Route::post('userProfile/deleteCvDetails','UsersController@deleteCvDetails')->name('deleteCvDetails');
+        Route::post('userProfile/AddCvSkills','UsersController@AddCvSkills')->name('AddCvSkills');
+        Route::post('userProfile/updateCvSkills','UsersController@updateCvSkills')->name('updateCvSkills');
+        Route::post('userProfile/deleteCvSkills','UsersController@deleteCvSkills')->name('deleteCvSkills');
+        Route::post('userProfile/AddCvRecommendations','UsersController@AddCvRecommendations')->name('AddCvRecommendations');
+        Route::post('userProfile/updateCvRecommendations','UsersController@updateCvRecommendations')->name('updateCvRecommendations');
+        Route::post('userProfile/deleteCvRecommendations','UsersController@deleteCvRecommendations')->name('deleteCvRecommendations');
 
     });
 });
