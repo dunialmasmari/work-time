@@ -77,5 +77,33 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('blog/{id}','BlogController@viewBlogId')->name('blog');
        // Route::post('sendingCV','JobController@sendCV');
     });
+    Route::namespace('Company')->group(function(){
+        Route::get('userInfo','CompanyController@userInfo')->name('userInfo');
+        Route::post('updateInfo','CompanyController@updateInfo')->name('updateInfo');
+        Route::post('updateLogo','CompanyController@updateLogo')->name('updateLogo');
+        Route::get('viewJobs','CompanyController@viewJobs')->name('viewJobs');
+        Route::get('addJob','CompanyController@addJob')->name('addJob');
+        Route::get('viewTenders','CompanyController@viewTenders')->name('viewTenders');
+        Route::get('addTender','CompanyController@addTender')->name('addTender');
+        Route::post('storeJob','CompanyController@storeJob')->name('storeJob');
+        Route::post('storeTender','CompanyController@storeTender')->name('storeTender');
+     // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
+
+    });
+    Route::namespace('Users')->group(function(){
+         Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+        Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
+        Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
+        Route::post('userProfile/AddCvDetails','UsersController@AddCvDetails')->name('AddCvDetails');
+        Route::post('userProfile/updateCvDetails','UsersController@updateCvDetails')->name('updateCvDetails');
+        Route::post('userProfile/deleteCvDetails','UsersController@deleteCvDetails')->name('deleteCvDetails');
+        Route::post('userProfile/AddCvSkills','UsersController@AddCvSkills')->name('AddCvSkills');
+        Route::post('userProfile/updateCvSkills','UsersController@updateCvSkills')->name('updateCvSkills');
+        Route::post('userProfile/deleteCvSkills','UsersController@deleteCvSkills')->name('deleteCvSkills');
+        Route::post('userProfile/AddCvRecommendations','UsersController@AddCvRecommendations')->name('AddCvRecommendations');
+        Route::post('userProfile/updateCvRecommendations','UsersController@updateCvRecommendations')->name('updateCvRecommendations');
+        Route::post('userProfile/deleteCvRecommendations','UsersController@deleteCvRecommendations')->name('deleteCvRecommendations');
+
+    });
 });
 

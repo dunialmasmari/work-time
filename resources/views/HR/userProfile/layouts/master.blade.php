@@ -5,7 +5,7 @@
 <div class="row my-5 py-5 mx-0" >
     <div class="container ">
         <div class="row flex-lg-nowrap">
-@include('HR.company.includes.header')
+@include('HR.userProfile.includes.headers')
 
 @yield('contents')
 </div>
@@ -292,4 +292,5 @@
   
       })
     </script>
+  
 @stop
