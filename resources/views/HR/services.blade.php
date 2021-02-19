@@ -16,12 +16,12 @@
         <div class="row py-4 px-4  mx-auto">
           @foreach($services as $ser)
                     <div class="col-md-4 ">
-                       <div class='card-body bg-white shadow-sm ' >
+                       <div class='card-body bg-white shadow-sm my-4' >
                          <div class="avatar-big mx-auto">
                              <img class="avatar-img rounded-circle" src="{{URL::asset('assets/uploads/services/images/'.$ser->image)}}" />
                          </div>    
                      <h4 class="my-3">{{$ser->title}}</h4>
-                        <p class="text-muted">{{\Illuminate\Support\Str::limit($ser->description, $limit = 60, $end = '...')}}</p>
+                        <p class="text-muted">{!!\Illuminate\Support\Str::limit( $ser->description , $limit = 30, $end = '...')!!}</p>
                         <a href="service/{{$ser->service_id}}"><button class='btn btn-primary btn-md my-2' style="float: none;width:60%" >  {{__('fields_web.Tenders.more')}} </button></a>
                      </div>
                </div>

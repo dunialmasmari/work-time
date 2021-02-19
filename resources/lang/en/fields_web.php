@@ -17,7 +17,7 @@ return [
     
       'Footer'=> [
         'about_us'=> 'about WorkTime ',
-        'contact_us'=> 'Connect us',
+        'contact_us'=> ' Contact us',
         'allrights'=> 'All Rights Reserved Worktime-2021'
       ],
       'Header'=> [
@@ -33,8 +33,8 @@ return [
       'Navbar'=> [
         'Home'=> 'Home',
         'tenders'=> 'Tenders',
-        'about_us'=> 'about us ',
-        'contact_us'=> 'Connect us',
+        'about_us'=> 'About us ',
+        'contact_us'=> 'Contact us',
         'en'=> 'English',
         'ar'=> 'عربي',
         'login'=> 'login',
@@ -140,7 +140,7 @@ return [
       'title'=> 'Sorry'
     ],
     'ContactUS'=> [
-      'Tittle'=> ' Connect us',
+      'Tittle'=> ' Contact us',
       'Name'=> 'Name',
       'Email'=> 'Email ',
       'Send'=> 'Send',
@@ -207,14 +207,16 @@ return [
   ],
 
   'Services'=> [
-    'Title'=> '  Services list ',
+    'Title'=> '  Services ',
+    'Titles'=> '  Services list ',
     'others'=>  'Other Services',
     'description' =>'Service Description',
   ],
   'blogs'=> [
+    'Titles'=> 'Blogs',
     'Title'=> 'The blog',
-    'others'=> 'Other Articals ',
-    'description' => 'Artical Description ',
+    'others'=> 'Other Blogs ',
+    'description' => 'Blog Description ',
 
   ],
   
@@ -224,6 +226,7 @@ return [
   /** Advertisment */
   /**Show Advertising */
   'Advertising'=>[
+    'title'=>'Advertisement',
     'TitlePage'=> 'Advertisement List',
     'Title'=> 'Advertisement title',
     'image'=> 'image',
@@ -279,7 +282,7 @@ return [
 
   /** Jobs */
   /**Show Jobs */
-  'Jobs'=>[
+  'Jobsshow'=>[
     'TitlePage'=> 'Job List',
     'Title'=> 'jobs title',
     'location'=> 'location',
@@ -426,4 +429,26 @@ return [
     'Title'=> 'Edite Tender',
     'Submit'=> 'Eidte Tender',
   ],
+  'Sidebar'=>[
+    'Dashboard'=>'Dashboard',
+    'majorMang'=> 'Major Managment',
+    'majorsAll'=>'Show All Majors',
+    'tenderMang'=>'Tenders Managment',
+    'tendersAll'=>'Show All Tenders',
+    'addTender'=> 'Add New Tender',
+    'jobMang'=> 'Jobs Managment',
+    'jobAll'=> 'Show All Jobs',
+    'addJob'=> 'Add New Job',
+    'serviceMang'=> 'Services Managment',
+    'servAll'=> 'Show All Services',
+    'addServ'=> 'Add New Service',
+    'blogMang'=>'Blogs Managment',
+    'blogAll'=> 'Show All Blogs',
+    'addBlog'=> 'Add New Blog',
+    'adverMang'=>'Advertisements Managment',
+    'adverAll'=> 'Show All Advertisements',
+    'adverBlog'=> 'Add New Advertisement',
+    'logout' => 'logout',
+  ],
+
 ];

@@ -11,6 +11,8 @@ use Mail;
 use App\Models\JobApplyer;
 use Carbon\Carbon;
 set_time_limit(300);
+use App\Models\Advertising;
+
 
 class JobController extends Controller
 {
@@ -23,7 +25,7 @@ class JobController extends Controller
         ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->paginate(8);
-        $data=['jobs' => $jobs];
+        $data=['jobs' => $jobs,];
 
         return view('HR.jobs',$data);
     }
@@ -40,13 +42,16 @@ class JobController extends Controller
         ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->get();
+        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
         //$data=['jobs' => $jobs];
         
         if ($jobs->exists())
         {
             $jobs=$jobs->get();
+            
             $data=['jobs' => $jobs,
                    'jobsAll' => $jobsAll,
+                   'advers' => $advers,
                    ];
             return view('HR.jobDetails',$data);           
          } 

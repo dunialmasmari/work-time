@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-3  register-left"> <br><br>
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
-                        <span class="ForgetPwd" value="signup">If you have not account you can create it by:</span><br>
-                        <a href="#"><input type="button"  name="" value="signup"/><br/></a>
+                        <span class="ForgetPwd" value="signup">If you have account you can login it by:</span><br>
+                        <a href="{{ route('loginhr') }}"><input type="button"  name="" value="login"/><br/></a>
 
                     </div>
                     <div class="col-lg-9 register-right">
@@ -23,96 +23,142 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Apply as a Employee</h3>
+                                <h3 class="register-heading">Apply as a user</h3>
+<form  method="post" action="{{route('register')}}"  class="was-validated"  >
+                                @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
+                                        <input id="role_id" type="hidden"  name="role_id" value="2"  >
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus/>
+                                            @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            <input id="email" placeholder="E-Mail Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
+                                            @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                            <input id="username" placeholder="UserName" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required />
+                                            @error('username')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" />
+                                            @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
+                                            <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"/>
+                                        </div> 
                                         <div class="form-group">
-                                            <div class="maxl">
+                                           <div class="maxl">
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
+                                                    <input type="radio" name="type_search" value="Jobs" checked>
+                                                    <span> Jobs </span> 
                                                 </label>
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
+                                                    <input type="radio" name="type_search" value="Tenders">
+                                                    <span>Tenders </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="type_search" value="Jobs&Tender">
+                                                    <span>Jobs&Tender</span> 
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                                        </div>
                                         <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <h3  class="register-heading">Apply as a company</h3>
+ <form  method="post" action="{{route('register')}}"  class="was-validated"  >
+                                @csrf
                                 <div class="row register-form">
                                     <div class="col-md-6">
+                                    <input id="role_id" type="hidden"  name="role_id" value="2"  >
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus/>
+                                            @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            <input id="email" placeholder="E-Mail Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
+                                            @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                            <input id="username" placeholder="UserName" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required />
+                                            @error('username')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
-
 
                                     </div>
+
                                     <div class="col-md-6">
+                                        
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                            <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" />
+                                            @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
+                                            <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"/>
+                                        </div> 
                                         <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="type" value="Jobs" checked>
+                                                    <span> Jobs </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="type" value="Tenders">
+                                                    <span>Tenders </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="type" value="Jobs&Tender">
+                                                    <span>Jobs&Tender</span> 
+                                                </label>
+                                            </div>
                                         </div>
                                         <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
+
                                 </div>
+
+                                </form>
+
                             </div>
                         </div>
                     </div>

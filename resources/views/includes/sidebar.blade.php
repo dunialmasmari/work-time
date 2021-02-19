@@ -8,7 +8,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -23,7 +23,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                    Dashboard
+                  {{__('fields_web.Sidebar.Dashboard')}}
 
                   </p>
                 </a>
@@ -34,7 +34,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                 Majors Managmen
+              {{__('fields_web.Sidebar.majorMang')}}
                 <i class="right fas fa-angle-left"></i>
 
               </p>
@@ -48,7 +48,7 @@
                   <a href="{{url('ar/controlpanel/major') }}" class="nav-link">
                   @endif
                     <i class="far fa-circle nav-icon"></i>
-                    <p>show all Majors</p>
+                    <p>{{__('fields_web.Sidebar.majorsAll')}}</p>
                   </a>
                 </li>
               </ul>
@@ -58,7 +58,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                    Tenders Managment
+                  {{__('fields_web.Sidebar.tenderMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -67,13 +67,13 @@
                     <li class="nav-item">
                   <a href="{{ route('tender_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>New Tender</p>
+                        <p>{{__('fields_web.Sidebar.addTender')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                   <a href="{{ route('controlpanel.tender.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>show all Tenders</p>
+                        <p>{{__('fields_web.Sidebar.tendersAll')}}</p>
                       </a>
                     </li>
                   </ul>
@@ -82,7 +82,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                    Jobs Managment
+                  {{__('fields_web.Sidebar.jobMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -91,13 +91,13 @@
                     <li class="nav-item">
                     <a href="{{ route('job_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>New Job</p>
+                        <p>{{__('fields_web.Sidebar.addJob')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                      <a href="{{ route('controlpanel.job.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>show all Jobs</p>
+                        <p>{{__('fields_web.Sidebar.jobAll')}}</p>
                       </a>
                     </li>
                   </ul>
@@ -106,7 +106,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                  Services Managment
+                  {{__('fields_web.Sidebar.serviceMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -115,13 +115,13 @@
                     <li class="nav-item">
                     <a href="{{ route('service_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>New Service</p>
+                        <p>{{__('fields_web.Sidebar.addServ')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{ route('controlpanel.service.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>show all Services</p>
+                        <p>{{__('fields_web.Sidebar.servAll')}}</p>
                       </a>
                     </li>
                   </ul>
@@ -130,7 +130,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                  Blogs Managment
+                  {{__('fields_web.Sidebar.blogMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -139,13 +139,13 @@
                     <li class="nav-item">
                     <a href="{{route('blog_add') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>New Blog</p>
+                        <p>{{__('fields_web.Sidebar.addBlog')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{ route('controlpanel.blog.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>show all Blogs</p>
+                        <p>{{__('fields_web.Sidebar.blogAll')}}</p>
                       </a>
                     </li>
                   </ul>
@@ -155,7 +155,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                  Advertising Managment
+                  {{__('fields_web.Sidebar.adverMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -164,13 +164,13 @@
                     <li class="nav-item">
                     <a href="{{ route('Advertising_add') }}" class="nav-link">
                        <i class="far fa-circle nav-icon"></i>
-                        <p>New Advertising</p>
+                        <p>{{__('fields_web.Sidebar.addAdver')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{ route('controlpanel.Advertising.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>show all Advertisement</p>
+                        <p>{{__('fields_web.Sidebar.adverAll')}}</p>
                       </a>
                     </li>
                   </ul>
@@ -290,8 +290,7 @@
             <a href="{{ route('logout') }}" class="nav-link" >
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Logout
-
+              {{__('fields_web.Sidebar.logout')}}
               </p>
             </a>
           </li>

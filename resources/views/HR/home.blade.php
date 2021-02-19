@@ -21,7 +21,7 @@
               <div class="carousel-caption d-md-block ">  <!--d-none-->
                   <h4>{{$adv->title}}</h4>
                   @if($adv->link !='' || $adv->link !=null)
-                  <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width: 15%" >  {{__('fields_web.Home.visti_website')}} </button></a>
+                  <a href="https://www.{{$adv->link}}"><button class=' btnRegister ' style="float: none;width: 25%" >  {{__('fields_web.Home.visti_website')}} </button></a>
                   @endif
               </div>
        </div>
@@ -89,7 +89,59 @@
 </div> 
 </div>
 </div>
+<br><br>
 
+
+<div class="container-fluid">
+   <div class="row">
+     <div class='col-12' >
+       <!-- <h3 class='label'> {{__('fields_web.Jobs.Title')}}  </h3> -->
+       <h2 class='label mb-5 label lable-background'  style="text-align: center;">{{__('fields_web.Services.Title')}}</h3>
+   </div>
+</div>
+</div> 
+<div class="container-fluid">
+   <div class="row">
+     <div class='col-12' >
+    <section>
+  <!--slide -->
+     <div class='second-layer1' style='max-height: 25svw !important;'></div>
+ <div id="demo" class="carousel slide " data-ride="carousel">
+      <!-- The slideshow -->
+        <div class="carousel-inner" style='max-height:25vw !important;'>
+              @foreach($services as $serv)
+                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+                         <img src="{{URL::asset('assets/images/slider1.jpg')}}" class="d-block w-100" alt=""  width="100%" height="20%">
+                               <div class="carousel-caption caption img-html5"  data-animate="slideAppearLeftToRight" data-delay="200">
+                                 <div class="row ">
+                                     <div class="col-6 text-sub-silder text-img-sub-silder" align=''>
+                                         <div class="text-silder">
+                                           <p>{{\Illuminate\Support\Str::limit($serv->title, $limit = 20, $end = '...')}}</p>
+                                           <a href="service/{{$serv->service_id}}" class= 'btn px-0 py-0' style="color:#4F9DD5;" style="float: center;width:75%;font-size: 1.5vw;" >  {{__('fields_web.Tenders.more')}} </a>
+                                         </div>
+                                     </div>
+                                     <div class="col-6 text-img-sub-silder" >
+                                          <img  src="{{URL::asset('assets/uploads/services/images/'.$serv->image)}}" width="110%" float='left' >
+                                    </div>
+                                  </div>
+                               </div>
+                           </div>
+               @endforeach
+         </div>
+<!-- Left and right controls -->
+           <a class="carousel-control-prev"  href="#demo" data-slide="prev">
+           <span class="carousel-control-prev-icon" style=''></span>
+           </a>
+           <a class="carousel-control-next" href="#demo" data-slide="next">
+           <span class="carousel-control-next-icon" style=''></span>
+           </a>
+</div>
+</section>
+    </div>
+  </div>
+</div>
+
+<br><br>
 
   
 <div class="container-fluid">
@@ -160,7 +212,61 @@
 
 </div> 
 </div>
-  
+ 
+
+
+<br><br>
+ <div class="container-fluid">
+   <div class="row">
+     <div class='col-12' >
+       <!-- <h3 class='label'> {{__('fields_web.Jobs.Title')}}  </h3> -->
+       <h2 class='label mb-5 label lable-background'  style="text-align: center;">{{__('fields_web.blogs.Titles')}}</h3>
+   </div>
+</div>
+</div> 
+
+<br><br>
+<div class="container-fluid">
+   <div class="row">
+     <div class='col-12' >
+    <section>
+  <!--slide -->
+     <div class='second-layer1' style='max-height: 25svw !important;'></div>
+ <div id="demo" class="carousel slide " data-ride="carousel">
+      <!-- The slideshow -->
+        <div class="carousel-inner" style='max-height:25vw !important;'>
+              @foreach($blogs as $blog)
+                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+                         <img src="{{URL::asset('assets/images/slider3.jpg')}}" class="d-block w-100" alt=""  width="100%" height="20%">
+                               <div class="carousel-caption caption img-html5"  data-animate="slideAppearLeftToRight" data-delay="200">
+                                 <div class="row ">
+                                     <div class="col-6 text-sub-silder text-img-sub-silder" align=''>
+                                         <div class="text-silder">
+                                         <p>{{\Illuminate\Support\Str::limit($blog->title, $limit = 20, $end = '...')}}</p>
+                                           <a href="blog/{{$blog->blog_id}}" class= 'btn px-0 py-0' style="color:#4F9DD5;" style="float: center;width:75%;font-size: 1.5vw;" >  {{__('fields_web.Tenders.more')}} </a>
+                                         </div>
+                                     </div>
+                                     <div class="col-6 text-img-sub-silder" >
+                                          <img  src="{{URL::asset('assets/uploads/blogs/images/'.$blog->image)}}" width="110%" float='left' >
+                                    </div>
+                                  </div>
+                               </div>
+                           </div>
+               @endforeach
+         </div>
+<!-- Left and right controls -->
+           <a class="carousel-control-prev"  href="#demo" data-slide="prev">
+           <span class="carousel-control-prev-icon" style=''></span>
+           </a>
+           <a class="carousel-control-next" href="#demo" data-slide="next">
+           <span class="carousel-control-next-icon" style=''></span>
+           </a>
+</div>
+</section>
+    </div>
+  </div>
+</div>
+
 
 <br>
 {{--

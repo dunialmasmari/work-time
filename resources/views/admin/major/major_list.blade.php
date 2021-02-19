@@ -11,9 +11,11 @@
             <!-- left column -->
             <div class="col-md-12">
                  <!-- general form elements -->
+
                  <div class="card card-success">
                     <div class="card-header">
                       <h3 class="card-title">{{__('fields_web.MajorAdd.Title')}}</h3>
+
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -102,10 +104,10 @@
                           <thead>
                           <tr>
                            
-                            <th>{{__('fields_web.MajorAdd.Name')}}</th>
-                            <td>{{__('fields_web.MajorAdd.type')}} </td>
-                            <th>{{__('fields_web.MajorAdd.status')}} </th>
-                            <th>{{__('fields_web.MajorAdd.Actions')}} </th>
+                            <th>{{__('fields_web.Major.Name')}}</th>
+                            <td>{{__('fields_web.Major.type')}} </td>
+                            <th>{{__('fields_web.Major.status')}} </th>
+                            <th>{{__('fields_web.Major.Actions')}} </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -118,13 +120,13 @@
                               <td>Job</td>
                            @endif
                                 @if($major->active == 1)
-                                <td><span class="badge badge-success">{{__('fields_web.MajorAdd.Active')}} </span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Major.Active')}} </span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.major.edite',$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('majoractivation' ,$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                                   </td>
                               @else 
-                              <td><span class="badge badge-danger">{{__('fields_web.MajorAdd.notActive')}} </span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Major.notActive')}} </span></td>
                               <td>
                                     <a href="{{  route('controlpanel.major.edite',$major->major_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('majoractivation' ,$major->major_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
