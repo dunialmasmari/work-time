@@ -1,4 +1,4 @@
-@extends('HR.company.layouts.master')
+@extends('HR.userProfile.layouts.master')
 @section('contents')
     <div class="col">
         <div class="row">
@@ -195,7 +195,7 @@
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary cv_Detail"   id="1" data-toggle="modal"
                                             data-target="#exampleModalCenter">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>Change pic</span>
                                         </button>
                                     </div>
@@ -213,10 +213,10 @@
                                                     </div>
                                                     <div>
                                                       <button class="btn btn-primary  cv_Detailupdate" classname="experiencesparent"   id="{{ $experience->id }}">
-                                                        <i class="fa fa-fw fa-camera"></i>
+                                                        
                                                         <span>update</span>
                                                     </button> <button class="btn btn-primary  cv_Detaildelete"   id="{{ $experience->id }}">
-                                                      <i class="fa fa-fw fa-camera"></i>
+                                                      
                                                       <span>add new</span>
                                                   </button>
                                                     <!-- todo the btns of edit and delete-->
@@ -228,7 +228,7 @@
                                 <div role="tabpanel" class="tab-pane" id="tab3">
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_Detail"   id="2">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>Add Education</span>
                                         </button>
                                     </div>
@@ -246,10 +246,10 @@
                                                 </div>
                                                 <div>
                                                   <button class="btn btn-primary  cv_Detailupdate" classname="educationsparent"   id="{{ $education->id }}">
-                                                    <i class="fa fa-fw fa-camera"></i>
+                                                    
                                                     <span>update</span>
                                                 </button> <button class="btn btn-primary  cv_Detaildelete"  id="{{ $education->id }}">
-                                                  <i class="fa fa-fw fa-camera"></i>
+                                                  
                                                   <span>add new</span>
                                               </button>
                                                     <!-- todo the btns of edit and delete-->
@@ -261,7 +261,7 @@
                                 <div role="tabpanel" class="tab-pane" id="tab4">
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_Detail"   id="3">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>add new</span>
                                         </button>
                                     </div>
@@ -279,10 +279,10 @@
                                                 </div>
                                                 <div>
                                                   <button class="btn btn-primary  cv_Detailupdate" classname="projectsparent"   id="{{ $project->id }}">
-                                                    <i class="fa fa-fw fa-camera"></i>
+                                                    
                                                     <span>update</span>
                                                 </button> <button class="btn btn-primary  cv_Detaildelete"  id="{{ $project->id }}">
-                                                  <i class="fa fa-fw fa-camera"></i>
+                                                  
                                                   <span>add new</span>
                                               </button>
                                                  <!-- todo the btns of edit and delete-->
@@ -295,7 +295,7 @@
                                 <div role="tabpanel" class="tab-pane" id="tab5">
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_recommendation"   id="1" data-toggle="modal">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>Change recommendation</span>
                                         </button>
                                     </div>
@@ -310,10 +310,10 @@
                                                 </div>
                                                 <div>
                                                   <button class="btn btn-primary  cv_recommendationsupdate"   id="{{$cv_recommendation->id}}">
-                                                    <i class="fa fa-fw fa-camera"></i>
+                                                    
                                                     <span>update</span>
                                                 </button> <button class="btn btn-primary  cv_recommendationsdelete"  id="{{ $cv_recommendation->id }}">
-                                                  <i class="fa fa-fw fa-camera"></i>
+                                                  
                                                   <span>add new</span>
                                               </button>
                                                     <!-- todo the btns of edit and delete-->
@@ -326,7 +326,7 @@
                                 <div role="tabpanel" class="tab-pane" id="tab6">
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary cv_skill" id="2">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>Change Logo</span>
                                         </button>
                                     </div>
@@ -339,10 +339,10 @@
                                           </div>
                                           <div>
                                             <button class="btn btn-primary  cv_skillsupdate" classname="languagesparent"  id="{{$language->id}}">
-                                              <i class="fa fa-fw fa-camera"></i>
+                                              
                                               <span>update</span>
                                           </button> <button class="btn btn-primary  cv_skillsdelete"  id="{{ $language->id }}">
-                                            <i class="fa fa-fw fa-camera"></i>
+                                            
                                             <span>add new</span>
                                         </button>
                                               <!-- todo the btns of edit and delete-->
@@ -354,7 +354,7 @@
                                 <div role="tabpanel" class="tab-pane" id="tab7">
                                   <div class="text-center text-sm-right my-3">
                                     <button class="btn btn-primary cv_skill" id="1">
-                                        <i class="fa fa-fw fa-camera"></i>
+                                        
                                         <span>Change Logo</span>
                                     </button>
                                 </div>
@@ -367,10 +367,10 @@
                                       </div>
                                       <div>
                                         <button class="btn btn-primary  cv_skillsupdate" classname="skillsparent"  id="{{$skill->id}}">
-                                          <i class="fa fa-fw fa-camera"></i>
+                                          
                                           <span>update</span>
                                       </button> <button class="btn btn-primary  cv_skillsdelete"  id="{{ $skill->id }}">
-                                        <i class="fa fa-fw fa-camera"></i>
+                                        
                                         <span>add new</span>
                                     </button>
                                           <!-- todo the btns of edit and delete-->
