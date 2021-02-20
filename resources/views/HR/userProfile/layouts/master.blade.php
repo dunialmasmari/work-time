@@ -135,6 +135,12 @@
       tinymce.init({
         selector: '#mytextarea'
       });
+      tinymce.init({
+        selector: '#mytextarea2'
+      });
+      tinymce.init({
+        selector: '#mytextarea3'
+      });
   </script>
   
   <!-- preview image-->

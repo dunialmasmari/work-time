@@ -14,9 +14,7 @@
 <link href="{{URL::asset('assets/css/bootstrap4.css')}}" rel="stylesheet" />
 <link href="{{URL::asset('assets/css/styleAR.css')}}" rel="stylesheet" />
 
-<style>
-
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/css/bootstrap-colorpicker.min.css">
 
 <script src="{{URL::asset('assets/js/jquery4.js')}}"></script>
 <script src="{{URL::asset('assets/js/popper.js')}}"></script>

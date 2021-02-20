@@ -139,15 +139,15 @@
 					<tr style='border: 2px solid rgb(79, 157, 213)'>
 						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white;border: 2px solid rgb(79, 157, 213)'>
 				<div sr-r-block="person">
-					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
-					<p sr-r-fld="jobTitle">Profession</p>
-					<p sr-r-fld="location jobTitle">City, State</p>
+					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
+						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
+					<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 						</td>
 						<td sr-r-tbl-top style='border: 2px solid rgb(79, 157, 213)'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
-									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
+									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
 								</div>
 							</div>
 						</td>
@@ -156,8 +156,8 @@
 					<td sr-r-tbl-top style='border: 0px solid white;border-top: 1px solid rgb(79, 157, 213)'>
 							<div sr-r-block="contact">
 							<div sr-r-fld="html">
-								<p sr-r-block >date</p><p sr-r-block >company</p>
-									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
+							<p sr-r-block  id="date">{{$date}}</p><p sr-r-block id="company">{{$company}}</p>
+									<p id="companyemail">{{$companyemail}}</p><p id="companyphone">{{$companyphone}}</p><p id="companywebsite">{{$companywebsite}}</p>
 								</div>
 							</div>
 							</div>
@@ -168,31 +168,21 @@
 				<div sr-r-blocks>
 					<div sr-r-block="experience" sr-r-id="2">
 						<table ><tr><td >
-						<p sr-r-block sr-r-fld="title">Dear</p>
+						<p sr-r-block sr-r-fld="title" id="deartTitle">Dear</p>	
 						</td><td ></td></tr></table>
 						<div sr-r-children>
-							<div sr-r-child sr-r-id="2c1">
-								<p sr-r-child sr-r-fld="title">Job Title</p>
-								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
-								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p>
-								<div sr-r-fld="html">
-									<p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p>
-								</div>
-							</div>
-							<div sr-r-child sr-r-id="2c2">
-								<p sr-r-child sr-r-fld="title">Job Title</p>
-								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
-								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2014</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2014</span></p>
-								<div sr-r-fld="html">
-									<p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p>
-								</div>
+							<div sr-r-child sr-r-id="2c1" id="coverText">
+								<script>
+									document.getElementById('coverText').innerHTML='{!!$coverText!!}'
+							 
+								 </script>
 							</div>
 						</div>
 					</div>
 					<div sr-r-block="text" sr-r-id="4">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
 						<p sr-r-block sr-r-fld="title">Sincerely</p>
-						<p sr-r-block sr-r-fld="title">Your Name</p>
+						<p sr-r-block sr-r-fld="title">{{$user_info->fullname}}</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 					</div>
 				</div>

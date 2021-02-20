@@ -133,21 +133,21 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid rgb(79, 157, 213)'>
+		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}'>
 			<div sr-r-papersheet-inner>
-				<table style='border: 2px solid rgb(79, 157, 213)'>
+				<table style='border: 2px solid {{$backgroundColor}}'>
 					<tr>
-						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white'>
+						<td sr-r-tbl-top style='background:{{$backgroundColor}};color:{{$fontColor}}'>
 				<div sr-r-block="person">
-					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
-					<p sr-r-fld="jobTitle">Profession</p>
-					<p sr-r-fld="location jobTitle">City, State</p>
+					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
+					{{-- <p sr-r-fld="jobTitle">{{ $user_info->fullname}}</p> --}}
+					<p sr-r-fld="location jobTitle">{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 						</td>
 						<td sr-r-tbl-top>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
-									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
+									<p>{{ $user_info->email }}</p><p>{{ $user_info->phone }}</p><p>{{ $user_info->userWebsite }}</p>
 								</div>
 							</div>
 						</td>
@@ -160,63 +160,97 @@
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							<div sr-r-fld="html">
-								<p>List here your top selling points, including your most relevant strengths, skills and core competencies.</p>
+								<p>{{ $user_info->aboutUser }}</p>
 							</div>
 						</div>
 					</div>
+					@if(count($experiences) > 0)
 					<div sr-r-block="experience" sr-r-id="2">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
 						<p sr-r-block sr-r-fld="title">Work Experience</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
+							@foreach ($experiences as $experience)
 							<div sr-r-child sr-r-id="2c1">
-								<p sr-r-child sr-r-fld="title">Job Title</p>
-								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
-								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p>
+								<p sr-r-child sr-r-fld="title">{{ $experience->title }}</p>
+								<p sr-r-where><span sr-r-fld="where">{{ $experience->subtitle }}</span></p>
+								{{-- <span sr-r-fld="location">Location</span> --}}
+								<p sr-r-dates><span sr-r-fld="fromMonth">{{$experience->start_date}}</span>  &ndash; <span sr-r-fld="toMonth">{{$experience->end_date}}</span> </p>
 								<div sr-r-fld="html">
-									<p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p>
+									<p>{{$experience->description}}</p>
 								</div>
 							</div>
-							<div sr-r-child sr-r-id="2c2">
-								<p sr-r-child sr-r-fld="title">Job Title</p>
-								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
-								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2014</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2014</span></p>
-								<div sr-r-fld="html">
-									<p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p>
-								</div>
-							</div>
+							@endforeach
 						</div>
 					</div>
+					@endif
+					@if(count($educations) > 0)
 					<div sr-r-block="education" sr-r-id="3">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Education</p>
+						<p sr-r-block sr-r-fld="title">Education and Training</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
+							@foreach ($educations as $education) 
 							<div sr-r-child sr-r-id="3c1">
-								<p sr-r-child sr-r-fld="title">Degree</p>
-								<p sr-r-where><span sr-r-fld="where">School Name</span>, <span sr-r-fld="location">Location</span></p>
-								<p sr-r-dates><span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toYear">2013</span></p>
+								<p sr-r-child sr-r-fld="title">{{ $education->title }}</p>
+								<p sr-r-where><span sr-r-fld="where">{{ $education->subtitle }}</span></p>
+								<p sr-r-dates><span sr-r-fld="fromYear">{{$education->start_date}}</span> &ndash; <span sr-r-fld="toYear">{{$education->end_date}}</span></p>
 								<div sr-r-fld="html">
-									<p>(Optional) GPA, Awards, Honors</p>
+									<p>{{$education->description}}</p>
 								</div>
 							</div>
+							@endforeach
 						</div>
-                    </div>
+					</div>
+					@endif
+					@if(count($projects) > 0)
+					<div sr-r-block="education" sr-r-id="3">
+						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
+						<p sr-r-block sr-r-fld="title">Education and Training</p>
+						</td><td sr-r-tbl-title></td></tr></table>
+						<div sr-r-children>
+							@foreach ($projects as $project) 
+							<div sr-r-child sr-r-id="3c1">
+								<p sr-r-child sr-r-fld="title">{{ $project->title }}</p>
+								<p sr-r-where><span sr-r-fld="where">{{ $project->subtitle }}</span></p>
+								<p sr-r-dates><span sr-r-fld="fromYear">{{$project->start_date}}</span> &ndash; <span sr-r-fld="toYear">{{$project->end_date}}</span></p>
+								<div sr-r-fld="html">
+									<p>{{$project->description}}</p>
+								</div>
+							</div>
+							@endforeach
+						</div>
+					</div>
+					@endif
+					@if(count($languages) > 0)
+					<div sr-r-block="education" sr-r-id="3">
+						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
+						 <p sr-r-block sr-r-fld="title">Languages</p>
+						 </td><td sr-r-tbl-title></td></tr></table>
+						 <div sr-r-children>
+							@foreach ($languages as $language)
+							 <div sr-r-child sr-r-id="3c1">
+										 <span sr-r-child="" sr-r-fld="title"  class='rows'>{{ $language->name }}</span>
+							 </div>
+							 @endforeach
+						 </div>
+					</div>
+					@endif
+					@if(count($languages) > 0)
                     <div sr-r-block="education" sr-r-id="3">
                        <table sr-r-tbl-title><tr><td sr-r-tbl-title>
                         <p sr-r-block sr-r-fld="title">Skills</p>
                         </td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
-							<div sr-r-child sr-r-id="3c1">
-						        		<span sr-r-child="" sr-r-fld="title"  class='rows'>DegreeDegreeDegreeDegreeDegree</span>
-                                       <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
-                                       <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
-                                       <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
-                                       <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
-							</div>
+							@foreach ($skills as $skill)
+							 <div sr-r-child sr-r-id="3c1">
+										 <span sr-r-child="" sr-r-fld="title"  class='rows'>{{ $skill->name }}</span>
+							 </div>
+							 @endforeach
 						</div>
 					</div>
-					<div sr-r-block="text" sr-r-id="4">
+					@endif
+					{{-- <div sr-r-block="text" sr-r-id="4">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
 						<p sr-r-block sr-r-fld="title">Additional Information</p>
 						</td><td sr-r-tbl-title></td></tr></table>
@@ -225,7 +259,7 @@
 								<p>Include other relevant information that employers should know about. This may include activities, experiences and interests that you have that relate to the position you are trying to get.</p>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>
