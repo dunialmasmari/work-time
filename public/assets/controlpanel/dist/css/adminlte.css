@@ -31325,4 +31325,17 @@ a.text-muted:hover {
   float: right;
 
 }
-
+ .back-to-top1:lang(ar) {
+    bottom: 1.25rem;
+    position: fixed;
+    left: 1.25rem;
+    z-index: 1032;
+    width: 60px;
+}
+.back-to-top1:lang(en) {
+  bottom: 1.25rem;
+  position: fixed;
+  right: 1.25rem;
+  z-index: 1032;
+  width: 60px;
+}

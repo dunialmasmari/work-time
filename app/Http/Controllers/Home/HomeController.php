@@ -13,6 +13,8 @@ use App\Models\job;
 use App\Models\Advertising;
 use App\Models\service;
 use App\Models\blog;
+use App\Events\StatusLiked;
+
 
 
 
@@ -52,6 +54,11 @@ class HomeController extends Controller
                    'blogs'=>$blogs,
                   ];
 
+                  $dataevent =[
+                    'user_name'  => 'haifaa nabeel',
+                    'comment' => 'haifaa nabeel comment ',
+               ];
+              event(new StatusLiked($dataevent));
         return view('HR.home',$data);
     }
 }
