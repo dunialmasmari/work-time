@@ -55,74 +55,67 @@ class UsersController extends Controller
        return view('HR.userProfile.userInfo',$data);
     }
     public function updateInfo(Request $request)
-    {  $user_id = auth()->user()->user_id;
-        $compnyInfo = compnyInfo::where('user_id',$user_id);
-        if($compnyInfo->exists())
+    {   $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id);
+        if($user_info->exists())
         {
-        $compnyInfo->user_id = $user_id;
-        $compnyInfo->companyName = $request->input('companyName');
-        $compnyInfo->websitelink = $request->input('websitelink');
-        $compnyInfo->email = $request->input('email');
-        $compnyInfo->phone = $request->input('phone');
-        $compnyInfo->country = $request->input('country');
-        $compnyInfo->city = $request->input('city');
-        $compnyInfo->address = $request->input('address');
-        $compnyInfo->aboutCompany = $request->input('aboutCompany');
-        $compnyInfo->size = $request->input('size');
-        $compnyInfo->type = $request->input('type');
-        $compnyInfo->founded = $request->input('founded');
-        $compnyInfo->industry = $request->input('industry');
-        $compnyInfo->description = $request->input('description');
-            $compnyInfo->Update([
-                'companyName' => $compnyInfo->companyName, 
-                'websitelink' => $compnyInfo->websitelink, 
-                'email' => $compnyInfo->email, 
-                'phone' => $compnyInfo->phone,
-                'country' => $compnyInfo->country,
-                'city' => $compnyInfo->city,
-                'address' => $compnyInfo->address,
-                'aboutCompany' => $compnyInfo->aboutCompany, 
-                'size' => $compnyInfo->size, 
-                'type' => $compnyInfo->type,
-                'founded' => $compnyInfo->founded,
-                'industry' => $compnyInfo->industry,
-                'description' => $compnyInfo->description,]);
+        $user_info->fullname = $request->input('fullname');
+        $user_info->gender = $request->input('gender');
+        $user_info->email = $request->input('email');
+        $user_info->phone = $request->input('phone');
+        $user_info->country = $request->input('country');
+        $user_info->city = $request->input('city');
+        $user_info->userWebsite = $request->input('userWebsite');
+        $user_info->aboutUser = $request->input('aboutUser');
+        $user_info->status = $request->input('status');
+        $user_info->Update([ 'fullname' => $user_info->fullname, 
+                'gender' => $user_info->gender, 
+                'email' => $user_info->email,
+                'phone' => $user_info->phone,
+                'country' => $user_info->country,
+                'city' => $user_info->city,
+                'userWebsite' => $user_info->userWebsite, 
+                'aboutUser' => $user_info->aboutUser, 
+                'status' => $user_info->status]);
       
-            $compnyInfo = compnyInfo::where('active','1')
-            ->where('user_id','=',$user_id)
-            ->get();
-            return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
+            // $user_info = compnyInfo::where('active','1')
+            // ->where('user_id','=',$user_id)
+            // ->get();
+            // return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
             //return view('admin.job.job_list',['jobs' => $jobs]);
+            return   $this->userInfo();
         }
         else{
             return response()->json(['message' => 'job not found'], 404);
         }
     }
     public function updateLogo(Request $request)
-    {  $user_id = auth()->user()->user_id;
-        $compnyInfo = compnyInfo::where('user_id',$user_id);
-        if($compnyInfo->exists())
+    {    $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id);
+        if($user_info->exists())
         {
        
-        if($request->logo != '')
+        if($request->pic != '')
         {
-                if($request->hasfile('logo'))
+                if($request->hasfile('pic'))
                 {
-                    $imagename = time().'.'.$request->file('logo')->extension();
-                    $result = $request->file('logo')->move(public_path().'/assets/uploads/Logos/', $imagename); //store('files');
-                    $compnyInfo->logo = $imagename;
+                    $imagename = time().'.'.$request->file('pic')->extension();
+                    $result = $request->file('pic')->move(public_path().'/assets/uploads/userPic/', $imagename); //store('files');
+                    $user_info->pic = $imagename;
                 }
-                $compnyInfo->Update([
-                 'logo' => $compnyInfo->logo]);
+                $user_info->Update(['pic' => $user_info->pic]);
+                return   $this->userInfo();
         }
         else{
             return response()->json(['message' => 'job nott found'], 404);
 
         }
       }else{
-            $compnyInfo = compnyInfo::where('active','1')
-            ->where('user_id','=',$user_id)
-            ->get();
+            // $compnyInfo = compnyInfo::where('active','1')
+            // ->where('user_id','=',$user_id)
+            // ->get();
            // return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
             //return view('admin.job.job_list',['jobs' => $jobs]);
         
@@ -131,71 +124,197 @@ class UsersController extends Controller
       }     
        
     }
-   
-    public function storeJob(Request $request){
-        $user_id = auth()->user()->user_id;
-        $job = new job();
-        $job->user_id = $user_id;
-        $job->major_id = $request->input('major_id');
-        $job->title = $request->input('title');
-        $job->company = $request->input('company');
-        $job->email = $request->input('email');
-        $job->register_here = $request->input('register_here');
-        $job->recommendation = $request->input('recommendation');
-        $job->description = $request->input('description');
-        $job->apply_link = $request->input('apply_link');
-        $job->start_date = $request->input('start_date');
-        $job->deadline = $request->input('deadline');
-        $job->posted_date = $request->input('posted_date');
-        $job->active = $request->input('active');
-        $job->location = implode(",", $request->input('location'));
-        if($request->hasfile('image'))
+    public function updateCvDetails(Request $request)
+    {   $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_detail = cv_detail::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+        if($cv_detail->exists())
         {
-        $imagename = time().'.'.$request->file('image')->extension();
-        $result = $request->file('image')->move(public_path().'/assets/uploads/jobs/images/', $imagename); //store('files');
-        $job->image = $imagename;
-        }
-        $job->save();
+            $cv_detail->userdetail_id = $user_info->id;
+            $cv_detail->active = 1;
+            $cv_detail->title = $request->input('title');
+            $cv_detail->subtitle = $request->input('subtitle');
+            $cv_detail->type = $request->input('type');
+            $cv_detail->start_date = $request->input('start_date');
+            $cv_detail->end_date = $request->input('end_date');
+            $cv_detail->description = $request->input('description');
+            $cv_detail->Update([
+                'title' => $cv_detail->title, 
+                'subtitle' => $cv_detail->subtitle, 
+                'type' => $cv_detail->type, 
+                'start_date' => $cv_detail->start_date,
+                'end_date' => $cv_detail->end_date,
+                'description' => $cv_detail->description]);
       
-        $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
-        ->select('majors.major_name', 'jobs.*' )->get();
-        return redirect()->route('viewJobs')->with(['jobs' => $jobs]);
+                return response()->json(['success'=>'Ajax request submitted successfully']);
+        }
+        else{
+            return response()->json(['message' => 'job not found'], 404);
+        }
     }
-    
-    public function storeTender(Request $request){
+    public function AddCvDetails(Request $request){
         $user_id = auth()->user()->user_id;
-        $tender = new tender();
-        $tender->user_id = $user_id;
-        $tender->major_id = $request->input('major_id');
-        $tender->title = $request->input('title');
-        $tender->company = $request->input('company');
-        $tender->description = $request->input('description');
-        $tender->apply_link = $request->input('apply_link');
-        $tender->start_date = $request->input('start_date');
-        $tender->deadline = $request->input('deadline');
-        $tender->posted_date = $request->input('posted_date');
-        $tender->active = $request->input('active');
-        $tender->location = implode(",", $request->input('location'));
-        if($request->hasfile('filename'))
-        {
-        $filename = time().'.'.$request->file('filename')->extension();
-        $result = $request->file('filename')->move(public_path().'/assets/uploads/tenders/pdf/', $filename); //store('files');
-        $tender->filename = $filename;
-        }
-        if($request->hasfile('image'))
-        {
-        $imagename = time().'.'.$request->file('image')->extension();
-        $result = $request->file('image')->move(public_path().'/assets/uploads/tenders/images/', $imagename); //store('files');
-        $tender->image = $imagename;
-        }
-        $tender->save();
-      
-        $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
-        ->select('majors.major_name', 'tenders.*' )->get();
-            //return view('admin.tender.tender_list',['tenders' => $tenders]);
-            return redirect()->route('viewTenders')->with(['tenders' => $tenders]);
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_detail = new cv_detail();
+        $cv_detail->userdetail_id = $user_info->id;
+        $cv_detail->active = 1;
+        $cv_detail->title = $request->input('title');
+        $cv_detail->subtitle = $request->input('subtitle');
+        $cv_detail->type = $request->input('type');
+        $cv_detail->start_date = $request->input('start_date');
+        $cv_detail->end_date = $request->input('end_date');
+        $cv_detail->description = $request->input('description');
+        
+        $cv_detail->save();
+        return response()->json(['success'=>'Ajax request submitted successfully']);
+        // $cv_detail = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+        // ->select('majors.major_name', 'jobs.*' )->get();
+        // return redirect()->route('viewJobs')->with(['jobs' => $jobs]);
     }
-///////////////////////////////cv//////////////////////////////////
+    public function updateCvSkills(Request $request)
+    {   $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_skill = cv_skill::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+        if($cv_skill->exists())
+        {
+        $cv_skill->name = $request->input('name');
+        $cv_skill->value = $request->input('value');
+        $cv_skill->Update([
+            'name' => $cv_skill->name, 
+            'value' => $cv_skill->value]);
+      
+            // $compnyInfo = compnyInfo::where('active','1')
+            // ->where('user_id','=',$user_id)
+            // ->get();
+            // return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
+            //return view('admin.job.job_list',['jobs' => $jobs]);
+        }
+        else{
+            return response()->json(['message' => 'job not found'], 404);
+        }
+    }
+    public function AddCvSkills(Request $request){
+        $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_skill = new cv_skill();
+        $cv_skill->userdetail_id = $user_info->id;
+        $cv_skill->active = 1;
+        $cv_skill->name = $request->input('name');
+        $cv_skill->value = $request->input('value');
+        $cv_skill->type = $request->input('type');
+        $cv_skill->save();
+      
+        // $cv_detail = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+        // ->select('majors.major_name', 'jobs.*' )->get();
+        // return redirect()->route('viewJobs')->with(['jobs' => $jobs]);
+    }
+    public function updateCvRecommendations(Request $request)
+    {   $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_recommendation = cv_recommendation::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+        if($cv_recommendation->exists())
+        {
+        $cv_recommendation->userdetail_id = $user_info->id;
+        $cv_recommendation->name = $request->input('name');
+        $cv_recommendation->email = $request->input('email');
+        $cv_recommendation->phone = $request->input('phone');
+        $cv_recommendation->description = $request->input('description');
+        $cv_recommendation->Update([
+            
+            'name' => $cv_recommendation->name, 
+            'email' => $cv_recommendation->email,
+            'phone' => $cv_recommendation->phone,
+            'description' => $cv_recommendation->description]);
+      
+            // $compnyInfo = compnyInfo::where('active','1')
+            // ->where('user_id','=',$user_id)
+            // ->get();
+            // return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
+            //return view('admin.job.job_list',['jobs' => $jobs]);
+        }
+        else{
+            return response()->json(['message' => 'job not found'], 404);
+        }
+    }
+    public function AddCvRecommendations(Request $request){
+        $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_recommendation = new cv_recommendation();
+        $cv_recommendation->userdetail_id = $user_info->id;
+        $cv_recommendation->active = 1;
+        $cv_recommendation->name = $request->input('name');
+        $cv_recommendation->email = $request->input('email');
+        $cv_recommendation->phone = $request->input('phone');
+        $cv_recommendation->description = $request->input('description');
+        $cv_recommendation->save();
+      
+        // $cv_detail = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+        // ->select('majors.major_name', 'jobs.*' )->get();
+        // return redirect()->route('viewJobs')->with(['jobs' => $jobs]);
+    }
+    public function deleteCvDetails(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_detail = cv_detail::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+            if($cv_detail->exists())
+            {
+                    $cv_detail->Update(['active' => '0']);
+                    // $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    // ->select('majors.major_name', 'tenders.*' )->get();
+                    // //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    // return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
+            }
+    } 
+    public function deleteCvSkills(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_skill = cv_skill::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+            if($cv_skill->exists())
+            {
+                    $cv_skill->Update(['active' => '0']);
+                    // $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    // ->select('majors.major_name', 'tenders.*' )->get();
+                    // //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    // return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
+            }
+    }
+    public function deleteCvRecommendations(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $user_info=userdetail::where('active','1')
+        ->where('user_id','=',$user_id)->first();
+        $cv_recommendation = cv_recommendation::where('id',$request->id)
+        ->where('userdetail_id',$user_info->id);
+            if($cv_recommendation->exists())
+            {
+                    $cv_recommendation->Update(['active' => '0']);
+                    // $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    // ->select('majors.major_name', 'tenders.*' )->get();
+                    // //return view('admin.tender.tender_list',['tenders' => $tenders]);
+                    // return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+
+
+            }
+    }
+  
+  ///////////////////////////////cv//////////////////////////////////
     public function viewCv1()
     {
         return view('HR.userProfile.resume.cvTemplete1');
@@ -260,5 +379,4 @@ class UsersController extends Controller
         $pdf = PDF::loadView('HR.userProfile.coverletter.coverTemplete3', $data);
         return $pdf->download('cvTemplete3.pdf');
     }
-
 }

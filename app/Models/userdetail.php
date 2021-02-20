@@ -40,4 +40,9 @@ class userdetail extends Model
     {
         return $this->hasMany('App\Models\cv_skill');
     }
+    public function resume_reports()
+    {
+        return $this->hasMany('App\Models\resume_report');
+    }
+    
 }
