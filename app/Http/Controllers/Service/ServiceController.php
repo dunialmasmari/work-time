@@ -24,7 +24,7 @@ class ServiceController extends Controller
     {
         $services =service::where('service_id', $id)
             ->where('active','1');
-            $advers=Advertising::select('*')->where('active','1')->get();
+            $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
 
             
             if ($services->exists())

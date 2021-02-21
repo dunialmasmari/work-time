@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cv_skill extends Model
+class resume_report extends Model
 {
   //  protected $table = "usernotifies";
     
@@ -13,9 +13,8 @@ class cv_skill extends Model
         'id',
         'userdetails_id',
         'name',
-        'value',
+        'date',
         'type',
-        'active',
     ];
     public function userdetail()
     {

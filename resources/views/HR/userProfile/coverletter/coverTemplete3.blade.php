@@ -142,15 +142,15 @@
 					<tr>
 						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white;border: 2px solid rgb(79, 157, 213)'>
 				<div sr-r-block="person">
-					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
-					<p sr-r-fld="jobTitle">Profession</p>
-					<p sr-r-fld="location jobTitle">City, State</p>
-				</div>
+					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
+						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
+						<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
+					</div>
 						</td>
 						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid rgb(79, 157, 213)'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
-									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
+									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
 								</div>
 							</div>
 						</td>
@@ -159,9 +159,9 @@
 					<td sr-r-tbl-top style='color:black;;text-align:left;'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
-									<p sr-r-block >date</p><p sr-r-block >company</p>
-									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
-								</div>
+									<p sr-r-block  id="date">{{$date}}</p><p sr-r-block id="company">{{$company}}</p>
+									<p id="companyemail">{{$companyemail}}</p><p id="companyphone">{{$companyphone}}</p><p id="companywebsite">{{$companywebsite}}</p>
+								 </div>
 							</div>
 						</td>
 						<td></td>
@@ -169,11 +169,14 @@
 				</table>
 				<div sr-r-blocks>
 					<div sr-r-block="text" sr-r-id="1">
-						<p sr-r-block sr-r-fld="title">Dear</p>
+						<p sr-r-block sr-r-fld="title"  id="deartTitle">Dear</p>
 						<div sr-r-children>
-							<div sr-r-fld="html">
-								<p>List here your top selling points, including your most relevant strengths, skills and core competencies.</p>
-							</div>
+							<div sr-r-fld="html"  id="coverText">
+								<script>
+									document.getElementById('coverText').innerHTML='{!!$coverText!!}'
+							 
+								 </script>
+						    </div>
 						</div>
 					</div>
 					
@@ -183,8 +186,7 @@
 						<!--<div sr-r-children>
 							<div sr-r-child sr-r-id="3c1">
 								 <div sr-r-circle></div> -->
-								<p sr-r-block sr-r-fld="title">your name</p>
-
+								 <p sr-r-block sr-r-fld="title">{{$user_info->fullname}}</p>
 							</div>
 						</div>
 					</div>

@@ -10,7 +10,7 @@ class cv_detail extends Model
     
     public $timestamps = false;
     protected $filtable=[
-           'userdetails_id',
+           'userdetail_id',
            'title',
            'subtitle',
            'start_date',
