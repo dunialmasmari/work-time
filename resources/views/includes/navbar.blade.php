@@ -47,20 +47,15 @@
       <li class="nav-item dropdown dropdown-notifications">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span data-count="0" class=" badge badge-danger navbar-badge" style='content: attr(data-count);'>0</span>
+          <span data-count="0" class=" badge badge-danger navbar-badge notif-count" style='content: attr(data-count);'></span>
         </a>
 
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style='height:auto'>
           <span class="dropdown-item dropdown-header"> Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-              <div class='row'>
-                <div class='col-2'><i class="fas fa-reply "></i></div> 
-                <div class='col-7' style='height:auto'><i style='height:auto'>ne wmessages</i></div>
-                <div class='col-3'><i class="text-sm text-muted" style='height:auto'>3 mins</i></div>
-              </div>
-          </a>
-          <div class="dropdown-divider"></div>
+          <div class='dropdown-menu-div' style='height:auto;word-wrap: break-word'>
+          
+        </div>
+          <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
               <div class='row'>
                 <div class='col-2'><i class="fas fa-envelope "></i></div> 
@@ -83,7 +78,7 @@
                 <div class='col-7' style='height:auto'><i style='height:auto'>new messages</i></div>
                 <div class='col-3'><i class="text-sm text-muted" style='height:auto'>3 mins</i></div>
               </div>
-          </a>
+          </a> -->
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
@@ -106,7 +101,7 @@
       var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
       var notificationsCountElem = notificationsToggle.find('span[data-count]');
       var notificationsCount     = parseInt(notificationsCountElem.data('count'));
-      var notifications          = notificationsWrapper.find('div.dropdown-menu');
+      var notifications          = notificationsWrapper.find('div.dropdown-menu-div');
 
       if (notificationsCount <= 0) {
         notificationsCountElem.hide();
@@ -114,17 +109,49 @@
 
       // Enable pusher logging - don't include this in production
        Pusher.logToConsole = true;
+       
+       var pusher = new Pusher('732c493a2daef83bcefa');
+       var channel = pusher.subscribe('status-liked');
+       pusher.bind('StatusLiked',function (data) {
+        //alert(('haifaa'));
+        var existingNotifications = notifications.html();
+        var newNotificationHtml = `
+        <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+          <div class='row'>
+                <div class='col-2'><i class="fas fa-reply "></i></div> 
+                <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.user_name + `</i></div>
+                <div class='col-3'><i class="text-sm text-muted" style='height:auto;word-wrap: break-word'>` + data.comment + `</i></div>
+              </div>
+          </a>
+        `;
+        notifications.html(newNotificationHtml + existingNotifications);
 
-    var pusher = new Pusher('732c493a2daef83bcefa', {
-               cluster: 'mt1',
-            //  encrypted: true
-      });
+        notificationsCount += 1;
+        notificationsCountElem.attr('data-count', notificationsCount);
+        notificationsWrapper.find('.notif-count').text(notificationsCount);
+        notificationsCountElem.show();
+
+        //notificationsWrapper.show();
+       });
+
+   /*  var pusher = new Pusher('732c493a2daef83bcefa', {
+             //  cluster: 'mt1',
+              encrypted: true
+      }); */
+   /*    var event='StatusLiked';
+      var callback=function (data) {
+        console.log(data);
+        alert(JSON.stringify(data));
+      };
+      pusher.bind(event,callback) */
 
 
-      var channel = pusher.subscribe('StatusLiked');
+
+/*       var channel = pusher.subscribe('StatusLiked');
         channel.bind('App\\Events\\StatusLiked', function(data) {
         alert(JSON.stringify(data));
-        });
+        }); */
 
 
         
