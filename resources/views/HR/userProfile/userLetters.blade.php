@@ -9,11 +9,11 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                            <h3 class="card-title">{{ __('fields_web.Jobs.TitlePage') }}</h3>
+                            <h3 class="card-title">{{__('fields_web.userInfo.Letters')}}</h3>
                             <div class="text-center text-sm-right">
-                                <a href='{{ route('addJob') }}'> <button
+                               <!--  <a href='{{ route("addJob") }}'> <button
                                         class="btn btn-primary ">{{ __('fields_web.Tenders.more') }}</button></a>
-                            </div>
+ -->                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -31,10 +31,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#tab1" role="tab" data-toggle='tab'>
                                         <div class="card" style="width: 8rem;">
-                                            <img class="bd-placeholder-img card-img-top" height="100" src="" alt=""
+                                        <img src="{{URL::asset('assets\userPro\cover\templetter1.jpg')}}" class="bd-placeholder-img card-img-top" height="100" src="" alt=""
                                                 srcset="">
                                             <div class="card-body">
-                                                <span class="card-title">blue</span>
+                                                <span class="card-title">{{__('fields_web.userInfo.temp1')}}</span>
                                             </div>
                                         </div>
                                     </a>
@@ -42,10 +42,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#tab2" role="tab" data-toggle='tab'>
                                         <div class="card" style="width: 8rem;">
-                                            <img class="bd-placeholder-img card-img-top" height="100" src="" alt=""
+                                        <img src="{{URL::asset('assets\userPro\cover\templetter2.jpg')}}" class="bd-placeholder-img card-img-top" height="100" src="" alt=""
                                                 srcset="">
                                             <div class="card-body">
-                                                <span class="card-title">yellow</span>
+                                                <span class="card-title">{{__('fields_web.userInfo.temp2')}}</span>
                                             </div>
                                         </div>
                                     </a>
@@ -53,10 +53,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link " href="#tab3" role="tab" data-toggle='tab'>
                                         <div class="card" style="width: 8rem;">
-                                            <img class="bd-placeholder-img card-img-top" height="100" src="" alt=""
+                                            <img src="{{URL::asset('assets\userPro\cover\templetter3.jpg')}}" class="bd-placeholder-img card-img-top" height="100" src="" alt=""
                                                 srcset="">
                                             <div class="card-body">
-                                                <span class="card-title">red</span>
+                                                <span class="card-title">{{__('fields_web.userInfo.temp3')}}</span>
                                             </div>
                                         </div>
                                     </a>
@@ -70,7 +70,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col">
-                                        <label>background color</label>
+                                        <label>{{__('fields_web.userInfo.fontColor')}}</label>
                                         <div id="cp11" class="input-group" title="Using color option">
                                             <input type="text" name="backgroundColor" id="backgroundColor"
                                                 class="form-control input-lg" />
@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <label>font color</label>
+                                        <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                                         <div id="cp12" class="input-group" title="Using color option">
                                             <input type="text" name="fontColor" id="fontColor"
                                                 class="form-control input-lg" />
@@ -95,57 +95,57 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>company Name</label>
+                                            <label>{{__('fields_web.userInfo.companyName')}}</label>
                                             <input class="form-control" type="text" name="company" id="company"
-                                                placeholder="company name" value="">
+                                                placeholder="{{__('fields_web.userInfo.companyName')}}" value="">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>company email</label>
+                                            <label>{{__('fields_web.userInfo.companyemail')}}</label>
                                             <input class="form-control" type="text" name="email" id="email"
-                                                placeholder="email" value="">
+                                                placeholder="{{__('fields_web.userInfo.companyemail')}}" value="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>company website</label>
+                                            <label>{{__('fields_web.userInfo.companywebsite')}}</label>
                                             <input class="form-control" type="text" name="website" id="website"
-                                                placeholder="company website" value="">
+                                                placeholder="{{__('fields_web.userInfo.companywebsite')}}" value="">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>phone</label>
+                                            <label>{{__('fields_web.userInfo.comphone')}}</label>
                                             <input class="form-control" type="text" name="phone" id="phone"
-                                                placeholder="phone" value="">
+                                                placeholder="{{__('fields_web.userInfo.comphone')}}" value="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>person name</label>
+                                            <label>{{__('fields_web.userInfo.personname')}}</label>
                                             <input class="form-control" type="text" name="name" id="name"
-                                                placeholder="person name" value="">
+                                                placeholder="{{__('fields_web.userInfo.personname')}}" value="">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>date</label>
+                                            <label>{{__('fields_web.userInfo.date')}}</label>
                                             <input class="form-control" type="text" style="display: none" name="template" id="template" value="1"
                                                 placeholder="">
                                                  <input class="form-control" type="date" name="date" id="date"
-                                                placeholder="date">
+                                                placeholder="{{__('fields_web.userInfo.date')}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Cover Letters :</label>
+                                            <label>{{__('fields_web.userInfo.CoverLetters')}} :</label>
                                             <textarea cols="90" id="mytextarea" name="coverletter"></textarea>
                                         </div>
                                     </div>
@@ -153,10 +153,10 @@
 
                                 <div class="row my-3">
                                     <div class="col">
-                                        <button class="btn btn-primary " id="preview" type="button">preview</button>
+                                        <button class="btn btn-primary " id="preview" type="button">{{__('fields_web.userInfo.preview')}}</button>
                                     </div>
                                     <div class="col py-auto">
-                                        <button class="btn btn-primary " type="submit">download</button>
+                                        <button class="btn btn-primary " type="submit">{{__('fields_web.userInfo.download')}}</button>
 
                                     </div>
                                 </div>
