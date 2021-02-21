@@ -62,9 +62,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
     
 
-    Route::namespace('Sign')->group(function(){
+    Route::namespace('Sign')->group(function(){ 
         Route::get('loginhr','SignupLoginController@loginShow')->name('loginhr');
         Route::get('signuphr','SignupLoginController@signupShow')->name('signuphr');
+        Route::get('companysignup','SignupLoginController@companysignup')->name('companysignup');
     });
 
     Route::namespace('Service')->group(function(){
@@ -77,7 +78,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('blog/{id}','BlogController@viewBlogId')->name('blog');
        // Route::post('sendingCV','JobController@sendCV');
     });
-    Route::namespace('Company')->group(function(){
+
+   Route::namespace('Company')->group(function(){
         Route::get('userInfo','CompanyController@userInfo')->name('userInfo');
         Route::post('updateInfo','CompanyController@updateInfo')->name('updateInfo');
         Route::post('updateLogo','CompanyController@updateLogo')->name('updateLogo');
@@ -90,7 +92,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });
-    Route::namespace('Users')->group(function(){
+ Route::namespace('Users')->group(function(){
          Route::get('userProfile','UsersController@userInfo')->name('userProfile');
         Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
         Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
