@@ -12,7 +12,7 @@
                     <h3 class="card-title">{{__('fields_web.Tender.TitlePage')}}</h3>
                    
                     <div class="text-center text-sm-right">
-                      <a href='{{route('addTender')}}'> <button class="btn btn-primary ">{{__('fields_web.Tenders.more')}}</button></a>
+                      <a href='{{route('addTender')}}'> <button class="btn btn-primary ">{{__('fields_web.TenderAdd.TitlePage')}}</button></a>
      
                    </div>
                    </div>

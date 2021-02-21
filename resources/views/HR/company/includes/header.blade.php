@@ -31,10 +31,10 @@
     <div class="card p-3">
       <div class="e-navlist e-navlist--active-bg">
         <ul class="nav">
-          <li class="nav-item"><a class="nav-link px-2 active" href="{{route('userInfo')}}"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>user information</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>post a tender</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>post a job</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="{{route('userInfo')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>View Applications</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2 active" href="{{route('userInfo')}}"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>{{__('fields_web.companyInfo.compinformation')}}</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a></li>
+          <!-- <li class="nav-item"><a class="nav-link px-2" href="{{route('userInfo')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.Applications')}}</span></a></li> -->
         </ul>
       </div>
     </div>
