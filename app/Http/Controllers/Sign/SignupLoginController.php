@@ -15,4 +15,8 @@ class SignupLoginController extends Controller
     {
         return view('HR.signup');
     }
+    public function companysignup()
+    {
+        return view('HR.companysignup');
+    }
 }
