@@ -5,7 +5,7 @@
 <div class="row my-5 py-5 mx-0" >
     <div class="container ">
         <div class="row flex-lg-nowrap">
-@include('HR.company.includes.header')
+@include('HR.userProfile.includes.header')
 
 @yield('contents')
 </div>
@@ -134,6 +134,12 @@
     <script>
       tinymce.init({
         selector: '#mytextarea'
+      });
+      tinymce.init({
+        selector: '#mytextarea2'
+      });
+      tinymce.init({
+        selector: '#mytextarea3'
       });
   </script>
   
@@ -292,4 +298,5 @@
   
       })
     </script>
+  
 @stop

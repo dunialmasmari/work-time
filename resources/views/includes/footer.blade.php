@@ -1,3 +1,6 @@
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top1" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
 <script> 
 
   var form = document.getElementById("form");

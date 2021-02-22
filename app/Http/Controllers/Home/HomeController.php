@@ -13,6 +13,8 @@ use App\Models\job;
 use App\Models\Advertising;
 use App\Models\service;
 use App\Models\blog;
+use App\Events\StatusLiked;
+
 
 
 
@@ -38,7 +40,7 @@ class HomeController extends Controller
              ->orderByRaw('jobs.start_date DESC')
              ->paginate(4);
 
-             $advers=Advertising::select('*')->where('active','1')->get();
+             $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
              $services =service::where('active','1')->get();
              $blogs=blog::where('active','1')->orderByRaw('created_at DESC')->get();
 
@@ -52,6 +54,11 @@ class HomeController extends Controller
                    'blogs'=>$blogs,
                   ];
 
+                  $dataevent =[
+                    'user_name'  => 'haifaa nabeel',
+                    'comment' => 'haifaa nabeel comment ',
+               ];
+              event(new StatusLiked($dataevent));
         return view('HR.home',$data);
     }
 }

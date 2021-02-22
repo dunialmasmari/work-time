@@ -34,7 +34,7 @@ class BlogController extends Controller
         $blogsAll=blog::where('active','1')
         ->orderByRaw('created_at DESC')
         ->get();
-        $advers=Advertising::select('*')->where('active','1')->get();
+        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
 
         //$data=['blogs' => $blogs];
         
