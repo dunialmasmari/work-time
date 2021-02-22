@@ -448,6 +448,7 @@ return [
     'adverMang'=>'Advertisements Managment',
     'adverAll'=> 'Show All Advertisements',
     'adverBlog'=> 'Add New Advertisement',
+    
     'logout' => 'logout',
   ],
 
