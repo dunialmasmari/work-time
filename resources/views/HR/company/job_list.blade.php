@@ -10,10 +10,10 @@
              <div class="card card-primary">
                 <div class="card-header">
                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                <h3 class="card-title">{{__('fields_web.Jobs.TitlePage')}}</h3>
+                <h3 class="card-title">{{__('fields_web.Jobsshow.TitlePage')}}</h3>
                
                 <div class="text-center text-sm-right">
-                 <a href='{{route('addJob')}}'> <button class="btn btn-primary ">{{__('fields_web.Tenders.more')}}</button></a>
+                 <a href='{{route('addJob')}}'> <button class="btn btn-primary ">{{__('fields_web.JobsAdd.TitlePage')}}</button></a>
  
                </div>
                </div>
@@ -43,9 +43,9 @@
                           <!-- <th>major Name</th> -->
                           <th>{{__('fields_web.Jobs.location')}} </th>
                           <th>{{__('fields_web.Jobs.company')}}  </th>
-                          <th>{{__('fields_web.Jobs.deadline')}}  </th>
-                          <th>{{__('fields_web.Jobs.status')}}  </th>
-                          <th>{{__('fields_web.Jobs.Actions')}} </th>
+                          <th>{{__('fields_web.Jobsshow.deadline')}}  </th>
+                          <th>{{__('fields_web.Jobsshow.status')}}  </th>
+                          <th>{{__('fields_web.Jobsshow.Actions')}} </th>
                           </tr>
                           </thead>
                           <tbody>
