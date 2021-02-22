@@ -40,17 +40,17 @@
                     <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                       <div class="text-center text-sm-left mb-2 mb-sm-0">
                         <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"> {{ $info->companyName}}</h4>
-                        {{-- <p class="mb-0">@johnny.s</p> --}}
-                        {{-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> --}}
+                            {{-- <p class="mb-0">@johnny.s</p> --}}
+                            {{-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> --}}
                         <div class="mt-2">
 
                           <button class="btn btn-primary" type="botton" onclick="changeLogoImage()">
                             <i class="fa fa-fw fa-camera"></i>
-                            <span>Change Logo</span>
+                            <span>{{__('fields_web.companyInfo.Changelogo')}}</span>
                           </button>
                           <button class="btn btn-primary" type="submit" id="submitlogo" style="display:none;" >
                             <i class="fa fa-fw fa-camera"></i>
-                            <span>Change Logo</span>
+                            <span>{{__('fields_web.companyInfo.Changelogo')}}</span>
                           </button>
                         </div>
                       </div>
@@ -89,49 +89,49 @@
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Company Name</label>
-                                  <input class="form-control" type="text" id="companyName" name="companyName" placeholder="organization Name" value="{{ $info->companyName}}">
+                                  <label>{{__('fields_web.companyInfo.CompanyName')}}</label>
+                                  <input class="form-control" type="text" id="companyName" name="companyName" placeholder="{{__('fields_web.companyInfo.CompanyNames')}}" value="{{ $info->companyName}}">
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Website Link</label>
-                                  <input class="form-control" type="text" id="websitelink" name="websitelink" placeholder="Website Link"  value="{{ $info->websitelink}}">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <div class="form-group">
-                                  <label>Email</label>
-                                  <input class="form-control" type="text" id="email" name="email" placeholder="Organization Email"   value="{{ $info->email}}">
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div class="form-group">
-                                  <label>Phone</label>
-                                  <input class="form-control" type="text" name="phone" id="phone" placeholder="Organization Phone"   value="{{ $info->phone}}">
+                                  <label>{{__('fields_web.companyInfo.WebsiteLink')}}</label>
+                                  <input class="form-control" type="text" id="websitelink" name="websitelink" placeholder="{{__('fields_web.companyInfo.WebsiteLink')}}"  value="{{ $info->websitelink}}">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Country</label>
-                                  <input class="form-control" type="text" name="country" id="country" placeholder="Country"  value="{{ $info->country}}">
+                                  <label>{{__('fields_web.companyInfo.Email')}}</label>
+                                  <input class="form-control" type="text" id="email" name="email" placeholder="{{__('fields_web.companyInfo.Emails')}}"   value="{{ $info->email}}">
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
-                                  <label>City</label>
-                                  <input class="form-control" type="text" name="city" id="city" placeholder="City"  value="{{ $info->city}}">
+                                  <label>{{__('fields_web.companyInfo.Phone')}}</label>
+                                  <input class="form-control" type="text" name="phone" id="phone" placeholder="{{__('fields_web.companyInfo.Phones')}}"   value="{{ $info->phone}}">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Address</label>
+                                  <label>{{__('fields_web.companyInfo.Country')}}</label>
+                                  <input class="form-control" type="text" name="country" id="country" placeholder="{{__('fields_web.companyInfo.Country')}}"  value="{{ $info->country}}">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>{{__('fields_web.companyInfo.City')}}</label>
+                                  <input class="form-control" type="text" name="city" id="city" placeholder="{{__('fields_web.companyInfo.City')}}"  value="{{ $info->city}}">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>{{__('fields_web.companyInfo.Address')}}</label>
                                   <input class="form-control" type="text" name="address" id="address" placeholder="Organization Address"  value="{{ $info->address}}">
                                 </div>
                               </div>
@@ -139,44 +139,44 @@
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Industry</label>
-                                  <input class="form-control" type="text" name="industry" id="industry" placeholder="Organization Industry"  value="{{ $info->industry}}">
+                                  <label>{{__('fields_web.companyInfo.Industry')}}</label>
+                                  <input class="form-control" type="text" name="industry" id="industry" placeholder="{{__('fields_web.companyInfo.Address')}}"  value="{{ $info->industry}}">
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Type</label>
-                                  <input class="form-control" type="text" name="type" id="type" placeholder="Organization Type"  value="{{ $info->type}}">
+                                  <label>{{__('fields_web.companyInfo.Type')}}</label>
+                                  <input class="form-control" type="text" name="type" id="type" placeholder="{{__('fields_web.companyInfo.Types')}}"  value="{{ $info->type}}">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Founded</label>
-                                  <input class="form-control" type="date" name="founded" id="founded" placeholder="Organization Founded Date"  value="{{ $info->founded}}">
+                                  <label>{{__('fields_web.companyInfo.Founded')}}</label>
+                                  <input class="form-control" type="date" name="founded" id="founded" placeholder="{{__('fields_web.companyInfo.Founded')}}"  value="{{ $info->founded}}">
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
-                                  <label>size</label>
-                                  <input class="form-control" type="text" name="size" id="size" placeholder="Organization Size"  value="{{ $info->size}}">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col mb-3">
-                                <div class="form-group">
-                                  <label>About</label>
-                                  <textarea class="form-control" rows="5" placeholder="write small discription about your company" name="aboutCompany" id="aboutCompany"  value="{{ $info->aboutCompany}}"></textarea>
+                                  <label>{{__('fields_web.companyInfo.size')}}</label>
+                                  <input class="form-control" type="text" name="size" id="size" placeholder="{{__('fields_web.companyInfo.sizes')}}"  value="{{ $info->size}}">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col mb-3">
                                 <div class="form-group">
-                                  <label>Description</label>
-                                  <textarea class="form-control" rows="5" placeholder="write more about your company"  name="description" id="description"  value="{{ $info->description}}"></textarea>
+                                  <label>{{__('fields_web.companyInfo.About')}}</label>
+                                  <textarea class="form-control" rows="5" placeholder="{{__('fields_web.companyInfo.Abouts')}}" name="aboutCompany" id="aboutCompany"  value="{{ $info->aboutCompany}}"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col mb-3">
+                                <div class="form-group">
+                                  <label>{{__('fields_web.companyInfo.Description')}}</label>
+                                  <textarea class="form-control" rows="5" placeholder="{{__('fields_web.companyInfo.Descriptions')}}"  name="description" id="description"  value="{{ $info->description}}"></textarea>
                                 </div>
                               </div>
                             </div>
@@ -185,7 +185,7 @@
                        
                         <div class="row">
                           <div class="col d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Save Changes</button>
+                            <button class="btn btn-primary" type="submit">{{__('fields_web.companyInfo.SaveChanges')}}</button>
                           </div>
                         </div>
                       </form>
