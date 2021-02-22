@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-3  register-left"> <br><br>
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
-                        <span class="ForgetPwd" value="signup">If you have account you can login it by:</span><br>
-                        <a href="{{ route('loginhr') }}"><input type="button"  name="" value="login"/><br/></a>
+                        <span class="ForgetPwd" value="signup">If you want Apply as a company it by:</span><br>
+                        <a href="{{ route('companysignup') }}"><input type="button"  name="" value="signup"/><br/></a>
 
                     </div>
                     <div class="col-lg-9 register-right">
