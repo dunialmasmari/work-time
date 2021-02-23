@@ -36,7 +36,7 @@
  
                         <input type="hidden" class="form-control" name="Advertising_id" value="{{ $Advertising->Advertising_id }}">
                         <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="{{ $Advertising->user_id }}">
-				        <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $Advertising->active }}"> 
+				              <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $Advertising->active }}"> 
                
 
                     <div class="row">

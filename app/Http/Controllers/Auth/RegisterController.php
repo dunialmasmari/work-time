@@ -67,10 +67,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $url = url()->previous();
-        preg_match("/[^\/]+$/", $url, $matches);
-        $last_word = $matches[0]; // test
-
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -158,6 +154,45 @@ class RegisterController extends Controller
             $user_role->user_type =  'App/User';
             $user_role->save();
     }
+     
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function usrevalidator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'alpha', 'max:75', 'unique:users,username'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
 
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function usrecreate(array $data)
+    {
+        $data['active'] = 1;
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'username' => $data['username'],
+                'active' => $data['active'],
+                'password' => Hash::make($data['password']),
+            ]);  
+            $user_role = new role_user();
+            $user_role->user_id = $user->user_id;
+            $user_role->role_id = '8';
+            $user_role->user_type =  'App/User';
+            $user_role->save();
 
+            
+    }
 }

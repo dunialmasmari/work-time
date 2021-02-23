@@ -448,7 +448,7 @@ return [
     'adverMang'=>'Advertisements Managment',
     'adverAll'=> 'Show All Advertisements',
     'adverBlog'=> 'Add New Advertisement',
-    'logout'=> 'logout',
+ 'logout'=> 'logout',
   ],
   'companyInfo'=>[
     'Changelogo'=> 'Change Organization Logo',
@@ -480,7 +480,6 @@ return [
     ''=>'',
     ''=>'',
     ''=>'',
-  ],
 
   'userInfo'=>[
     'Changepic'=>'Change Your Picture',

@@ -1,0 +1,91 @@
+@extends("layouts.custom.app")
+@section('main')
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+             <!-- general form elements -->
+             <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">{{__('fields_web.user.TitlePage')}}</h3>
+
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-12">
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                            {{ session('success') }}
+                            </div>
+                        @endif
+                          </div>
+                      </div>
+                    <div class="row">
+
+
+
+                    <div class="table-responsive table-bordered table-stripped">
+                        <table class="table m-0">
+                          <thead>
+                          <tr>
+                          <th>{{__('fields_web.user.Title')}} </th>
+                          <th>{{__('fields_web.user.image')}}  </th>
+                          <th>{{__('fields_web.user.link')}}  </th>
+                          <th>{{__('fields_web.user.status')}}  </th>
+                          <th>{{__('fields_web.user.Actions')}}  </th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          @foreach ($users  as $user)
+                          <tr> 	   
+                            <td> {{ $user->name}} </td>
+                            <td> {{$user->username}} </td>
+                            <td> {{$user->email}} </td>
+                            </td>
+                             @if($user->active == 1)
+                                <td><span class="badge badge-success">{{__('fields_web.user.Active')}}</span></td>
+                                <td>
+                                    <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                              </td>
+                              @else 
+                              <td><span class="badge badge-danger">{{__('fields_web.user.notActive')}}</span></td>
+                              <td>
+                                    <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                              </td>
+                              @endif  
+                          </tr>
+                          @endforeach
+                               
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- /.table-responsive -->
+
+
+                    </div>
+
+                  </div>
+                  <!-- /.card-body -->
+
+                  <div class="card-footer">
+
+                  </div>
+
+              </div>
+              <!-- /.card -->
+        </div>
+      </div>
+    </div>
+</section>
+
+
+  @endSection
