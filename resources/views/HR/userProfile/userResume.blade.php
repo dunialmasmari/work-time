@@ -10,10 +10,10 @@
              <div class="card card-primary">
                 <div class="card-header">
                  <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                  <h3 class="card-title">{{__('fields_web.Jobs.TitlePage')}}</h3>
+                  <h3 class="card-title">{{__('fields_web.userInfo.Resumes')}}</h3>
                   <div class="text-center text-sm-right">
-                    <a href='{{route('addJob')}}'> <button class="btn btn-primary ">{{__('fields_web.Tenders.more')}}</button></a>
-                  </div>
+<!--                     <a href='{{route("addJob")}}'> <button class="btn btn-primary ">{{__('fields_web.Tenders.more')}}</button></a>
+ -->                  </div>
                  </div>
                 </div>
                 <div class="card-body">
@@ -30,28 +30,30 @@
                               <ul class="nav ">
                                 <li class="nav-item">
                                   <a class="nav-link active" href="#tab1" role="tab" data-toggle='tab'> <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-                                  
+                                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg> -->
+                                    <img src="{{URL::asset('assets\userPro\cv\temcv1.jpg')}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="160" >
+
                                     <div class="card-body">
-                                      <h5 class="card-title">blue</h5>
+                                      <h5 class="card-title">{{__('fields_web.userInfo.temp1')}}</h5>
                                     </div>
                                   </div></a>
                                 </li>
                                 <li class="nav-item">
                                   <a class="nav-link" href="#tab2" role="tab" data-toggle='tab'> <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-                                  
+                                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg> -->
+                                   <img src="{{URL::asset('assets\userPro\cv\temcv2.jpg')}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="160" >
                                     <div class="card-body">
-                                      <h5 class="card-title">blue</h5>
+                                      <h5 class="card-title">{{__('fields_web.userInfo.temp2')}}</h5>
                                     </div>
                                   </div></a>
                                 </li>
                                 <li class="nav-item">
                                   <a class="nav-link " href="#tab3" role="tab" data-toggle='tab'> <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-                                  
+                                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>-->
+                                        <img src="{{URL::asset('assets\userPro\cv\temcv3.jpg')}}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="160" >
+
                                     <div class="card-body">
-                                      <h5 class="card-title">blue</h5>
+                                      <h5 class="card-title">{{__('fields_web.userInfo.temp3')}}</h5>
                                     </div>
                                   </div></a>
                                 </li>
@@ -67,7 +69,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp11" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor" id="backgroundColor" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -76,7 +78,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp12" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor" id="fontColor" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -88,10 +90,10 @@
                       </div>
                       <div class="row my-3">
                         <div class="col">
-                          <button class="btn btn-primary " id="preview" type="button">preview</button>
+                          <button class="btn btn-primary " id="preview" type="button">{{__('fields_web.userInfo.preview')}}</button>
                         </div>
                         <div class="col py-auto">
-                          <button class="btn btn-primary " type="submit">download</button>
+                          <button class="btn btn-primary " type="submit">{{__('fields_web.userInfo.download')}}</button>
 
                         </div>
                       </div>
@@ -107,7 +109,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp21" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor2" id="backgroundColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -116,7 +118,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp22" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor2" id="fontColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -128,10 +130,10 @@
                       </div>
                       <div class="row my-3">
                         <div class="col">
-                          <button class="btn btn-primary " id="preview2" type="button">preview</button>
+                          <button class="btn btn-primary " id="preview2" type="button">{{__('fields_web.userInfo.preview')}}</button>
                         </div>
                         <div class="col py-auto">
-                          <button class="btn btn-primary " type="submit">download</button>
+                          <button class="btn btn-primary " type="submit">{{__('fields_web.userInfo.download')}}</button>
 
                         </div>
                       </div>
@@ -147,7 +149,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp31" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor" id="backgroundColor3" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -156,7 +158,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>Gender</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp32" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor" id="fontColor3" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -168,10 +170,10 @@
                       </div>
                       <div class="row my-3">
                         <div class="col">
-                          <button class="btn btn-primary " id="preview3" type="button">preview</button>
+                          <button class="btn btn-primary " id="preview3" type="button">{{__('fields_web.userInfo.preview')}}</button>
                         </div>
                         <div class="col py-auto">
-                          <button class="btn btn-primary " type="submit">download</button>
+                          <button class="btn btn-primary " type="submit">{{__('fields_web.userInfo.download')}}</button>
 
                         </div>
                       </div>

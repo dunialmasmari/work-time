@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-3  register-left"> <br><br>
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
-                        <span class="ForgetPwd" value="signup">If you want Apply as a company it by:</span><br>
-                        <a href="{{ route('companysignup') }}"><input type="button"  name="" value="signup"/><br/></a>
+                        <span class="ForgetPwd" value="signup">If you want Apply as a user it by:</span><br>
+                        <a href="{{ route('signuphr') }}"><input type="button"  name="" value="signup"/><br/></a>
 
                     </div>
                     <div class="col-lg-9 register-right">
@@ -22,7 +22,7 @@
                             </li>
                         </ul> -->
                         <div class="" id="">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Apply as a user</h3>
                                 <form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
@@ -87,8 +87,21 @@
                                     </div>
                                 </div>
                                 </form>
-                            </div>
-                            <!-- <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            </div> -->
+                            <!-- <div class="alert alert-success">hjhk
+                              
+                              </div>
+                            @if(session('success'))
+                              <div class="alert alert-success">hjhk
+                              {{ session('success') }}
+                              </div>
+                          @endif
+                          @if(session('error'))
+                          <div class="alert alert-danger">
+                          {{ session('error') }}
+                          </div>
+                          @endif -->
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Apply as a company</h3>
                                 <form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
@@ -96,15 +109,15 @@
                                     <div class="col-md-4">
                                   
                                         <div class="form-group">
-                                            <input id="name" placeholder="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus/>
-                                            @error('name')
+                                            <input id="companyName" placeholder="companyName" type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" value="{{ old('companyName') }}" required autocomplete="companyName" autofocus/>
+                                            @error('companyName')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input id="email" placeholder="E-Mail Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="Companyemail"/>
+                                            <input id="email" placeholder="E-Mail Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
                                             @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -132,7 +145,7 @@
                                                 @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input id="address" placeholder="E-Mail Address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address"/>
+                                            <input id="address" placeholder="Address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address"/>
                                             @error('address')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -160,20 +173,20 @@
                                                 @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input id="Companypassword-confirm" placeholder="Confirm Password" type="password" class="form-control" name="Companypassword_confirmation" required autocomplete="Companynew-password"/>
+                                            <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"/>
                                         </div> 
                                         <div class="form-group">
                                             <div class="maxl">
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="type" value="Jobs" checked>
+                                                    <input type="radio" name="type_search" value="Jobs" checked>
                                                     <span> Jobs </span> 
                                                 </label>
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="type" value="Tenders">
+                                                    <input type="radio" name="type_search" value="Tenders">
                                                     <span>Tenders </span> 
                                                 </label>
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="type" value="Jobs&Tender">
+                                                    <input type="radio" name="type_search" value="Jobs&Tender">
                                                     <span>Jobs&Tender</span> 
                                                 </label>
                                             </div>
@@ -185,7 +198,7 @@
 
                                 </form>
 
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
