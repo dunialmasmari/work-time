@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-3  register-left"> <br><br>
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
-                        <span class="ForgetPwd" value="signup">If you have account you can login it by:</span><br>
-                        <a href="{{ route('loginhr') }}"><input type="button"  name="" value="login"/><br/></a>
+                        <span class="ForgetPwd" value="signup">If you want Apply as a user it by:</span><br>
+                        <a href="{{ route('signuphr') }}"><input type="button"  name="" value="signup"/><br/></a>
 
                     </div>
                     <div class="col-lg-9 register-right">
@@ -88,6 +88,19 @@
                                 </div>
                                 </form>
                             </div> -->
+                            <!-- <div class="alert alert-success">hjhk
+                              
+                              </div>
+                            @if(session('success'))
+                              <div class="alert alert-success">hjhk
+                              {{ session('success') }}
+                              </div>
+                          @endif
+                          @if(session('error'))
+                          <div class="alert alert-danger">
+                          {{ session('error') }}
+                          </div>
+                          @endif -->
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Apply as a company</h3>
                                 <form  method="post" action="{{route('register')}}"  class="was-validated"  >

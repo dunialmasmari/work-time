@@ -73,7 +73,7 @@
 			}
 			[sr-r-template="T6"] div[sr-r-block="person"] p[sr-r-fld="location"] {
 				font-size: 1em;
-				color: #555;
+				color: {{$fontColor}};
 				margin: 0;
 			}
 			[sr-r-template="T6"] span[sr-r-fld="where"] {
@@ -87,9 +87,9 @@
 				padding: 0 .5em .1em;
 				text-transform: uppercase;
 				background: ;
-				border: 0px solid rgb(79, 157, 213);
+				border: 0px solid {{$backgroundColor}};
                 border-bottom-right-radius:;
-                color:rgb(79, 157, 213);
+                color:{{$backgroundColor}};
 			}
 			[sr-r-template="T6"] div[sr-r-blocks] {
 				margin-top: 1em;
@@ -100,7 +100,7 @@
 			[sr-r-template="T6"] td[sr-r-tbl-title] {
 				width: 50%;
 				padding: 0;
-				border-top: .2em solid rgb(79, 157, 213);
+				border-top: .2em solid {{$backgroundColor}};
 			}
 			[sr-r-template="T6"] table[sr-r-tbl-title] {
 				page-break-inside: avoid;
@@ -133,18 +133,18 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid rgb(79, 157, 213)'>
+		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}'>
 			<div sr-r-papersheet-inner>
-				<table style='border-top: 2px solid rgb(79, 157, 213)'>
-					<tr style='border: 2px solid rgb(79, 157, 213)'>
-						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white;border: 2px solid rgb(79, 157, 213)'>
+				<table style='border-top: 2px solid {{$backgroundColor}}'>
+					<tr style='border: 2px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
 					<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 						</td>
-						<td sr-r-tbl-top style='border: 2px solid rgb(79, 157, 213)'>
+						<td sr-r-tbl-top style='border: 2px solid {{$backgroundColor}}'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -153,7 +153,7 @@
 						</td>
 					</tr>
 					<tr>
-					<td sr-r-tbl-top style='border: 0px solid white;border-top: 1px solid rgb(79, 157, 213)'>
+					<td sr-r-tbl-top style='border: 0px solid white;border-top: 1px solid {{$backgroundColor}}'>
 							<div sr-r-block="contact">
 							<div sr-r-fld="html">
 							<p sr-r-block  id="date">{{$date}}</p><p sr-r-block id="company">{{$company}}</p>
@@ -172,10 +172,10 @@
 						</td><td ></td></tr></table>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1" id="coverText">
-								<script>
-									document.getElementById('coverText').innerHTML='{!!$coverText!!}'
+								<p>
+									{{$coverText}}
 							 
-								 </script>
+								 </p>
 							</div>
 						</div>
 					</div>

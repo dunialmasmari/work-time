@@ -110,6 +110,19 @@ Route::group(['namespace' => 'Advertisement', 'prefix' => 'controlpanel' ],funct
     Route::get('/Advertising_add', 'AdvertisementDashboarControlle@Advertising_add')->name('Advertising_add'); 
     Route::get('/Advertisingactivation/{id}','AdvertisementDashboarControlle@Advertisingactivation')->name('Advertisingactivation');
 });
+
+Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
+ {
+    Route::apiResource('/user', 'UserController' ,
+    ['names' => [
+        'index' => 'controlpanel.user.index',
+        'show' => 'controlpanel.user.edite',
+        'store' => 'controlpanel.user.store',
+    ]]); 
+    Route::post('/updateuser','UserController@updateuser')->name('updateuser');
+    Route::get('/user_add', 'UserController@user_add')->name('user_add'); 
+    Route::get('/useractivation/{id}','UserController@useractivation')->name('useractivation');
+});
 /*Route::get('/major', function () {
     return view('admin/major');
 });
@@ -123,8 +136,8 @@ Route::namespace('Major')->group(function(){
  {
     Route::get('/Notifications','NotificationController@viewNotifications')->name('Notifications');
     Route::get('/Messages','NotificationController@viewMessages')->name('Messages');
-    Route::get('/postTender','NotificationController@viewTender')->name('postTender');
-    Route::get('/postJob','NotificationController@viewJob')->name('postJob');
+    Route::get('/postTender/{id}','NotificationController@viewTender')->name('postTender');
+    Route::get('/postJob/{id}','NotificationController@viewJob')->name('postJob');
 
 });
 

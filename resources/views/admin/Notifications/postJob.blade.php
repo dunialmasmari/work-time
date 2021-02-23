@@ -103,7 +103,72 @@
               </div>
               
               <div class="card-body">
-               
+              <!-- /////////////////////////////////////////////////////////////// -->
+
+               <div class="col-lg-8">
+               @foreach ($jobs as $job)
+                                <div class="card shadow-sm  bg-white full-width ">
+                                    <div class=" card-body ">
+                                        <div class="row ">
+
+                                            <div class="col-lg-12">
+                                                <div class="row ">
+                                                    <div>
+                                                        <img class="card-img  " style="height:200px;width:200px;"
+                                                            src="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}"
+                                                            alt="image" />
+                                                    </div>
+                                                    <div class='px-3'>
+                                                        <p><i class='fas fa-ellipsis-v'> &nbsp;
+                                                            </i>{{ __('fields_web.Jobs.major') }}:
+                                                            {{ $job->major_name }}
+                                                        </p>
+                                                        <p><i class="fa fa-map-marker"> &nbsp;
+                                                            </i>{{ __('fields_web.Jobs.location') }}:
+                                                            {{ $job->location }}
+                                                        </p>
+                                                        <p><i class='far fa-calendar-check'> &nbsp; </i>
+                                                            {{ __('fields_web.Jobs.startDate') }}:
+                                                            {{ $job->start_date }}
+                                                        </p>
+                                                        <p><i class='fa fa-home'> &nbsp;
+                                                            </i>{{ __('fields_web.Jobs.company') }}:{{ $job->company }}
+                                                        </p>
+                                                        @if ($job->apply_link != null)
+                                                            <p><i class='fas fa-link'> &nbsp;
+                                                                </i>{{ __('fields_web.Jobs.applyLink') }}:<a
+                                                                    href="https://www.{{ $job->apply_link }}">{{ $job->apply_link }}</a>
+                                                            </p>
+                                                        @endif
+                                                        <p style="color:red"><i class="far fa-calendar-times"> &nbsp;
+                                                            </i>{{ __('fields_web.Jobs.Deadline') }} :
+                                                            {{ $job->deadline }}
+                                                        </p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row ">
+
+                                            <h4 class='label my-5 mx-3 label' style="text-align: center;">
+                                                {{ __('fields_web.Jobs.description') }} :</h4>
+                                            <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
+                                                {!! $job->description !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                   
+                            </div>
+              
+                            @endforeach
+
+              <!-- /////////////////////////////////////////////////////////////// -->
+
+
               </div>
 
             

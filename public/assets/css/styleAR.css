@@ -5,6 +5,102 @@
 
   
 }
+.top-container {
+ 
+  padding: 10px 50px;
+
+}
+
+.header {
+  padding: 10px 16px;
+  background: #3172b4;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+.logo img{
+  height: 65px; 
+}
+.top-header{ 
+  float: right; 
+  margin-top: -60px;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 2px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #010202;
+}
+
+.searchButton {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 15%;
+  position: absolute;
+  top: 5%;
+  margin-left: -100px;
+  transform: translate(-50%, -50%);
+}
+ .component{
+  width: 15%;
+  float: right;
+  margin-top: -25px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+.component a{
+margin: 0px 5px;
+}
+.logo-dowen-header{
+  display: none;
+  margin-right: 100px;
+}
+.navbar{
+  margin-left: 350px;
+}
+.nav-link{
+  font-size: 20px;
+  color: #f1f1f1;
+}
+.sticky {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
 .container-fluid,.container:lang(ar){
   text-align: right;    
 }
@@ -32,6 +128,12 @@
     /* width:105%; */
     direction:ltr;
     text-align: left;
+}
+.imagewrap:lang(en){
+  float: left;   
+}
+.imagewrap:lang(ar){
+  float: right;   
 }
 .card-image
 {
@@ -301,8 +403,9 @@
 }
 .lable-background
 {color:white; 
+  border-radius: 3px;
 text-align: center;
-background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157, 213));
+background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
 }
 .vert .carousel-item-next.carousel-item-left,
 .vert .carousel-item-prev.carousel-item-right {

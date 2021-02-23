@@ -61,14 +61,14 @@
 			}
 			[sr-r-template="T2"] div[sr-r-block="person"] p[sr-r-fld="location"] {
 				font-size: 1em;
-				color: #fff;
+				color: {{$fontColor}};
 				padding-right: 10px;
 			}
 			[sr-r-template="T2"] p[sr-r-block][sr-r-fld="title"] {
 				font-size: 1.3em;
 				font-weight: bold;
 				margin-bottom: .5em;
-				color: rgb(79, 157, 213)
+				color: {{$backgroundColor}}
 			}
 			[sr-r-template="T2"] p[sr-r-child][sr-r-fld="title"] {
 				font-size: 1.2em;
@@ -90,7 +90,7 @@
 			}
 			[sr-r-template="T2"] td[sr-r-tbl-top]:first-child {
 				width: 50%;
-				background: rgb(79, 157, 213);
+				background: {{$backgroundColor}};
 				border-right: 4px solid #000;
 				color: #fff;
 				padding-bottom: 2em;
@@ -144,7 +144,7 @@
 	</head>
 	<body>
 		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}'>
-			<table style='color:white;border-top: 2px solid {{$backgroundColor}}'>
+			<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}'>
 				<tr >
 					<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};'>
 				<div sr-r-block="person">
@@ -153,7 +153,7 @@
 					<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 					</td>
-					<td sr-r-tbl-top style='color:black;background:white;border: 1px solid rgb(79, 157, 213)'>
+					<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -161,7 +161,7 @@
 							</div>
 					</td>
 				</tr>
-				<tr style='border: 0px solid white;border-top: 1px solid rgb(79, 157, 213)'>
+				<tr style='border: 0px solid {{$fontColor}};border-top: 1px solid {{$backgroundColor}}'>
 				<td sr-r-tbl-top style='color:black;background:white;border-right:0px;border-left:0px'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
@@ -181,10 +181,10 @@
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1" id="coverText">
 								<!-- <p sr-r-child sr-r-fld="title">Dear</p> -->
-							<script>
-								document.getElementById('coverText').innerHTML='{!!$coverText!!}'
-						 
-							 </script>
+								<p>
+									{{$coverText}}
+							 
+								 </p>
 							</div>
 						</div>
 					</div>

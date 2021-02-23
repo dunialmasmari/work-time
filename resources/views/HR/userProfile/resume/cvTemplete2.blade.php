@@ -61,14 +61,14 @@
 			}
 			[sr-r-template="T2"] div[sr-r-block="person"] p[sr-r-fld="location"] {
 				font-size: 1em;
-				color: #fff;
+				color: {{$fontColor}};
 				padding-right: 10px;
 			}
 			[sr-r-template="T2"] p[sr-r-block][sr-r-fld="title"] {
 				font-size: 1.3em;
 				font-weight: bold;
 				margin-bottom: .5em;
-				color: rgb(79, 157, 213)
+				color:{{$backgroundColor}}
 			}
 			[sr-r-template="T2"] p[sr-r-child][sr-r-fld="title"] {
 				font-size: 1.2em;
@@ -90,9 +90,9 @@
 			}
 			[sr-r-template="T2"] td[sr-r-tbl-top]:first-child {
 				width: 50%;
-				background: rgb(79, 157, 213);
+				background:{{$backgroundColor}};
 				border-right: 4px solid #000;
-				color: #fff;
+				color: {{$fontColor}};
 				padding-bottom: 2em;
 			}
 			[sr-r-template="T2"] td[sr-r-tbl-top]:last-child {
@@ -143,8 +143,8 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid rgb(79, 157, 213)'>
-			<table style='border: 1px solid rgb(79, 157, 213)'>
+		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}'>
+			<table style='border: 1px solid {{$backgroundColor}}'>
 				<tr>
 					<td sr-r-tbl-top>
 				<div sr-r-block="person">
