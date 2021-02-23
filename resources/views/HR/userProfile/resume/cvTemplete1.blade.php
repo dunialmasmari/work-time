@@ -86,10 +86,10 @@
 				margin: 0 0 .5em 0;
 				padding: 0 .5em .1em;
 				text-transform: uppercase;
-				background: rgb(79, 157, 213);
-				border: 1px solid rgb(79, 157, 213);
+				background:{{$backgroundColor}};
+				border: 1px solid{{$backgroundColor}};
                 border-bottom-right-radius: 1.3em;
-                color:white;
+                color:{{$fontColor}};
 			}
 			[sr-r-template="T6"] div[sr-r-blocks] {
 				margin-top: 1em;
@@ -100,7 +100,7 @@
 			[sr-r-template="T6"] td[sr-r-tbl-title] {
 				width: 50%;
 				padding: 0;
-				border-top: .2em solid rgb(79, 157, 213);
+				border-top: .2em solid{{$backgroundColor}};
 			}
 			[sr-r-template="T6"] table[sr-r-tbl-title] {
 				page-break-inside: avoid;

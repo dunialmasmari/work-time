@@ -33,6 +33,12 @@
     direction:ltr;
     text-align: left;
 }
+.imagewrap:lang(en){
+  float: left;   
+}
+.imagewrap:lang(ar){
+  float: right;   
+}
 .card-image
 {
   margin-top:-20px;
@@ -301,8 +307,9 @@
 }
 .lable-background
 {color:white; 
+  border-radius: 3px;
 text-align: center;
-background: -webkit-linear-gradient(left, rgb(79, 157, 213),#0062cc,rgb(79, 157, 213));
+background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
 }
 .vert .carousel-item-next.carousel-item-left,
 .vert .carousel-item-prev.carousel-item-right {

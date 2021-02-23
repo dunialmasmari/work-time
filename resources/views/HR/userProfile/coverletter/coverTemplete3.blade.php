@@ -73,7 +73,7 @@
 			}
 			[sr-r-template="T11"] div[sr-r-block="person"] p[sr-r-fld="location"] {
 				font-size: 1em;
-				color: #555;
+				color: {{$fontColor}};
 				margin: 0;
 			}
 			[sr-r-template="T11"] span[sr-r-fld="where"] {
@@ -86,7 +86,7 @@
 				margin: 0 0 .5em 0;
 				padding: .1em .3em;
 				text-transform: uppercase;
-				border-top: 0 solid rgb(79, 157, 213);
+				border-top: 0 solid {{$backgroundColor}};
 			}
 			[sr-r-template="T11"] div[sr-r-blocks] {
 				margin-top: 1em;
@@ -97,7 +97,7 @@
 			}
 			[sr-r-template="T11"] div[sr-r-circle] {
 				border: .1px solid #659AD3;
-				background: rgb(79, 157, 213);
+				background: {{$backgroundColor}};
 				width: 1.2em;
 				height: 1.2em;
 				float: left;
@@ -136,18 +136,18 @@
 		</style>
 	</head>
 	<body>
-	<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid rgb(79, 157, 213)'>
+	<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}'>
 			<div sr-r-papersheet-inner>
-				<table style='color:white;border-top: 2px solid rgb(79, 157, 213)'>
+				<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}'>
 					<tr>
-						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white;border: 2px solid rgb(79, 157, 213)'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
 						<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
 					</div>
 						</td>
-						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid rgb(79, 157, 213)'>
+						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -155,7 +155,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr style='border-top: 0px solid white;border-top: 1px solid rgb(79, 157, 213)'>
+					<tr style='border-top: 0px solid white;border-top: 1px solid {{$backgroundColor}}'>
 					<td sr-r-tbl-top style='color:black;;text-align:left;'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
@@ -172,10 +172,10 @@
 						<p sr-r-block sr-r-fld="title"  id="deartTitle">Dear</p>
 						<div sr-r-children>
 							<div sr-r-fld="html"  id="coverText">
-								<script>
-									document.getElementById('coverText').innerHTML='{!!$coverText!!}'
+								<p>
+									{{$coverText}}
 							 
-								 </script>
+								 </p>
 						    </div>
 						</div>
 					</div>

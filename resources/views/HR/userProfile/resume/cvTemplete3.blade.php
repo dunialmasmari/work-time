@@ -86,7 +86,7 @@
 				margin: 0 0 .5em 0;
 				padding: .1em .3em;
 				text-transform: uppercase;
-				border-top: .2em solid rgb(79, 157, 213);
+				border-top: .2em solid {{$backgroundColor}};
 			}
 			[sr-r-template="T11"] div[sr-r-blocks] {
 				margin-top: 1em;
@@ -97,7 +97,7 @@
 			}
 			[sr-r-template="T11"] div[sr-r-circle] {
 				border: .1px solid #659AD3;
-				background: rgb(79, 157, 213);
+				background: {{$backgroundColor}};
 				width: 1.2em;
 				height: 1.2em;
 				float: left;
@@ -136,18 +136,18 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid rgb(79, 157, 213)'>
+		<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}'>
 			<div sr-r-papersheet-inner>
-				<table style='background: rgb(79, 157, 213);color:white'>
+				<table style='background: {{$backgroundColor}};color: {{$fontColor}}'>
 					<tr>
-						<td sr-r-tbl-top style='background: rgb(79, 157, 213);color:white'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}}'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
 					<p sr-r-fld="jobTitle">Profession</p>
 					<p sr-r-fld="location jobTitle">City, State</p>
 				</div>
 						</td>
-						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid rgb(79, 157, 213)'>
+						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>

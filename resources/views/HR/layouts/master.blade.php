@@ -21,17 +21,23 @@
 <script src="{{URL::asset('assets/js/bootstrap4.js')}}"></script>
   </head>
 <body>
+  <div style=" position: relative;
+  min-height: 100vh;">
+    <div style="  padding-bottom: 13rem;">
 
 @include('HR.includes.header')
-
-<br><br>
+<div style="  padding-top: 3.5rem;">
 @yield('content')
+</div>
 
+</div>
 
 @include('HR.includes.footer')
+
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</div>
 </body>
 </html>

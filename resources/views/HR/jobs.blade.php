@@ -1,85 +1,99 @@
 @extends('HR.layouts.master')
 @section('content')
-<br><br>
+    <div class='container-fluid colors-logo'>
+        <div class="color-logo">
+            <div class="card-body text-center " style="padding:90px;">
+                <h1>{{ __('fields_web.Jobs.Title') }}</h1>
+                <img src="{{ URL::asset('assets/images/hrlogo2.png') }}" class='mx-5 pageheaderlogo' alt="" width="120"
+                    height="auto">
 
-<div class='container-fluid colors-logo'>
-<div class="color-logo">
-              <div class="card-body text-center " style="padding:90px;">
-                   <h1>{{__('fields_web.Jobs.Title')}}</h1>
-   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
-
-              </div>
-   </div>
-</div>
-
-
-<div class="container-fluid bg-light">
-   <div class="row">
-   <div class="container-fluid">
-
-   <div class="row">
-     <div class='col-12'  >
-     <br><br>
-              <div class="row container" style="background-color:">
-              </div>
-        <hr> <br>
-
-
-       <div class="container-fluid cards bg-light">
-          <div class="container ">
-               <div class="row">
-
-@foreach($jobs as $job)
-<div class="col-lg-6 col-md-12 ">
-    <div class="card"> <br>
-        <div class="card-body">
-            <div class='row'>
-                  <div class='col-12 col-sm-12 col-md-12 col-lg-12'>
-                     <h5 style="text-align:center;">{{\Illuminate\Support\Str::limit($job->title, $limit = 30, $end = '...')}}</h5>
-                </div>
-            </div>
-            <div class='row'>
-                <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
-                    <img class="card-img img-fluid " src="{{URL::asset('assets/uploads/jobs/images/'.$job->image)}}" alt="image" />
-                 </div>
-                 <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                    <p><i class='fa fa-home'> &nbsp; </i>{{__('fields_web.Jobs.company')}}: <span>{{\Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...')}}</span> </p>
-                    <p><i class="fa fa-map-marker"> &nbsp; </i>{{__('fields_web.Jobs.location')}}: <span>{{\Illuminate\Support\Str::limit($job->location, $limit = 15, $end = '...')}}</span> </p>
-                    <p style="color:red"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Jobs.Deadline')}}: <span>{{\Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...')}}</span></p>
- 
-                 </div>
-                 <div class='col-12 col-sm-3 col-md-3 col-lg-3'>
-                     @if($job->apply_link !=null)
-                     <a href="https://{{$job->apply_link}}"><button class='btn size-btn-job'>{{__('fields_web.Jobs.applyLink')}}</button></a><br><br>
-                     @endif
-                     <a href="job/{{$job->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
-                  </div>
-            </div>
-         </div>  
-      </div>
- </div>  
-@endforeach
-
-                </div> 
-            </div>
-      </div>
-
-      
-     </div>
-
-     
-   </div>
-        
-   </div>
-
-   </div>
-</div>
-<div class="container-fluid bg-light">
-   <div class="row">
-             <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
-              {!! $jobs -> links() !!}
             </div>
         </div>
-</div>
+    </div>
+
+
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class='col-12'>
+                        <br><br>
+                        <div class="row container" style="background-color:">
+                        </div>
+                        <hr> <br>
+
+
+                        <div class="container-fluid cards bg-light">
+                                <div class="row">
+
+                                    @foreach ($jobs as $job)
+                                        <div class="col-lg-6 col-md-12 ">
+                                            <div class="card py-0" > 
+                                                <div class="card-body mx-2 my-0">
+                                                    <div class='row'>
+                                                         <div class=' my-auto' style="  background: url({{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}) no-repeat;
+                                                         background-size: cover; height:70px; width:70px;background-color:rgb(79, 157, 213);">
+                                                            
+                                                           </div>
+                                                           <div class='col-9 my-auto' >
+                                                                <h5 >
+                                                                {{ \Illuminate\Support\Str::limit($job->title.'this is an additional text to view the page design', $limit = 45, $end = '...') }}
+                                                            </h5>
+                                                         </div>
+                                                    </div>
+                                                    <div class='row my-2'>
+                                                        <div class='col-12 col-sm-5 col-md-5 col-lg-5 my-auto'>
+                                                            <span>
+                                                               <i class='fa fa-home mx-auto' style="width:20px;" ></i>
+                                                                <span>{{ \Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...') }}</span>
+                                                            </span>
+                                                            <br>
+                                                            <span ><i class="fa fa-map-marker" style="width:20px;"></i>
+                                                               <span>{{ \Illuminate\Support\Str::limit($job->location, $limit = 15, $end = '...') }}</span>
+                                                            </span>
+                                                            <br>
+                                                            <span><i class="far fa-calendar-times" style="width:20px;  color:#e5383b; "></i>
+                                                            <span  style="color:#e5383b; ">{{ __('fields_web.Jobs.Deadline') }} : {{ \Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...') }}</span>
+                                                         </span>
+                                                        </div>
+                                                        <div class='col-12 col-sm-7 col-md-7 col-lg-7  my-auto'>
+                                                           <div class="row modal-footer " style="border:none; ">
+                                                            @if ($job->apply_link != null)
+                                                               <a href="https://{{ $job->apply_link }}" style="text-decoration: none;"><button
+                                                                    class='btn  btn-primary btn-small btn-block  mx-auto'>{{ __('fields_web.Jobs.applyLink') }}</button></a>
+                                                               
+                                                                  @endif
+                                                            <a href="job/{{ $job->job_id }}" style="text-decoration: none;"><button
+                                                                class="btn btn-outline-primary btn-small btn-block  mx-auto">
+                                                                {{ __('fields_web.Jobs.more') }} </button></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
+                {!! $jobs->links() !!}
+            </div>
+        </div>
+    </div>
 
 @stop

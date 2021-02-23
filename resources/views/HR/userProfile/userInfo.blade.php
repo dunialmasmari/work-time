@@ -32,7 +32,7 @@
 
                                                 <button class="btn btn-primary" type="botton" onclick="changePicImage()">
                                                     <i class="fa fa-fw fa-camera"></i>
-                                                    <span>Change pic</span>
+                                                    <span>{{__('fields_web.userInfo.Changepic')}}</span>
                                                 </button>
                                                 <button class="btn btn-primary" type="submit" id="submitpic"
                                                     style="display:none;">
@@ -66,25 +66,25 @@
                             </form>
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a href='#tab1' class="nav-link active" role="tab" data-toggle='tab'>Profile</a>
+                                    <a href='#tab1' class="nav-link active" role="tab" data-toggle='tab'>{{__('fields_web.userInfo.Profile')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab2' class="nav-link" role="tab" data-toggle='tab'> Experience </a>
+                                    <a href='#tab2' class="nav-link" role="tab" data-toggle='tab'>{{__('fields_web.userInfo.Experience')}} </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab3' class="nav-link" role="tab" data-toggle='tab'>Education and training</a>
+                                    <a href='#tab3' class="nav-link" role="tab" data-toggle='tab'>{{__('fields_web.userInfo.Education')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab4' class="nav-link" role="tab" data-toggle='tab'> projects</a>
+                                    <a href='#tab4' class="nav-link" role="tab" data-toggle='tab'> {{__('fields_web.userInfo.Projects')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab5' class="nav-link" role="tab" data-toggle='tab'> References</a>
+                                    <a href='#tab5' class="nav-link" role="tab" data-toggle='tab'> {{__('fields_web.userInfo.References')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab6' class="nav-link" role="tab" data-toggle='tab'> languages</a>
+                                    <a href='#tab6' class="nav-link" role="tab" data-toggle='tab'> {{__('fields_web.userInfo.Languages')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href='#tab7' class="nav-link" role="tab" data-toggle='tab'> skills</a>
+                                    <a href='#tab7' class="nav-link" role="tab" data-toggle='tab'> {{__('fields_web.userInfo.Skills')}}</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -98,15 +98,15 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Full Name</label>
+                                                                    <label>{{__('fields_web.userInfo.FullName')}}</label>
                                                                     <input class="form-control" type="text" id="fullname"
-                                                                        name="fullname" placeholder="organization Name"
+                                                                        name="fullname" placeholder="{{__('fields_web.userInfo.FullName')}}"
                                                                         value="{{ $user_info->fullname }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Website Link</label>
+                                                                    <label>{{__('fields_web.userInfo.WebsiteLink')}}</label>
                                                                     <input class="form-control" type="text" id="userWebsite"
                                                                         name="userWebsite" placeholder="Website Link"
                                                                         value="{{ $user_info->userWebsite }}">
@@ -116,17 +116,17 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Email</label>
+                                                                    <label>{{__('fields_web.userInfo.Email')}}</label>
                                                                     <input class="form-control" type="text" id="email"
-                                                                        name="email" placeholder="Organization Email"
+                                                                        name="email" placeholder="{{__('fields_web.userInfo.Email')}}"
                                                                         value="{{ $user_info->email }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Phone</label>
+                                                                    <label>{{__('fields_web.userInfo.Phone')}}</label>
                                                                     <input class="form-control" type="text" name="phone"
-                                                                        id="phone" placeholder="Organization Phone"
+                                                                        id="phone" placeholder="{{__('fields_web.userInfo.Phone')}}"
                                                                         value="{{ $user_info->phone }}">
                                                                 </div>
                                                             </div>
@@ -134,17 +134,17 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Country</label>
+                                                                    <label>{{__('fields_web.userInfo.Country')}}</label>
                                                                     <input class="form-control" type="text" name="country"
-                                                                        id="country" placeholder="Country"
+                                                                        id="country" placeholder="{{__('fields_web.userInfo.Country')}}"
                                                                         value="{{ $user_info->country }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>City</label>
+                                                                    <label>{{__('fields_web.userInfo.City')}}</label>
                                                                     <input class="form-control" type="text" name="city"
-                                                                        id="city" placeholder="City"
+                                                                        id="city" placeholder="{{__('fields_web.userInfo.City')}}"
                                                                         value="{{ $user_info->city }}">
                                                                 </div>
                                                             </div>
@@ -152,17 +152,17 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Gender</label>
+                                                                    <label>{{__('fields_web.userInfo.Gender')}}</label>
                                                                     <input class="form-control" type="text" name="gender"
-                                                                        id="gender" placeholder="Organization Industry"
+                                                                        id="gender" placeholder="{{__('fields_web.userInfo.Gender')}}"
                                                                         value="{{ $user_info->gender }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Status</label>
+                                                                    <label>{{__('fields_web.userInfo.Status')}}</label>
                                                                     <input class="form-control" type="text" name="status"
-                                                                        id="status" placeholder="Organization Type"
+                                                                        id="status" placeholder="{{__('fields_web.userInfo.Status')}}"
                                                                         value="{{ $user_info->status }}">
                                                                 </div>
                                                             </div>
@@ -170,9 +170,9 @@
                                                         <div class="row">
                                                             <div class="col mb-3">
                                                                 <div class="form-group">
-                                                                    <label>About</label>
+                                                                    <label>{{__('fields_web.userInfo.About')}}</label>
                                                                     <textarea class="form-control" rows="5"
-                                                                        placeholder="write small discription about you"
+                                                                        placeholder=" {{__('fields_web.userInfo.Abouts')}}"
                                                                         name="aboutUser"
                                                                         id="aboutUser">{{ $user_info->aboutUser }}</textarea>
                                                                 </div>
@@ -183,7 +183,7 @@
 
                                                 <div class="row">
                                                     <div class="col d-flex justify-content-end">
-                                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                        <button class="btn btn-primary" type="submit">{{__('fields_web.userInfo.SaveChanges')}}</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -196,7 +196,7 @@
                                         <button class="btn btn-primary cv_Detail"   id="1" data-toggle="modal"
                                             data-target="#exampleModalCenter">
                                             
-                                            <span>Change pic</span>
+                                            <span>{{__('fields_web.userInfo.AddExper')}}</span>
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -205,19 +205,19 @@
                                                     <div>
                                                         <h4>{{ $experience->title }}</h4>
                                                         <h5>{{ $experience->subtitle }}</h5>
-                                                        <span> from </span>
+                                                        <span> {{__('fields_web.userInfo.From')}} </span>
                                                         <span>{{$experience->start_date}}</span> 
-                                                        <span> to </span>
+                                                        <span> {{__('fields_web.userInfo.To')}} </span>
                                                         <span>{{$experience->end_date}}</span>
                                                         <p>{{$experience->description}}</p>
                                                     </div>
                                                     <div>
                                                       <button class="btn btn-primary  cv_Detailupdate" classname="experiencesparent"   id="{{ $experience->id }}">
                                                         
-                                                        <span>update</span>
+                                                        <span>{{__('fields_web.userInfo.update')}}</span>
                                                     </button> <button class="btn btn-primary  cv_Detaildelete"   id="{{ $experience->id }}">
                                                       
-                                                      <span>add new</span>
+                                                      <span>{{__('fields_web.userInfo.Delete')}}</span>
                                                   </button>
                                                     <!-- todo the btns of edit and delete-->
                                                 </div>
@@ -229,7 +229,7 @@
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_Detail"   id="2">
                                             
-                                            <span>Add Education</span>
+                                            <span>{{__('fields_web.userInfo.AddEducation')}}</span>
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -238,19 +238,19 @@
                                                 <div>
                                                     <h4>{{ $education->title }}</h4>
                                                     <h5>{{ $education->subtitle }}</h5>
-                                                    <span> from </span>
+                                                    <span>{{__('fields_web.userInfo.From')}} </span>
                                                     <span>{{$education->start_date}}</span> 
-                                                    <span> to </span>
+                                                    <span> {{__('fields_web.userInfo.To')}}</span>
                                                     <span>{{$education->end_date}}</span>
                                                     <p>{{$education->description}}</p>
                                                 </div>
                                                 <div>
                                                   <button class="btn btn-primary  cv_Detailupdate" classname="educationsparent"   id="{{ $education->id }}">
                                                     
-                                                    <span>update</span>
+                                                    <span>{{__('fields_web.userInfo.update')}}</span>
                                                 </button> <button class="btn btn-primary  cv_Detaildelete"  id="{{ $education->id }}">
                                                   
-                                                  <span>add new</span>
+                                                  <span>{{__('fields_web.userInfo.Delete')}}</span>
                                               </button>
                                                     <!-- todo the btns of edit and delete-->
                                                 </div>
@@ -262,7 +262,7 @@
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_Detail"   id="3">
                                             
-                                            <span>add new</span>
+                                            <span>{{__('fields_web.userInfo.AddPro')}}</span>
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -271,19 +271,19 @@
                                                 <div>
                                                     <h4>{{ $project->title }}</h4>
                                                     <h5>{{ $project->subtitle }}</h5>
-                                                    <span> from </span>
+                                                    <span> {{__('fields_web.userInfo.From')}} </span>
                                                     <span>{{$project->start_date}}</span> 
-                                                    <span> to </span>
+                                                    <span> {{__('fields_web.userInfo.To')}} </span>
                                                     <span>{{$project->end_date}}</span>
                                                     <p>{{$project->description}}</p>
                                                 </div>
                                                 <div>
                                                   <button class="btn btn-primary  cv_Detailupdate" classname="projectsparent"   id="{{ $project->id }}">
                                                     
-                                                    <span>update</span>
+                                                    <span>{{__('fields_web.userInfo.update')}}</span>
                                                 </button> <button class="btn btn-primary  cv_Detaildelete"  id="{{ $project->id }}">
                                                   
-                                                  <span>add new</span>
+                                                  <span>{{__('fields_web.userInfo.Delete')}}</span>
                                               </button>
                                                  <!-- todo the btns of edit and delete-->
                                                 </div>
@@ -296,7 +296,7 @@
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary  cv_recommendation"   id="1" data-toggle="modal">
                                             
-                                            <span>Change recommendation</span>
+                                            <span>{{__('fields_web.userInfo.AddRefer')}}</span>
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -311,10 +311,10 @@
                                                 <div>
                                                   <button class="btn btn-primary  cv_recommendationsupdate"   id="{{$cv_recommendation->id}}">
                                                     
-                                                    <span>update</span>
+                                                    <span>{{__('fields_web.userInfo.update')}}</span>
                                                 </button> <button class="btn btn-primary  cv_recommendationsdelete"  id="{{ $cv_recommendation->id }}">
                                                   
-                                                  <span>add new</span>
+                                                  <span>{{__('fields_web.userInfo.Delete')}}</span>
                                               </button>
                                                     <!-- todo the btns of edit and delete-->
                                                 </div>
@@ -327,7 +327,7 @@
                                     <div class="text-center text-sm-right my-3">
                                         <button class="btn btn-primary cv_skill" id="2">
                                             
-                                            <span>Change Logo</span>
+                                            <span>{{__('fields_web.userInfo.AddLang')}}</span>
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -340,10 +340,10 @@
                                           <div>
                                             <button class="btn btn-primary  cv_skillsupdate" classname="languagesparent"  id="{{$language->id}}">
                                               
-                                              <span>update</span>
+                                              <span>{{__('fields_web.userInfo.update')}}</span>
                                           </button> <button class="btn btn-primary  cv_skillsdelete"  id="{{ $language->id }}">
                                             
-                                            <span>add new</span>
+                                            <span>{{__('fields_web.userInfo.Delete')}}</span>
                                         </button>
                                               <!-- todo the btns of edit and delete-->
                                           </div>
@@ -355,7 +355,7 @@
                                   <div class="text-center text-sm-right my-3">
                                     <button class="btn btn-primary cv_skill" id="1">
                                         
-                                        <span>Change Logo</span>
+                                        <span>{{__('fields_web.userInfo.addSkill')}}</span>
                                     </button>
                                 </div>
                                 <div class="card-body">
@@ -368,10 +368,10 @@
                                       <div>
                                         <button class="btn btn-primary  cv_skillsupdate" classname="skillsparent"  id="{{$skill->id}}">
                                           
-                                          <span>update</span>
+                                          <span>{{__('fields_web.userInfo.update')}}</span>
                                       </button> <button class="btn btn-primary  cv_skillsdelete"  id="{{ $skill->id }}">
                                         
-                                        <span>add new</span>
+                                        <span>{{__('fields_web.userInfo.Delete')}}</span>
                                     </button>
                                           <!-- todo the btns of edit and delete-->
                                       </div>
@@ -389,7 +389,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.Experience')}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -401,19 +401,19 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label id="titleLable"></label>
+                                                    <label id="titleLable">{{__('fields_web.userInfo.Title')}}</label>
                                                     <input class="form-control" type="text" id="title" name="title"
                                                         placeholder="title ">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>subtitle</label>
+                                                    <label>{{__('fields_web.userInfo.Subtitle')}}</label>
                                                     <input class="form-control" type="text" id="type"
-                                                    name="type" placeholder="Website Link"
+                                                    name="type" placeholder="{{__('fields_web.userInfo.Subtitle')}}"
                                                     value="0">
                                                     <input class="form-control" type="text" id="subtitle"
-                                                        name="subtitle" placeholder="subtitle"
+                                                        name="subtitle" placeholder="{{__('fields_web.userInfo.Subtitle')}}"
                                                         value="">
                                                 </div>
                                             </div>
@@ -421,27 +421,27 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>start date</label>
+                                                    <label>{{__('fields_web.userInfo.startdate')}}</label>
                                                     <p>
                                                     </p>
                                                     <input class="form-control" type="date" id="start_date" name="start_date"
-                                                        placeholder="start date" value="">
+                                                        placeholder="{{__('fields_web.userInfo.startdate')}}" value="">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>end_date</label>
+                                                    <label>{{__('fields_web.userInfo.enddate')}}</label>
                                                     <input class="form-control" type="date" name="end_date" id="end_date"
-                                                        placeholder="end_date" value="">
+                                                        placeholder="{{__('fields_web.userInfo.enddate')}}" value="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col mb-3">
                                                 <div class="form-group">
-                                                    <label>description</label>
+                                                    <label>{{__('fields_web.userInfo.description')}}</label>
                                                     <textarea class="form-control" rows="5"
-                                                        placeholder="write small discription about your company"
+                                                        placeholder="{{__('fields_web.userInfo.DescriptionExperience')}}"
                                                         name="description"
                                                         id="description"></textarea>
                                                 </div>
@@ -452,14 +452,14 @@
 
                                 <div class="row">
                                     <div class="col d-flex justify-content-end">
-                                        <button class="btn btn-primary" type="submit">Save</button>
+                                        <button class="btn btn-primary" type="submit">{{__('fields_web.userInfo.Save')}}</button>
                                     </div>
                                 </div>
                           </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" >Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                            <button type="button" class="btn btn-primary" >{{__('fields_web.userInfo.SaveChanges')}}</button>
                         </div>
                     </div>
                 </div>
@@ -469,7 +469,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                <div class="modal-content">
                    <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                       <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.updateExperience')}}</h5>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                        </button>
@@ -481,19 +481,19 @@
                                    <div class="row">
                                        <div class="col">
                                            <div class="form-group">
-                                               <label id="titleLable"></label>
+                                               <label id="titleLable">{{__('fields_web.userInfo.Title')}}</label>
                                                <input class="form-control" type="text" id="utitle" name="title"
-                                                   placeholder="title ">
+                                                   placeholder="{{__('fields_web.userInfo.Title')}} ">
                                            </div>
                                        </div>
                                        <div class="col">
                                            <div class="form-group">
-                                               <label>subtitle</label>
+                                               <label>{{__('fields_web.userInfo.Subtitle')}}</label>
                                                <input class="form-control" type="hidden" id="utype"
                                                name="utype"
                                                value="0">
                                                <input class="form-control" type="text" id="usubtitle"
-                                                   name="subtitle" placeholder="subtitle"
+                                                   name="subtitle" placeholder="{{__('fields_web.userInfo.Subtitle')}}"
                                                    value="">
                                            </div>
                                        </div>
@@ -503,23 +503,23 @@
                                            <div class="form-group">
                                                <label>start date</label>
                                                <input class="form-control" type="date" id="ustart_date" name="start_date"
-                                                   placeholder="start date" value="">
+                                                   placeholder="{{__('fields_web.userInfo.startdate')}}" value="">
                                            </div>
                                        </div>
                                        <div class="col">
                                            <div class="form-group">
-                                               <label>end date</label>
+                                               <label>{{__('fields_web.userInfo.enddate')}}</label>
                                                <input class="form-control" type="date" name="end_date" id="uend_date"
-                                                   placeholder="end_date" value="">
+                                                   placeholder="{{__('fields_web.userInfo.enddate')}}" value="">
                                            </div>
                                        </div>
                                    </div>
                                    <div class="row">
                                        <div class="col mb-3">
                                            <div class="form-group">
-                                               <label>description</label>
+                                               <label>{{__('fields_web.userInfo.description')}}</label>
                                                <textarea class="form-control" rows="5"
-                                                   placeholder="write small discription about your company"
+                                                   placeholder="{{__('fields_web.userInfo.DescriptionExperience')}}"
                                                    name="description"
                                                    id="udescription"></textarea>
                                            </div>
@@ -529,8 +529,8 @@
                            </div>
                    </div>
                    <div class="modal-footer">
-                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                       <button class="btn btn-primary" type="submit" >Save changes</button>
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                       <button class="btn btn-primary" type="submit" >{{__('fields_web.userInfo.SaveChanges')}}</button>
                    </div>
                  </form>
                </div>
@@ -541,7 +541,7 @@
              <div class="modal-dialog modal-dialog-centered" role="document">
              <div class="modal-content">
                  <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                     <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.Delete')}}</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -550,13 +550,13 @@
                     <div class="modal-body">                  
                          <div class="row">
                              <div class="col">
-                                 <h5>fsdfdsf</h5>
+                                 <h5>{{__('fields_web.userInfo.DeleteMass')}}</h5>
                              </div>
                          </div>
                  </div>
                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button class="btn btn-primary" type="submit" >Save changes</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.NoDelete')}}</button>
+                     <button class="btn btn-primary" type="submit" >{{__('fields_web.userInfo.DeleteSure')}}</button>
                  </div>
                </form>
              </div>
@@ -568,7 +568,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.References')}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -580,16 +580,16 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label id="titleLable">name</label>
+                                                    <label id="titleLable">{{__('fields_web.userInfo.ReferName')}}</label>
                                                     <input class="form-control" type="text" id="rname" name="rname"
-                                                        placeholder="title ">
+                                                        placeholder="{{__('fields_web.userInfo.ReferName')}} ">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>email</label>
+                                                    <label>{{__('fields_web.userInfo.ReferEmail')}}</label>
                                                     <input class="form-control" type="text" id="remail"
-                                                        name="remail" placeholder="subtitle"
+                                                        name="remail" placeholder="{{__('fields_web.userInfo.ReferEmail')}}"
                                                         value="">
                                                 </div>
                                             </div>
@@ -597,20 +597,20 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>phone</label>
+                                                    <label>{{__('fields_web.userInfo.ReferPhone')}}</label>
                                                     <p>
                                                     </p>
                                                     <input class="form-control" type="text" id="rphone" name="rphone"
-                                                        placeholder="start date" value="">
+                                                        placeholder="{{__('fields_web.userInfo.RefersPhone')}}" value="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col mb-3">
                                                 <div class="form-group">
-                                                    <label>description</label>
+                                                    <label>{{__('fields_web.userInfo.description')}}</label>
                                                     <textarea class="form-control" rows="5"
-                                                        placeholder="write small discription about your company"
+                                                        placeholder="{{__('fields_web.userInfo.DescriptionReferences')}}"
                                                         name="rdescription"
                                                         id="rdescription"></textarea>
                                                 </div>
@@ -620,8 +620,8 @@
                                 </div>
                          </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" >Save </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                            <button type="submit" class="btn btn-primary" >{{__('fields_web.userInfo.Save')}} </button>
                         </div>
                       </form>
                     </div>
@@ -632,7 +632,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.Delete')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -641,13 +641,13 @@
                    <div class="modal-body">                  
                         <div class="row">
                             <div class="col">
-                                <h5>fsdfdsf</h5>
+                                <h5>{{__('fields_web.userInfo.DeleteMass')}}</h5>
                             </div>
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" type="submit" >Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">>{{__('fields_web.userInfo.NoDelete')}}</button>
+                    <button class="btn btn-primary" type="submit" >{{__('fields_web.userInfo.DeleteSure')}}</button>
                 </div>
               </form>
             </div>
@@ -659,7 +659,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.updateReferences')}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -671,16 +671,16 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label id="titleLable">name</label>
+                                                    <label id="titleLable">{{__('fields_web.userInfo.ReferName')}}</label>
                                                     <input class="form-control" type="text" id="urname" name="urname"
-                                                        placeholder="title ">
+                                                        placeholder="{{__('fields_web.userInfo.ReferName')}} ">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>email</label>
+                                                    <label>{{__('fields_web.userInfo.ReferEmail')}}</label>
                                                     <input class="form-control" type="text" id="uremail"
-                                                        name="uremail" placeholder="subtitle"
+                                                        name="uremail" placeholder="{{__('fields_web.userInfo.ReferEmail')}}"
                                                         value="">
                                                 </div>
                                             </div>
@@ -688,20 +688,20 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>phone</label>
+                                                    <label>{{__('fields_web.userInfo.ReferPhone')}}</label>
                                                     <p>
                                                     </p>
                                                     <input class="form-control" type="text" id="urphone" name="urphone"
-                                                        placeholder="start date" value="">
+                                                        placeholder="{{__('fields_web.userInfo.RefersPhone')}}" value="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col mb-3">
                                                 <div class="form-group">
-                                                    <label>description</label>
+                                                    <label>{{__('fields_web.userInfo.description')}}</label>
                                                     <textarea class="form-control" rows="5"
-                                                        placeholder="write small discription about your company"
+                                                        placeholder="{{__('fields_web.userInfo.DescriptionReferences')}}"
                                                         name="urdescription"
                                                         id="urdescription"></textarea>
                                                 </div>
@@ -711,8 +711,8 @@
                                 </div>
                          </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" >Save </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                            <button type="submit" class="btn btn-primary" >{{__('fields_web.userInfo.Save')}} </button>
                         </div>
                       </form>
                     </div>
@@ -723,7 +723,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">add skill</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.AddLang')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -735,16 +735,16 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label id="snameLable">title</label>
+                                                <label id="snameLable">{{__('fields_web.userInfo.Namelangskil')}}</label>
                                                 <input class="form-control" type="text" id="sname" name="sname"
-                                                    placeholder="value">
+                                                    placeholder="{{__('fields_web.userInfo.Namelangskil')}}">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label>value</label>
+                                                <label>{{__('fields_web.userInfo.Levellangskil')}}</label>
                                                 <input class="form-control" type="text" id="svalue"
-                                                    name="svalue" placeholder="value"
+                                                    name="svalue" placeholder="{{__('fields_web.userInfo.Levellangskil')}}"
                                                     value="">
                                             </div>
                                         </div>
@@ -753,8 +753,8 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" >Save </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                        <button type="submit" class="btn btn-primary" >{{__('fields_web.userInfo.Save')}} </button>
                     </div>
                   </form>
                 </div>
@@ -765,7 +765,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">add skill</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.update')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -777,16 +777,16 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label id="titleLable">name</label>
+                                            <label id="titleLable">{{__('fields_web.userInfo.Namelangskil')}}</label>
                                                 <input class="form-control" type="text" id="usname" name="usname"
-                                                    placeholder="value">
+                                                    placeholder="{{__('fields_web.userInfo.Namelangskil')}}">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label>value</label>
+                                                <label>{{__('fields_web.userInfo.Levellangskil')}}</label>
                                                 <input class="form-control" type="text" id="usvalue"
-                                                    name="usvalue" placeholder="value"
+                                                    name="usvalue" placeholder="{{__('fields_web.userInfo.Levellangskil')}}"
                                                     value="">
                                             </div>
                                         </div>
@@ -795,8 +795,8 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" >Save </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.Close')}}</button>
+                        <button type="submit" class="btn btn-primary" >{{__('fields_web.userInfo.Save')}} </button>
                     </div>
                   </form>
                 </div>
@@ -807,7 +807,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{__('fields_web.userInfo.Delete')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -816,13 +816,13 @@
                    <div class="modal-body">                  
                         <div class="row">
                             <div class="col">
-                                <h5>fsdfdsf</h5>
+                                <h5>{{__('fields_web.userInfo.DeleteMass')}}</h5>
                             </div>
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" type="submit" >Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('fields_web.userInfo.DeleteSure')}}</button>
+                    <button class="btn btn-primary" type="submit" >{{__('fields_web.userInfo.NoDelete')}}</button>
                 </div>
                 </form>
                </div>

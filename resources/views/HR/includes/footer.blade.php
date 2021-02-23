@@ -1,5 +1,8 @@
 <!--footer -->
-<footer><br>
+<footer style="  position: absolute;
+bottom: 0;
+width: 100%;
+height: 13rem;"><br>
 <div class="container-fluid " style='background-color: rgb(4, 25, 41);'>
 <div class="container ">
 <div class="row">
