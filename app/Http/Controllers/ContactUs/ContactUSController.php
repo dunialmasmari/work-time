@@ -17,8 +17,6 @@ class ContactUSController extends Controller
     }
     public function sendEmail(Request $request)
     {
-        
-     
         $data=[
             'name' => $request->name,
             'message' => $request->message,
