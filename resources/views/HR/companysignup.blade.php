@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class=" register-con"><br><br>
+<div class=" register-con">
 <div class=" register container-fluid">
 
                 <div class="row">
-                    <div class="col-lg-3  register-left"> <br><br>
+                    <div class="col-lg-3  register-left"> 
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
                         <span class="ForgetPwd" value="signup">If you want Apply as a user it by:</span><br>
                         <a href="{{ route('signuphr') }}"><input type="button"  name="" value="signup"/><br/></a>
@@ -102,10 +102,10 @@
                           </div>
                           @endif -->
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a company</h3>
+                                <h3  class="compregister-heading">Apply as a company</h3>
                                 <form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
-                                <div class="row register-form" style="margin-top:100px;">
+                                <div class="row compregister-form" style="margin-top:100px;">
                                     <div class="col-md-4">
                                   
                                         <div class="form-group">
@@ -203,6 +203,6 @@
                     </div>
                 </div>
 
-            </div><br><br>
+            </div>
         </div>
 @stop

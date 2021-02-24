@@ -96,7 +96,7 @@ function topFunction() {
   function myFunction() {
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
-      header.style.borderBottomStyle = "solid";
+      // header.style.borderBottomStyle = "solid";
       navbar.style.marginLeft = "100px";
       logo.style.display = "block";
     } else {

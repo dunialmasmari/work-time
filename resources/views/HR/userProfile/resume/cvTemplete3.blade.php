@@ -136,18 +136,18 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}'>
+		<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 			<div sr-r-papersheet-inner>
-				<table style='background: {{$backgroundColor}};color: {{$fontColor}}'>
+				<table style='background: {{$backgroundColor}};color:{{$fontColor}}' class='header-color border-color'>
 					<tr>
-						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}}'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}}' class='header-color'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
 					<p sr-r-fld="jobTitle">Profession</p>
-					<p sr-r-fld="location jobTitle">City, State</p>
+					<p sr-r-fld="location jobTitle" class='header-color'>City, State</p>
 				</div>
 						</td>
-						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}' class='border-color'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>your.name@example.com</p><p>111-222-3333</p><p>www.your-website.com</p>
@@ -158,7 +158,7 @@
 				</table>
 				<div sr-r-blocks>
 					<div sr-r-block="text" sr-r-id="1">
-						<p sr-r-block sr-r-fld="title">Summary</p>
+						<p sr-r-block sr-r-fld="title" class='border-color-top'>Summary</p>
 						<div sr-r-children>
 							<div sr-r-fld="html">
 								<p>List here your top selling points, including your most relevant strengths, skills and core competencies.</p>
@@ -166,11 +166,11 @@
 						</div>
 					</div>
 					<div sr-r-block="experience" sr-r-id="2">
-						<p sr-r-block sr-r-fld="title">Work Experience</p>
+						<p sr-r-block sr-r-fld="title" class='border-color-top'>Work Experience</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1">
-								<div sr-r-circle></div>
-								<p sr-r-child sr-r-fld="title">Job Title</p>
+								<div sr-r-circle class='header-color'></div>
+								<p sr-r-child sr-r-fld="title" class='border-color-top'>Job Title</p>
 								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
 								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p>
 								<div sr-r-fld="html">
@@ -178,8 +178,8 @@
 								</div>
 							</div>
 							<div sr-r-child sr-r-id="2c2">
-								<div sr-r-circle></div>
-								<p sr-r-child sr-r-fld="title">Job Title</p>
+								<div sr-r-circle class='header-color border-color'></div>
+								<p sr-r-child sr-r-fld="title" class='border-color-top'>Job Title</p>
 								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
 								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2014</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2014</span></p>
 								<div sr-r-fld="html">
@@ -189,11 +189,11 @@
 						</div>
 					</div>
 					<div sr-r-block="education" sr-r-id="3">
-						<p sr-r-block sr-r-fld="title">Education</p>
+						<p sr-r-block sr-r-fld="title" class='border-color-top'>Education</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="3c1">
-								<div sr-r-circle></div>
-								<p sr-r-child sr-r-fld="title">Degree</p>
+								<div sr-r-circle class='header-color'></div>
+								<p sr-r-child sr-r-fld="title" class='border-color-top'>Degree</p>
 								<p sr-r-where><span sr-r-fld="where">School Name</span>, <span sr-r-fld="location">Location</span></p>
 								<p sr-r-dates><span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toYear">2013</span></p>
 								<div sr-r-fld="html">
@@ -203,10 +203,10 @@
 						</div>
           </div>
           <div sr-r-block="education" sr-r-id="3">
-						<p sr-r-block sr-r-fld="title">Skills</p>
+						<p sr-r-block sr-r-fld="title" class='border-color-top'>Skills</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="3c1">
-								<div sr-r-circle></div>
+								<div sr-r-circle class='header-color'></div>
 								<span sr-r-child="" sr-r-fld="title"  class='rows'>DegreeDegreeDegreeDegreeDegree</span>
                 <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
                 <span sr-r-child="" sr-r-fld="title"  class='rows'>Degree</span>
@@ -217,7 +217,7 @@
 						</div>
 					</div>
 					<div sr-r-block="text" sr-r-id="4">
-						<p sr-r-block sr-r-fld="title">Additional Information</p>
+						<p sr-r-block sr-r-fld="title" class='border-color-top'>Additional Information</p>
 						<div sr-r-children>
 							<div sr-r-fld="html">
 								<p>Include other relevant information that employers should know about. This may include activities, experiences and interests that you have that relate to the position you are trying to get.</p>

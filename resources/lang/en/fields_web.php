@@ -429,6 +429,35 @@ return [
     'Title'=> 'Edite Tender',
     'Submit'=> 'Eidte Tender',
   ],
+     /** Users */
+  /**Show Users */
+  'Users'=>[
+    'Title'=> 'Users list',
+    'Name'=> 'Name',
+    'UserName'=> 'UserName',
+    'Email'=> 'Email',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+
+   /**Add Users */
+   'UserAdd'=>[
+    'TitlePage'=> 'Add New User',
+    'Password'=> 'Password',
+    'ConfirmPassword'=> 'Confirm Password',
+    'Submit'=> 'Add User',
+  ],
+  /**Edite Users */
+  'UserEdite'=>[
+    'Title'=> 'Edite User',
+    'oldPassword'=> 'Old Password',
+    'NewPassword'=> 'New Password',
+    'Submit'=> 'Edite User',
+  ],
+
+
   'Sidebar'=>[
     'Dashboard'=>'Dashboard',
     'majorMang'=> 'Major Managment',
@@ -447,8 +476,11 @@ return [
     'addBlog'=> 'Add New Blog',
     'adverMang'=>'Advertisements Managment',
     'adverAll'=> 'Show All Advertisements',
-    'adverBlog'=> 'Add New Advertisement',
- 'logout'=> 'logout',
+'adverBlog'=> 'Add New Advertisement',
+    'userMang'=>'Users Managment',
+    'userAll'=> 'Show All Users',
+    'adduser'=> 'Add New User',
+    'logout'=> 'logout',
   ],
   'companyInfo'=>[
     'Changelogo'=> 'Change Organization Logo',
@@ -570,6 +602,37 @@ return [
     ''=>'',
     ''=>'',
     ''=>'',
+    ''=>'',
+    ''=>'',
+    ''=>'',
+    ''=>'',
+  ],
+
+  'Notification'=>[
+    'Notifications'=> 'Notifications',
+    'Messages'=> 'Messages',
+    'MessagesAll'=>'See All Messages',
+    'NotificationsAll'=>'See All Notifications',
+    'Search'=>'Search',
+    'Notification'=> 'Notification',
+    'Time'=>'Time',
+    'Type'=>'Type',
+    'SeeNew'=>'See New',
+    'rejectJob'=>'Reject Job',
+    'rejectYes'=>'Yes, Reject',
+    'rejectTender'=>'Rejecte Tender',
+    'rejectNo'=>'No, Cencel',
+    'sureRejectJob'=>'Are you sure rejected job?',
+    'sureRejectTender'=>'Are you sure you rejected tender?',
+    'acceptJob'=>'Accept Job',
+    'acceptTender'=>'Accept Tender',
+    'accept'=>'Accept Posting',
+    'sureAcceptJob'=>'The Job will post in websit !',
+    'sureAcceptTender'=>'The Tender will post in websit !',
+    'postTender'=>'Tender Details ',
+    'postJob'=>'Job Details',
+    'postJobmessage'=>'This job need some process',
+    'postTendermessage'=>'This tender need some process',
     ''=>'',
     ''=>'',
     ''=>'',

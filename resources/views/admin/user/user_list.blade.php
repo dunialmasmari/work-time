@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">{{__('fields_web.user.TitlePage')}}</h3>
+                  <h3 class="card-title">{{__('fields_web.Users.Title')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,11 +34,11 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th>{{__('fields_web.user.Title')}} </th>
-                          <th>{{__('fields_web.user.image')}}  </th>
-                          <th>{{__('fields_web.user.link')}}  </th>
-                          <th>{{__('fields_web.user.status')}}  </th>
-                          <th>{{__('fields_web.user.Actions')}}  </th>
+                          <th>{{__('fields_web.Users.Name')}} </th>
+                          <th>{{__('fields_web.Users.UserName')}}  </th>
+                          <th>{{__('fields_web.Users.Email')}}  </th>
+                          <th>{{__('fields_web.Users.status')}}  </th>
+                          <th>{{__('fields_web.Users.Actions')}}  </th>
                           </tr>
                           </thead>
                           <tbody>
@@ -49,13 +49,13 @@
                             <td> {{$user->email}} </td>
                             </td>
                              @if($user->active == 1)
-                                <td><span class="badge badge-success">{{__('fields_web.user.Active')}}</span></td>
+                                <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
-                              <td><span class="badge badge-danger">{{__('fields_web.user.notActive')}}</span></td>
+                              <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>

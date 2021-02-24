@@ -254,7 +254,7 @@ class ResumeController extends Controller
         'backgroundColor'=> $request->backgroundColor,
               'fontColor'=> $request->fontColor
         ];
-        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        //$data = ['title' => 'Welcome to ItSolutionStuff.com'];
         $pdf = PDF::loadView('HR.userProfile.resume.cvTemplete3', $data);
         $date=Carbon::today();
         $resume_report = new resume_report();

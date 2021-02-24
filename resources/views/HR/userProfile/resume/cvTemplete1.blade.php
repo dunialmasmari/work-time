@@ -133,19 +133,19 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}'>
+		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 			<div sr-r-papersheet-inner>
-				<table style='border: 2px solid {{$backgroundColor}}'>
+				<table style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 					<tr>
-						<td sr-r-tbl-top style='background:{{$backgroundColor}};color:{{$fontColor}}'>
-				<div sr-r-block="person">
+						<td sr-r-tbl-top style='background:{{$backgroundColor}};color:{{$fontColor}}' class='header-color border-color'>
+				<div sr-r-block="person"  >
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 					{{-- <p sr-r-fld="jobTitle">{{ $user_info->fullname}}</p> --}}
 					<p sr-r-fld="location jobTitle">{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 						</td>
 						<td sr-r-tbl-top>
-							<div sr-r-block="contact">
+							<div sr-r-block="contact" >
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email }}</p><p>{{ $user_info->phone }}</p><p>{{ $user_info->userWebsite }}</p>
 								</div>
@@ -156,7 +156,7 @@
 				<div sr-r-blocks>
 					<div sr-r-block="text" sr-r-id="1">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Summary</p>
+						<p sr-r-block sr-r-fld="title" class='header-color'>Summary</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							<div sr-r-fld="html">
@@ -167,7 +167,7 @@
 					@if(count($experiences) > 0)
 					<div sr-r-block="experience" sr-r-id="2">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Work Experience</p>
+						<p sr-r-block sr-r-fld="title" class='header-color'>Work Experience</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							@foreach ($experiences as $experience)
@@ -187,7 +187,7 @@
 					@if(count($educations) > 0)
 					<div sr-r-block="education" sr-r-id="3">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Education and Training</p>
+						<p sr-r-block sr-r-fld="title"  class='header-color'>Education and Training</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							@foreach ($educations as $education) 
@@ -206,7 +206,7 @@
 					@if(count($projects) > 0)
 					<div sr-r-block="education" sr-r-id="3">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Education and Training</p>
+						<p sr-r-block sr-r-fld="title" class='header-color'>Education and Training</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							@foreach ($projects as $project) 
@@ -225,7 +225,7 @@
 					@if(count($languages) > 0)
 					<div sr-r-block="education" sr-r-id="3">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						 <p sr-r-block sr-r-fld="title">Languages</p>
+						 <p sr-r-block sr-r-fld="title" class='header-color'>Languages</p>
 						 </td><td sr-r-tbl-title></td></tr></table>
 						 <div sr-r-children>
 							@foreach ($languages as $language)
@@ -239,7 +239,7 @@
 					@if(count($languages) > 0)
                     <div sr-r-block="education" sr-r-id="3">
                        <table sr-r-tbl-title><tr><td sr-r-tbl-title>
-                        <p sr-r-block sr-r-fld="title">Skills</p>
+                        <p sr-r-block sr-r-fld="title" class='header-color'>Skills</p>
                         </td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							@foreach ($skills as $skill)
@@ -252,7 +252,7 @@
 					@endif
 					{{-- <div sr-r-block="text" sr-r-id="4">
 						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Additional Information</p>
+						<p sr-r-block sr-r-fld="title" class='header-color'>Additional Information</p>
 						</td><td sr-r-tbl-title></td></tr></table>
 						<div sr-r-children>
 							<div sr-r-fld="html">

@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">{{__('fields_web.userAdd.TitlePage')}}</h3>
+                  <h3 class="card-title">{{__('fields_web.UserAdd.TitlePage')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -39,7 +39,7 @@
                     
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>name :</label>
+                                <label>{{__('fields_web.Users.Name')}} :</label>
                                 <input type="text" id="name" placeholder="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.userAdd.link')}} :</label>
+                                <label>{{__('fields_web.Users.Email')}} :</label>
                                 <input id="email" placeholder="E-Mail Address" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
                                             @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                   
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.userAdd.link')}} :</label>
+                                <label>{{__('fields_web.Users.UserName')}} :</label>
                                 <input id="username" placeholder="UserName" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required />
                                             @error('username')
                                                     <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
 
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.userAdd.link')}} :</label>
+                                <label>{{__('fields_web.UserAdd.Password')}} :</label>
                                 <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" />
                                             @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.userAdd.link')}} :</label>
+                                <label>{{__('fields_web.UserAdd.ConfirmPassword')}} :</label>
                                 <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"/>
                            </div>
                     </div>
@@ -99,7 +99,7 @@
                   <!-- /.card-body -->
 
                   <div class="">
-                    <button type="submit" class="btn btn-primary">{{__('fields_web.userAdd.Submit')}}</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.UserAdd.Submit')}}</button>
                   </div>
                 </div>  
                 </form>

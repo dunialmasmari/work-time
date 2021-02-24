@@ -66,6 +66,6 @@ public function authenticated()
     {
         $this->guard('web_buyer')->logout();
 
-        return redirect('login');
+        return view('HR.login');
     }
 }
