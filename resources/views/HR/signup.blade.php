@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class=" register-con"><br><br>
+<div class=" register-con">
 <div class=" register container-fluid">
 
                 <div class="row">
-                    <div class="col-lg-3  register-left"> <br><br>
+                    <div class="col-lg-3  register-left"> 
                         <a href="#"><img src="{{URL::asset('assets/images/hrlogo.png')}}" height="120vw" alt=""/></a><br>
                         <span class="ForgetPwd" value="signup">If you want Apply as a company it by:</span><br>
                         <a href="{{ route('companysignup') }}"><input type="button"  name="" value="signup"/><br/></a>
@@ -190,6 +190,6 @@
                     </div>
                 </div>
 
-            </div><br><br>
+            </div>
         </div>
 @stop

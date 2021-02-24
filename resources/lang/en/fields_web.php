@@ -429,6 +429,35 @@ return [
     'Title'=> 'Edite Tender',
     'Submit'=> 'Eidte Tender',
   ],
+     /** Users */
+  /**Show Users */
+  'Users'=>[
+    'Title'=> 'Users list',
+    'Name'=> 'Name',
+    'UserName'=> 'UserName',
+    'Email'=> 'Email',
+    'status'=> 'status',
+    'Actions'=> 'Actions',
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+  ],
+
+   /**Add Users */
+   'UserAdd'=>[
+    'TitlePage'=> 'Add New User',
+    'Password'=> 'Password',
+    'ConfirmPassword'=> 'Confirm Password',
+    'Submit'=> 'Add User',
+  ],
+  /**Edite Users */
+  'UserEdite'=>[
+    'Title'=> 'Edite User',
+    'oldPassword'=> 'Old Password',
+    'NewPassword'=> 'New Password',
+    'Submit'=> 'Edite User',
+  ],
+
+
   'Sidebar'=>[
     'Dashboard'=>'Dashboard',
     'majorMang'=> 'Major Managment',
@@ -447,8 +476,10 @@ return [
     'addBlog'=> 'Add New Blog',
     'adverMang'=>'Advertisements Managment',
     'adverAll'=> 'Show All Advertisements',
-
-    'addAdver'=> 'Add New Advertisement',
+'adverBlog'=> 'Add New Advertisement',
+    'userMang'=>'Users Managment',
+    'userAll'=> 'Show All Users',
+    'adduser'=> 'Add New User',
     'logout'=> 'logout',
   ],
   'companyInfo'=>[

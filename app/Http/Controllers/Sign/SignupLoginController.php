@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Sign;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SignupLoginController extends Controller
 {
     public function loginShow()
     {
-        return view('HR.login');
+        if(Auth::check())
+        {
+            return view('HR.about');   
+        }
+        else
+        {
+            return view('HR.login');
+        }
     } 
     public function signupShow()
     {
