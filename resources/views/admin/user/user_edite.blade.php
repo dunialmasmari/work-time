@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">{{__('fields_web.userEdite.Tilte')}}</h3>
+                  <h3 class="card-title">{{__('fields_web.UserEdite.Title')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -43,21 +43,21 @@
                     
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> {{__('fields_web.userAdd.name')}} :</label>
+                                <label> {{__('fields_web.Users.Name')}} :</label>
                                 <input type="text" name="name" placeholder="{{__('fields_web.userAdd.Title')}}" class="form-control"  value="{{ $user->name }}" >
                               </div>
                     </div>
 
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> {{__('fields_web.userAdd.email')}} :</label>
+                                <label> {{__('fields_web.Users.Email')}} :</label>
                                 <input type="text" name="email" placeholder="{{__('fields_web.userAdd.email')}}" class="form-control"  value="{{ $user->email }}" >
                               </div>
                     </div>
 
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> {{__('fields_web.userAdd.username')}} :</label>
+                                <label> {{__('fields_web.Users.UserName')}} :</label>
                                 <input type="text" name="username" placeholder="{{__('fields_web.userAdd.username')}}" class="form-control"  value="{{ $user->username }}" >
                               </div>
                     </div>
@@ -69,13 +69,13 @@
                   
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label>{{__('fields_web.userAdd.link')}} :</label>
+                                <label>{{__('fields_web.UserEdite.oldPassword')}} :</label>
                                 <input id="old_password" placeholder="old_password" type="password" class="form-control" name="old_password"  autocomplete="new-password"/>
                            </div>
                     </div>
                     <div class="col-md-4">
                             <div class="form-group">
-                                <label> {{__('fields_web.userAdd.password')}} new :</label>
+                                <label> {{__('fields_web.UserEdite.NewPassword')}} :</label>
                                 <input type="text" name="password" placeholder="{{__('fields_web.userAdd.password')}}" class="form-control" >
                               </div>
                     </div>
@@ -86,7 +86,7 @@
                   <!-- /.card-body -->
 
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">{{__('fields_web.userEdite.Submit')}}</button>
+                    <button type="submit" class="btn btn-primary">{{__('fields_web.UserEdite.Submit')}}</button>
                   </div>
                 </div>  
                 </form>

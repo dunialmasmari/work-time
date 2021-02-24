@@ -445,6 +445,9 @@ return [
     'adverMang'=>'إدارة الإعلانات ',
     'adverAll'=> 'عرض كافة الإعلانات ',
     'addAdver'=> 'إضافةإعلان جديد  ',
+    'userMang'=>'إدارة المستخدمين',
+    'userAll'=> 'عرض كافة المستخدمين',
+    'adduser'=> 'إضافة مستخدم جديد',
     'logout' => 'تسجيل الخروج',
   ],
   'companyInfo'=>[
@@ -569,7 +572,7 @@ return [
 
 
 ];
-<?php
+// <?php
 
 return [
 
@@ -996,6 +999,34 @@ return [
     'Title'=> 'تعديل المناقصة',
     'Submit'=> 'تعديل المناقصة',
   ],
+
+   /** Users */
+  /**Show Users */
+  'Users'=>[
+    'Title'=> ' قائمة المستخدمين',
+    'Name'=> 'الإسم',
+    'UserName'=> 'اسم الستخدم',
+    'Email'=> 'الإيميل',
+    'status'=> 'الحالة',
+    'Actions'=> 'الحدث',
+    'Active'=> 'مفعل',
+    'notActive'=> 'غير مفعل',
+  ],
+   /**Add Users */
+   'UserAdd'=>[
+    'TitlePage'=> 'إضافة مستخدم جديد',
+    'Password'=> 'كلمة المرور',
+    'ConfirmPassword'=> 'تأكيد كلمة المرور',
+    'Submit'=> 'إضافة مستخدم',
+  ],
+  /**Edite Users */
+  'UserEdite'=>[
+    'Title'=> 'تعديل المستخدم',
+    'oldPassword'=> 'كلمة المرور القديمة',
+    'NewPassword'=> 'كلمة المرور الجديدة',
+    'Submit'=> 'تعديل المستخدم',
+  ],
+
 
   'Sidebar'=>[
     'Dashboard'=>'لوحة التحكم',

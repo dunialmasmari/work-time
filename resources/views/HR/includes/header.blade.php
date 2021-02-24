@@ -28,7 +28,12 @@
           <?php  }
           ?>
       <a href="{{route('signuphr')}}">{{__('fields_web.Navbar.signup')}} </a>
-      <a  href="{{route('loginhr')}}">{{__('fields_web.Navbar.login')}} </a>
+      @if(Auth::check())
+      <a href="{{ route('logout') }}"> {{__('fields_web.Sidebar.logout')}} </a>
+      @else
+          <a  href="{{route('loginhr')}}">{{__('fields_web.Navbar.login')}} </a>
+      @endif
+      
   </div>
 </div>
 
