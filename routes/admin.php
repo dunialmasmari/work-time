@@ -131,4 +131,14 @@ Route::namespace('Major')->group(function(){
     Route::post('addmajor','MajorController@store');
 
     });*/
+
+    Route::group(['namespace' => 'Notification', 'prefix' => 'controlpanel' ],function()
+ {
+    Route::get('/Notifications','NotificationController@viewNotifications')->name('Notifications');
+    Route::get('/Messages','NotificationController@viewMessages')->name('Messages');
+    Route::get('/postTender/{id}','NotificationController@viewTender')->name('postTender');
+    Route::get('/postJob/{id}','NotificationController@viewJob')->name('postJob');
+
+});
+
 });

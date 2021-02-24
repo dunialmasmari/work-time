@@ -31339,3 +31339,23 @@ a.text-muted:hover {
   z-index: 1032;
   width: 60px;
 }
+.dropdown-menu-text:lang(ar){
+  float: left;
+}
+.dropdown-menu-text:lang(en){
+  float: right;
+}
+.card-tools:lang(ar){
+   text-align: right;
+   direction: rtl;
+   float: left;
+
+}
+.card-tools:lang(en){
+   text-align: left;
+   direction: ltr;
+}
+.btn-group:lang(ar){
+  direction: ltr;
+
+}

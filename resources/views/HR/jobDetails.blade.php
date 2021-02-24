@@ -157,7 +157,7 @@
                                                             src="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}"
                                                             alt="image" />
                                                     </div>
-                                                    <div>
+                                                    <div  class='px-3'>
                                                         <p><i class='fas fa-ellipsis-v'> &nbsp;
                                                             </i>{{ __('fields_web.Jobs.major') }}:
                                                             {{ $job->major_name }}
