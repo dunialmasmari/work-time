@@ -136,18 +136,18 @@
 		</style>
 	</head>
 	<body>
-	<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}'>
+	<div sr-r-resume="3557542" sr-r-template="T11" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 			<div sr-r-papersheet-inner>
-				<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}'>
+				<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}' class='border-color-top'>
 					<tr>
-						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}' class='header-color border-color'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
-						<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
+						<p sr-r-fld="location" class='header-color'>{{ $user_info->country.",".$user_info->city}}</p>
 					</div>
 						</td>
-						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}' class='border-color'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -155,7 +155,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr style='border-top: 0px solid white;border-top: 1px solid {{$backgroundColor}}'>
+					<tr style='border-top: 0px solid white;border-top: 1px solid {{$backgroundColor}}' class='border-color-top'>
 					<td sr-r-tbl-top style='color:black;;text-align:left;'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">

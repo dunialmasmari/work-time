@@ -111,7 +111,7 @@
                           <div class="col">
                             <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp21" class="input-group" title="Using color option">
-                              <input type="text" name="backgroundColor2" id="backgroundColor2" class="form-control input-lg"/>
+                              <input type="text" name="backgroundColor" id="backgroundColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
                                 <span class="input-group-text colorpicker-input-addon"><i></i></span>
                               </span>
@@ -120,7 +120,7 @@
                           <div class="col">
                             <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp22" class="input-group" title="Using color option">
-                              <input type="text"  name="fontColor2" id="fontColor2" class="form-control input-lg"/>
+                              <input type="text"  name="fontColor" id="fontColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
                                 <span class="input-group-text colorpicker-input-addon"><i></i></span>
                               </span>
@@ -204,7 +204,16 @@
                           var initdoc= frameElement.contentDocument
 
                          var x= document.getElementById('iframe1').contentDocument.createElement('style')
-                         var t= document.getElementById('iframe1').contentDocument.createTextNode('@import url(https://fonts.googleapis.com/css?family=Open+Sans); p{ font-family: "Open Sans",serif !important; color:'+$('#backgroundColor').val()+'; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}')
+                         var t= document.getElementById('iframe1').contentDocument
+                         .createTextNode(
+                          '.header-color{color:' + $(
+                            '#fontColor').val() +
+                            '!important;background-color:'+$('#backgroundColor').val()+'!important; }.font-color-change{color:' + $(
+                           '#backgroundColor').val()+'!important;} .border-color{border: 2px solid '
+                            +$('#backgroundColor').val()+' !important;} .border-color-top{border-top: 1px solid '
+                              +$('#backgroundColor').val()+
+                              ' !important;} #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
+                          )
                           x.appendChild(t)
                           document.getElementById('iframe1').contentDocument.body.appendChild(x)
                          console.log('fdf')
@@ -217,7 +226,15 @@
                           var initdoc= frameElement.contentDocument
 
                          var x= document.getElementById('iframe2').contentDocument.createElement('style')
-                         var t= document.getElementById('iframe2').contentDocument.createTextNode('@import url(https://fonts.googleapis.com/css?family=Open+Sans); p{ font-family: "Open Sans",serif !important; color:'+$('#backgroundColor2').val()+'; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}')
+                         var t= document.getElementById('iframe2').contentDocument
+                         .createTextNode(
+                              '.header-color{color:' + $(
+                            '#fontColor2').val() +
+                            '!important;background-color:'+$('#backgroundColor2').val()+'!important; }.font-color-change{color:' + $(
+                           '#backgroundColor2').val()+'!important;} .border-color{border: 2px solid '
+                            +$('#backgroundColor2').val()+' !important;} .border-color-top{border-top: 1px solid '
+                              +$('#backgroundColor2').val()+
+                              ' !important;}#app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}')
                           x.appendChild(t)
                           document.getElementById('iframe2').contentDocument.body.appendChild(x)
                          console.log('fdf')
@@ -228,7 +245,14 @@
                         console.log('fdf')
                         var frameElement = document.getElementById('iframe3')
                          var x= document.getElementById('iframe3').contentDocument.createElement('style')
-                         var t= document.getElementById('iframe3').contentDocument.createTextNode('@import url(https://fonts.googleapis.com/css?family=Open+Sans); p{ font-family: "Open Sans",serif !important; color:'+$('#backgroundColor3').val()+'; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}')
+                         var t= document.getElementById('iframe3').contentDocument.createTextNode(
+                            '.header-color{color:' + $(
+                            '#fontColor3').val() +
+                            '!important;background-color:'+$('#backgroundColor3').val()+'!important; border: 1px solid '+$('#backgroundColor3').val()+'!important;}.font-color-change{color:' + $(
+                            '#backgroundColor3').val()+'!important;} .border-color{border: 2px solid '
+                              +$('#backgroundColor3').val()+' !important;} .border-color-top{border-top:  .2em solid '
+                              +$('#backgroundColor3').val()+
+                              ' !important;}#app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}')
                           x.appendChild(t)
                           document.getElementById('iframe3').contentDocument.body.appendChild(x)
                          console.log('fdf')

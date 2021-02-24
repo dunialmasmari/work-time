@@ -143,17 +143,17 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}'>
-			<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}'>
+		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
+			<table style='color:{{$fontColor}};border-top: 2px solid {{$backgroundColor}}' class='border-color-top'>
 				<tr >
-					<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};'>
+					<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};'  class='header-color border-color'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 					{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
-					<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
+					<p sr-r-fld="location" class='header-color'>{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 					</td>
-					<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}'>
+					<td sr-r-tbl-top style='color:black;background:white;border: 1px solid {{$backgroundColor}}' class='border-color'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -161,7 +161,7 @@
 							</div>
 					</td>
 				</tr>
-				<tr style='border: 0px solid {{$fontColor}};border-top: 1px solid {{$backgroundColor}}'>
+				<tr style='border: 0px solid {{$fontColor}};border-top: 1px solid {{$backgroundColor}}' class='border-color-top'>
 				<td sr-r-tbl-top style='color:black;background:white;border-right:0px;border-left:0px'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
@@ -177,7 +177,7 @@
 				<div sr-r-blocks>
 					
 					<div sr-r-block="experience" sr-r-id="2">
-						<p sr-r-block sr-r-fld="title"  id="deartTitle">Dear</p>
+						<p sr-r-block sr-r-fld="title"  id="deartTitle" class='font-color-change'>Dear</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1" id="coverText">
 								<!-- <p sr-r-child sr-r-fld="title">Dear</p> -->
@@ -192,8 +192,8 @@
 					<div sr-r-block="experience" sr-r-id="2">
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1">
-								<p sr-r-block sr-r-fld="title">Sincerely</p>
-								<p sr-r-block sr-r-fld="title">{{$user_info->fullname}}</p>
+								<p sr-r-block sr-r-fld="title" class='font-color-change'>Sincerely</p>
+								<p sr-r-block sr-r-fld="title" class='font-color-change'>{{$user_info->fullname}}</p>
 							</div>
 						</div>
 					</div>
