@@ -15,6 +15,7 @@ class CreateMajorsTable extends Migration
     {
         Schema::create('majors', function (Blueprint $table) {
             $table->bigIncrements('major_id');
+            $table->foreignId('user_id');
             $table->string('major_name');
             $table->boolean('type');
             $table->boolean('active');

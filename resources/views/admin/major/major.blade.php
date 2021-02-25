@@ -114,8 +114,7 @@
                   <p id="msg"></p>
                   <form action="/controlpanel/major" method="post">
                         @csrf
-                        <input type="hidden" name="active" class="form-control" value="1">
-                      <div class="card-body">
+                     <div class="card-body">
                           <div class="row">
                               <div class="col-md-12">
 

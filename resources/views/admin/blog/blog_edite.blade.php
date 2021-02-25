@@ -35,8 +35,6 @@
                       </div>
  
                         <input type="hidden" class="form-control" name="blog_id" value="{{ $blog->blog_id }}">
-                        <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="{{ $blog->user_id }}">
-				        <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $blog->active }}"> 
                
 
                     <div class="row">

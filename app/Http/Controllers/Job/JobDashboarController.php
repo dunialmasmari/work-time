@@ -45,8 +45,9 @@ class JobDashboarController extends Controller
     public function store(Request $request)
     {    
     //  dd($request);
+        $user_id = auth()->user()->user_id;
         $job = new job();
-        $job->user_id = $request->input('user_id');
+        $job->user_id = $user_id;
         $job->major_id = $request->input('major_id');
         $job->title = $request->input('title');
         $job->company = $request->input('company');
@@ -58,7 +59,7 @@ class JobDashboarController extends Controller
         $job->start_date = $request->input('start_date');
         $job->deadline = $request->input('deadline');
         $job->posted_date = $request->input('posted_date');
-        $job->active = $request->input('active');
+        $job->active = '1';
         $job->location = implode(",", $request->input('location'));
         if($request->hasfile('image'))
         {
@@ -115,11 +116,13 @@ class JobDashboarController extends Controller
      */
     public function updatejob(Request $request)
     {
+        $user_id = auth()->user()->user_id;
         $job = job::where('job_id',$request->job_id);
         if($job->exists())
         {
+
             $job->title = $request->input('title');
-            $job->user_id = $request->input('user_id');
+            $job->user_id = $user_id;
             $job->major_id = $request->input('major_id');
             $job->email = $request->input('email');
             $job->register_here = $request->input('register_here');
@@ -130,7 +133,6 @@ class JobDashboarController extends Controller
             $job->start_date = $request->input('start_date');
             $job->deadline = $request->input('deadline');
             $job->posted_date = $request->input('posted_date');
-            $job->active = $request->input('active');
             $job->location = implode(",", $request->input('location'));
             if($request->image != '')
             {
@@ -143,7 +145,7 @@ class JobDashboarController extends Controller
                 $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
                 'apply_link' => $job->apply_link, 'location' => $job->location, 'recommendation' => $job->recommendation, 
                 'email' => $job->email,  'register_here' => $job->register_here,  'start_date' => $job->start_date,
-                'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,
+                'deadline' => $job->deadline, 'posted_date' => $job->posted_date,
                 'image' => $job->image,]);
             }
           else 
@@ -151,7 +153,7 @@ class JobDashboarController extends Controller
             $job->Update(['title' => $job->title, 'user_id' => $job->user_id, 'major_id' => $job->major_id, 'company' => $job->company, 'description' => $job->description,
             'apply_link' => $job->apply_link, 'location' => $job->location, 'recommendation' => $job->recommendation, 
             'email' => $job->email,  'register_here' => $job->register_here, 'start_date' => $job->start_date,
-            'deadline' => $job->deadline, 'posted_date' => $job->posted_date, 'active' => $job->active,]);
+            'deadline' => $job->deadline, 'posted_date' => $job->posted_date,]);
           }
             $jobs = job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'jobs.*' )->get();
