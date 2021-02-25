@@ -43,11 +43,13 @@ class AdvertisementDashboarControlle extends Controller
     public function store(Request $request)
     {
           //  dd($request);
+          $user_id = auth()->user()->user_id;
           $Advertising = new Advertising();
-          $Advertising->user_id = $request->input('user_id');
+          $Advertising->user_id = $user_id;
           $Advertising->title = $request->input('title');
           $Advertising->link = $request->input('link');  
-          $Advertising->active = $request->input('active');
+          $Advertising->Advertising_Position = $request->input('Advertising_Position');
+          $Advertising->active = '1';
           if($request->hasfile('image'))
           {
           $imagename = time().'.'.$request->file('image')->extension();
@@ -102,13 +104,14 @@ class AdvertisementDashboarControlle extends Controller
      */
     public function updateAdvertising(Request $request)
     {
+        $user_id = auth()->user()->user_id;
         $Advertising = Advertising::where('Advertising_id',$request->Advertising_id);
         if($Advertising->exists())
         {
             $Advertising->title = $request->input('title');
             $Advertising->link = $request->input('link');
-            $Advertising->user_id = $request->input('user_id');
-            $Advertising->active = $request->input('active');
+            $Advertising->Advertising_Position = $request->input('Advertising_Position');
+            $Advertising->user_id = $user_id;
             if($request->image != '')
             {
                 if($request->hasfile('image'))
@@ -118,13 +121,13 @@ class AdvertisementDashboarControlle extends Controller
                     $Advertising->image = $imagename;
                 }
                 $Advertising->Update(['title' => $Advertising->title, 'link' => $Advertising->link,
-                'user_id' => $Advertising->user_id, 'active' => $Advertising->active,
+                'user_id' => $Advertising->user_id, 'Advertising_Position' => $Advertising->Advertising_Position,
                 'image' => $Advertising->image,]);
             }
           else 
           {
             $Advertising->Update(['title' => $Advertising->title, 'user_id' => $Advertising->user_id,
-            'link' => $Advertising->link, 'active' => $Advertising->active,]);
+            'link' => $Advertising->link, 'Advertising_Position' => $Advertising->Advertising_Position,]);
           }
             $Advertisement = Advertising::get();
             //return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement]);

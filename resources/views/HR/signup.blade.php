@@ -29,6 +29,9 @@
                                 @csrf
                                 <div class="row register-form" style="color:#000;">
                                     <div class="col-md-6" >
+                                <input type="hidden"  name="active"/>
+                                <div class="row register-form" style="color:#000;">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <input id="name" placeholder="Name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"

@@ -41,17 +41,7 @@
 
                     <div class="row">
                        
-                    <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="exampleInputFile">{{__('fields_web.AdvertisingAdd.image')}}</label>
-                                <div class="input-group">
-                                  <div class="custom-file">
-                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" >
-                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.AdvertisingAdd.choose')}}</label>
-                                  </div>
-                               </div>
-                         </div>
-                    </div>
+                  
                     
                     <div class="col-md-4">
                             <div class="form-group">
@@ -66,20 +56,45 @@
                                 <input type="text" name="link" placeholder="{{__('fields_web.AdvertisingAdd.link')}}" class="form-control"  value="{{ $Advertising->link }}" >
                               </div>
                     </div>
-
+                    
+                    <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>{{__('fields_web.Advertising.AdvertisingPosition')}} :</label>
+                                    <select class="form-control select2" name='Advertising_Position' style="width: 100%;">
+                                    @if($Advertising->Advertising_Position == 1)
+                                        <option value="{{ $Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.header')}}</opiton>
+                                        <option value='2'>{{__('fields_web.AdvertisingAdd.footer')}}</option>
+                                        @elseif($Advertising->Advertising_Position == 2) 
+                                        <option value="{{$Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.footer')}}</opiton>
+                                        <option value='1'>{{__('fields_web.AdvertisingAdd.header')}}}</opiton>
+                                    @endif 
+                                    </select>
+                                  </div>
+                            </div>
                     </div>
                   
                  
                     <div class="row">
-                        <div class="col-sm-12">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleInputFile">{{__('fields_web.AdvertisingAdd.image')}}</label>
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" >
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.AdvertisingAdd.choose')}}</label>
+                                  </div>
+                               </div>
+                         </div>
+                    </div>
+                        <div class="col-sm-4">
                           <div class="timeline-item">
                               <div class="timeline-body preview">
                               <img id="file-ip-1-preview" src="{{URL::asset('assets/uploads/Advertisement/images/'.$Advertising->image)}}" style="width: 150px;height: 150px;margin-top:10px;">
                               </div>
                           </div>
-                         </div>
+                        </div>
                     </div>    
-                     </div>{{__('fields_web.AdvertisingAdd.TitlePage')}}
+                     </div>
                     @endforeach
                
                   <!-- /.card-body -->

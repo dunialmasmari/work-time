@@ -69,7 +69,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp11" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor" id="backgroundColor" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -78,7 +78,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp12" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor" id="fontColor" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -109,7 +109,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp21" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor" id="backgroundColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -118,7 +118,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp22" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor" id="fontColor2" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -149,7 +149,7 @@
                         @csrf
                          <div class="row">
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
+                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                             <div id="cp31" class="input-group" title="Using color option">
                               <input type="text" name="backgroundColor" id="backgroundColor3" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -158,7 +158,7 @@
                             </div>
                           </div>
                           <div class="col">
-                            <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
+                            <label>{{__('fields_web.userInfo.fontColor')}}</label>
                             <div id="cp32" class="input-group" title="Using color option">
                               <input type="text"  name="fontColor" id="fontColor3" class="form-control input-lg"/>
                               <span class="input-group-append">
@@ -188,7 +188,7 @@
                   </div>
                   <style>
                     .nav-link.active .card{
-                        background-color: aqua;
+                        background-color: rgb(79, 157, 213);
 
                     }
 
