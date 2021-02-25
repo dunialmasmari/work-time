@@ -32,22 +32,9 @@
                         @endif
                           </div>
                       </div>
-                      <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="1">
-              		  <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="1">  
-
                     <div class="row">
                        
-                    <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="exampleInputFile">{{__('fields_web.AdvertisingAdd.image')}}</label>
-                                <div class="input-group">
-                                  <div class="custom-file">
-                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" required>
-                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.AdvertisingAdd.choose')}}</label>
-                                  </div>
-                               </div>
-                         </div>
-                    </div>
+                
                     
                     <div class="col-md-4">
                             <div class="form-group">
@@ -61,11 +48,31 @@
                                 <input type="text" name="link" placeholder="{{__('fields_web.AdvertisingAdd.link')}}" class="form-control"  required>
                               </div>
                     </div>
+                    <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>{{__('fields_web.AdvertisingAdd.AdvertisingPosition')}} :</label>
+                                    <select class="form-control select2" name='Advertising_Position' style="width: 100%;">
+                                      <option  value="1">{{__('fields_web.AdvertisingAdd.header')}}</option>
+                                      <option  value="2">{{__('fields_web.AdvertisingAdd.footer')}}</option>
+                                    </select>
+                                  </div>
+                            </div>
                     </div>
                   
                  
                     <div class="row">
-                        <div class="col-sm-12">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleInputFile">{{__('fields_web.AdvertisingAdd.image')}}</label>
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" required>
+                                  <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.AdvertisingAdd.choose')}}</label>
+                                  </div>
+                               </div>
+                         </div>
+                    </div>
+                        <div class="col-md-4">
                           <div class="timeline-item">
                               <div class="timeline-body preview">
                                 <img id="file-ip-1-preview" style="width: 150px;height: 150px;margin-top:10px;">
