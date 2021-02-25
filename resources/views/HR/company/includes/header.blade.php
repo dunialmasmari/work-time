@@ -164,38 +164,28 @@ h1 a {
 
 </style>
 <ul id="accordion" class="accordion">
-  <li>
-    <div class="link"><i class="fa fa-database"></i>Web Design</div>
-    <ul class="submenu">
-      <li><a href="#">Photoshop</a></li>
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-code"></i>Coding</div>
-    <ul class="submenu">
-      <li><a href="#">Javascript</a></li>
-      <li><a href="#">jQuery</a></li>
-      <li><a href="#">Ruby</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-mobile"></i>Devices</div>
-    <ul class="submenu">
-      <li><a href="#">Tablet</a></li>
-      <li><a href="#">Mobile</a></li>
-      <li><a href="#">Desktop</a></li>
-    </ul>
-  </li>
+  
+ 
   <li>
     <div class="link"><a  href="{{route('userInfo')}}"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>{{__('fields_web.companyInfo.compinformation')}}</span></a>
-         </div>
-    <ul class="submenu">
-      <li><a href="#">Google</a></li>
-      <li><a href="#">Bing</a></li>
-      <li><a href="#">Yahoo</a></li>
-    </ul>
+    </div>
+    @foreach($role_users as $role)
+     @if($role->role_id == 5)
+    <div class="link"><a class=" px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a>    
+    </div>
+    @elseif($role->role_id == 6)
+    <div class="link"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a>
+    </div>
+    @elseif($role->role_id == 7)
+    <div class="link"> <li class="nav-item"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a></li>
+              
+    </div>
+    <div>
+    <a class="nav-link px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a>
+           
+    </div>
+    @endif
+          @endforeach 
   </li>
 </ul>
   
