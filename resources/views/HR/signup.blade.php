@@ -26,6 +26,7 @@
                                 <h3 class="register-heading">Apply as a user</h3>
                                 <form  method="post" action="{{route('register')}}"  class="was-validated"  >
                                 @csrf
+                                <input type="hidden"  name="active"/>
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">

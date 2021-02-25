@@ -36,6 +36,7 @@
                           <tr>
                           <th>{{__('fields_web.Advertising.Title')}} </th>
                           <th>{{__('fields_web.Advertising.image')}}  </th>
+                          <th>{{__('fields_web.Advertising.AdvertisingPosition')}}  </th>
                           <th>{{__('fields_web.Advertising.link')}}  </th>
                           <th>{{__('fields_web.Advertising.status')}}  </th>
                           <th>{{__('fields_web.Advertising.Actions')}}  </th>
@@ -48,6 +49,12 @@
                             <td>   
                               <img id="file-ip-1-preview" src="{{URL::asset('assets/uploads/Advertisement/images/'.$Advertising->image)}}" style="width: 150px;height: 150px;margin-top:10px;">
                             </td>
+                            @if($Advertising->Advertising_Position == 1)
+                               <td>{{__('fields_web.AdvertisingAdd.header')}}  </td>
+                            @elseif($Advertising->Advertising_Position == 2)
+                               <td> {{__('fields_web.AdvertisingAdd.footer')}} </td>
+                            @endif
+                            
                             <td> {{$Advertising->link}} </td>
                              @if($Advertising->active == 1)
                                 <td><span class="badge badge-success">{{__('fields_web.Advertising.Active')}}</span></td>

@@ -60,11 +60,13 @@
                             <td><span class="badge badge-success">{{__('fields_web.Jobs.Active')}}</span></td>
                             <td>
                                 <a href="{{  route('controlpanel.job.edite',$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                          </td>
+                                <a href="{{  route('Jobdetilse' ,$job->job_id) }}" > <i class="fas fa-eye"></i></a>                 
+                            </td>
                           @else 
                           <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
                           <td>
                               <a href="{{  route('controlpanel.job.edite' ,$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                              <a href="{{  route('Jobdetilse' ,$job->job_id) }}" > <i class="fas fa-eye"></i></a>
                          </td>
                           @endif  
                           </tr>

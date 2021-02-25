@@ -103,10 +103,9 @@ class MajorController extends Controller
             if($major->exists())
             {
                 $major->Update(['major_name' => $request->major_name, 'type' => $request->type,]);
-              //  $major->Update($request->all());
+            
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                //return view('admin.major.major_list',['majors' => $majors]);
-               // return response()->json($major->get(), 200);
+              
                return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
             else{
