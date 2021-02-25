@@ -97,19 +97,8 @@ function topFunction() {
   function myFunction() {
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
-      navbar.classList.add("navbar-light");
-      navbar.classList.remove("navbar-dark");
-      // header.style.borderBottomStyle = "solid";
-    //  navbar.style.marginLeft = "100px";
-    logo.style.display = "block";
-      logo2.style.display = "none";
     } else {
       header.classList.remove("sticky");
-      navbar.classList.add("navbar-dark");
-      navbar.classList.remove("navbar-light");
-    //  navbar.style.marginLeft = "500px";
-    logo.style.display = "none";
-      logo2.style.display = "block";
     }
   }
   </script>

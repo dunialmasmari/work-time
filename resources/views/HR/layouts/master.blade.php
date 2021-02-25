@@ -26,7 +26,7 @@
     <div style="  padding-bottom: 13rem;">
 
 @include('HR.includes.header')
-<div style="  padding-top: 3.5rem;">
+<div >
 @yield('content')
 </div>
 

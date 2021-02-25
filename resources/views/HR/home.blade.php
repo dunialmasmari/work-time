@@ -1,7 +1,6 @@
 @extends('HR.layouts.master')
 
 @section('content')
-    <br>
     <!--slide -->
     <div class='second-layer'></div>
     <div id="demo" class="carousel slide " data-ride="carousel">
@@ -70,7 +69,7 @@
                                 <div class="card" style="width:280px; height:460px;">
                                     <div class=' my-auto'
                                         style="  background: url({{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}) no-repeat;
-                                        background-size: cover; width: 100%; height:200px; background-color:rgb(79, 157, 213);">
+                                        background-size: cover; width: 100%; height:160px; background-color:rgb(79, 157, 213);">
 
                                     </div>
                                     <div class="card-body">
@@ -234,7 +233,7 @@
                                             <div class='col-12 col-sm-12 col-md-12 col-lg-12'>
                                                 <div class='row modal-footer' style="border:none; ">
                                                     @if ($job->apply_link != null)
-                                                        <a href="https://{{ $job->apply_link }}"
+                                                        <a href="{{ $job->apply_link }}"
                                                             style="text-decoration: none;"><button
                                                                 class='btn  btn-primary btn-sm btn-block  mx-auto'>{{ __('fields_web.Jobs.applyLink') }}</button></a>
 

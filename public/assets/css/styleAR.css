@@ -88,11 +88,26 @@ margin: 0px 5px;
   display: none;
   margin-right: 100px;
 }
-.navbar{
-  margin-left: 350px;
+.navbar-nav:lang(ar){
+  text-align: right;
 }
+.navbar-nav:lang(en){
+  text-align: left;
+}
+.settingBtns:lang(ar){
+  margin-right:auto;
+  margin-left: 0;
+}
+.settingBtns:lang(en){
+  
+  margin-right:0;
+  margin-left: auto;
+}
+/* .navbar{
+  margin-left: 350px;
+} */
 .nav-link{
-  font-size: 18px;
+  font-size: 16px;
   color: #f1f1f1;
 }
 .sticky {
