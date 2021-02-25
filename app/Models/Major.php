@@ -10,6 +10,7 @@ class Major extends Model
 
     protected $fillable = [
         'major_id',
+        'user_id',
         'major_name',
         'type',
         'active',
