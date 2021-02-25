@@ -91,18 +91,14 @@ function topFunction() {
   var header = document.getElementById("myHeader");
   var sticky = header.offsetTop;
   var logo = document.getElementById("logo");
+  var logo2 = document.getElementById("logo2");
   var navbar = document.getElementById("navbar");
   var nav = document.getElementsByClassName("nav-link")
   function myFunction() {
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
-      // header.style.borderBottomStyle = "solid";
-      navbar.style.marginLeft = "100px";
-      logo.style.display = "block";
     } else {
       header.classList.remove("sticky");
-      navbar.style.marginLeft = "500px";
-      logo.style.display = "none";
     }
   }
   </script>
