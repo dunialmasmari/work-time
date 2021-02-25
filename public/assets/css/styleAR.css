@@ -12,9 +12,10 @@
 }
 
 .header {
-  padding: 10px 16px;
-  background: #3172b4;
+  background:rgb(79, 157, 213);
   color: #f1f1f1;
+ 
+   border-bottom:3px solid rgb(79, 157, 213);
 }
 
 .content {
@@ -81,13 +82,17 @@ margin: 0px 5px;
 }
 .logo-dowen-header{
   display: none;
+  margin-left: 100px;
+}
+.logo-dowen-header:lang(ar){
+  display: none;
   margin-right: 100px;
 }
 .navbar{
   margin-left: 350px;
 }
 .nav-link{
-  font-size: 20px;
+  font-size: 18px;
   color: #f1f1f1;
 }
 .sticky {
@@ -339,17 +344,7 @@ margin: 0px 5px;
 .register .compregister-form{
   padding: 2%;
 }
-.btnRegister{
-  margin-top: 4%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213),#0062cc );
-  color: #fff;
-  font-weight: 60vw;
-  width: 50%;
-  cursor: pointer;
-}
+
 .btnRegister:lang(en){
   float: right;
 }

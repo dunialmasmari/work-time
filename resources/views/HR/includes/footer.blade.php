@@ -91,18 +91,25 @@ function topFunction() {
   var header = document.getElementById("myHeader");
   var sticky = header.offsetTop;
   var logo = document.getElementById("logo");
+  var logo2 = document.getElementById("logo2");
   var navbar = document.getElementById("navbar");
   var nav = document.getElementsByClassName("nav-link")
   function myFunction() {
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
+      navbar.classList.add("navbar-light");
+      navbar.classList.remove("navbar-dark");
       // header.style.borderBottomStyle = "solid";
-      navbar.style.marginLeft = "100px";
-      logo.style.display = "block";
+    //  navbar.style.marginLeft = "100px";
+    logo.style.display = "block";
+      logo2.style.display = "none";
     } else {
       header.classList.remove("sticky");
-      navbar.style.marginLeft = "500px";
-      logo.style.display = "none";
+      navbar.classList.add("navbar-dark");
+      navbar.classList.remove("navbar-light");
+    //  navbar.style.marginLeft = "500px";
+    logo.style.display = "none";
+      logo2.style.display = "block";
     }
   }
   </script>
