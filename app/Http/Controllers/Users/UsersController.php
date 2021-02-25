@@ -84,7 +84,7 @@ class UsersController extends Controller
             // ->get();
             // return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
             //return view('admin.job.job_list',['jobs' => $jobs]);
-            return   $this->userInfo();
+              return redirect()->route('userInfo');
         }
         else{
             return response()->json(['message' => 'job not found'], 404);

@@ -85,7 +85,6 @@ return [
       'majorsTenders'=> 'Tenders according to the departments',
       'Tenders&JobsAlerts'=> 'Tenders Jobs Alerts',
       'visti_website'=>'visit web site',
-
     ],
     'LogIn'=> [
       'LogInTitle'=> 'Login',
@@ -170,7 +169,6 @@ return [
       'Socotra'=> 'Socotra',
       'Taiz'=> 'Taiz'
     ],
-  //]
 
   'Jobs'=> [
     'Title'=> 'Jobs',
@@ -202,8 +200,6 @@ return [
     'applayEmail'=> 'Sending Email Applaying',
     'toapplying'=>'To visit the Link or Email of applying '
 
-
-
   ],
 
   'Services'=> [
@@ -219,7 +215,6 @@ return [
     'description'=> 'Blog Description',
 
   ],
-  
   
  // Dashbored
 
@@ -448,7 +443,7 @@ return [
     'adverMang'=>'Advertisements Managment',
     'adverAll'=> 'Show All Advertisements',
     'adverBlog'=> 'Add New Advertisement',
- 'logout'=> 'logout',
+    'logout'=> 'logout',
   ],
   'companyInfo'=>[
     'Changelogo'=> 'Change Organization Logo',
@@ -481,7 +476,6 @@ return [
     ''=>'',
     ''=>'',
   ],
-
   'userInfo'=>[
     'Changepic'=>'Change Your Picture',
     'Profile'=>'Profile',
@@ -535,10 +529,6 @@ return [
     'ReferEmail'=>'Email',
     'SkilName'=>'Skill Name ',
     'SkilLevel'=>'Skill Level ',
-    'ReferName'=>'Name',
-    'ReferEmail'=>'Email',
-    'SkilName'=>'Skill Name',
-    'SkilLevel'=>'Skill Level',
     'updateExperience'=>'Experience Update',
     'updateEducation'=>'Education Update',
     'updateProject'=>'Project Update',
