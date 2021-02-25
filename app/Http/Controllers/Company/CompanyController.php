@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
 use validator;
 use Carbon\Carbon;
 use App\Models\job;
+use App\User;
 use App\Models\Advertising;
 
 
@@ -22,17 +23,20 @@ use App\Models\Advertising;
 class CompanyController extends Controller
 {
     public function userInfo()
-    {       $user_id = auth()->user()->user_id;
+    {      
+            $user_id = auth()->user()->user_id;
             $role_users= role_user::select()->where('user_id',$user_id)->get();
-            $user_info=compnyInfo::where('active','1')
+            $user_info=User::where('active','1')
             ->where('user_id','=',$user_id)
             ->get();
-             $data=['user_info' => $user_info];
+             $data=['user_info' => $user_info, 'role_users' => $role_users];
 
         return view('HR.company.userInfo',$data);
     }
     public function updateInfo(Request $request)
-    {  $user_id = auth()->user()->user_id;
+    {  
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $compnyInfo = compnyInfo::where('user_id',$user_id);
         if($compnyInfo->exists())
         {
@@ -68,7 +72,7 @@ class CompanyController extends Controller
             $compnyInfo = compnyInfo::where('active','1')
             ->where('user_id','=',$user_id)
             ->get();
-            return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo]);
+            return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo, 'role_users' => $role_users]);
             //return view('admin.job.job_list',['jobs' => $jobs]);
         }
         else{
@@ -76,7 +80,8 @@ class CompanyController extends Controller
         }
     }
     public function updateLogo(Request $request)
-    {  $user_id = auth()->user()->user_id;
+    {  
+        $user_id = auth()->user()->user_id;
         $compnyInfo = compnyInfo::where('user_id',$user_id);
         if($compnyInfo->exists())
         {
@@ -110,8 +115,8 @@ class CompanyController extends Controller
     }
     public function viewJobs()
     {
-            $user_id = auth()->user()->user_id;
-            $role_users= role_user::select()->where('user_id',$user_id)->get();
+             $user_id = auth()->user()->user_id;
+             $role_users= role_user::select()->where('user_id',$user_id)->get();
             $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
             ->select('majors.major_name','jobs.*')
              ->where('jobs.user_id','>=',$user_id)
@@ -120,16 +125,20 @@ class CompanyController extends Controller
             
              $data=[
                    'jobs' => $jobs,
+                   'role_users' => $role_users
                   ];
         return view('HR.company.job_list',$data);
     }
     public function addJob()
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $majors=Major::select()->get();
-        return view('HR.company.job_add',['majors' => $majors]);
+        return view('HR.company.job_add',['majors' => $majors, 'role_users' => $role_users]);
     }
     public function storeJob(Request $request){
         $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $job = new job();
         $job->user_id = $user_id;
         $job->major_id = $request->input('major_id');
@@ -155,27 +164,73 @@ class CompanyController extends Controller
       
         $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'jobs.*' )->get();
-        return redirect()->route('viewJobs')->with(['jobs' => $jobs]);
+        return redirect()->route('viewJobs')->with(['jobs' => $jobs, 'role_users' => $role_users]);
     }
     public function viewTenders()
     {     
         $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'tenders.*' )
-        ->where('tenders.user_id','=',$user_id)->get();
+        ->where('tenders.user_id','=',$user_id)
+        ->get();
         $data=[
             'tenders' => $tenders,
+            'role_users' => $role_users,
            ];
       return view('HR.company.tenders_list',$data);
 
     }
+
+    public function viewTenderdetilse($id)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+        ->select('majors.major_name','tenders.*')
+        ->where('tenders.tender_id', $id);
+       
+        if ($tenders->exists())
+        {
+            $tenders=$tenders->get();
+                  return view('HR.company.tender_detilse',['tenders' => $tenders, 'role_users' => $role_users]);           
+         } 
+        else 
+        {
+        return response()->json(["message" => "Tender not found!"], 404);
+        }
+
+    }
+
+    public function viewJobdetilse($id)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
+        ->select('majors.major_name','jobs.*')
+        ->where('jobs.job_id', $id);
+        if ($jobs->exists())
+        {
+            $jobs=$jobs->get();
+            return view('HR.company.job_detilse',['jobs' => $jobs, 'role_users' => $role_users]);
+        } 
+        else 
+        {
+        return response()->json(["message" => "Job not found!"], 404);
+        }
+
+    }
+
     public function addTender()
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $majors=Major::select()->get();
-        return view('HR.company.tender_add',['majors' => $majors]);
+        return view('HR.company.tender_add',['majors' => $majors, 'role_users' => $role_users]);
     }
     public function storeTender(Request $request){
         $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
         $tender = new tender();
         $tender->user_id = $user_id;
         $tender->major_id = $request->input('major_id');
@@ -205,7 +260,7 @@ class CompanyController extends Controller
         $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
         ->select('majors.major_name', 'tenders.*' )->get();
             //return view('admin.tender.tender_list',['tenders' => $tenders]);
-            return redirect()->route('viewTenders')->with(['tenders' => $tenders]);
+            return redirect()->route('viewTenders')->with(['tenders' => $tenders, 'role_users' => $role_users]);
     }
 
 

@@ -143,14 +143,14 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}'>
-			<table style='border: 1px solid {{$backgroundColor}}'>
+		<div sr-r-resume="3557542" sr-r-template="T2" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
+			<table style='border: 1px solid {{$backgroundColor}}' class='border-color'>
 				<tr>
-					<td sr-r-tbl-top>
-				<div sr-r-block="person">
+					<td sr-r-tbl-top class='header-color'>
+				<div sr-r-block="person" class='header-color border-color'>
 					<p sr-r-person><span sr-r-fld="firstName">Your</span> <span sr-r-fld="lastName">Name</span></p>
 					<p sr-r-fld="jobTitle">Profession</p>
-					<p sr-r-fld="location">City, State</p>
+					<p sr-r-fld="location" class='header-color'>City, State</p>
 				</div>
 					</td>
 					<td sr-r-tbl-top style='color:black;background:white;'>
@@ -165,7 +165,7 @@
 			<div sr-r-papersheet-inner>
 				<div sr-r-blocks>
 					<div sr-r-block="text" sr-r-id="1">
-						<p sr-r-block sr-r-fld="title">Summary</p>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>Summary</p>
 						<div sr-r-children>
 							<div sr-r-fld="html">
 								<p>List here your top selling points, including your most relevant strengths, skills and core competencies.</p>
@@ -173,7 +173,7 @@
 						</div>
 					</div>
 					<div sr-r-block="experience" sr-r-id="2">
-						<p sr-r-block sr-r-fld="title">Work Experience</p>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>Work Experience</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1">
 								<p sr-r-child sr-r-fld="title">Job Title</p>
@@ -184,7 +184,7 @@
 								</div>
 							</div>
 							<div sr-r-child sr-r-id="2c2">
-								<p sr-r-child sr-r-fld="title">Job Title</p>
+								<p sr-r-child sr-r-fld="title" class='font-color-change'>Job Title</p>
 								<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p>
 								<p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2014</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2014</span></p>
 								<div sr-r-fld="html">
@@ -194,7 +194,7 @@
 						</div>
 					</div>
 					<div sr-r-block="education" sr-r-id="3">
-						<p sr-r-block sr-r-fld="title">Education</p>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>Education</p>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="3c1">
 								<p sr-r-child sr-r-fld="title">Degree</p>
@@ -207,7 +207,7 @@
 						</div>
           </div>
           <div sr-r-block="education" sr-r-id="3">
-						<p sr-r-block="" sr-r-fld="title">Skills</p>
+						<p sr-r-block="" sr-r-fld="title" class='font-color-change'>Skills</p>
 						<div sr-r-children="">
 							<div sr-r-child="" sr-r-id="3c1">
                 <span sr-r-child="" sr-r-fld="title"  class='rows'>DegreeDegreeDegreeDegreeDegree</span>
@@ -219,7 +219,7 @@
 						</div>
 					</div>
 					<div sr-r-block="text" sr-r-id="4">
-						<p sr-r-block sr-r-fld="title">Additional Information</p>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>Additional Information</p>
 						<div sr-r-children>
 							<div sr-r-fld="html">
 								<p>Include other relevant information that employers should know about. This may include activities, experiences and interests that you have that relate to the position you are trying to get.</p>

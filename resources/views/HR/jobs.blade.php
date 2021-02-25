@@ -60,7 +60,7 @@
                                                         <div class='col-12 col-sm-7 col-md-7 col-lg-7  my-auto'>
                                                            <div class="row modal-footer " style="border:none; ">
                                                             @if ($job->apply_link != null)
-                                                               <a href="https://{{ $job->apply_link }}" style="text-decoration: none;"><button
+                                                               <a href="{{ $job->apply_link }}" style="text-decoration: none;"><button
                                                                     class='btn  btn-primary btn-small btn-block  mx-auto'>{{ __('fields_web.Jobs.applyLink') }}</button></a>
                                                                
                                                                   @endif

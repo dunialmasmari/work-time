@@ -34,14 +34,14 @@ public function authenticated()
     $role_users= role_user::select()->where('user_id',$user_id)->get();
     foreach($role_users as $role_user)
     {
-        if($role_user->role_id == 2)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
             return redirect('controlpanel/major'); 
             
         }
-         if($role_user->role_id == 1)
+         if($role_user->role_id == 5 || $role_user->role_id == 6 || $role_user->role_id == 7)
         {
-            return redirect('controlpanel/tender'); 
+            return redirect()->route('userInfo'); 
         }
     }
    /* dd($request);
@@ -66,6 +66,6 @@ public function authenticated()
     {
         $this->guard('web_buyer')->logout();
 
-        return redirect('login');
+        return view('HR.login');
     }
 }

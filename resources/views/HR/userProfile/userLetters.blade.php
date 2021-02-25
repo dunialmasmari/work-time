@@ -70,7 +70,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col">
-                                        <label>{{__('fields_web.userInfo.fontColor')}}</label>
+                                        <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
                                         <div id="cp11" class="input-group" title="Using color option">
                                             <input type="text" name="backgroundColor" id="backgroundColor"
                                                 class="form-control input-lg" />
@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <label>{{__('fields_web.userInfo.backgroundColor')}}</label>
+                                        <label>{{__('fields_web.userInfo.fontColor')}}</label>
                                         <div id="cp12" class="input-group" title="Using color option">
                                             <input type="text" name="fontColor" id="fontColor"
                                                 class="form-control input-lg" />
@@ -183,7 +183,7 @@
                         </div>
                         <style>
                             .nav-link.active .card {
-                                background-color: aqua;
+                                background-color: rgb(79, 157, 213);
 
                             }
 
@@ -228,9 +228,10 @@
                                         .createElement('style')
                                     var t = document.getElementById('iframe'+currentTemplateNo).contentDocument
                                         .createTextNode(
-                                            'p{ font-family: "Open Sans",serif !important; color:' + $(
-                                                '#backgroundColor').val() +
-                                            '; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
+                                            '.header-color{color:' + $(
+                                                '#fontColor').val() +
+                                            '!important;background-color:'+$('#backgroundColor').val()+'!important; }.font-color-change{color:' + $(
+                                                '#backgroundColor').val()+'!important;} .border-color{border: 2px solid '+$('#backgroundColor').val()+' !important;} .border-color-top{border-top: 1px solid '+$('#backgroundColor').val()+' !important;} #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
                                             )
                                     x.appendChild(t)
                                     document.getElementById('iframe'+currentTemplateNo).contentDocument.body.appendChild(x)
@@ -267,9 +268,10 @@
                                         .createElement('style')
                                     var t = document.getElementById('iframe2').contentDocument
                                         .createTextNode(
-                                            '@import url(https://fonts.googleapis.com/css?family=Open+Sans); p{ font-family: "Open Sans",serif !important; color:' +
-                                            $('#backgroundColor2').val() +
-                                            '; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
+                                            '.header-color{color:' + $(
+                                                '#fontColor2').val() +
+                                            '!important;background-color:'+$('#backgroundColor2').val()+'!important; }.font-color-change{color:' + $(
+                                                '#backgroundColor2').val()+'!important;} .border-color{border: 2px solid '+$('#backgroundColor2').val()+' !important;} .border-color-top{border-top: 1px solid '+$('#backgroundColor2').val()+' !important;} #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
                                             )
                                     x.appendChild(t)
                                     document.getElementById('iframe2').contentDocument.body.appendChild(x)
@@ -304,9 +306,10 @@
                                         .createElement('style')
                                     var t = document.getElementById('iframe3').contentDocument
                                         .createTextNode(
-                                            '@import url(https://fonts.googleapis.com/css?family=Open+Sans); p{ font-family: "Open Sans",serif !important; color:' +
-                                            $('#backgroundColor3').val() +
-                                            '; } #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
+                                            '.header-color{color:' + $(
+                                                '#fontColor3').val() +
+                                            '!important;background-color:'+$('#backgroundColor3').val()+'!important; }.font-color-change{color:' + $(
+                                                '#backgroundColor3').val()+'!important;} .border-color{border: 2px solid '+$('#backgroundColor3').val()+' !important;} .border-color-top{border-top: 1px solid '+$('#backgroundColor').val()+' !important;} #app {background-color:blue;} .list {background-color:blue;} a{background-color:blue;}'
                                             )
                                     x.appendChild(t)
                                     document.getElementById('iframe3').contentDocument.body.appendChild(x)

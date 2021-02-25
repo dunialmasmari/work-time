@@ -12,9 +12,10 @@
 }
 
 .header {
-  padding: 10px 16px;
-  background: #3172b4;
+  background:rgb(79, 157, 213);
   color: #f1f1f1;
+ 
+   border-bottom:3px solid rgb(79, 157, 213);
 }
 
 .content {
@@ -81,16 +82,36 @@ margin: 0px 5px;
 }
 .logo-dowen-header{
   display: none;
+  margin-left: 100px;
+}
+.logo-dowen-header:lang(ar){
+  display: none;
   margin-right: 100px;
 }
-.navbar{
-  margin-left: 350px;
+.navbar-nav:lang(ar){
+  text-align: right;
 }
+.navbar-nav:lang(en){
+  text-align: left;
+}
+.settingBtns:lang(ar){
+  margin-right:auto;
+  margin-left: 0;
+}
+.settingBtns:lang(en){
+  
+  margin-right:0;
+  margin-left: auto;
+}
+/* .navbar{
+  margin-left: 350px;
+} */
 .nav-link{
-  font-size: 20px;
+  font-size: 16px;
   color: #f1f1f1;
 }
 .sticky {
+  z-index: 99;
   position: fixed;
   background: #fff;
   top: 0;
@@ -269,36 +290,39 @@ margin: 0px 5px;
   border-radius: 0 0.25rem  0.25rem 0!important;
 }
 .register-con:lang(ar){
-  background: -webkit-linear-gradient(left, #0062cc,rgb(79, 157, 213), #FFF);
-  margin-top: 3%;
+  background: #fff;
+  /* -webkit-linear-gradient(left, #0062cc,rgb(79, 157, 213), #FFF); */
+  /* margin-top: 3%; */
 }
 .register-con:lang(en){
-  background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213), #FFF);
-  margin-top: 3%;
+  background: #fff;
+  /* -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213), #FFF); */
+  /* margin-top: 3%; */
 }
 .register:lang(ar){
-  background: -webkit-linear-gradient(left, #0062cc,rgb(79, 157, 213), #FFF);
-  margin-top: 3%;
+  background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
+  /* -webkit-linear-gradient(left, #0062cc,rgb(79, 157, 213), #FFF); */
+  /* margin-top: 3%; */
   padding: 3%;
 }
 .register:lang(en){
-  background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213), #FFF);
-  margin-top: 3%;
+  background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
+   /* -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213), #FFF); */
+  /* margin-top: 3%; */
   padding: 3%;
 }
 .register-left{
   text-align: center;
   color: black;
   font-weight: bold;
-
-
 }
+
 .register-left input{
   border: none;
   border-radius: 1.5rem;
   padding: 2%;
   width: 50%;
-  background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213),#0062cc );
+  background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
   font-weight: bold;
   color: #FFF;
   margin-top:2%;
@@ -307,14 +331,14 @@ margin: 0px 5px;
 }
 .register-right{
   background: #f8f9fa;
-  border-top-left-radius: 10% 50%;
-  border-bottom-left-radius: 10% 50%;
+  border-radius: 1% ;
+  
 }
 .register-left img{
   margin-top: 15%;
   margin-bottom: 5%;
-  -webkit-animation: mover 2s infinite  alternate;
-  animation: mover 1s infinite  alternate;
+  /* -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 1s infinite  alternate; */
 }
 @-webkit-keyframes mover {
   0% { transform: translateY(0); }
@@ -330,20 +354,12 @@ margin: 0px 5px;
   margin-top: -9%;
 }
 .register .register-form{
-  padding: 10%;
-  margin-top: 10%;
-}
-.btnRegister{
-  margin-top: 4%;
-  border: none;
-  border-radius: 1.5rem;
   padding: 2%;
-  background: -webkit-linear-gradient(right,  #0062cc,rgb(79, 157, 213),#0062cc );
-  color: #fff;
-  font-weight: 60vw;
-  width: 50%;
-  cursor: pointer;
 }
+.register .compregister-form{
+  padding: 2%;
+}
+
 .btnRegister:lang(en){
   float: right;
 }
@@ -387,10 +403,16 @@ margin: 0px 5px;
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
 }
+.compregister-heading{
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: -8%;
+  color: #495057;
+}
 .register-heading{
   text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
+  margin-top: 4%;
+  margin-bottom: ;
   color: #495057;
 }
 .full-width{
@@ -633,4 +655,16 @@ opacity: .7;
     background-color:rgb(4, 25, 41); 
     opacity: .7;
     color:rgb(79, 157, 213);
+          }
+          .more-btn{
+            position: absolute;
+          }
+          .more-btn:lang(ar){
+            left: 0;
+          }
+          .more-btn:lang(en){
+            right: 0;
+          }
+          .error-message{
+            color: red;
           }

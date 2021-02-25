@@ -30,7 +30,7 @@ class CompanyInfo extends Migration
             $table->string('type');
             $table->date('founded');
             $table->string('industry');
-            $table->boolean('active');
+          //  $table->boolean('active');
             $table->longText('description');
             $table->timestamps();
         });

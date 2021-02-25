@@ -133,18 +133,18 @@
 		</style>
 	</head>
 	<body>
-		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}'>
+		<div sr-r-resume="3557542" sr-r-template="T6" style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 			<div sr-r-papersheet-inner>
 				<table style='border-top: 2px solid {{$backgroundColor}}'>
 					<tr style='border: 2px solid {{$backgroundColor}}'>
-						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='background: {{$backgroundColor}};color:{{$fontColor}};border: 2px solid {{$backgroundColor}}' class='header-color border-color'>
 				<div sr-r-block="person">
 					<p sr-r-person><span sr-r-fld="firstName">{{ $user_info->fullname}}</p>
 						{{-- <p sr-r-fld="jobTitle">Profession</p> --}}
-					<p sr-r-fld="location">{{ $user_info->country.",".$user_info->city}}</p>
+					<p sr-r-fld="location" class='header-color'>{{ $user_info->country.",".$user_info->city}}</p>
 				</div>
 						</td>
-						<td sr-r-tbl-top style='border: 2px solid {{$backgroundColor}}'>
+						<td sr-r-tbl-top style='border: 2px solid {{$backgroundColor}}' class='border-color'>
 							<div sr-r-block="contact">
 								<div sr-r-fld="html">
 									<p>{{ $user_info->email}}</p><p>{{ $user_info->phone}}</p><p>{{ $user_info->userWebsite}}</p>
@@ -153,7 +153,7 @@
 						</td>
 					</tr>
 					<tr>
-					<td sr-r-tbl-top style='border: 0px solid white;border-top: 1px solid {{$backgroundColor}}'>
+					<td sr-r-tbl-top style='border: 0px solid white;border-top: 1px solid {{$backgroundColor}}' >
 							<div sr-r-block="contact">
 							<div sr-r-fld="html">
 							<p sr-r-block  id="date">{{$date}}</p><p sr-r-block id="company">{{$company}}</p>
@@ -168,7 +168,7 @@
 				<div sr-r-blocks>
 					<div sr-r-block="experience" sr-r-id="2">
 						<table ><tr><td >
-						<p sr-r-block sr-r-fld="title" id="deartTitle">Dear</p>	
+						<p sr-r-block sr-r-fld="title" id="deartTitle" class='font-color-change'>Dear</p>	
 						</td><td ></td></tr></table>
 						<div sr-r-children>
 							<div sr-r-child sr-r-id="2c1" id="coverText">
@@ -180,10 +180,10 @@
 						</div>
 					</div>
 					<div sr-r-block="text" sr-r-id="4">
-						<table sr-r-tbl-title><tr><td sr-r-tbl-title>
-						<p sr-r-block sr-r-fld="title">Sincerely</p>
-						<p sr-r-block sr-r-fld="title">{{$user_info->fullname}}</p>
-						</td><td sr-r-tbl-title></td></tr></table>
+						<table sr-r-tbl-title><tr><td sr-r-tbl-title class='border-color-top'>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>Sincerely</p>
+						<p sr-r-block sr-r-fld="title" class='font-color-change'>{{$user_info->fullname}}</p>
+						</td><td sr-r-tbl-title class='border-color-top'></td></tr></table>
 					</div>
 				</div>
 			</div>

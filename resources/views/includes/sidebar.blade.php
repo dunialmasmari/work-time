@@ -164,7 +164,7 @@
                     <li class="nav-item">
                     <a href="{{ route('Advertising_add') }}" class="nav-link">
                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{__('fields_web.Sidebar.addAdver')}}</p>
+                        <p>{{__('fields_web.Sidebar.adverBlog')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
@@ -179,8 +179,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                    mange user
-                  <!-- {{__('fields_web.Sidebar.adverMang')}} -->
+                  {{__('fields_web.Sidebar.dashuserMang')}}
                     <i class="right fas fa-angle-left"></i>
 
                   </p>
@@ -189,15 +188,55 @@
                     <li class="nav-item">
                     <a href="{{ route('user_add') }}" class="nav-link">
                        <i class="far fa-circle nav-icon"></i>
-                       add user
-                        <!-- <p>{{__('fields_web.Sidebar.addAdver')}}</p> -->
+                        <p>{{__('fields_web.Sidebar.adduser')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{ route('controlpanel.user.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        show user
-                        <!-- <p>{{__('fields_web.Sidebar.adverAll')}}</p> -->
+                        <p>{{__('fields_web.Sidebar.userAll')}}</p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p> 
+                  {{__('fields_web.Sidebar.compuserMang')}}
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{ route('user_add') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Sidebar.adduser')}}</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{ route('controlpanel.CompanyUser.index') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Sidebar.userAll')}}</p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  {{__('fields_web.Sidebar.seruserMang')}}
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{ route('controlpanel.SercheUser.index') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Sidebar.userAll')}}</p>
                       </a>
                     </li>
                   </ul>

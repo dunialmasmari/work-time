@@ -1,6 +1,89 @@
 <a id="back-to-top" href="#" class="btn btn-primary back-to-top1" role="button" aria-label="Scroll to top">
       <i class="fas fa-chevron-up"></i>
     </a>
+<script>
+
+$(document).ready(function() {
+  var massage_title = document.getElementById("massage_title");
+  var title = '';
+  $('#title').on('keyup',function(e){
+    title =  validate('title',true,e.target.value,null)
+   
+  })
+  var massage_major = document.getElementById("massage_major");
+  var title = '';
+  $('#start_date').on('keyup',function(e){
+    title =  validate('major',true,e.target.value,null)
+  })
+})
+
+function validate(fieldName, isRequired, value, value2) {
+ 
+ if (isRequired == true) {
+   if (value == null || value == '')
+   {
+      return "*Enter field is requered ";
+   } 
+ }
+ if (fieldName != '') {
+   if (fieldName == 'title') {
+     reg = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+     if (!reg.test(value)) {
+      title.style.borderColor = "red";
+      massage_title.innerHTML = "*Enter field Carrier Code ";
+      
+     }
+     
+     else if (value.length > 20) {
+      title.style.borderColor = "red";
+      massage_title.innerHTML = "*Enter field emal Code ";
+       return 'lang.Validation.exceded'
+     }
+     else{
+      title.style.borderColor = "green";
+     }
+   }
+   if (fieldName == 'major') {
+    if (value == null || value == '')
+   {
+      title.style.borderColor = "red";
+      massage_title.innerHTML = "*Enter field is requered ";
+   } 
+   else{
+    title.style.borderColor = "red";
+   }
+
+     reg2 = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,20}$/;
+     if (!reg2.test(value)) {
+       return 'lang.Validation.passwordwrog'
+     }
+     if (value.length > 8) {
+       return 'lang.Validation.exceded'
+     }
+   }
+   if (fieldName == 'confirmPassword') {
+     if (value != value2) {
+       return 'lang.Validation.confirmPassword'
+     }
+   }
+   if (fieldName == 'dropdown') {
+     if (value == value2) {
+       console.log('value')
+
+       return 'lang.Validation.dropdown1' + value2 + 'lang.Validation.dropdown2'
+     }
+   }
+   if(fieldName ==='phone'){
+     if (value2 === false) {
+       return 'lang.Validation.phone'
+     }
+   }
+ }
+ return null
+}
+
+  </script>>
+
 <script> 
 
   var form = document.getElementById("form");

@@ -19,6 +19,7 @@ class CreateAdvertisementTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->longText('link');
+            $table->bigInteger('Advertising_Position');
             $table->boolean('active');
             $table->timestamps();
         });

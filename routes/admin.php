@@ -123,6 +123,33 @@ Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
     Route::get('/user_add', 'UserController@user_add')->name('user_add'); 
     Route::get('/useractivation/{id}','UserController@useractivation')->name('useractivation');
 });
+
+Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
+ {
+    Route::apiResource('/CompanyUser', 'CompanyUserController' ,
+    ['names' => [
+        'index' => 'controlpanel.CompanyUser.index',
+    ]]); 
+    // Route::post('/updateuser','CompanyUserController@updateuser')->name('updateuser');
+    // Route::get('/user_add', 'CompanyUserController@user_add')->name('user_add'); 
+    Route::get('/viewJobdetilse/{id}','CompanyUserController@viewJobdetilse')->name('viewJobdetilse');
+    Route::get('/viewTenderdetilse/{id}','CompanyUserController@viewTenderdetilse')->name('viewTenderdetilse');
+    Route::get('/viewCompanydetilse/{id}','CompanyUserController@viewCompanydetilse')->name('viewCompanydetilse');
+    Route::get('/viewDetails/{id}','CompanyUserController@viewDetails')->name('viewDetails');
+    Route::get('/CompanyUseractivation/{id}','CompanyUserController@CompanyUseractivation')->name('CompanyUseractivation');
+});
+
+Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
+ {
+    Route::apiResource('/SercheUser', 'SercheUserController' ,
+    ['names' => [
+        'index' => 'controlpanel.SercheUser.index',
+    ]]); 
+  
+    Route::get('/viewUserdetilse/{id}','SercheUserController@viewUserdetilse')->name('viewUserdetilse');
+    Route::get('/SercheUseractivation/{id}','SercheUserController@SercheUseractivation')->name('SercheUseractivation');
+});
+
 /*Route::get('/major', function () {
     return view('admin/major');
 });
@@ -131,4 +158,14 @@ Route::namespace('Major')->group(function(){
     Route::post('addmajor','MajorController@store');
 
     });*/
+
+    Route::group(['namespace' => 'Notification', 'prefix' => 'controlpanel' ],function()
+ {
+    Route::get('/Notifications','NotificationController@viewNotifications')->name('Notifications');
+    Route::get('/Messages','NotificationController@viewMessages')->name('Messages');
+    Route::get('/postTender/{id}','NotificationController@viewTender')->name('postTender');
+    Route::get('/postJob/{id}','NotificationController@viewJob')->name('postJob');
+
+});
+
 });
