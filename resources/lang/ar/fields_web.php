@@ -202,13 +202,11 @@ return [
 
   ],
 
-
   'Services'=> [
     'Title'=>' الخدمات ',
     'Titles'=>' قائمة الخدمات ',
     'others'=> 'خدمات اخرى ',
     'description' => 'وصف الخدمة ',
-
   ],
   'blogs'=> [
     'Titles'=> 'المدونات',
@@ -319,6 +317,7 @@ return [
   /**Edite Jobs */
   'JobsEdite'=>[
     'Title'=> 'تعديل الوظيفة',
+    'Link'=> 'رابط التقديم',
     'Submit'=>'تعديل الوظيفة',
   ],
 
@@ -428,7 +427,6 @@ return [
     'Title'=> 'تعديل المناقصة',
     'Submit'=> 'تعديل المناقصة',
   ],
-
    /** Users */
   /**Show Users */
   'Users'=>[
@@ -455,8 +453,6 @@ return [
     'NewPassword'=> 'كلمة المرور الجديدة',
     'Submit'=> 'تعديل المستخدم',
   ],
-
-  
   'Sidebar'=>[
     'Dashboard'=>'لوحة التحكم',
     'majorMang'=> 'إدراة الاقسام ',
@@ -513,8 +509,6 @@ return [
     ''=>'',
     ''=>'',
     ''=>'',
-
-
   ],
   'userInfo'=>[
     'Changepic'=>'تغير صورتك الشخصية',
@@ -609,7 +603,6 @@ return [
     ''=>'',
     ''=>'',
   ],
-  
   'Notification'=>[
     'Notifications'=> 'التنبيهات ',
     'Messages'=> 'الرسائل ',
