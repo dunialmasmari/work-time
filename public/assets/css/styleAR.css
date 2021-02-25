@@ -646,3 +646,15 @@ opacity: .7;
     opacity: .7;
     color:rgb(79, 157, 213);
           }
+          .more-btn{
+            position: absolute;
+          }
+          .more-btn:lang(ar){
+            left: 0;
+          }
+          .more-btn:lang(en){
+            right: 0;
+          }
+          .error-message{
+            color: red;
+          }
