@@ -22,7 +22,7 @@ class User extends Authenticatable
     // protected $guard_name = 'api';
     protected $primaryKey = 'user_id';
     protected $fillable = [
-        'user_id', 'name', 'email', 'password', 'username',
+        'user_id', 'name', 'email', 'password', 'username', 'active',
     ];
 
     /**

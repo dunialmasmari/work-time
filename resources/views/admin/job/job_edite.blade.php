@@ -18,9 +18,7 @@
                     @csrf
                 @foreach ($jobs as $job)
                 <input type="hidden" class="form-control" name="job_id" value="{{ $job->job_id }}">
-                <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="{{ $job->user_id }}">
-				 <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $job->active }}"> 
-                  <div class="card-body">
+                <div class="card-body">
               
                    <div class="row">
                         <div class="col-md-4">

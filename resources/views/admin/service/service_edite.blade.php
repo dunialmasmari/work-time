@@ -35,9 +35,7 @@
                       </div>
  
                         <input type="hidden" class="form-control" name="service_id" value="{{ $service->service_id }}">
-                        <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="{{ $service->user_id }}">
-				        <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $service->active }}"> 
-               
+              
 
                     <div class="row">
                        

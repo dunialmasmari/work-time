@@ -32,9 +32,7 @@
                         @endif
                           </div>
                       </div>
-                      <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="1">
-              		  <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="1">  
-
+                    
                     <div class="row">
                        
                     <div class="col-md-4">

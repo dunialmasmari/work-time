@@ -43,11 +43,12 @@ class ServiceDashboarControlle extends Controller
     public function store(Request $request)
     {
             //  dd($request);
+            $user_id = auth()->user()->user_id;
             $service = new service();
-            $service->user_id = $request->input('user_id');
+            $service->user_id =  $user_id;
             $service->title = $request->input('title');  
             $service->description = $request->input('description');
-            $service->active = $request->input('active');
+            $service->active = '1';
             if($request->hasfile('image'))
             {
             $imagename = time().'.'.$request->file('image')->extension();
@@ -102,11 +103,12 @@ class ServiceDashboarControlle extends Controller
      */
     public function updateservice(Request $request)
     {
+        $user_id = auth()->user()->user_id;
         $service = service::where('service_id',$request->service_id);
         if($service->exists())
         {
             $service->title = $request->input('title');
-            $service->user_id = $request->input('user_id');
+            $service->user_id = $user_id;
             $service->description = $request->input('description');
             $service->active = $request->input('active');
             if($request->image != '')
@@ -118,13 +120,13 @@ class ServiceDashboarControlle extends Controller
                     $service->image = $imagename;
                 }
                 $service->Update(['title' => $service->title, 'user_id' => $service->user_id,
-                'description' => $service->description, 'active' => $service->active,
+                'description' => $service->description,
                 'image' => $service->image,]);
             }
           else 
           {
             $service->Update(['title' => $service->title, 'user_id' => $service->user_id,
-             'description' => $service->description, 'active' => $service->active,]);
+             'description' => $service->description,]);
           }
             $services = service::get();
             //return view('admin.service.service_list',['services' => $services]);
