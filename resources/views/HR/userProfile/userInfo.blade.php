@@ -962,7 +962,8 @@
                </div>
             </div>
           
-            
+            <!-- <script src="{{url('assets/js/validation.js')}}"></script> -->
+
 
             <script type="text/javascript">
     function validate(fieldName, isRequired, value, value2) {
@@ -1058,6 +1059,17 @@
 
 
               $(document).ready(function() {
+
+                /* $('#pic').change(
+                function () {
+                    var fileExtension = ['png'];
+                    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                        alert("Only '.png' format is allowed.");
+                        this.value = ''; // Clean field
+                        return false;
+                    }
+                }); */
+
                 var fullnameMes=null;
                 var emailMes=null;
                 var phoneMes=null;

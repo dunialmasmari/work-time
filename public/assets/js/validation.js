@@ -773,8 +773,6 @@ return null
               });
               e.preventDefault();
           });
-      </script>
-      <script>
           //Validation 
 
 /*button */
