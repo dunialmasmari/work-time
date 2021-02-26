@@ -1057,6 +1057,10 @@
                 </div>
             </div>
 
+            <!-- <script src="{{url('assets/js/validation.js')}}"></script> -->
+
+
+
             <script type="text/javascript">
                 function validate(fieldName, isRequired, value, value2) {
 
@@ -1133,34 +1137,45 @@
                             }
                         }
                         /* if (fieldName =='date') 
-       {
-       if (value == null || value == '') 
-       return 'required'
-     } */
+                        {
+                         if (value == null || value == '') 
+                         return 'required'
+                        } */
+ }
+ return null
+}
+
+
+              $(document).ready(function() {
+
+                /* $('#pic').change(
+                function () {
+                    var fileExtension = ['png'];
+                    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                        alert("Only '.png' format is allowed.");
+                        this.value = ''; // Clean field
+                        return false;
                     }
-                    return null
-                }
+                }); */
+
+                var fullnameMes=null;
+                var emailMes=null;
+                var phoneMes=null;
+                var userWebsiteMes=null;
+                var countryMes=null;
+                var cityMes=null;
+                var statusMes=null;
+                var aboutUserMes=null;
+                var titleMes=null;
+                var subtitleMes=null;
+                var descriptionMes=null;
+                var start_dateMes=null;
+                var end_dateMes=null;
 
 
-                $(document).ready(function() {
-                    var fullnameMes = null;
-                    var emailMes = null;
-                    var phoneMes = null;
-                    var userWebsiteMes = null;
-                    var countryMes = null;
-                    var cityMes = null;
-                    var statusMes = null;
-                    var aboutUserMes = null;
-                    var titleMes = null;
-                    var subtitleMes = null;
-                    var descriptionMes = null;
-                    var start_dateMes = null;
-                    var end_dateMes = null;
-
-
-                    /* ///////////////////// validation of userinfo1 /////////////////////////////////// */
-                    $('#fullname').on('keyup change', function(e) {
-                        fullnameMes = validate('name', true, e.target.value, null);
+/* ///////////////////// validation of userinfo1 /////////////////////////////////// */
+                       $('#fullname').on('keyup change' ,function(e){
+                        fullnameMes=validate('name',true,e.target.value,null);
                         $('#fullnamemes').html(fullnameMes);
                     });
 
