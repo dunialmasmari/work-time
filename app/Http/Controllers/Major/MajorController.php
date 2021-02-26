@@ -50,7 +50,15 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        $major = Major::create($request->all());
+        $user_id = auth()->user()->user_id;
+        $major = new Major();
+            $major->user_id = $user_id;
+            $major->major_name = $request->input('major_name');  
+            $major->type = $request->input('type');
+            $major->active = '1';
+           
+            $major->save();
+        
         $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
         //return view('admin.major.major_list',['majors' => $majors]);
         return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
@@ -99,14 +107,14 @@ class MajorController extends Controller
     public function updatemajor(Request $request)
     {
         //dd($request);
+            $user_id = auth()->user()->user_id;
             $major = Major::where('major_id',$request->major_id);
             if($major->exists())
             {
-                $major->Update(['major_name' => $request->major_name, 'type' => $request->type,]);
-              //  $major->Update($request->all());
+                $major->Update(['major_name' => $request->major_name,'user_id' => $request->user_id, 'type' => $request->type,]);
+            
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                //return view('admin.major.major_list',['majors' => $majors]);
-               // return response()->json($major->get(), 200);
+              
                return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
             else{

@@ -66,8 +66,9 @@ class TenderDashboarController extends Controller
      */
     public function store(Request $request)
     {   
+            $user_id = auth()->user()->user_id;
             $tender = new tender();
-            $tender->user_id = $request->input('user_id');
+            $tender->user_id = $user_id;
             $tender->major_id = $request->input('major_id');
             $tender->title = $request->input('title');
             $tender->company = $request->input('company');
@@ -76,7 +77,7 @@ class TenderDashboarController extends Controller
             $tender->start_date = $request->input('start_date');
             $tender->deadline = $request->input('deadline');
             $tender->posted_date = $request->input('posted_date');
-            $tender->active = $request->input('active');
+            $tender->active = '1';
             $tender->location = implode(",", $request->input('location'));
             if($request->hasfile('filename'))
             {
@@ -142,11 +143,12 @@ class TenderDashboarController extends Controller
     {
        // dd($request);
         //echo $request->tender_id;
+            $user_id = auth()->user()->user_id;
             $tender = tender::where('tender_id',$request->tender_id);
             if($tender->exists())
             {
                 $tender->title = $request->input('title');
-                $tender->user_id = $request->input('user_id');
+                $tender->user_id = $user_id;
                 $tender->major_id = $request->input('major_id');
                 $tender->company = $request->input('company');
                 $tender->description = $request->input('description');
@@ -154,7 +156,6 @@ class TenderDashboarController extends Controller
                 $tender->start_date = $request->input('start_date');
                 $tender->deadline = $request->input('deadline');
                 $tender->posted_date = $request->input('posted_date');
-                $tender->active = $request->input('active');
                 $tender->location = implode(",", $request->input('location'));
 
                 if($request->filename != '')
@@ -167,7 +168,7 @@ class TenderDashboarController extends Controller
                         }
                   $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                   'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
-                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
+                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date,
                   'filename' => $tender->filename,]);  
                 }
 
@@ -181,7 +182,7 @@ class TenderDashboarController extends Controller
                     }
                   $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                   'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
-                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,
+                  'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date,
                   'image' => $tender->image,]);
                 }
 
@@ -189,7 +190,7 @@ class TenderDashboarController extends Controller
                // {
                     $tender->Update(['title' => $tender->title, 'user_id' => $tender->user_id, 'major_id' => $tender->major_id, 'company' => $tender->company, 'description' => $tender->description,
                     'apply_link' => $tender->apply_link, 'location' => $tender->location, 'start_date' => $tender->start_date,
-                    'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date, 'active' => $tender->active,]);
+                    'deadline' => $tender->deadline, 'posted_date' => $tender->posted_date,]);
                // } 
 
                 $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')

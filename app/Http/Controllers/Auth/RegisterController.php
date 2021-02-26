@@ -67,10 +67,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // $data['active'] = 0;
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'username' => $data['username'],
+                'active' => '1',
                 'password' => Hash::make($data['password']),
             ]);  
             $user_role = new role_user();
@@ -119,13 +121,13 @@ class RegisterController extends Controller
      */
     protected function compcreate(array $data)
     {
-       
-      //  dd($data);
-
+      // dd($data);
+            // $data['active'] = 0;
             $user = User::create([
                 'name' => $data['companyName'],
                 'email' => $data['email'],
                 'username' => $data['username'],
+                'active' => '0',
                 'password' => Hash::make($data['password']),
             ]);  
             $compnyInfo = new compnyInfo();
@@ -179,12 +181,12 @@ class RegisterController extends Controller
      */
     protected function usrecreate(array $data)
     {
-        $data['active'] = 1;
+        // $data['active'] = 1;
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'username' => $data['username'],
-                'active' => $data['active'],
+                'active' => '1',
                 'password' => Hash::make($data['password']),
             ]);  
             $user_role = new role_user();

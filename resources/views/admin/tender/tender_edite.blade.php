@@ -18,9 +18,7 @@
                     @csrf
                 @foreach ($tenders as $tender)
                 <input type="hidden" class="form-control" name="tender_id" value="{{ $tender->tender_id }}">
-                <input type="hidden" class="form-control" name="user_id" placeholder="Server" aria-label="Server" value="{{ $tender->user_id }}">
-				 <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $tender->active }}"> 
-                  <div class="card-body">
+                 <div class="card-body">
               
                    <div class="row">
                         <div class="col-md-4">

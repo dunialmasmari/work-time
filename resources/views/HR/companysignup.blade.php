@@ -107,7 +107,8 @@
                                 @csrf
                                 <div class="row compregister-form" style="margin-top:100px;">
                                     <div class="col-md-4">
-                                  
+                                    
+                                
                                         <div class="form-group">
                                             <input id="companyName" placeholder="companyName" type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" value="{{ old('companyName') }}" required autocomplete="companyName" autofocus/>
                                             @error('companyName')

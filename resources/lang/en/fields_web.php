@@ -85,7 +85,6 @@ return [
       'majorsTenders'=> 'Tenders according to the departments',
       'Tenders&JobsAlerts'=> 'Tenders Jobs Alerts',
       'visti_website'=>'visit web site',
-
     ],
     'LogIn'=> [
       'LogInTitle'=> 'Login',
@@ -170,7 +169,6 @@ return [
       'Socotra'=> 'Socotra',
       'Taiz'=> 'Taiz'
     ],
-  //]
 
   'Jobs'=> [
     'Title'=> 'Jobs',
@@ -202,8 +200,6 @@ return [
     'applayEmail'=> 'Sending Email Applaying',
     'toapplying'=>'To visit the Link or Email of applying '
 
-
-
   ],
 
   'Services'=> [
@@ -220,7 +216,6 @@ return [
 
   ],
   
-  
  // Dashbored
 
   /** Advertisment */
@@ -230,6 +225,7 @@ return [
     'TitlePage'=> 'Advertisement List',
     'Title'=> 'Advertisement title',
     'image'=> 'image',
+    'AdvertisingPosition' => 'Advertising Position',
     'link'=> 'link',
     'status'=> 'status',
     'Actions'=> 'Actions',
@@ -241,6 +237,8 @@ return [
     'TitlePage'=> 'Create New Advertising',
     'image'=> 'Advertising image',
     'choose'=> 'Choose image',
+    'header'=> 'heard',
+    'footer'=> 'footer',
     'Title'=> 'Title',
     'link'=> 'link',
     'Submit'=> 'Create Advertising',
@@ -474,10 +472,12 @@ return [
     'blogMang'=>'Blogs Managment',
     'blogAll'=> 'Show All Blogs',
     'addBlog'=> 'Add New Blog',
-    'adverMang'=>'Advertisements Managment',
+    'adverMang'=>'Advertisements Manag',
     'adverAll'=> 'Show All Advertisements',
-'adverBlog'=> 'Add New Advertisement',
-    'userMang'=>'Users Managment',
+    'adverBlog'=> 'Add New Advertisement',
+    'dashuserMang'=>'Dashbored Users Manag',
+    'compuserMang'=>'Campany Users Manag',
+    'seruserMang'=>'serche Users Manag',
     'userAll'=> 'Show All Users',
     'adduser'=> 'Add New User',
     'logout'=> 'logout',
@@ -513,7 +513,6 @@ return [
     ''=>'',
     ''=>'',
   ],
-
   'userInfo'=>[
     'Changepic'=>'Change Your Picture',
     'Profile'=>'Profile',
@@ -567,10 +566,6 @@ return [
     'ReferEmail'=>'Email',
     'SkilName'=>'Skill Name ',
     'SkilLevel'=>'Skill Level ',
-    'ReferName'=>'Name',
-    'ReferEmail'=>'Email',
-    'SkilName'=>'Skill Name',
-    'SkilLevel'=>'Skill Level',
     'updateExperience'=>'Experience Update',
     'updateEducation'=>'Education Update',
     'updateProject'=>'Project Update',

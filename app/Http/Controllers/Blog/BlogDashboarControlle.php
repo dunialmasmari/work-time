@@ -43,13 +43,13 @@ class BlogDashboarControlle extends Controller
      */
     public function store(Request $request)
     {
-            //  dd($request);
+            $user_id = auth()->user()->user_id;
             $blog = new blog();
-            $blog->user_id = $request->input('user_id');
+            $blog->user_id = $user_id;
             $blog->title = $request->input('title');
             $blog->sub_title = $request->input('sub_title');  
             $blog->description = $request->input('description');
-            $blog->active = $request->input('active');
+            $blog->active = '1';
             if($request->hasfile('image'))
             {
             $imagename = time().'.'.$request->file('image')->extension();
@@ -104,14 +104,14 @@ class BlogDashboarControlle extends Controller
      */
     public function updateblog(Request $request)
     {
+        $user_id = auth()->user()->user_id;
         $blog = blog::where('blog_id',$request->blog_id);
         if($blog->exists())
         {
             $blog->title = $request->input('title');
             $blog->sub_title = $request->input('sub_title');
-            $blog->user_id = $request->input('user_id');
+            $blog->user_id =  $user_id;
             $blog->description = $request->input('description');
-            $blog->active = $request->input('active');
             if($request->image != '')
             {
                 if($request->hasfile('image'))
@@ -121,14 +121,14 @@ class BlogDashboarControlle extends Controller
                     $blog->image = $imagename;
                 }
                 $blog->Update(['title' => $blog->title, 'sub_title' => $blog->sub_title,
-                'user_id' => $blog->user_id, 'description' => $blog->description, 'active' => $blog->active,
+                'user_id' => $blog->user_id, 'description' => $blog->description,
                 'image' => $blog->image,]);
             }
           else 
           {
             $blog->Update(['title' => $blog->title, 'user_id' => $blog->user_id,
             'sub_title' => $blog->sub_title,
-            'description' => $blog->description, 'active' => $blog->active,]);
+            'description' => $blog->description,]);
           }
             $blogs = blog::get();
             //return view('admin.blog.blog_list',['blogs' => $blogs]);

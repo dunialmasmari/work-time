@@ -79,19 +79,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
        // Route::post('sendingCV','JobController@sendCV');
     });
 
-   Route::namespace('Company')->group(function(){
-        Route::get('userInfo','CompanyController@userInfo')->name('userInfo');
-        Route::post('updateInfo','CompanyController@updateInfo')->name('updateInfo');
-        Route::post('updateLogo','CompanyController@updateLogo')->name('updateLogo');
-        Route::get('viewJobs','CompanyController@viewJobs')->name('viewJobs');
-        Route::get('addJob','CompanyController@addJob')->name('addJob');
-        Route::get('viewTenders','CompanyController@viewTenders')->name('viewTenders');
-        Route::get('addTender','CompanyController@addTender')->name('addTender');
-        Route::post('storeJob','CompanyController@storeJob')->name('storeJob');
-        Route::post('storeTender','CompanyController@storeTender')->name('storeTender');
-     // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
-    });
  Route::namespace('Users')->group(function(){
          Route::get('userProfile','UsersController@userInfo')->name('userProfile');
         Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
@@ -122,4 +110,26 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         
     });
 });
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'
+],
+ function()
+{
 
+    Route::namespace('Company')->group(function(){
+        Route::get('userInfo','CompanyController@userInfo')->name('userInfo');
+        Route::post('updateInfo','CompanyController@updateInfo')->name('updateInfo');
+        Route::post('updateLogo','CompanyController@updateLogo')->name('updateLogo');
+        Route::get('viewJobs','CompanyController@viewJobs')->name('viewJobs');
+        Route::get('addJob','CompanyController@addJob')->name('addJob');
+        Route::get('viewTenders','CompanyController@viewTenders')->name('viewTenders');
+        Route::get('addTender','CompanyController@addTender')->name('addTender');
+        Route::post('storeJob','CompanyController@storeJob')->name('storeJob');
+        Route::post('storeTender','CompanyController@storeTender')->name('storeTender');
+        Route::get('/Tenderdetilse/{id}','CompanyController@viewTenderdetilse')->name('Tenderdetilse');
+        Route::get('/Jobdetilse/{id}','CompanyController@viewJobdetilse')->name('Jobdetilse');
+     // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
+
+    });
+
+});

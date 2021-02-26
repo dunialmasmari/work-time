@@ -114,8 +114,7 @@
                   <p id="msg"></p>
                   <form action="/controlpanel/major" method="post">
                         @csrf
-                        <input type="hidden" name="active" class="form-control" value="1">
-                      <div class="card-body">
+                     <div class="card-body">
                           <div class="row">
                               <div class="col-md-12">
 
@@ -136,14 +135,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> Mjaor Name :</label>
+                                    <label> {{__('fields_web.MajorEdite.Name')}} :</label>
                                     <input type="text" name="major_name" class="form-control" placeholder="major name" required>
                                   </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Type :</label>
+                                    <label>{{__('fields_web.MajorEdite.Type')}} :</label>
                                     <select class="form-control select2" name='type' style="width: 100%;">
                                       <option  value="1">Tender</option>
                                       <option  value="0">Job</option>
@@ -173,9 +172,9 @@
             <table id="table" class="table table-hover" >
               <thead>
                 <tr>
-                  <th >major Name</th>
-                  <th > statue </th>
-                  <th > action </th>
+                  <th >{{__('fields_web.MajorEdite.Name')}}</th>
+                  <th > {{__('fields_web.Advertising.status')}} </th>
+                  <th > {{__('fields_web.Advertising.Actions')}} </th>
                 </tr>
               </thead>
               <tbody>
@@ -184,11 +183,11 @@
                 <tr>
                   <td> {{ $major->major_name}}  </td>
                   @if($major->active == 1)
-                    <td> active </td>
+                    <td> {{__('fields_web.Advertising.Active')}} </td>
                     <td><a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">الغاء التفعيل</a>
                     <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a></td>
                   @else 
-                    <td> not active </td>
+                    <td> {{__('fields_web.Advertising.notActive')}} </td>
                     <td>
                     <a href="{{  url('/controlpanel/majoractivation/'.$major->major_id) }}" class="btn ">تفعيل</a>
                     <a href="{{  url('/controlpanel/major/'.$major->major_id) }}" class="btn ">edit </a>

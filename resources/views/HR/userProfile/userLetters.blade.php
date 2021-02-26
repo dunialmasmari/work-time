@@ -158,8 +158,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>{{__('fields_web.userInfo.CoverLetters')}} :</label>
-                                            <textarea cols="90" id="mytextarea" name="coverletter"></textarea>
-                                            <span id='mytextarea1' class='error-message'></span>
+                                            <textarea cols="90" id="coverletter" name="coverletter"></textarea>
+                                            <span id='coverletter1' class='error-message'></span>
 
                                         </div>
                                     </div>
@@ -307,13 +307,13 @@ function validate(fieldName, isRequired, value, value2) {
                        var saveinfouser= document.getElementById("generatebtn").disabled= true;
                        console.log('123')
 
-                var fullnameMes=null;
-                var emailMes=null;
-                var phoneMes=null;
+                var fullnameMes='';
+                var emailMes='';
+                var phoneMes='';
                 var userWebsiteMes=null;
-                var countryMes=null;
-                var cityMes=null;
-                var statusMes=null;
+                var countryMes='';
+                var cityMes='';
+                var statusMes='';
                 
 /* ///////////////////// validation of userinfo1 /////////////////////////////////// */
                       $('#company').on('keyup change' ,function(e){
@@ -345,9 +345,9 @@ function validate(fieldName, isRequired, value, value2) {
                         cityMes=validate('name',true,e.target.value,null);
                         $('#date1').html(cityMes);
                        });
-                       $('#mytextarea').on('keyup change' ,function(e){
+                       $('#coverletter').on('keyup change' ,function(e){
                         statusMes=validate('longText',true,e.target.value,null);
-                        $('#mytextarea1').html(statusMes);
+                        $('#coverletter1').html(statusMes);
                        });
 
 
@@ -429,7 +429,7 @@ function validate(fieldName, isRequired, value, value2) {
                                     document.getElementById('iframe'+currentTemplateNo).contentWindow.document
                                         .getElementById('deartTitle').innerHTML = 'Dear ' + $('#name').val()
                                     document.getElementById('iframe'+currentTemplateNo).contentWindow.document
-                                        .getElementById('coverText').innerHTML = tinyMCE.get('mytextarea')
+                                        .getElementById('coverText').innerHTML = tinyMCE.get('coverletter')
                                         .getContent()
 
                                     console.log('fdf')
@@ -469,7 +469,7 @@ function validate(fieldName, isRequired, value, value2) {
                                     document.getElementById('iframe2').contentWindow.document
                                         .getElementById('deartTitle').innerHTML = 'Dear ' + $('#name').val()
                                     document.getElementById('iframe2').contentWindow.document
-                                        .getElementById('coverText').innerHTML = tinyMCE.get('mytextarea')
+                                        .getElementById('coverText').innerHTML = tinyMCE.get('coverletter')
                                         .getContent()
                                     console.log('fdf')
                                 })
@@ -507,7 +507,7 @@ function validate(fieldName, isRequired, value, value2) {
                                     document.getElementById('iframe3').contentWindow.document
                                         .getElementById('deartTitle').innerHTML = 'Dear ' + $('#name').val()
                                     document.getElementById('iframe3').contentWindow.document
-                                        .getElementById('coverText').innerHTML = tinyMCE.get('mytextarea')
+                                        .getElementById('coverText').innerHTML = tinyMCE.get('coverletter')
                                         .getContent()
                                     console.log('fdf')
                                 })

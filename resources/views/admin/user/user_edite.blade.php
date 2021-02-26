@@ -35,30 +35,28 @@
                       </div>
                       <input type="hidden" class="form-control" name="user_id" value="{{ $user->user_id }}">
 
-                       <input type="hidden" class="form-control" name="active" placeholder="Server" aria-label="Server" value="{{ $user->active }}"> 
-               
-
+                     
                     <div class="row">
                        
                     
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.Users.Name')}} :</label>
-                                <input type="text" name="name" placeholder="{{__('fields_web.userAdd.Title')}}" class="form-control"  value="{{ $user->name }}" >
+                                <input type="text" name="name" placeholder="{{__('fields_web.Users.Name')}}" class="form-control"  value="{{ $user->name }}" >
                               </div>
                     </div>
 
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.Users.Email')}} :</label>
-                                <input type="text" name="email" placeholder="{{__('fields_web.userAdd.email')}}" class="form-control"  value="{{ $user->email }}" >
+                                <input type="text" name="email" placeholder="{{__('fields_web.Users.Email')}}" class="form-control"  value="{{ $user->email }}" >
                               </div>
                     </div>
 
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.Users.UserName')}} :</label>
-                                <input type="text" name="username" placeholder="{{__('fields_web.userAdd.username')}}" class="form-control"  value="{{ $user->username }}" >
+                                <input type="text" name="username" placeholder="{{__('fields_web.Users.UserName')}}" class="form-control"  value="{{ $user->username }}" >
                               </div>
                     </div>
 
@@ -76,7 +74,7 @@
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.UserEdite.NewPassword')}} :</label>
-                                <input type="text" name="password" placeholder="{{__('fields_web.userAdd.password')}}" class="form-control" >
+                                <input type="text" name="password" placeholder="{{__('fields_web.UserEdite.NewPassword')}}" class="form-control" >
                               </div>
                     </div>
                     </div>    
