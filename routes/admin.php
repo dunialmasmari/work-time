@@ -55,6 +55,7 @@ Route::group(['namespace' => 'Tender', 'prefix' => 'controlpanel' ],function()
                ]]); 
     Route::post('/updatetender','TenderDashboarController@updatetender')->name('updatetender');
     Route::get('/tender_add', 'TenderDashboarController@tender_add')->name('tender_add'); 
+    Route::get('/viewTenderdetilse/{id}', 'TenderDashboarController@viewTenderdetilse')->name('viewTenderdetilse');
     Route::get('/tenderactivation/{id}','TenderDashboarController@tenderactivation')->name('tenderactivation');
 });
 
@@ -66,8 +67,9 @@ Route::group(['namespace' => 'Job', 'prefix' => 'controlpanel' ],function()
         'show' => 'controlpanel.job.edite',
         'store' => 'controlpanel.job.store',
     ]]); 
-    Route::post('/updatejob','JobDashboarController@updatejob')->name('updatejob');;
+    Route::post('/updatejob','JobDashboarController@updatejob')->name('updatejob');
     Route::get('/job_add', 'JobDashboarController@job_add')->name('job_add'); 
+    Route::get('/viewJobdetilse/{id}','JobDashboarController@viewJobdetilse')->name('viewJobdetilse');
     Route::get('/jobactivation/{id}','JobDashboarController@jobactivation')->name('jobactivation');
 });
 

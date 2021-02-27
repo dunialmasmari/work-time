@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\service;
+use App\Models\role_user;
 class ServiceDashboarControlle extends Controller
 {
     /**
@@ -15,14 +16,32 @@ class ServiceDashboarControlle extends Controller
      */
     public function index()
     {
-        $services = service::get();
-        return view('admin.service.service_list',['services' => $services]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        { 
+            $services = service::get();
+            return view('admin.service.service_list',['services' => $services, 'role_users' => $role_users]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     public function service_add()
     {
-        $services=service::select()->get();
-        return view('admin.service.service_add',['services' => $services]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        { 
+            $services=service::select()->get();
+            return view('admin.service.service_add',['services' => $services, 'role_users' => $role_users]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -43,7 +62,11 @@ class ServiceDashboarControlle extends Controller
     public function store(Request $request)
     {
             //  dd($request);
-            $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        { 
             $service = new service();
             $service->user_id =  $user_id;
             $service->title = $request->input('title');  
@@ -60,7 +83,10 @@ class ServiceDashboarControlle extends Controller
             $services = service::get();
                 //return view('admin.service.service_list',['services' => $services]);
                 return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
-
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     /**
@@ -71,15 +97,24 @@ class ServiceDashboarControlle extends Controller
      */
     public function show($id)
     {
-        $service = service::where('service_id',$id);
-        if($service->exists())
-        {
-            $services = $service->get();
-            return view('admin.service.service_edite',['services'=> $services]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        { 
+            $service = service::where('service_id',$id);
+            if($service->exists())
+            {
+                $services = $service->get();
+                return view('admin.service.service_edite',['services'=> $services, 'role_users' => $role_users]);
+            }
+            else
+            {
+                return response()->json(['message' => 'service not found'], 404);
+            }
         }
-        else
-        {
-            return response()->json(['message' => 'service not found'], 404);
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -104,37 +139,45 @@ class ServiceDashboarControlle extends Controller
     public function updateservice(Request $request)
     {
         $user_id = auth()->user()->user_id;
-        $service = service::where('service_id',$request->service_id);
-        if($service->exists())
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $service->title = $request->input('title');
-            $service->user_id = $user_id;
-            $service->description = $request->input('description');
-            $service->active = $request->input('active');
-            if($request->image != '')
+            $service = service::where('service_id',$request->service_id);
+            if($service->exists())
             {
-                if($request->hasfile('image'))
+                $service->title = $request->input('title');
+                $service->user_id = $user_id;
+                $service->description = $request->input('description');
+                $service->active = $request->input('active');
+                if($request->image != '')
                 {
-                    $imagename = time().'.'.$request->file('image')->extension();
-                    $result = $request->file('image')->move(public_path().'/assets/uploads/services/images/', $imagename); //store('files');
-                    $service->image = $imagename;
+                    if($request->hasfile('image'))
+                    {
+                        $imagename = time().'.'.$request->file('image')->extension();
+                        $result = $request->file('image')->move(public_path().'/assets/uploads/services/images/', $imagename); //store('files');
+                        $service->image = $imagename;
+                    }
+                    $service->Update(['title' => $service->title, 'user_id' => $service->user_id,
+                    'description' => $service->description,
+                    'image' => $service->image,]);
                 }
+            else 
+            {
                 $service->Update(['title' => $service->title, 'user_id' => $service->user_id,
-                'description' => $service->description,
-                'image' => $service->image,]);
+                'description' => $service->description,]);
             }
-          else 
-          {
-            $service->Update(['title' => $service->title, 'user_id' => $service->user_id,
-             'description' => $service->description,]);
-          }
-            $services = service::get();
-            //return view('admin.service.service_list',['services' => $services]);
-            return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
+                $services = service::get();
+                //return view('admin.service.service_list',['services' => $services]);
+                return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
 
+            }
+            else{
+                return response()->json(['message' => 'service not found'], 404);
+            }
         }
         else{
-            return response()->json(['message' => 'service not found'], 404);
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -152,6 +195,12 @@ class ServiceDashboarControlle extends Controller
 
     public function serviceactivation($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            
             $service = service::where('service_id',$id)->where('active','1');
             if($service->exists())
             {
@@ -169,5 +218,9 @@ class ServiceDashboarControlle extends Controller
                 //return view('admin.service.service_list',['services' => $services]);
                 return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     } 
 }

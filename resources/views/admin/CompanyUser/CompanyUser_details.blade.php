@@ -10,7 +10,7 @@
              <div class="card card-primary">
                 <div class="card-header">
                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                <h3 class="card-title">company info</h3>
+                <h3 class="card-title">{{__('fields_web.companyInfo.companyinfo')}}</h3>
                
                </div>
                 </div>
@@ -35,10 +35,10 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th>{{__('fields_web.Jobs.company')}}  </th>
-                          <th>phone </th>
-                          <th> logo </th>
-                          <th> websitelink </th>
+                          <th>{{__('fields_web.companyInfo.companyName')}}  </th>
+                          <th>{{__('fields_web.companyInfo.Phone')}} phone </th>
+                          <th>{{__('fields_web.companyInfo.logo')}}  </th>
+                          <th>{{__('fields_web.companyInfo.WebsiteLink')}}  </th>
                           <th>{{__('fields_web.Jobsshow.status')}}  </th>
                           <th>{{__('fields_web.Jobsshow.Actions')}} </th>
                           </tr>
@@ -57,8 +57,13 @@
                             <td>
                                <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>                 
                             </td>
-                          @else 
+                          @elseif($user->active == 0) 
                           <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                          <td>
+                             <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                         </td>
+                         @elseif($user->active == 2) 
+                          <td><span class="badge badge-danger">{{__('fields_web.companyInfo.statucompany')}}</span></td>
                           <td>
                              <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
                          </td>

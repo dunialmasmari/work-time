@@ -175,6 +175,8 @@
                     </li>
                   </ul>
               </li>
+          @foreach($role_users as $role)
+              @if($role->role_id == 5)
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
@@ -241,6 +243,8 @@
                     </li>
                   </ul>
               </li>
+              @endif
+          @endforeach 
  <!--         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

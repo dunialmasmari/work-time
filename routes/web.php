@@ -80,35 +80,41 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
 
 
- Route::namespace('Users')->group(function(){
-         Route::get('userProfile','UsersController@userInfo')->name('userProfile');
-        Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
-        Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
-        Route::post('userProfile/AddCvDetails','UsersController@AddCvDetails')->name('AddCvDetails');
-        Route::post('userProfile/updateCvDetails','UsersController@updateCvDetails')->name('updateCvDetails');
-        Route::post('userProfile/deleteCvDetails','UsersController@deleteCvDetails')->name('deleteCvDetails');
-        Route::post('userProfile/AddCvSkills','UsersController@AddCvSkills')->name('AddCvSkills');
-        Route::post('userProfile/updateCvSkills','UsersController@updateCvSkills')->name('updateCvSkills');
-        Route::post('userProfile/deleteCvSkills','UsersController@deleteCvSkills')->name('deleteCvSkills');
-        Route::post('userProfile/AddCvRecommendations','UsersController@AddCvRecommendations')->name('AddCvRecommendations');
-        Route::post('userProfile/updateCvRecommendations','UsersController@updateCvRecommendations')->name('updateCvRecommendations');
-        Route::post('userProfile/deleteCvRecommendations','UsersController@deleteCvRecommendations')->name('deleteCvRecommendations');
-        Route::get('userProfile/userResume','ResumeController@getUserCv')->name('userResume');
-        Route::get('userProfile/viewCv1','ResumeController@viewCv1')->name('viewCv1');
-        Route::get('userProfile/viewCv2','ResumeController@viewCv2')->name('viewCv2');
-        Route::get('userProfile/viewCv3','ResumeController@viewCv3')->name('viewCv3');
-        Route::post('userProfile/generatePDF1','ResumeController@generatePDF1')->name('generatePDF1');
-        Route::post('userProfile/generatePDF2','ResumeController@generatePDF2')->name('generatePDF2');
-        Route::post('userProfile/generatePDF3','ResumeController@generatePDF3')->name('generatePDF3');
-        Route::get('userProfile/userLetters','ResumeController@userLetters')->name('userLetters');
-        Route::get('userProfile/viewCover1','ResumeController@viewCover1')->name('viewCover1');
-        Route::get('userProfile/viewCover2','ResumeController@viewCover2')->name('viewCover2');
-        Route::get('userProfile/viewCover3','ResumeController@viewCover3')->name('viewCover3');
-        Route::post('userProfile/generateCover1','ResumeController@generateCover1')->name('generateCover1');
-        Route::post('userProfile/generateCover2','ResumeController@generateCover2')->name('generateCover2');
-        Route::post('userProfile/generateCover3','ResumeController@generateCover3')->name('generateCover3');
-        
-    });
+});
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'
+],
+ function()
+{
+    Route::namespace('Users')->group(function(){
+        Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+       Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
+       Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
+       Route::post('userProfile/AddCvDetails','UsersController@AddCvDetails')->name('AddCvDetails');
+       Route::post('userProfile/updateCvDetails','UsersController@updateCvDetails')->name('updateCvDetails');
+       Route::post('userProfile/deleteCvDetails','UsersController@deleteCvDetails')->name('deleteCvDetails');
+       Route::post('userProfile/AddCvSkills','UsersController@AddCvSkills')->name('AddCvSkills');
+       Route::post('userProfile/updateCvSkills','UsersController@updateCvSkills')->name('updateCvSkills');
+       Route::post('userProfile/deleteCvSkills','UsersController@deleteCvSkills')->name('deleteCvSkills');
+       Route::post('userProfile/AddCvRecommendations','UsersController@AddCvRecommendations')->name('AddCvRecommendations');
+       Route::post('userProfile/updateCvRecommendations','UsersController@updateCvRecommendations')->name('updateCvRecommendations');
+       Route::post('userProfile/deleteCvRecommendations','UsersController@deleteCvRecommendations')->name('deleteCvRecommendations');
+       Route::get('userProfile/userResume','ResumeController@getUserCv')->name('userResume');
+       Route::get('userProfile/viewCv1','ResumeController@viewCv1')->name('viewCv1');
+       Route::get('userProfile/viewCv2','ResumeController@viewCv2')->name('viewCv2');
+       Route::get('userProfile/viewCv3','ResumeController@viewCv3')->name('viewCv3');
+       Route::post('userProfile/generatePDF1','ResumeController@generatePDF1')->name('generatePDF1');
+       Route::post('userProfile/generatePDF2','ResumeController@generatePDF2')->name('generatePDF2');
+       Route::post('userProfile/generatePDF3','ResumeController@generatePDF3')->name('generatePDF3');
+       Route::get('userProfile/userLetters','ResumeController@userLetters')->name('userLetters');
+       Route::get('userProfile/viewCover1','ResumeController@viewCover1')->name('viewCover1');
+       Route::get('userProfile/viewCover2','ResumeController@viewCover2')->name('viewCover2');
+       Route::get('userProfile/viewCover3','ResumeController@viewCover3')->name('viewCover3');
+       Route::post('userProfile/generateCover1','ResumeController@generateCover1')->name('generateCover1');
+       Route::post('userProfile/generateCover2','ResumeController@generateCover2')->name('generateCover2');
+       Route::post('userProfile/generateCover3','ResumeController@generateCover3')->name('generateCover3');
+       
+   });
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'

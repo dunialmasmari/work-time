@@ -54,15 +54,14 @@
                              @if($job->active == 1)
                                 <td><span class="badge badge-success">{{__('fields_web.Jobsshow.Active')}}</span></td>
                                 <td>
-                                   <a href="http://127.0.0.1:8000/job/{{$job->job_id}}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
-                 
-                                    <a href="{{  route('controlpanel.job.edite',$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                                    <a href="{{  route('controlpanel.job.edite',$job->job_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <a href="{{  route('jobactivation',$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Jobsshow.notActive')}}</span></td>
                               <td>
-                              <a href="{{  route('jobde' ,$job->job_id) }}"><button class="btn btn-primary size-btn-job"> {{__('fields_web.Jobs.more')}}  </button></a>
+                              <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                  
                                   <a href="{{  route('controlpanel.job.edite' ,$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                   <a href="{{  route('jobactivation' ,$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>

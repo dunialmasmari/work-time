@@ -23,7 +23,7 @@ class MajorController extends Controller
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
             $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-                return view('admin.major.major_list',['majors' => $majors]);
+                return view('admin.major.major_list',['majors' => $majors, 'role_users' => $role_users]);
         }
         else{
             return response()->json(['message' => 'You do not have permation '], 404);   
@@ -61,17 +61,25 @@ class MajorController extends Controller
     public function store(Request $request)
     {
         $user_id = auth()->user()->user_id;
-        $major = new Major();
-            $major->user_id = $user_id;
-            $major->major_name = $request->input('major_name');  
-            $major->type = $request->input('type');
-            $major->active = '1';
-           
-            $major->save();
-        
-        $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
-        //return view('admin.major.major_list',['majors' => $majors]);
-        return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $major = new Major();
+                $major->user_id = $user_id;
+                $major->major_name = $request->input('major_name');  
+                $major->type = $request->input('type');
+                $major->active = '1';
+            
+                $major->save();
+            
+            $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
+            //return view('admin.major.major_list',['majors' => $majors]);
+            return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
 
 }
 
@@ -83,17 +91,26 @@ class MajorController extends Controller
      */
     public function show($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $major = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')
             ->where('major_id',$id);
             if($major->exists())
             {
                 $majors = $major->get();
-                return view('admin.major.major_edite',['majors'=> $majors]);
+                return view('admin.major.major_edite',['majors'=> $majors, 'role_users' => $role_users]);
             }
             else
             {
                 return response()->json(['message' => 'major not found'], 404);
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     /**
@@ -117,12 +134,16 @@ class MajorController extends Controller
     public function updatemajor(Request $request)
     {
         //dd($request);
-            $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
 
             $major = Major::where('major_id',$request->major_id);
             if($major->exists())
             {
-                $major->Update(['major_name' => $request->major_name,'user_id' => $request->user_id, 'type' => $request->type,]);
+                $major->Update(['major_name' => $request->major_name,'user_id' => $user_id, 'type' => $request->type,]);
             
                 $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
               
@@ -131,6 +152,10 @@ class MajorController extends Controller
             else{
                 return response()->json(['message' => 'major not  found'], 404);
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     /**
@@ -141,6 +166,11 @@ class MajorController extends Controller
      */
     public function majoractivation($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $major = Major::where('major_id',$id)->where('active','1');
             if($major->exists())
             {
@@ -157,6 +187,10 @@ class MajorController extends Controller
                 //return view('admin.major.major_list',['majors' => $majors]);
                 return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     } 
 
     public function delete($id)
