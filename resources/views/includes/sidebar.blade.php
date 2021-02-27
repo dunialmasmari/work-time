@@ -20,7 +20,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url(app()->getLocale().'/controlpanel/home') }}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                   {{__('fields_web.Sidebar.Dashboard')}}
@@ -28,7 +28,15 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{url(app()->getLocale().'/controlpanel/reports') }}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  {{__('fields_web.Sidebar.Reports')}}
 
+                  </p>
+                </a>
+              </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link">
