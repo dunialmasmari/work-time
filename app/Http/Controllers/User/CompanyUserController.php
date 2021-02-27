@@ -33,7 +33,7 @@ class CompanyUserController extends Controller
             return view('admin.CompanyUser.CompanyUser_list',['users' => $users, 'role_users' => $role_users]); 
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -109,7 +109,7 @@ class CompanyUserController extends Controller
             return view('admin.CompanyUser.CompanyUser_details',$data);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -136,7 +136,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -165,7 +165,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -190,7 +190,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -284,7 +284,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }

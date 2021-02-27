@@ -57,7 +57,7 @@
                                     <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                     <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                     <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a> -->
-                                    <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                                     <a href="{{  route('viewTenderdetilse' ,$tender->tender_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                               </td>
                               @else 
@@ -66,7 +66,7 @@
                                   <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                   <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                   <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">تفعيل</a> -->
-                                  <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                  <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-primary" href="#"><i class="far fa-lightbulb"></i></a>
                                   <a href="{{  route('viewTenderdetilse' ,$tender->tender_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                               </td>
                               @endif  
@@ -75,7 +75,7 @@
                                 <!-- <td>
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="#" class="btn btn-outline-danger" href="#"><i class="fas fa-lightbulb"></i></a>
                                     </div>
                                 </td> -->
                             </tr>

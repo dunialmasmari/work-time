@@ -63,17 +63,20 @@
                                 <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
-                                    <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                               </td>
                               @elseif($user->active == 0) 
                             <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
                             <td>
                               <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                              <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="far fa-lightbulb"></i></a>
+                            
                             </td>
                               @elseif($user->active == 2) 
                             <td><span class="badge badge-danger">{{__('fields_web.companyInfo.statucompany')}}</span></td>
                             <td>
                               <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                              <!-- <i class="fal fa-lightbulb-slash"></i> -->
                             </td>
                             @endif 
                           </tr>

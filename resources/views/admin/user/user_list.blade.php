@@ -52,13 +52,13 @@
                                 <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.user.edite',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('useractivation' ,$user->user_id) }}" class="btn btn-outline-primary" href="#"><i class="far fa-lightbulb"></i></a>
                               </td>
                               @endif  
                           </tr>

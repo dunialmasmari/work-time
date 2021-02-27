@@ -27,7 +27,7 @@ class UserController extends Controller
             return view('admin.user.user_list',['users' => $users, 'role_users' => $role_users]); 
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         } 
     }
     public function user_add()
@@ -41,7 +41,7 @@ class UserController extends Controller
             return view('admin.user.user_add',['role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -91,7 +91,7 @@ class UserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -166,7 +166,7 @@ class UserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -209,7 +209,7 @@ class UserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }
