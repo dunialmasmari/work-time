@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Major;
+use App\Models\role_user;
 
 class MajorController extends Controller
 {
@@ -16,8 +17,17 @@ class MajorController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $majors = Major::select('majors.major_name','majors.major_id','majors.type','majors.active')->get();
                 return view('admin.major.major_list',['majors' => $majors]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     public function getactivemajors()
@@ -108,6 +118,7 @@ class MajorController extends Controller
     {
         //dd($request);
             $user_id = auth()->user()->user_id;
+
             $major = Major::where('major_id',$request->major_id);
             if($major->exists())
             {
