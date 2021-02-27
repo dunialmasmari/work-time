@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Models\role_user;
 use App\Models\compnyInfo;
+use App\Models\userdetail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -59,6 +60,11 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function register(Request $request)
+    {    
+            $this->validator($request->all())->validate();
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -75,6 +81,12 @@ class RegisterController extends Controller
                 'active' => '1',
                 'password' => Hash::make($data['password']),
             ]);  
+            $userdetail = new userdetail();
+            $userdetail->user_id = $user->user_id;
+            $userdetail->fullname = $data['name'];
+            $userdetail->email = $data['email'];
+            $userdetail->save();
+                 
             $user_role = new role_user();
             $user_role->user_id = $user->user_id;
             if($data['type_search'] == 'Jobs')
@@ -127,7 +139,7 @@ class RegisterController extends Controller
                 'name' => $data['companyName'],
                 'email' => $data['email'],
                 'username' => $data['username'],
-                'active' => '0',
+                'active' => '2',
                 'password' => Hash::make($data['password']),
             ]);  
             $compnyInfo = new compnyInfo();

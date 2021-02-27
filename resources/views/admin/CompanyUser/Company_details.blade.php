@@ -43,27 +43,16 @@
                                 <div class="card-body">
                                     <div class='row'>
                                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                                            <p>{{ __('fields_web.compnyInfos.major') }}: <i> {{ $compnyInfo->websitelink }} </i>
+                                            <p><h6  >website:</h6>  {{ $compnyInfo->websitelink }} 
                                             </p>
-                                            <p><i class="fa fa-map-marker"> &nbsp;
-                                                </i>{{ __('fields_web.compnyInfos.location') }}: <i> {{ $compnyInfo->email }}</i>
+                                            <p><h6>email:</h6>  {{ $compnyInfo->email }}
                                             </p>
-                                            <p><i class='far fa-calendar-check'> &nbsp; </i>
-                                                {{ __('fields_web.compnyInfos.startDate') }}: <i> {{ $compnyInfo->phone }}</i>
+                                            <p><h6>phone:</h6>: {{ $compnyInfo->phone }}
                                             </p>
                                         </div> 
                                         <div class='col-12 col-sm-6 col-md-12 col-lg-12'>
-                                            <p><i class='fa fa-home'> &nbsp; </i>{{ __('fields_web.compnyInfos.company') }}:
-                                                <i> {{ $compnyInfo->company }}</i></p>
-                                            @if ($compnyInfo->apply_link != null)
-                                                <p><i class='fas fa-link'> &nbsp;
-                                                    </i>{{ __('fields_web.compnyInfos.applyLink') }}:<a
-                                                        href="https://www.{{ $compnyInfo->apply_link }}">{{ $compnyInfo->apply_link }}</a>
-                                                </p>
-                                            @endif
-                                            <p style="color:red"><i class="far fa-calendar-times"> &nbsp;
-                                                </i>{{ __('fields_web.compnyInfos.Deadline') }}: <i>
-                                                    {{ $compnyInfo->deadline }}</i> </p>
+                                            <p><h6>aboutCompany:</h6> {{ $compnyInfo->aboutCompany }}</p>
+                                            <p><h6>country:</h6> {{ $compnyInfo->country }}</p>
                                         </div>
                                     </div>
 
@@ -80,7 +69,7 @@
                                 <div class="row justify-content-between  px-3 py-3">
 
                                     <div class=''>
-                                        <h4> {{ __('fields_web.compnyInfos.description') }}: </h4>
+                                        <h4> description</h4>
                                     </div>
                                 </div>
                                 <div class="row  px-3 py-3">

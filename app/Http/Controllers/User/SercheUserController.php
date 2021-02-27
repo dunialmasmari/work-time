@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\userdetail;
 class SercheUserController extends Controller
 {
     /**
@@ -22,20 +23,37 @@ class SercheUserController extends Controller
          return view('admin.SercheUser.SercheUser_list',['users' => $users]); 
     }
 
-    public function viewUserdetilse()
-    {
-        $users= User::select()->where('user_id',$id);
+    // public function viewUserdetilse()
+    // {
+    //     $users= User::select()->where('user_id',$id);
        
-        if ($users->exists())
+    //     if ($users->exists())
+    //     {
+    //         $users=$users->get();
+    //               return view('admin.SercheUser.SercheUser_details',['users' => $users]);           
+    //      } 
+    //     else 
+    //     {
+    //     return response()->json(["message" => "Tender not found!"], 404);
+    //     }
+    // }
+
+    public function viewUserdetilse($id)
+    {
+        $userdetails= userdetail::select()->where('user_id',$id);
+       
+        if ($userdetails->exists())
         {
-            $users=$users->get();
-                  return view('admin.SercheUser.SercheUser_details',['users' => $users]);           
+            $userdetails=$userdetails->get();
+                  return view('admin.SercheUser.SercheUser_details',['userdetails' => $userdetails]);           
          } 
         else 
         {
         return response()->json(["message" => "Tender not found!"], 404);
         }
+
     }
+
     /**
      * Show the form for creating a new resource.
      *

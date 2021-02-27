@@ -62,13 +62,13 @@
                              @if($user->active == 1)
                                 <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                                 <td>
-                                    <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
+                                    <a href="{{  route('viewUserdetilse',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
                                     <a href="{{  route('SercheUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                               <td>
-                                    <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
+                                    <a href="{{  route('viewUserdetilse',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
                                     <a href="{{  route('SercheUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
                               @endif  
