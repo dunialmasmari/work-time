@@ -58,7 +58,7 @@
                                     <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                     <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">الغاء التفعيل</a> -->
                                     <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                                    <a href='http://127.0.0.1:8000/tender/{{$tender->tender_id}}'> <button class="btn btn-primary btn-sm my-2">{{__('fields_web.Tenders.more')}}</button></a>
+                                    <a href="{{  route('viewTenderdetilse' ,$tender->tender_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Tender.notActive')}}</span></td>
@@ -67,7 +67,7 @@
                                   <!-- <a href="" class="btn"> عرض التفاصيل</a> -->
                                   <!-- <a href="{{  url('/controlpanel/tenderactivation/'.$tender->tender_id) }}" class="btn">تفعيل</a> -->
                                   <a href="{{  route('tenderactivation' ,$tender->tender_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                                  <a href='http://127.0.0.1:8000/tender/{{$tender->tender_id}}'> <button class="btn btn-primary btn-sm my-2">{{__('fields_web.Tenders.more')}}</button></a>
+                                  <a href="{{  route('viewTenderdetilse' ,$tender->tender_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                               </td>
                               @endif  
                           </tr>

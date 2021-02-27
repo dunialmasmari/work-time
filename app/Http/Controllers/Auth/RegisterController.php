@@ -84,6 +84,7 @@ class RegisterController extends Controller
             $userdetail = new userdetail();
             $userdetail->user_id = $user->user_id;
             $userdetail->fullname = $data['name'];
+            $userdetail->active = '1';
             $userdetail->email = $data['email'];
             $userdetail->save();
                  

@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-row card-default">
                     <div class="card-header bg-info">
-                          <h3 class="card-title">company details</h3>
+                          <h3 class="card-title">{{__('fields_web.companyInfo.userdetials')}}</h3>
                      </div>
                      <div class="card-body">
                      <!-- ///////////////////////////////////////////////// -->
@@ -43,12 +43,12 @@
                                 <div class="card-body">
                                     <div class='row'>
                                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>
-                                            <p><h6>email:</h6>  {{ $userdetails->email }}
+                                            <p><h6>{{__('fields_web.companyInfo.Email')}} :</h6>  {{ $userdetails->email }}
                                             </p>
-                                            <p><h6>phone:</h6> {{ $userdetails->phone }}
+                                            <p><h6>{{__('fields_web.companyInfo.Phone')}} :</h6> {{ $userdetails->phone }}
                                             </p>
-                                            <p><h6>aboutUser:</h6> {{ $userdetails->aboutUser }}</p>
-                                            <p><h6>country:</h6> {{ $userdetails->country }}</p>
+                                            <p><h6>{{__('fields_web.companyInfo.aboutUser')}} :</h6> {{ $userdetails->aboutUser }}</p>
+                                            <p><h6>{{__('fields_web.companyInfo.Country')}} :</h6> {{ $userdetails->country }}</p>
                                        
                                         </div> 
                                        

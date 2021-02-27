@@ -10,7 +10,7 @@
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">{{__('fields_web.Users.Title')}}</h3>
+                  <h3 class="card-title">{{__('fields_web.companyInfo.Title')}}</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -34,7 +34,7 @@
                         <table class="table m-0">
                           <thead>
                           <tr>
-                          <th>companyName </th>
+                          <th>{{__('fields_web.companyInfo.companyName')}}  </th>
                           <th>{{__('fields_web.Users.UserName')}}  </th>
                           <th>{{__('fields_web.Users.Email')}}  </th>
                           
@@ -65,13 +65,17 @@
                                     <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
                                     <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
                               </td>
-                              @else 
-                              <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
-                              <td>
-                                    <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
-                                    <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                              </td>
-                              @endif  
+                              @elseif($user->active == 0) 
+                            <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                            <td>
+                              <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                            </td>
+                              @elseif($user->active == 2) 
+                            <td><span class="badge badge-danger">{{__('fields_web.companyInfo.statucompany')}}</span></td>
+                            <td>
+                              <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                            </td>
+                            @endif 
                           </tr>
                           @endforeach
                                
