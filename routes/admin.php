@@ -25,12 +25,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 ],
  function()
 {
-
+    Route::group(['namespace' => 'Report', 'prefix' => 'controlpanel' ],function()
+    {
+       //Route::get('/home', function () {return view('admin/home');});
+         Route::get('/home','ReportController@index');
+         Route::get('/reports','ReportController@reports');
+   
+     });
  /** major Route */
  Route::group(['namespace' => 'Major', 'prefix' => 'controlpanel' ],function()
  {
     //Route::get('/home', function () {return view('admin/home');});
-    Route::get('/home','MajorController@index');
+  //  Route::get('/home','ReportController@index');
 
     Route::apiResource('/major', 'MajorController' ,
     ['names' => [

@@ -82,7 +82,7 @@ function validate(fieldName, isRequired, value, value2) {
  return null
 }
 
-  </script>>
+  </script>
 
 <script> 
 
@@ -370,3 +370,6 @@ function yesnoCheck() {
     </div>
     <strong>Copyright &copy; 2020 <a href="https://bioResk.com">O2ship</a>.</strong> All rights reserved.
   </footer>
+
+
+
