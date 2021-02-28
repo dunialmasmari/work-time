@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-       Commands\TenderNotify::class,
+        Commands\TenderNotify::class,
+        Commands\JobNotify::class,
     ];
     
     /**
@@ -27,6 +28,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('user:notify_email')
+                 ->daily();
+        $schedule->command('user:notify_email2')
                  ->daily();
                  //->daily()->at('01:00');
     }

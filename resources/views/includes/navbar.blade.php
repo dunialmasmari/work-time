@@ -46,27 +46,18 @@
     <ul class="navbar-nav ml-auto dropdown-menu-text">
 
     <!-- Messages Dropdown Menu -->
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown dropdown-message">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <i class="far fa-comments" ></i>
+<!--           <span class="badge badge-danger navbar-badge">3</span> -->
+          <i data-count='0'  class="badge badge-danger navbar-badge notif-count" style='content: attr(data-count);'></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right dropdown-menu-text">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <!-- <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <!-- <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span> -->
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm "><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
+        <div class='dropdown-menu-message'>
+
+        </div>
+        
+          
           <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!- Message Start ->
@@ -142,6 +133,60 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
+<!-- messages -->
+<script type="text/javascript">
+      var notificationsWrapper1   = $('.dropdown-message');
+      var notificationsToggle1    = notificationsWrapper1.find('a[data-toggle]');
+      var notificationsCountElem1 = notificationsToggle1.find('i[data-count]');
+      var notificationsCount1    = parseInt(notificationsCountElem1.data('count'));
+      var notifications1          = notificationsWrapper1.find('div.dropdown-menu-message');
+
+      if (notificationsCount1 <= 0) {
+        notificationsCountElem1.hide();
+      }
+
+      // Enable pusher logging - don't include this in production
+       Pusher.logToConsole = true;
+       
+       var pusher = new Pusher('732c493a2daef83bcefa');
+       var channel = pusher.subscribe('add-notify');
+       pusher.bind('AdminNotification',function (data) {
+        //alert(('haifaa'));
+        if(data.type == 'message')
+      {
+        var existingNotifications1 = notifications1.html();
+        var newNotificationHtml1 = `
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <!-- <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <!-- <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span> -->
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm "><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+        
+        `;
+        notifications1.html(newNotificationHtml1 + existingNotifications1);
+
+        notificationsCount1 += 1;
+        notificationsCountElem1.attr('data-count', notificationsCount1);
+        notificationsWrapper1.find('.notif-count').text(notificationsCount1);
+        notificationsCountElem1.show();
+        }
+        
+        //notificationsWrapper.show();
+       });
+
+</script>
+<!-- messages end  -->
+
 
     <script type="text/javascript">
       var notificationsWrapper   = $('.dropdown-notifications');
@@ -158,17 +203,19 @@
        Pusher.logToConsole = true;
        
        var pusher = new Pusher('732c493a2daef83bcefa');
-       var channel = pusher.subscribe('status-liked');
-       pusher.bind('StatusLiked',function (data) {
+       var channel = pusher.subscribe('add-notify');
+       pusher.bind('AdminNotification',function (data) {
         //alert(('haifaa'));
+        if(data.type != 'message')
+      { 
         var existingNotifications = notifications.html();
         var newNotificationHtml = `
         <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
           <div class='row'>
                 <div class='col-2'><i class="fas fa-reply "></i></div> 
-                <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.user_name + `</i></div>
-                <div class='col-3'><i class="text-sm text-muted" style='height:auto;word-wrap: break-word'>` + data.comment + `</i></div>
+                <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.type + `</i></div>
+                <div class='col-3'><i class="text-sm text-muted" style='height:auto;word-wrap: break-word'>` + data.message + `</i></div>
               </div>
           </a>
         `;
@@ -178,7 +225,7 @@
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsCountElem.show();
-
+      }
         //notificationsWrapper.show();
        });
 

@@ -90,7 +90,7 @@
                                         <h1>Titel :{{$data['title']}} </h1>
                                         <h2>Company :{{$data['company']}} <h2>
                                         <h3>Major :{{$data['major_name']}}  <h3>
-                                        <h3>id :{{$data['tender_id']}}  <h3>
+                                        <!-- <h3>id :{{$data['tender_id']}}  <h3> -->
                                         </div>
                                     </td>
                                 </tr>
@@ -115,7 +115,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="" style="color: #ffffff; text-decoration: none;">SEE MORE</a>
+                                            <a href="https://worktime-ye.com/ar/tender/{{$data['tender_id']}}" style="color: #ffffff; text-decoration: none;">SEE MORE</a>
                                         </div>
                                     </td>
                                 </tr>
