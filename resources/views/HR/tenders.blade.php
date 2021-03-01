@@ -1,58 +1,74 @@
 @extends('HR.layouts.master')
 @section('content')
-<div class='container-fluid colors-logo'>
-<div class="color-logo">
-              <div class="card-body text-center " style="padding:100px;">
-                   <h2>{{__('fields_web.Tenders.Title')}}</h2>
-   <img src="{{URL::asset('assets/images/hrlogo2.png')}}" class='mx-5 pageheaderlogo'  alt="" width="120" height="auto" >
+    <div class='container-fluid colors-logo'>
+        <div class="color-logo">
+            <div class="card-body text-center " style="padding:100px;">
+                <h2>{{ __('fields_web.Tenders.Title') }}</h2>
+                <img src="{{ URL::asset('assets/images/hrlogo2.png') }}" class='mx-5 pageheaderlogo' alt="" width="120"
+                    height="auto">
 
-              </div>
-   </div>
-</div>
+            </div>
+        </div>
+    </div>
 
-<div class="container-fluid bg-light" style="overflow-x:hidden">
-   <div class="row">
-   <div class="container-fluid">
+    <div class="container-fluid bg-light" style="overflow-x:hidden">
+        <div class="row">
+            <div class="container-fluid">
 
-   <div class="row">
-     <div class='col-12 my-4' >
+                <div class="row">
+                    <div class='col-12 my-4'>
 
-      
-        <hr> <br>
-       <div class="container-fluid cards bg-light">
-          <div class="container-fluid ">
-               <div class="row">
-                  
-                   
-                   @foreach($tenders as $tender)
 
-                   <div class="mx-auto">
-                      <div class="card" style="width:280px; height:460px;">
-                         <div class=' my-auto' style="  background: url({{ URL::asset('assets/uploads/tenders/images/'.$tender->image)}}) no-repeat;
-                              background-size: cover; width: 100%; height:200px; background-color:rgb(79, 157, 213);">
-                                 
-                                </div>
-                           <div class="card-body">
-                               <h5 class="card-title" style=" height: 70px; "> {{\Illuminate\Support\Str::limit('this is the test of the card that showes the tender detail'.$tender->title, $limit = 70, $end = '...')}}</h5> 
-                               <hr class='btn-primary'>
-                               <span class="card-text" style="color:rgba(48, 48, 48, 0.8); font-weight:bold; ">
-                                   <i class='fa fa-home'  style="width: 20px;"> </i>
-                                   <span > {{\Illuminate\Support\Str::limit($tender->company, $limit = 20, $end = '...')}} </span> 
-                               </span>
-                                   <br> 
-                                   <span class="card-text" style="color:rgba(48, 48, 48, 0.8); font-weight:bold;">
-                                        <i class="fa fa-map-marker" style="width: 20px;">  </i>
-                                        <span >  {{\Illuminate\Support\Str::limit($tender->location, $limit = 20, $end = '...')}}   </span>
-                                   </span>
-                                   <br>
-                                   <span class="card-text" style="color:#e5383b; font-weight:bold; width: 20px;"><i class="far fa-calendar-times"> &nbsp; </i>{{__('fields_web.Tenders.Deadline')}} : {{$tender->deadline}}</span>
-                                   <a href='tender/{{$tender->tender_id}}'> <button class="btn btn-primary btn-sm my-2">{{__('fields_web.Tenders.more')}}</button></a>
-                             </div>
-                        </div>
-                   </div>  
-                  @endforeach
+                        <hr> <br>
+                        <div class="container-fluid cards bg-light">
+                            <div class="container-fluid ">
+                                <div class="row">
 
-               {{--    <div class="col-lg-3 col-md-6 ">
+
+                                    @foreach ($tenders as $tender)
+
+                                    <div class="mx-auto">
+                                        <a  href='tender/{{ $tender->tender_id }}' style="text-decoration: none; color:#000">
+                                            <div class="card" style="width:280px; height:460px;">
+                                                <div class=' my-auto'
+                                                    style="  background: url({{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}) no-repeat;
+                                                    background-size: cover; width: 100%; height:200px; background-color:rgb(79, 157, 213);">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title" style=" height: 70px; ">
+                                                        {{ \Illuminate\Support\Str::limit('this is the test of the card that showes the tender detail' . $tender->title, $limit = 70, $end = '...') }}
+                                                    </h5>
+                                                    <hr class='btn-primary'>
+                                                    <span class="card-text"
+                                                        style="color:rgba(48, 48, 48, 0.8); font-weight:bold; ">
+                                                        <i class='fa fa-home' style="width: 20px;"> </i>
+                                                        <span>
+                                                            {{ \Illuminate\Support\Str::limit($tender->company, $limit = 20, $end = '...') }}
+                                                        </span>
+                                                    </span>
+                                                    <br>
+                                                    <span class="card-text"
+                                                        style="color:rgba(48, 48, 48, 0.8); font-weight:bold;">
+                                                        <i class="fa fa-map-marker" style="width: 20px;"> </i>
+                                                        <span>
+                                                            {{ \Illuminate\Support\Str::limit($tender->location, $limit = 20, $end = '...') }}
+                                                        </span>
+                                                    </span>
+                                                    <br>
+                                                    <span class="card-text"
+                                                        style="color:#e5383b; font-weight:bold; width: 20px;"><i
+                                                            class="far fa-calendar-times"> &nbsp;
+                                                        </i>{{ __('fields_web.Tenders.Deadline') }} :
+                                                        {{ $tender->deadline }}</span>
+                                                    <a href='tender/{{ $tender->tender_id }}'> <button
+                                                            class="btn btn-primary btn-sm my-2">{{ __('fields_web.Tenders.more') }}</button></a>
+                                                </div>
+                                            </div>
+                                        </a>
+                                   </div>
+                                    @endforeach
+
+                                    {{-- <div class="col-lg-3 col-md-6 ">
                       <div class="card"> <br>
                            <div class='card-image'>
                              <img class="card-img-top img-fluid " src="{{URL::asset('assets/images/hrlogo.png')}}" alt="image" />
@@ -65,26 +81,26 @@
                                    <a href= ''> <button class="btn btn-primary">{{__('fields_web.Tenders.more')}}</button></a>
                              </div>
                         </div>
-                   </div>  --}}
-
-                    
+                   </div> --}}
 
 
 
-                </div> 
-            </div>
-      </div>
 
-      
-     </div>
-   </div>
-        <div class="row">
-             <div class="col-12 pagination pagination-md justify-content-center" style="margin:20px;padding:5px ">
-               {!! $tenders -> links() !!}
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 pagination pagination-md justify-content-center" style="margin:20px;padding:5px ">
+                        {!! $tenders->links() !!}
+                    </div>
+                </div>
             </div>
         </div>
-   </div>
-   </div>
-</div>
+    </div>
 
 @stop
