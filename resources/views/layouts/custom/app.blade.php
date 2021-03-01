@@ -223,7 +223,10 @@
   });
 </script>
 
-
+<script  src="{{url('assets/controlpanel/plugins/chart.js/Chart.min.js')}}"></script>
+<script  src="{{url('assets/controlpanel/plugins/flot/jquery.flot.js')}}"></script>
+<script  src="{{url('assets/controlpanel/flot/plugins/jquery.flot.resize.js')}}"></script>
+<script  src="{{url('assets/controlpanel/plugins/query.flot.pie.js')}}"></script>
 
 <script>
 $(function () {

@@ -7,9 +7,24 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Models\role_user;
 use App\Models\compnyInfo;
+use App\Models\userdetail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Events\AdminNotification;
+use App\Models\tender;
+use App\Models\Major;
+use Illuminate\Support\Collection;
+use App\Models\job;
+use App\Models\Advertising;
+use App\Models\service;
+use App\Models\blog;
+use App\Models\RealTimeNotification;
+
+
+
 
 class RegisterController extends Controller
 {
@@ -59,6 +74,8 @@ class RegisterController extends Controller
         ]);
     }
 
+
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -75,6 +92,13 @@ class RegisterController extends Controller
                 'active' => '1',
                 'password' => Hash::make($data['password']),
             ]);  
+            $userdetail = new userdetail();
+            $userdetail->user_id = $user->user_id;
+            $userdetail->fullname = $data['name'];
+            $userdetail->active = '1';
+            $userdetail->email = $data['email'];
+            $userdetail->save();
+                 
             $user_role = new role_user();
             $user_role->user_id = $user->user_id;
             if($data['type_search'] == 'Jobs')
@@ -127,13 +151,14 @@ class RegisterController extends Controller
                 'name' => $data['companyName'],
                 'email' => $data['email'],
                 'username' => $data['username'],
-                'active' => '0',
+                'active' => 2,
                 'password' => Hash::make($data['password']),
             ]);  
             $compnyInfo = new compnyInfo();
             $compnyInfo->user_id = $user->user_id;
             $compnyInfo->companyName = $data['companyName'];
             $compnyInfo->phone = $data['phone'];
+            $compnyInfo->active = 2;
             $compnyInfo->email = $data['email'];
             $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
@@ -155,6 +180,27 @@ class RegisterController extends Controller
             }
             $user_role->user_type =  'App/User';
             $user_role->save();
+
+                    /* add to notification  */
+          $date=Carbon::today();
+          $notify=RealTimeNotification::create([
+              'type'=>'add-company',
+              'id_type'=>$user->user_id,
+              'see_it'=>0,
+              'create_time'=>$date,
+          ]);
+      
+             
+          $dataevent =
+          [ 
+            'type'=>'add-company',
+            'message'  => 'new company signup',
+            'time' => $date,
+            'id'=> $user->user_id
+          ];
+      event(new AdminNotification($dataevent)); 
+      /* end add to notification  */
+            
     }
      
     /**

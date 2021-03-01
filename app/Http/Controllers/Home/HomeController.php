@@ -64,6 +64,7 @@ class HomeController extends Controller
                     'type'=>'add company',
                     'message'  => 'new message in your email',
                     'time' => $date,
+                    'id'=>0,
                   ];
               event(new AdminNotification($dataevent)); 
 

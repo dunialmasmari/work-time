@@ -43,6 +43,14 @@ public function authenticated()
         {
             return redirect()->route('userInfo'); 
         }
+        if($role_user->role_id == 2 || $role_user->role_id == 3 || $role_user->role_id == 4)
+        {
+            return redirect()->route('userProfile'); 
+        }
+        else 
+        {
+            return redirect()->route('homehr');
+        }
     }
    /* dd($request);
     if ($user->role_user_id == 1) {

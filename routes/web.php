@@ -23,7 +23,7 @@ Route::get('/hh', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 /**/
 Route::group(['prefix' => LaravelLocalization::setLocale(),
@@ -80,6 +80,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
 
 
+
  Route::namespace('Users')->group(function(){
          Route::get('userProfile','UsersController@userInfo')->name('userProfile');
         Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
@@ -114,6 +115,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('createNotification','NotificationController@createNotification')->name('createNotification');
         Route::get('getall','NotificationController@getall');
     });
+
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'

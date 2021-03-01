@@ -20,13 +20,65 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url(app()->getLocale().'/controlpanel/home') }}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                   {{__('fields_web.Sidebar.Dashboard')}}
 
                   </p>
                 </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url(app()->getLocale().'/controlpanel/reports') }}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  {{__('fields_web.Sidebar.Reports')}}
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  {{__('fields_web.Notification.Notifications')}}
+                    <i class="right fas fa-angle-left"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                  <a href="{{ route('Notifications') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Notification.NotificationsAll')}}</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                  <a href="{{ route('Messages') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Notification.MessagesAll')}}</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                  <a href="{{ route('Companies') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Notification.waitAccount')}}</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                  <a href="{{ route('TendersPosting') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Notification.MessagesAll')}}</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                  <a href="{{ route('JobsPosting') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{__('fields_web.Notification.waitAccount')}}</p>
+                      </a>
+                    </li>
+                  </ul>
               </li>
 
 
@@ -175,6 +227,8 @@
                     </li>
                   </ul>
               </li>
+          @foreach($role_users ?? '' as $role)
+              @if($role->role_id == 1)
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
@@ -241,6 +295,8 @@
                     </li>
                   </ul>
               </li>
+              @endif
+          @endforeach 
  <!--         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

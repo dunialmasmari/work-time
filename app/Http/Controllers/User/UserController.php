@@ -17,16 +17,32 @@ class UserController extends Controller
      */
     public function index()
     {
-       // $users =  User::get();
-       
-        $users = User::join('role_users', 'users.user_id', '=', 'role_users.user_id')
-        ->select('users.*' )->where('role_users.role_id', '8')->get();
-        return view('admin.user.user_list',['users' => $users]);  
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $users = User::join('role_users', 'users.user_id', '=', 'role_users.user_id')
+            ->select('users.*' )->where('role_users.role_id', '8')->get();
+            return view('admin.user.user_list',['users' => $users, 'role_users' => $role_users]); 
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        } 
     }
     public function user_add()
     {
-        $users=user::select()->get();
-        return view('admin.user.user_add');
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $users=user::select()->get();
+            return view('admin.user.user_add',['role_users' => $role_users]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     /**
@@ -58,15 +74,24 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('user_id',$id);
-        if($user->exists())
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $users = $user->get();
-            return view('admin.user.user_edite',['users'=> $users]);
+            $user = User::where('user_id',$id);
+            if($user->exists())
+            {
+                $users = $user->get();
+                return view('admin.user.user_edite',['users'=> $users, 'role_users' => $role_users]);
+            }
+            else
+            {
+                return response()->json(['message' => 'user not found'], 404);
+            }
         }
-        else
-        {
-            return response()->json(['message' => 'user not found'], 404);
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -91,48 +116,57 @@ class UserController extends Controller
     public function updateuser(Request $request)
     {
       //  dd($request);
-        $user = User::where('user_id',$request->user_id);
-        $password = auth()->user()->password;
-        if($user->exists())
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            if($request->input('old_password') !=null)
-            {   
-                 if(Hash::check($request->input('old_password'), $password))
-            // if(Hash::check( $password ,  ))
-                    //Hash::check($password) === $request->input('old_password'))
-                {
-                    $user->name = $request->input('name');
-                    $user->email = $request->input('email');
-                    $user->username = $request->input('username');
-                    $user->password = Hash::make($request->input('password'));
-                    $user->Update(['name' => $user->name, 'email' => $user->email,
-                    'username' => $user->username, 'password' => $user->password]);
-                    $users = User::get();
-                    //return view('admin.user.user_list',['users' => $users]);
-                    return redirect()->route('controlpanel.user.index')->with(['users' => $users]);
+            $user = User::where('user_id',$request->user_id);
+            $password = auth()->user()->password;
+            if($user->exists())
+            {
+                if($request->input('old_password') !=null)
+                {   
+                    if(Hash::check($request->input('old_password'), $password))
+                // if(Hash::check( $password ,  ))
+                        //Hash::check($password) === $request->input('old_password'))
+                    {
+                        $user->name = $request->input('name');
+                        $user->email = $request->input('email');
+                        $user->username = $request->input('username');
+                        $user->password = Hash::make($request->input('password'));
+                        $user->Update(['name' => $user->name, 'email' => $user->email,
+                        'username' => $user->username, 'password' => $user->password]);
+                        $users = User::get();
+                        //return view('admin.user.user_list',['users' => $users]);
+                        return redirect()->route('controlpanel.user.index')->with(['users' => $users]);
+                    }
+                    else
+                    {
+                        echo "soryy";
+                    //  return redirect()->route('controlpanel.user.updateuser')->json(['message' => 'check youer old password']);
+                    }
                 }
-                else
-                {
-                    echo "soryy";
-                //  return redirect()->route('controlpanel.user.updateuser')->json(['message' => 'check youer old password']);
+                else {
+                        $user->name = $request->input('name');
+                        $user->email = $request->input('email');
+                        $user->username = $request->input('username');
+                        $user->Update(['name' => $user->name, 'email' => $user->email,
+                        'username' => $user->username]);
+                        $users = User::get();
+                        return redirect()->route('controlpanel.user.index')->with(['users' => $users]);
                 }
-            }
-            else {
-                    $user->name = $request->input('name');
-                    $user->email = $request->input('email');
-                    $user->username = $request->input('username');
-                    $user->Update(['name' => $user->name, 'email' => $user->email,
-                    'username' => $user->username]);
-                    $users = User::get();
-                    return redirect()->route('controlpanel.user.index')->with(['users' => $users]);
-            }
+                
             
-        
-            
+                
 
+            }
+            else{
+                return response()->json(['message' => 'user not found'], 404);
+            }
         }
         else{
-            return response()->json(['message' => 'user not found'], 404);
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -150,6 +184,11 @@ class UserController extends Controller
     
     public function useractivation($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $user = user::where('user_id',$id)->where('active','1');
             if($user->exists())
             {
@@ -168,5 +207,9 @@ class UserController extends Controller
                 return redirect()->route('controlpanel.user.index')->with(['users' => $users]);
 
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     } 
 }

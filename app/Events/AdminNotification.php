@@ -17,6 +17,7 @@ class AdminNotification implements ShouldBroadcast
     public $type;
     public $message;
     public $time;
+    public $id;
       //public $id;
     /**
      * Create a new event instance.
@@ -28,6 +29,9 @@ class AdminNotification implements ShouldBroadcast
         $this->type = $data['type'];
         $this->message = $data['message'];
         $this->time = $data['time'];
+        $this->id = $data['id'];
+
+
     }
 
     /**

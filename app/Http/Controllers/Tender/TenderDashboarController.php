@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\tender;
 use App\Models\Major;
+use App\Models\role_user;
 class TenderDashboarController extends Controller
 {
     /**
@@ -17,15 +18,33 @@ class TenderDashboarController extends Controller
      */
     public function index()
     {	
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->get();
-                return view('admin.tender.tender_list',['tenders' => $tenders]);
+                return view('admin.tender.tender_list',['tenders' => $tenders, 'role_users' => $role_users]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     public function tender_add()
     {
-        $majors=Major::select()->get();
-            return view('admin.tender.tender_add',['majors' => $majors]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $majors=Major::select()->get();
+                return view('admin.tender.tender_add',['majors' => $majors, 'role_users' => $role_users]);
+         }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     public function getactivetender()
@@ -44,7 +63,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'The pages not found'], 401);
+            return response()->json(['message' => 'You do not have permation'], 401);
         }  
     }
 
@@ -66,7 +85,11 @@ class TenderDashboarController extends Controller
      */
     public function store(Request $request)
     {   
-            $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $tender = new tender();
             $tender->user_id = $user_id;
             $tender->major_id = $request->input('major_id');
@@ -97,6 +120,11 @@ class TenderDashboarController extends Controller
             ->select('majors.major_name', 'tenders.*' )->get();
                 //return view('admin.tender.tender_list',['tenders' => $tenders]);
                 return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
+         }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation'], 401);
+        } 
 
     }
 
@@ -108,17 +136,27 @@ class TenderDashboarController extends Controller
      */
     public function show( $id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $tender = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
             ->select('majors.major_name', 'tenders.*' )->where('tenders.tender_id', $id);
             if($tender->exists())
             {
                 $tenders = $tender->get();
                 $majors=Major::select()->get();
-                return view('admin.tender.tender_edite',['tenders'=> $tenders, 'majors' => $majors]);
+                return view('admin.tender.tender_edite',['tenders'=> $tenders, 'majors' => $majors, 'role_users' => $role_users]);
             }
             else{
                 return response()->json(['message' => 'You do not have active tenders '], 404);
             }
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation'], 401);
+        } 
     }
 
     /**
@@ -143,7 +181,11 @@ class TenderDashboarController extends Controller
     {
        // dd($request);
         //echo $request->tender_id;
-            $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $tender = tender::where('tender_id',$request->tender_id);
             if($tender->exists())
             {
@@ -202,6 +244,11 @@ class TenderDashboarController extends Controller
             else{
                 return response()->json(['message' => 'tender not found'], 404);
             }
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation'], 401);
+        } 
     }
 
     /**
@@ -217,6 +264,11 @@ class TenderDashboarController extends Controller
 
     public function tenderactivation($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $tender = tender::where('tender_id',$id)->where('active','1');
             if($tender->exists())
             {
@@ -237,7 +289,39 @@ class TenderDashboarController extends Controller
                     return redirect()->route('controlpanel.tender.index')->with(['tenders' => $tenders]);
 
             }
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation'], 401);
+        }
     } 
+
+    public function viewTenderdetilse($id)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+            ->select('majors.major_name','tenders.*')
+            ->where('tenders.tender_id', $id);
+        
+            if ($tenders->exists())
+            {
+                $tenders=$tenders->get();
+                    return view('admin.tender.tender_details',['tenders' => $tenders, 'role_users' => $role_users]);           
+            } 
+            else 
+            {
+            return response()->json(["message" => "Tender not found!"], 404);
+            }
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation'], 401);
+        }
+    }
 
     public function delete($id)
     {

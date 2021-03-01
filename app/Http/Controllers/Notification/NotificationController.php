@@ -16,6 +16,11 @@ use App\Models\blog;
 use App\Events\StatusLiked;
 use Illuminate\Support\Facades\Validator;
 use App\Models\interstedTendersJob;
+use Illuminate\Support\Facades\Auth;
+use App\Models\role_user;
+use App\Models\RealTimeNotification;
+use App\User;
+use App\Models\compnyInfo;
 
 
 
@@ -23,19 +28,75 @@ class NotificationController extends Controller
 {
     public function viewNotifications()
     {
-        return view('admin.Notifications.notifications_list');
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            //$blogs = blog::get();
+            return view('admin.Notifications.notifications_list',['role_users' => $role_users]);
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+        //return view('admin.Notifications.notifications_list');
 
     }
 
     public function viewMessages()
     {
-        return view('admin.Notifications.messages_list');
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            //$blogs = blog::get();
+            return view('admin.Notifications.messages_list',['role_users' => $role_users]);
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+        //return view('admin.Notifications.messages_list');
 
     }
 
     public function viewTender($id)
     {
-        $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            //$blogs = blog::get();
+            //return view('admin.Notifications.messages_list',['role_users' => $role_users]);
+            $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
+            ->select('majors.major_name','tenders.*')
+            ->where('tenders.tender_id', $id);
+            $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+
+             if ($tenders->exists())
+            {
+                  $tenders=$tenders->get();
+                      $data=['tenders' => $tenders,
+                             'advers' => $advers,
+                             'role_users' => $role_users,
+                        ];
+                     return view('admin.Notifications.postTender',$data);           
+            } 
+            else 
+             {
+                    return response()->json(["message" => "Tender not found!"], 404);
+              }
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+
+
+        /* $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
         ->select('majors.major_name','tenders.*')
         ->where('tenders.tender_id', $id);
         $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
@@ -51,42 +112,51 @@ class NotificationController extends Controller
         else 
         {
         return response()->json(["message" => "Tender not found!"], 404);
-        }
+        } */
 
     }
 
     public function viewJob($id)
     {
-
-
-        $date=Carbon::today();
-        $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
-        ->select('majors.major_name','jobs.*')
-        ->where('jobs.job_id', $id);
-        
-        $jobsAll=job::where('active','1')
-        ->where('deadline','>=',$date)
-        ->where('start_date','<=',$date)
-        ->orderByRaw('start_date DESC')
-        ->get();
-        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
-        //$data=['jobs' => $jobs];
-        
-        if ($jobs->exists())
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $jobs=$jobs->get();
-            
-            $data=['jobs' => $jobs,
-                   'jobsAll' => $jobsAll,
-                   'advers' => $advers,
-                   ];
-                   return view('admin.Notifications.postJob',$data);
-                } 
-        else 
-        {
-        return response()->json(["message" => "Job not found!"], 404);
-        }
-
+             $date=Carbon::today();
+             $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
+             ->select('majors.major_name','jobs.*')
+             ->where('jobs.job_id', $id);
+             
+             $jobsAll=job::where('active','1')
+             ->where('deadline','>=',$date)
+             ->where('start_date','<=',$date)
+             ->orderByRaw('start_date DESC')
+             ->get();
+             $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+             //$data=['jobs' => $jobs];
+             
+             if ($jobs->exists())
+             {
+                 $jobs=$jobs->get();
+                 
+                 $data=['jobs' => $jobs,
+                        'jobsAll' => $jobsAll,
+                        'advers' => $advers,
+                        'role_users' => $role_users,
+                        ];
+                        return view('admin.Notifications.postJob',$data);
+                     } 
+             else 
+             {
+             return response()->json(["message" => "Job not found!"], 404);
+             }
+            }
+         else
+          {
+           return response()->json(['message' => 'You do not have permation '], 404);   
+          }
+     
     }
     public function viewCreatNotify()
     {
@@ -139,8 +209,7 @@ class NotificationController extends Controller
     }
 
     public function getall()
-    {
-        
+        {
         //return response()->json($data,200);
         }
 
@@ -153,4 +222,101 @@ class NotificationController extends Controller
                 'create_time'=>$data['create_time'],
             ]);
         }
+
+        public function viewNewCompany()
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $users = User::join('role_users', 'users.user_id', '=', 'role_users.user_id')
+                   ->join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+                   ->select('users.*', 'compnyinfo.*', 'role_users.role_id')
+                   ->where('compnyinfo.active', '2')
+                   ->where('users.active', '2')
+                   ->where('role_users.role_id', '5')
+                   ->orwhere('role_users.role_id', '6')
+                   ->orwhere('role_users.role_id', '7')
+                   ->get();
+                   $data=[
+                          'users' => $users,
+                          'role_users' => $role_users
+                   ];
+                return view('admin.Notifications.CompanyUser_list',$data);
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+            //return view('admin.Notifications.notifications_list');
+    
+        }
+
+        public function acceptAccount($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+               ->where('users.user_id', $id)
+               ->where('users.active','2')
+               ->where('compnyinfo.active','2');
+                 if ($user->exists())
+                 {
+                    $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+                    ->where('users.user_id', $id)
+                    ->Update(['users.active' => '1', 'compnyinfo.active' => '1']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
+                 return response()->json(["message" => "Account not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
+        public function rejectAccount($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+               ->where('users.user_id', $id)
+               ->where('users.active','2')
+               ->where('compnyinfo.active','2');
+                 if ($user->exists())
+                 {
+                    $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+                    ->where('users.user_id', $id)
+                    ->Update(['users.active' => '3', 'compnyinfo.active' => '3']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
+                 return response()->json(["message" => "Account not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
 }

@@ -25,12 +25,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 ],
  function()
 {
-
+    Route::group(['namespace' => 'Report', 'prefix' => 'controlpanel' ],function()
+    {
+       //Route::get('/home', function () {return view('admin/home');});
+         Route::get('/home','ReportController@index');
+         Route::get('/reports','ReportController@reports');
+   
+     });
  /** major Route */
  Route::group(['namespace' => 'Major', 'prefix' => 'controlpanel' ],function()
  {
     //Route::get('/home', function () {return view('admin/home');});
-    Route::get('/home','MajorController@index');
+  //  Route::get('/home','ReportController@index');
 
     Route::apiResource('/major', 'MajorController' ,
     ['names' => [
@@ -55,6 +61,7 @@ Route::group(['namespace' => 'Tender', 'prefix' => 'controlpanel' ],function()
                ]]); 
     Route::post('/updatetender','TenderDashboarController@updatetender')->name('updatetender');
     Route::get('/tender_add', 'TenderDashboarController@tender_add')->name('tender_add'); 
+    Route::get('/viewTenderdetilse/{id}', 'TenderDashboarController@viewTenderdetilse')->name('viewTenderdetilse');
     Route::get('/tenderactivation/{id}','TenderDashboarController@tenderactivation')->name('tenderactivation');
 });
 
@@ -66,8 +73,9 @@ Route::group(['namespace' => 'Job', 'prefix' => 'controlpanel' ],function()
         'show' => 'controlpanel.job.edite',
         'store' => 'controlpanel.job.store',
     ]]); 
-    Route::post('/updatejob','JobDashboarController@updatejob')->name('updatejob');;
+    Route::post('/updatejob','JobDashboarController@updatejob')->name('updatejob');
     Route::get('/job_add', 'JobDashboarController@job_add')->name('job_add'); 
+    Route::get('/viewJobdetilse/{id}','JobDashboarController@viewJobdetilse')->name('viewJobdetilse');
     Route::get('/jobactivation/{id}','JobDashboarController@jobactivation')->name('jobactivation');
 });
 
@@ -162,9 +170,14 @@ Route::namespace('Major')->group(function(){
     Route::group(['namespace' => 'Notification', 'prefix' => 'controlpanel' ],function()
  {
     Route::get('/Notifications','NotificationController@viewNotifications')->name('Notifications');
+    Route::get('/Companies','NotificationController@viewNewCompany')->name('Companies');
     Route::get('/Messages','NotificationController@viewMessages')->name('Messages');
+    Route::get('/TendersPosting','NotificationController@TendersPosting')->name('TendersPosting');
+    Route::get('/JobsPosting','NotificationController@JobsPosting')->name('JobsPosting');
     Route::get('/postTender/{id}','NotificationController@viewTender')->name('postTender');
     Route::get('/postJob/{id}','NotificationController@viewJob')->name('postJob');
+    Route::get('/acceptAccount/{id}','NotificationController@acceptAccount')->name('acceptAccount');
+    Route::get('/rejectAccount/{id}','NotificationController@rejectAccount')->name('rejectAccount');
 
 });
 

@@ -19,22 +19,14 @@ class ContactUSController extends Controller
     public function viewContact()
     {
 
-        $date=Carbon::today();
-            /* $notify=RealTimeNotification::create([
+        /*$date=Carbon::today();
+             $notify=RealTimeNotification::create([
                 'type'=>5,
                 'id_type'=>0,
                 'see_it'=>0,
                 'create_time'=>$date,
             ]); */
         
-               
-                  $dataevent =
-                  [ 
-                    'type'=>'message',
-                    'message'  => 'new message in your email',
-                    'time' => $date,
-                  ];
-              event(new AdminNotification($dataevent)); 
 
         return view('HR.contact');
     }
@@ -50,20 +42,22 @@ class ContactUSController extends Controller
         /* add to notification  */
           $date=Carbon::today();
             $notify=RealTimeNotification::create([
-                'type'=>5,
+                'type'=>'message',
                 'id_type'=>0,
                 'see_it'=>0,
                 'create_time'=>$date,
             ]);
         
                
-                  $dataevent =
-                  [ 
-                    'type'=>5,
-                    'message'  => 'new message in your email',
-                    'time' => $date,
-                  ];
-              event(new AdminNotification($dataevent));
+            $dataevent =
+            [ 
+              'type'=>'message',
+              'message'  => 'new message in your email',
+              'time' => $date,
+              'id'=> 0
+            ];
+        event(new AdminNotification($dataevent)); 
+        /* end add to notification  */
 
         //return response()->json(['name' => $request->name,
         //'message' => $request->message,

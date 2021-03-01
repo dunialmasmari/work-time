@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\blog;
-
+use App\Models\role_user;
 class BlogDashboarControlle extends Controller
 {
     /**
@@ -16,14 +16,33 @@ class BlogDashboarControlle extends Controller
      */
     public function index()
     {
-        $blogs = blog::get();
-        return view('admin.blog.blog_list',['blogs' => $blogs]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $blogs = blog::get();
+            return view('admin.blog.blog_list',['blogs' => $blogs, 'role_users' => $role_users]);
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 
     public function blog_add()
     {
-        $blogs=blog::select()->get();
-        return view('admin.blog.blog_add',['blogs' => $blogs]);
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            $blogs=blog::select()->get();
+            return view('admin.blog.blog_add',['blogs' => $blogs, 'role_users' => $role_users]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -43,7 +62,11 @@ class BlogDashboarControlle extends Controller
      */
     public function store(Request $request)
     {
-            $user_id = auth()->user()->user_id;
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $blog = new blog();
             $blog->user_id = $user_id;
             $blog->title = $request->input('title');
@@ -61,6 +84,10 @@ class BlogDashboarControlle extends Controller
             $blogs = blog::get();
                 //return view('admin.blog.blog_list',['blogs' => $blogs]);
                 return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
 
     }
 
@@ -72,15 +99,24 @@ class BlogDashboarControlle extends Controller
      */
     public function show($id)
     {
-        $blog = blog::where('blog_id',$id);
-        if($blog->exists())
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $blogs = $blog->get();
-            return view('admin.blog.blog_edite',['blogs'=> $blogs]);
+            $blog = blog::where('blog_id',$id);
+            if($blog->exists())
+            {
+                $blogs = $blog->get();
+                return view('admin.blog.blog_edite',['blogs'=> $blogs, 'role_users' => $role_users]);
+            }
+            else
+            {
+                return response()->json(['message' => 'blog not found'], 404);
+            }
         }
-        else
-        {
-            return response()->json(['message' => 'blog not found'], 404);
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -105,38 +141,46 @@ class BlogDashboarControlle extends Controller
     public function updateblog(Request $request)
     {
         $user_id = auth()->user()->user_id;
-        $blog = blog::where('blog_id',$request->blog_id);
-        if($blog->exists())
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $blog->title = $request->input('title');
-            $blog->sub_title = $request->input('sub_title');
-            $blog->user_id =  $user_id;
-            $blog->description = $request->input('description');
-            if($request->image != '')
+            $blog = blog::where('blog_id',$request->blog_id);
+            if($blog->exists())
             {
-                if($request->hasfile('image'))
+                $blog->title = $request->input('title');
+                $blog->sub_title = $request->input('sub_title');
+                $blog->user_id =  $user_id;
+                $blog->description = $request->input('description');
+                if($request->image != '')
                 {
-                    $imagename = time().'.'.$request->file('image')->extension();
-                    $result = $request->file('image')->move(public_path().'/assets/uploads/blogs/images/', $imagename); //store('files');
-                    $blog->image = $imagename;
+                    if($request->hasfile('image'))
+                    {
+                        $imagename = time().'.'.$request->file('image')->extension();
+                        $result = $request->file('image')->move(public_path().'/assets/uploads/blogs/images/', $imagename); //store('files');
+                        $blog->image = $imagename;
+                    }
+                    $blog->Update(['title' => $blog->title, 'sub_title' => $blog->sub_title,
+                    'user_id' => $blog->user_id, 'description' => $blog->description,
+                    'image' => $blog->image,]);
                 }
-                $blog->Update(['title' => $blog->title, 'sub_title' => $blog->sub_title,
-                'user_id' => $blog->user_id, 'description' => $blog->description,
-                'image' => $blog->image,]);
+            else 
+            {
+                $blog->Update(['title' => $blog->title, 'user_id' => $blog->user_id,
+                'sub_title' => $blog->sub_title,
+                'description' => $blog->description,]);
             }
-          else 
-          {
-            $blog->Update(['title' => $blog->title, 'user_id' => $blog->user_id,
-            'sub_title' => $blog->sub_title,
-            'description' => $blog->description,]);
-          }
-            $blogs = blog::get();
-            //return view('admin.blog.blog_list',['blogs' => $blogs]);
-            return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
+                $blogs = blog::get();
+                //return view('admin.blog.blog_list',['blogs' => $blogs]);
+                return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
 
+            }
+            else{
+                return response()->json(['message' => 'blog not found'], 404);
+            }
         }
         else{
-            return response()->json(['message' => 'blog not found'], 404);
+            return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }
 
@@ -154,6 +198,11 @@ class BlogDashboarControlle extends Controller
     
     public function blogactivation($id)
     {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $blog = blog::where('blog_id',$id)->where('active','1');
             if($blog->exists())
             {
@@ -171,5 +220,9 @@ class BlogDashboarControlle extends Controller
                 return redirect()->route('controlpanel.blog.index')->with(['blogs' => $blogs]);
 
             }
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     } 
 }

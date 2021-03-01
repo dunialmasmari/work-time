@@ -208,13 +208,22 @@
         //alert(('haifaa'));
         if(data.type != 'message')
       { 
-        var existingNotifications = notifications.html();
+        var existingNotifications = notifications.html();//
+        $id=data.id;
+        var id=data.id;
+        if(data.type== 'add-company')
+        {var url = "{{route('viewCompanydetilse', '')}}"+"/"+data.id;}
+        if(data.type== 'post-job')
+        {var url = "{{route('postJob', '')}}"+"/"+data.id;}
+        if(data.type== 'post-tender')
+        {var url = "{{route('postTender', '')}}"+"/"+data.id;}
+
         var newNotificationHtml = `
         <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="`+url+`" class="dropdown-item">
           <div class='row'>
                 <div class='col-2'><i class="fas fa-reply "></i></div> 
-                <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.type + `</i></div>
+                <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.id + `</i></div>
                 <div class='col-3'><i class="text-sm text-muted" style='height:auto;word-wrap: break-word'>` + data.message + `</i></div>
               </div>
           </a>
