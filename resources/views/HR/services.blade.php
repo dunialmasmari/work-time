@@ -1,7 +1,5 @@
 @extends('HR.layouts.master')
 @section('content')
-    <br>
-
     <div class='container-fluid colors-logo'>
         <div class="color-logo">
             <div class="card-body text-center " style="padding:90px;">

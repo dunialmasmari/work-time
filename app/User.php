@@ -8,12 +8,15 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 // use Laratrust\Traits\LaratrustUserTrait;
+use Shetabit\Visitor\Traits\Visitor;
+// use Shetabit\Visitor\Traits\Visitable;
+// use Visitable;
 
 class User extends Authenticatable
 {
     // use HasApiTokens, Notifiable, LaratrustUserTrait;
     use Notifiable;
-
+    use Visitor;
     /**
      * The attributes that are mass assignable.
      *
