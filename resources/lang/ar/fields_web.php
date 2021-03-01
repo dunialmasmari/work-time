@@ -683,6 +683,6 @@ return [
     'inactiveCompanies'=> 'عدد الشركات الملغية',
     'companiesJobs'=> 'عدد الوظائف التي نشرت حسب الشركة',
     'companiesTenders'=> 'عدد المناقصات التي نشرت حسب الشركة',
-
+    'total_visitors'=>'عدد الزوار'
   ]
 ];

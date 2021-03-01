@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::middleware(['visit'])->get('/welcome', function () {
+    $ip = request()->ip();
+    return view('welcome', compact('ip'));
 });
 
 Route::get('/hh', function () {
@@ -27,7 +28,7 @@ Auth::routes();
 
 /**/
 Route::group(['prefix' => LaravelLocalization::setLocale(),
-'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','visit' ]
 ],
  function()
 {
@@ -82,7 +83,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
-'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'visit'] , 'middleware' => 'auth'
 ],
  function()
 {
@@ -117,7 +118,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
    });
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
-'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] , 'middleware' => 'auth'
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'visit'] , 'middleware' => 'auth'
 ],
  function()
 {

@@ -40,8 +40,8 @@
                     <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                       <div class="text-center text-sm-left mb-2 mb-sm-0">
                         <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"> {{ $info->companyName}}</h4>
-                             <p class="mb-0">@johnny.s</p> 
-                            <div class="text-muted"><small>Last seen 2 hours ago</small></div> 
+                             {{-- <p class="mb-0">@johnny.s</p> 
+                            <div class="text-muted"><small>Last seen 2 hours ago</small></div>  --}}
                         <div class="mt-2">
 
                           <button class="btn btn-primary" type="botton" onclick="changeLogoImage()">

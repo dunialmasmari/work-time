@@ -31,7 +31,7 @@ class CompanyController extends Controller
         // {     
             $user_id = auth()->user()->user_id;
             $role_users= role_user::select()->where('user_id',$user_id)->get();
-            $user_info=User::where('active','1')
+            $user_info=compnyInfo::where('active','1')
             ->where('user_id','=',$user_id)
             ->get();
              $data=['user_info' => $user_info, 'role_users' => $role_users];
@@ -370,87 +370,5 @@ class CompanyController extends Controller
 
 
 
-
-
-    public function viewApplications()
-    {
-            $date=Carbon::today();
-            $tenders=tender::where('active','1')
-            ->where('deadline','>=',$date)
-            ->where('start_date','<=',$date)
-            ->orderByRaw('start_date DESC')
-            ->paginate(4);
-            
-            $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
-            ->select('majors.major_name','jobs.*')
-            ->where('jobs.active','1')
-             ->where('jobs.deadline','>=',$date)
-             ->where('jobs.start_date','<=',$date)
-             ->orderByRaw('jobs.start_date DESC')
-             ->paginate(4);
-
-             $advers=Advertising::select('*')->where('active','1')->get();
-             //print_r($advers);
-            
-             $data=['tenders' => $tenders,
-                   'jobs' => $jobs,
-                   'advers'=>$advers,
-                  ];
-
-        return view('HR.home',$data);
-    }
-    public function viewJobApplications()
-    {
-            $date=Carbon::today();
-            $tenders=tender::where('active','1')
-            ->where('deadline','>=',$date)
-            ->where('start_date','<=',$date)
-            ->orderByRaw('start_date DESC')
-            ->paginate(4);
-            
-            $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
-            ->select('majors.major_name','jobs.*')
-            ->where('jobs.active','1')
-             ->where('jobs.deadline','>=',$date)
-             ->where('jobs.start_date','<=',$date)
-             ->orderByRaw('jobs.start_date DESC')
-             ->paginate(4);
-
-             $advers=Advertising::select('*')->where('active','1')->get();
-             //print_r($advers);
-            
-             $data=['tenders' => $tenders,
-                   'jobs' => $jobs,
-                   'advers'=>$advers,
-                  ];
-
-        return view('HR.home',$data);
-    }
-    public function applicationsDetail()
-    {
-            $date=Carbon::today();
-            $tenders=tender::where('active','1')
-            ->where('deadline','>=',$date)
-            ->where('start_date','<=',$date)
-            ->orderByRaw('start_date DESC')
-            ->paginate(4);
-            
-            $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
-            ->select('majors.major_name','jobs.*')
-            ->where('jobs.active','1')
-             ->where('jobs.deadline','>=',$date)
-             ->where('jobs.start_date','<=',$date)
-             ->orderByRaw('jobs.start_date DESC')
-             ->paginate(4);
-
-             $advers=Advertising::select('*')->where('active','1')->get();
-             //print_r($advers);
-            
-             $data=['tenders' => $tenders,
-                   'jobs' => $jobs,
-                   'advers'=>$advers,
-                  ];
-
-        return view('HR.home',$data);
-    }
+ 
 }

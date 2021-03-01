@@ -679,6 +679,7 @@ return [
     'inactiveCompanies'=> 'Total Inactive Organizations',
     'companiesJobs'=> 'Total Jobs Posted by Organizatios',
     'companiesTenders'=> 'Total Tenders Posted by Organizatios',
+    'total_visitors'=>'Total Visitors'
 
   ]
 ];
