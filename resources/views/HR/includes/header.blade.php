@@ -1,7 +1,7 @@
 <!--  navbar  -->
 <header>
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-md bg-light navbar-light shadow-sm  bg-white px-4" id="myHeader"
+    <nav class="navbar navbar-expand-md bg-light navbar-light shadow-sm fixed-top  bg-white px-4"  
         style="margin-top:0px; border-bottom:3px solid rgb(79, 157, 213);">
         <!-- Toggler/collapsibe Button -->
         <div class="navbar-brand " style="margin: 5px">
@@ -36,9 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link   " href="{{ route('services') }}">{{ __('fields_web.Navbar.service') }}</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link   " href="{{ route('blogs') }}">{{ __('fields_web.Navbar.blog') }}</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link  " href="{{ route('abouthr') }}">{{ __('fields_web.Navbar.about_us') }}
                     </a>

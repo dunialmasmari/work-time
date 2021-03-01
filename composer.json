@@ -19,8 +19,10 @@
         "laravel/ui": "2.4",
         "laravelcollective/html": "^6.2",
         "mcamara/laravel-localization": "^1.6",
+        "pragmarx/tracker": "^4.0",
         "pusher/pusher-php-server": "^4.1",
-        "santigarcor/laratrust": "5.2.*"
+        "santigarcor/laratrust": "5.2.*",
+        "shetabit/visitor": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

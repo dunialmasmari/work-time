@@ -40,7 +40,7 @@ class NotificationController extends Controller
         $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
         ->select('majors.major_name','tenders.*')
         ->where('tenders.tender_id', $id);
-        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+        $advers=Advertising::select('*')->where('active','1')->where('Advertising_Position','2')->get();
 
         if ($tenders->exists())
         {
@@ -71,7 +71,7 @@ class NotificationController extends Controller
         ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->get();
-        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+        $advers=Advertising::select('*')->where('active','1')->where('Advertising_Position','2')->get();
         //$data=['jobs' => $jobs];
         
         if ($jobs->exists())
