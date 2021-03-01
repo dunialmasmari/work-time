@@ -26,7 +26,7 @@ class MajorController extends Controller
                 return view('admin.major.major_list',['majors' => $majors, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -78,7 +78,7 @@ class MajorController extends Controller
             return redirect()->route('controlpanel.major.index')->with(['majors' => $majors]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
 }
@@ -109,7 +109,7 @@ class MajorController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -154,7 +154,7 @@ class MajorController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -189,7 +189,7 @@ class MajorController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 

@@ -29,7 +29,7 @@ class SercheUserController extends Controller
             return view('admin.SercheUser.SercheUser_list',['users' => $users, 'role_users' => $role_users]); 
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -68,7 +68,7 @@ class SercheUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -146,7 +146,7 @@ class SercheUserController extends Controller
        foreach($role_users as $role_user)
        if($role_user->role_id == 1 || $role_user->role_id == 8)
        {
-            $user = user::where('user_id',$id)->where('active','1');
+            $user = User::where('user_id',$id)->where('active','1');
             if($user->exists())
             {
                 $user->Update(['active' => '0']);
@@ -155,14 +155,14 @@ class SercheUserController extends Controller
             }
             else
             {
-                $user = user::where('user_id',$id);
+                $user = User::where('user_id',$id);
                 $user->Update(['active' => '1']);
                 return redirect()->route('controlpanel.SercheUser.index');
 
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }

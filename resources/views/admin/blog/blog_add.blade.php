@@ -78,8 +78,8 @@
                        <div class="col-md-12">
                           <div class="form-group">
                             <label> {{__('fields_web.BlogAdd.description')}} :</label>
-                            <textarea cols="80" id="mytextarea" name="description"></textarea>
-                          </div>
+                          <textarea class="tinymce" name="description"></textarea>
+                           </div>
                        </div>
                     </div>
 

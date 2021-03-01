@@ -15,7 +15,7 @@ use Carbon\Carbon;
 use App\Models\job;
 use App\User;
 use App\Models\Advertising;
-
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -38,7 +38,7 @@ class CompanyController extends Controller
              return view('HR.company.userInfo',$data);
         // }
         // else{
-        //     return response()->json(['message' => 'You do not have permation '], 404);   
+        //      return view('HR.Erroe');   
         // }
     }
     public function updateInfo(Request $request)
@@ -93,7 +93,7 @@ class CompanyController extends Controller
             }
         // }
         // else{
-        //     return response()->json(['message' => 'You do not have permation '], 404);   
+        //      return view('HR.Erroe');   
         // }
     }
     public function updateLogo(Request $request)
@@ -135,7 +135,7 @@ class CompanyController extends Controller
             }  
     //    }
     //     else{
-    //         return response()->json(['message' => 'You do not have permation '], 404);   
+    //          return view('HR.Erroe');   
     //     }   
        
     }
@@ -161,7 +161,7 @@ class CompanyController extends Controller
             return view('HR.company.job_list',$data);
         // }
         // else{
-        //     return response()->json(['message' => 'You do not have permation '], 404);   
+        //      return view('HR.Erroe');   
         // }  
     }
     public function addJob()
@@ -177,7 +177,7 @@ class CompanyController extends Controller
             return view('HR.company.job_add',['majors' => $majors, 'role_users' => $role_users]);
         // }
         // else{
-        //     return response()->json(['message' => 'You do not have permation '], 404);   
+        //      return view('HR.Erroe');   
         // } 
     }
 
@@ -218,7 +218,7 @@ class CompanyController extends Controller
             return redirect()->route('viewJobs')->with(['jobs' => $jobs, 'role_users' => $role_users]);
         // }
         // else{
-        //     return response()->json(['message' => 'You do not have permation '], 404);   
+        //      return view('HR.Erroe');   
         // } 
     }
 
@@ -242,7 +242,7 @@ class CompanyController extends Controller
              return view('HR.company.tenders_list',$data);
         // }
         // else{
-        // return response()->json(['message' => 'You do not have permation '], 404);   
+        //  return view('HR.Erroe');   
         // } 
 
     }
@@ -271,7 +271,7 @@ class CompanyController extends Controller
             }
         // }
         // else{
-        // return response()->json(['message' => 'You do not have permation '], 404);   
+        //  return view('HR.Erroe');   
         // } 
 
     }
@@ -299,7 +299,7 @@ class CompanyController extends Controller
             }
         // }
         // else{
-        // return response()->json(['message' => 'You do not have permation '], 404);   
+        //  return view('HR.Erroe');   
         // }
     }
 
@@ -316,7 +316,7 @@ class CompanyController extends Controller
             return view('HR.company.tender_add',['majors' => $majors, 'role_users' => $role_users]);
         // }
         // else{
-        // return response()->json(['message' => 'You do not have permation '], 404);   
+        //  return view('HR.Erroe');   
         // }
     }
     public function storeTender(Request $request)
@@ -360,7 +360,7 @@ class CompanyController extends Controller
                 return redirect()->route('viewTenders')->with(['tenders' => $tenders, 'role_users' => $role_users]);
         // }
         // else{
-        // return response()->json(['message' => 'You do not have permation '], 404);   
+        //  return view('HR.Erroe');   
         // }
     }
 
@@ -368,7 +368,4 @@ class CompanyController extends Controller
 
 
 
-
-
- 
 }

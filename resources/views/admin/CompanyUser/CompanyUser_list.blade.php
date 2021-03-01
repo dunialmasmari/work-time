@@ -49,31 +49,33 @@
                           <tr> 	   
                           <td> {{$user->companyName}} </td>
                             <td> {{$user->username}} </td>
-                            <td> {{$user->email}} </td> 
-                            
+                            <td> {{$user->email}} </td>  
                             @if($user->role_id == 5)
-                            <td>Jobs</td>
+                            <td>{{__('fields_web.Jobs.Title')}}  </td>
                             @elseif($user->role_id == 6)
-                            <td>Tender  </td>
+                            <td>{{__('fields_web.Navbar.tenders')}}  </td>
                             @elseif($user->role_id == 7)
-                            <td> Jobs&Tender </td>
+                            <td> {{__('fields_web.Jobs.Title')}} &Tender </td>
                             @endif
                             </td>
                              @if($user->active == 1)
                                 <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('viewDetails',$user->user_id) }}"class="btn btn-outline-primary"> <i class="fas fa-eye"></i></a>
-                                    <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                               </td>
                               @elseif($user->active == 0) 
-                            <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                            <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                             <td>
-                              <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                              <a href="{{  route('viewDetails' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                              <a href="{{  route('CompanyUseractivation' ,$user->user_id) }}" class="btn btn-outline-primary" href="#"><i class="far fa-lightbulb"></i></a>
+                            
                             </td>
                               @elseif($user->active == 2) 
                             <td><span class="badge badge-danger">{{__('fields_web.companyInfo.statucompany')}}</span></td>
                             <td>
                               <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
+                              <!-- <i class="fal fa-lightbulb-slash"></i> -->
                             </td>
                             @endif 
                           </tr>

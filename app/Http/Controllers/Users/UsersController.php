@@ -13,10 +13,14 @@ use App\Models\cv_recommendation;
 use App\Models\cv_detail;
 use App\Models\Major;
 use Illuminate\Support\Collection;
-use validator;
+//use validator;
 use Carbon\Carbon;
 use App\Models\job;
+use App\User;
 use App\Models\Advertising;
+use Illuminate\Support\Facades\Hash;
+use App\Models\interstedTendersJob;
+use Illuminate\Support\Facades\Validator;
 use PDF;
 
 
@@ -123,6 +127,94 @@ class UsersController extends Controller
             return response()->json(['message' => 'job not found'], 404);
       }     
        
+    }
+    public function viwechangePassword()
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 2 || $role_user->role_id == 3 || $role_user->role_id == 4)
+        {
+            return view('HR.userProfile.changePassword');
+        }
+        else{
+             return view('HR.Erroe');   
+        }    
+    }
+    public function changpassword(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 2 || $role_user->role_id == 3 || $role_user->role_id == 4)
+        {
+            $user = User::where('user_id',$user_id);
+            $password = auth()->user()->password;
+            if($user->exists())
+            {
+                    if(Hash::check($request->input('old_password'), $password))
+                    {
+                        
+                        $user->password = Hash::make($request->input('password'));
+                        $user->Update(['password' => $user->password]);
+                        $users = User::get();
+                        return redirect()->route('userProfile');
+                    }
+                    else
+                    {
+                        echo "soryy";
+                    }
+                
+            }
+            else{
+                return response()->json(['message' => 'user not found'], 404);
+            }
+        }
+        else{
+             return view('HR.Erroe');   
+        }
+    }
+
+    public function ViewUserNotifaction()
+    {
+        $majorTender=Major::where('type','1')->where('active','1')->get();
+        $majorJob=Major::where('type','0')->where('active','1')->get();
+        $majors = Major::where('active','1')->get();
+        $data=['majors' => $majors,
+               'majorTender' =>$majorTender,
+               'majorJob' =>$majorJob,
+              ];
+        return view('HR.userProfile.UsercreateNotifaction',$data);
+
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'type' => ['required'],
+            'major_id' => ['required'],
+            
+        ]);
+    }
+
+
+
+    public function UsercreateNotification(Request $request)
+    { 
+             $this->validator($request->all())->validate();
+
+            
+             $interstedTendersJob = new interstedTendersJob;
+             $interstedTendersJob->Update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'type' => $request->type,
+                'major_id' => $request->major_id,
+              ]);
+              return redirect()->route('userProfile');
+    
     }
     public function updateCvDetails(Request $request)
     {   $user_id = auth()->user()->user_id;

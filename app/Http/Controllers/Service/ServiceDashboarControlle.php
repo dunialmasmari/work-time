@@ -25,7 +25,7 @@ class ServiceDashboarControlle extends Controller
             return view('admin.service.service_list',['services' => $services, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -40,7 +40,7 @@ class ServiceDashboarControlle extends Controller
             return view('admin.service.service_add',['services' => $services, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
     /**
@@ -85,7 +85,7 @@ class ServiceDashboarControlle extends Controller
                 return redirect()->route('controlpanel.service.index')->with(['services' => $services]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -114,7 +114,7 @@ class ServiceDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -177,7 +177,7 @@ class ServiceDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -220,7 +220,7 @@ class ServiceDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }

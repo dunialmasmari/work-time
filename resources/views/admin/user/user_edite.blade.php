@@ -74,7 +74,7 @@
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.UserEdite.NewPassword')}} :</label>
-                                <input type="text" name="password" placeholder="{{__('fields_web.UserEdite.NewPassword')}}" class="form-control" >
+                                <input type="password" name="password" placeholder="{{__('fields_web.UserEdite.NewPassword')}}" class="form-control" >
                               </div>
                     </div>
                     </div>    

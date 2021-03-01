@@ -138,8 +138,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
     ['names' => [
         'index' => 'controlpanel.CompanyUser.index',
     ]]); 
-    // Route::post('/updateuser','CompanyUserController@updateuser')->name('updateuser');
-    // Route::get('/user_add', 'CompanyUserController@user_add')->name('user_add'); 
+    Route::get('/Company_add','CompanyUserController@Company_add')->name('Company_add');
     Route::get('/viewJobdetilse/{id}','CompanyUserController@viewJobdetilse')->name('viewJobdetilse');
     Route::get('/viewTenderdetilse/{id}','CompanyUserController@viewTenderdetilse')->name('viewTenderdetilse');
     Route::get('/viewCompanydetilse/{id}','CompanyUserController@viewCompanydetilse')->name('viewCompanydetilse');

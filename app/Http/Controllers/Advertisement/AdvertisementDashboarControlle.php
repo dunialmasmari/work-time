@@ -25,7 +25,7 @@ class AdvertisementDashboarControlle extends Controller
             return view('admin.Advertising.Advertising_list',['Advertisement' => $Advertisement, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }    
     }
     public function Advertising_add()
@@ -39,7 +39,7 @@ class AdvertisementDashboarControlle extends Controller
             return view('admin.Advertising.Advertising_add',['Advertisement' => $Advertisement, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }  
     }
     /**
@@ -86,7 +86,7 @@ class AdvertisementDashboarControlle extends Controller
                 return redirect()->route('controlpanel.Advertising.index')->with(['Advertisement' => $Advertisement]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -115,7 +115,7 @@ class AdvertisementDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -178,7 +178,7 @@ class AdvertisementDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -220,7 +220,7 @@ class AdvertisementDashboarControlle extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }

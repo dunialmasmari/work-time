@@ -33,16 +33,31 @@ class CompanyUserController extends Controller
             return view('admin.CompanyUser.CompanyUser_list',['users' => $users, 'role_users' => $role_users]); 
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
+        }
+    }
+
+    public function Company_add()
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            
+            return view('admin.CompanyUser.Company_add',['role_users' => $role_users]); 
+        }
+        else{
+             return view('HR.Erroe');   
         }
     }
 
     public function viewDetails($id)
     {
         $user_id = auth()->user()->user_id;
-        $role_users= role_user::select()->where('user_id',$user_id)->get();
-        foreach($role_users as $role_user)
-        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        $rrole_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($rrole_users as $rrole_user)
+        if($rrole_user->role_id == 1 || $rrole_user->role_id == 8)
         {
             $tenders = '';
             $jobs = '';
@@ -66,7 +81,7 @@ class CompanyUserController extends Controller
                     'users' => $users,
                     'jobs' => $jobs,
                     'tenders' => $tenders,
-                    'role_users' => $role_users
+                  
                     ];
             }
             elseif($role_user->role_id == 6)
@@ -81,7 +96,7 @@ class CompanyUserController extends Controller
                     'users' => $users,
                     'jobs' => $jobs,
                     'tenders' => $tenders,
-                    'role_users' => $role_users
+                  
                     ];
             }
             elseif($role_user->role_id == 7)
@@ -103,13 +118,12 @@ class CompanyUserController extends Controller
                     'users' => $users,
                     'jobs' => $jobs,
                     'tenders' => $tenders,
-                    'role_users' => $role_users
                     ];
             } 
-            return view('admin.CompanyUser.CompanyUser_details',$data);
+            return view('admin.CompanyUser.CompanyUser_details',$data,['role_users' => $rrole_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -136,7 +150,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -165,7 +179,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -190,7 +204,7 @@ class CompanyUserController extends Controller
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
 
     }
@@ -263,28 +277,38 @@ class CompanyUserController extends Controller
     public function CompanyUseractivation($id)
     {
        // dd($id);
-       $user_id = auth()->user()->user_id;
-        $role_users= role_user::select()->where('user_id',$user_id)->get();
-        foreach($role_users as $role_user)
-        if($role_user->role_id == 1 || $role_user->role_id == 8)
-        {
-            $user = user::where('user_id',$id)->where('active','1');
+      $user_id = auth()->user()->user_id;
+       $role_users= role_user::select()->where('user_id',$user_id)->get();
+       foreach($role_users as $role_user)
+       if($role_user->role_id == 1 || $role_user->role_id == 8)
+       {
+            $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+            ->where('users.user_id', $id)
+            ->where('users.active','1')
+            ->where('compnyinfo.active','1');
             if($user->exists())
             {
-                $user->Update(['active' => '0']);
+               
+                $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+                ->where('users.user_id', $id)
+                ->Update(['users.active' => '1', 'compnyinfo.active' => '0']);
                 return redirect()->route('controlpanel.CompanyUser.index');
 
             }
             else
             {
-                $user = user::where('user_id',$id);
-                $user->Update(['active' => '1']);
+              
+              
+                $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+                ->where('users.user_id', $id)
+                ->Update(['users.active' => '1', 'compnyinfo.active' => '1']);
+               
                 return redirect()->route('controlpanel.CompanyUser.index');
 
             }
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     } 
 }

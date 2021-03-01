@@ -53,12 +53,12 @@
                             <td> {{ $user->websitelink}} </td>
                             
                             @if($user->active == 1)
-                            <td><span class="badge badge-success">{{__('fields_web.Jobs.Active')}}</span></td>
+                            <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                             <td>
                                <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>                 
                             </td>
                           @elseif($user->active == 0) 
-                          <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                          <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                           <td>
                              <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
                          </td>
@@ -146,12 +146,12 @@
                             <td> {{ $job->deadline}} </td>
                             
                             @if($job->active == 1)
-                            <td><span class="badge badge-success">{{__('fields_web.Jobs.Active')}}</span></td>
+                            <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                             <td>
                                 <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" > <i class="fas fa-eye"></i></a>                 
                             </td>
                           @else 
-                          <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                          <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                           <td>
                               <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" > <i class="fas fa-eye"></i></a>
                          </td>
@@ -234,12 +234,12 @@
                             <td> {{ $tender->deadline}} </td>
                             
                             @if($tender->active == 1)
-                            <td><span class="badge badge-success">{{__('fields_web.Jobs.Active')}}</span></td>
+                            <td><span class="badge badge-success">{{__('fields_web.Users.Active')}}</span></td>
                             <td>
                                <a href="{{  route('viewTenderdetilse' ,$tender->tender_id ) }}" > <i class="fas fa-eye"></i></a>                 
                             </td>
                           @else 
-                          <td><span class="badge badge-danger">{{__('fields_web.Jobs.notActive')}}</span></td>
+                          <td><span class="badge badge-danger">{{__('fields_web.Users.notActive')}}</span></td>
                           <td>
                              <a href="{{  route('viewTenderdetilse' ,$tender->tender_id ) }}" > <i class="fas fa-eye"></i></a>
                          </td>
