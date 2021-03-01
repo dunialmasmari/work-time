@@ -48,7 +48,12 @@
                           <tr> 	   
                             <td> {{ $tender->title}} </td>
                             <!-- <td> {{ $tender->major_name}} </td> -->
-                            <td> {{ $tender->location}} </td>
+                            <td>  @php
+                            $values = explode(",",$tender->location);
+                            @endphp
+                            @foreach ($values as $x)
+                                <p>{{ $x }}</p>
+                            @endforeach </td>
                             <td> {{ $tender->company}} </td>
                             <td> {{ $tender->deadline}} </td>
                              @if($tender->active == 1)

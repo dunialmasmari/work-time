@@ -47,7 +47,15 @@
                           @foreach ($jobs  as $job)
                           <tr> 	   
                             <td> {{ $job->title}} </td>
-                            <td> {{ $job->location}} </td>
+
+                            <td>
+                            @php
+                            $values = explode(",",$job->location);
+                        @endphp
+                        @foreach ($values as $x)
+    <p>{{ $x }}</p>
+@endforeach
+                            </td>
                             <td> {{ $job->company}} </td>
                             <td> {{ $job->deadline}} </td>
                             

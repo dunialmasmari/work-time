@@ -44,8 +44,13 @@
                             <div class="form-group">
                                 <label>{{__('fields_web.JobsAdd.Location')}} :</label>
                                 <select class="select2" multiple="multiple" name="location[]"  style="width: 100%;">
-                              
-                                 <option selected value="{{$job->location}}">{{$job->location}}</option>
+                                  @php
+                                  $values = explode(",",$job->location);
+                                  @endphp
+                                  @foreach ($values as $x)
+                                  <option selected value="{{ $x }}">{{ $x }}</option>
+                                    
+                                  @endforeach
                                   <option value="Sanaa">Sanaa</option>
                                   <option value="Amran">Amran</option>
                                   <option value="Abyan">Abyan</option>
