@@ -152,7 +152,10 @@
                        <div class="col-md-12">
                        <div class="form-group">
                             <label>{{__('fields_web.TenderAdd.Description')}} :</label>
-                            <textarea cols="80" id="mytextarea" name="description">{!!$tender->description!!}</textarea>
+                            <textarea class="tinymce" name="description">{!!$tender->description!!}</textarea>
+                          
+                            <!-- <textarea cols="80" id="mytextarea" name="description">{!!$tender->description!!}</textarea>
+                        -->
                         </div>
                        </div>
                     </div>

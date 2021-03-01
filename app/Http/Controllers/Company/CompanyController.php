@@ -15,7 +15,7 @@ use Carbon\Carbon;
 use App\Models\job;
 use App\User;
 use App\Models\Advertising;
-
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -452,5 +452,53 @@ class CompanyController extends Controller
                   ];
 
         return view('HR.home',$data);
+    }
+
+    
+    public function viweCompchangePassword()
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 5 || $role_user->role_id == 6 || $role_user->role_id == 7)
+        {
+            return view('HR.company.changePassword',['role_users' => $role_users]);
+        }
+        else{
+             return view('HR.Erroe');   
+        }    
+    }
+    public function Compchangpassword(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 5 || $role_user->role_id == 6 || $role_user->role_id == 7)
+        {
+            $user = User::where('user_id',$user_id);
+            $password = auth()->user()->password;
+            if($user->exists())
+            {
+                    if(Hash::check($request->input('old_password'), $password))
+                    {
+                        
+                        $user->password = Hash::make($request->input('password'));
+                        $user->Update(['password' => $user->password]);
+                        $users = User::get();
+                        return redirect()->route('userInfo');
+                    }
+                    else
+                    {
+                        echo "soryy";
+                    }
+                
+            }
+            else{
+                return response()->json(['message' => 'user not found'], 404);
+            }
+        }
+        else{
+             return view('HR.Erroe');   
+        }
     }
 }

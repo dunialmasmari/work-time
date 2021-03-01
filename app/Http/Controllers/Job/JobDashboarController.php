@@ -165,7 +165,7 @@ class JobDashboarController extends Controller
                 $job->major_id = $request->input('major_id');
                 $job->email = $request->input('email');
                 $job->register_here = $request->input('register_here');
-                //$job->recommendation = $request->input('recommendation');
+                $job->recommendation = $request->input('recommendation');
                 $job->company = $request->input('company');
                 $job->description = $request->input('description');
                 $job->apply_link = $request->input('apply_link');

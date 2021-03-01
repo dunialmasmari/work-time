@@ -3,86 +3,86 @@
     </a>
 <script>
 
-$(document).ready(function() {
-  var massage_title = document.getElementById("massage_title");
-  var title = '';
-  $('#title').on('keyup',function(e){
-    title =  validate('title',true,e.target.value,null)
+// $(document).ready(function() {
+//   var massage_title = document.getElementById("massage_title");
+//   var title = '';
+//   $('#title').on('keyup',function(e){
+//     title =  validate('title',true,e.target.value,null)
    
-  })
-  var massage_major = document.getElementById("massage_major");
-  var title = '';
-  $('#start_date').on('keyup',function(e){
-    title =  validate('major',true,e.target.value,null)
-  })
-})
+//   })
+//   var massage_major = document.getElementById("massage_major");
+//   var title = '';
+//   $('#start_date').on('keyup',function(e){
+//     title =  validate('major',true,e.target.value,null)
+//   })
+// })
 
-function validate(fieldName, isRequired, value, value2) {
+// function validate(fieldName, isRequired, value, value2) {
  
- if (isRequired == true) {
-   if (value == null || value == '')
-   {
-      return "*Enter field is requered ";
-   } 
- }
- if (fieldName != '') {
-   if (fieldName == 'title') {
-     reg = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
-     if (!reg.test(value)) {
-      title.style.borderColor = "red";
-      massage_title.innerHTML = "*Enter field Carrier Code ";
+//  if (isRequired == true) {
+//    if (value == null || value == '')
+//    {
+//       return "*Enter field is requered ";
+//    } 
+//  }
+//  if (fieldName != '') {
+//    if (fieldName == 'title') {
+//      reg = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+//      if (!reg.test(value)) {
+//       title.style.borderColor = "red";
+//       massage_title.innerHTML = "*Enter field Carrier Code ";
       
-     }
+//      }
      
-     else if (value.length > 20) {
-      title.style.borderColor = "red";
-      massage_title.innerHTML = "*Enter field emal Code ";
-       return 'lang.Validation.exceded'
-     }
-     else{
-      title.style.borderColor = "green";
-     }
-   }
-   if (fieldName == 'major') {
-    if (value == null || value == '')
-   {
-      title.style.borderColor = "red";
-      massage_title.innerHTML = "*Enter field is requered ";
-   } 
-   else{
-    title.style.borderColor = "red";
-   }
+//      else if (value.length > 20) {
+//       title.style.borderColor = "red";
+//       massage_title.innerHTML = "*Enter field emal Code ";
+//        return 'lang.Validation.exceded'
+//      }
+//      else{
+//       title.style.borderColor = "green";
+//      }
+//    }
+//    if (fieldName == 'major') {
+//     if (value == null || value == '')
+//    {
+//       title.style.borderColor = "red";
+//       massage_title.innerHTML = "*Enter field is requered ";
+//    } 
+//    else{
+//     title.style.borderColor = "red";
+//    }
 
-     reg2 = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,20}$/;
-     if (!reg2.test(value)) {
-       return 'lang.Validation.passwordwrog'
-     }
-     if (value.length > 8) {
-       return 'lang.Validation.exceded'
-     }
-   }
-   if (fieldName == 'confirmPassword') {
-     if (value != value2) {
-       return 'lang.Validation.confirmPassword'
-     }
-   }
-   if (fieldName == 'dropdown') {
-     if (value == value2) {
-       console.log('value')
+//      reg2 = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,20}$/;
+//      if (!reg2.test(value)) {
+//        return 'lang.Validation.passwordwrog'
+//      }
+//      if (value.length > 8) {
+//        return 'lang.Validation.exceded'
+//      }
+//    }
+//    if (fieldName == 'confirmPassword') {
+//      if (value != value2) {
+//        return 'lang.Validation.confirmPassword'
+//      }
+//    }
+//    if (fieldName == 'dropdown') {
+//      if (value == value2) {
+//        console.log('value')
 
-       return 'lang.Validation.dropdown1' + value2 + 'lang.Validation.dropdown2'
-     }
-   }
-   if(fieldName ==='phone'){
-     if (value2 === false) {
-       return 'lang.Validation.phone'
-     }
-   }
- }
- return null
-}
+//        return 'lang.Validation.dropdown1' + value2 + 'lang.Validation.dropdown2'
+//      }
+//    }
+//    if(fieldName ==='phone'){
+//      if (value2 === false) {
+//        return 'lang.Validation.phone'
+//      }
+//    }
+//  }
+//  return null
+// }
 
-  </script>>
+  </script>
 
 <script> 
 
@@ -188,7 +188,7 @@ function yesnoCheck() {
     var filed=document.getElementById("div");
     var no = '<div class="form-group"><label>{{__("fields_web.JobsAdd.link")}} :</label><input type="link" name="apply_link"  placeholder="{{__("fields_web.JobsAdd.link")}}" class="form-control"  required></div>';
     var yes = '<div class="form-group"><label>{{__("fields_web.JobsAdd.email")}} :</label><input type="email" name="email"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div> <div class=""><label>{{__("fields_web.JobsAdd.Recommendation")}} ?</label><div class="col-sm-4"><div class="form-check form-check-inline"> <input class="form-check-input" type="radio"  name="recommendation" value="1" ><label class="form-check-label" for="inlineRadio1">{{__("fields_web.JobsAdd.Yes")}}</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio"  name="recommendation" value="0" ><label class="form-check-label" for="inlineRadio2">{{__("fields_web.JobsAdd.No")}}</label></div></div></div>'; 
-   var both = '<div class="form-group"><label>{{__("fields_web.JobsAdd.link")}} :</label><input type="link" name="apply_link"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div><div class="form-group"><label>{{__("fields_web.JobsAdd.email")}} :</label><input type="email" name="email"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div> <div class=""><label>{{__("fields_web.JobsAdd.Recommendation")}} ?</label><div class="col-sm-4"><div class="form-check form-check-inline"> <input class="form-check-input" type="radio"  name="recommendation" value="1" ><label class="form-check-label" for="inlineRadio1">{{__("fields_web.JobsAdd.Yes")}}</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio"  name="recommendation" value="0" ><label class="form-check-label" for="inlineRadio2">{{__("fields_web.JobsAdd.No")}}</label></div></div></div>';
+   var both = '<div class="form-group"><label>{{__("fields_web.JobsAdd.link")}} :</label><input type="link" name="apply_link"  placeholder="{{__("fields_web.JobsAdd.link")}}" class="form-control"  required></div><div class="form-group"><label>{{__("fields_web.JobsAdd.email")}} :</label><input type="email" name="email"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div> <div class=""><label>{{__("fields_web.JobsAdd.Recommendation")}} ?</label><div class="col-sm-4"><div class="form-check form-check-inline"> <input class="form-check-input" type="radio"  name="recommendation" value="1" ><label class="form-check-label" for="inlineRadio1">{{__("fields_web.JobsAdd.Yes")}}</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio"  name="recommendation" value="0" ><label class="form-check-label" for="inlineRadio2">{{__("fields_web.JobsAdd.No")}}</label></div></div></div>';
     if (document.getElementById('yesCheck').checked) {
       filed.innerHTML=yes;
      }
@@ -202,11 +202,13 @@ function yesnoCheck() {
 }
 </script>
 <!-- run editor-->
-<script src='https://cdn.tiny.cloud/1/6wl1nevqatxsvyjrcm8i6p1r0hpm8esjt0jsxa10y69sswtg/tinymce/5/tinymce.min.js' referrerpolicy="origin"> </script>
+<!-- <script src='https://cdn.tiny.cloud/1/6wl1nevqatxsvyjrcm8i6p1r0hpm8esjt0jsxa10y69sswtg/tinymce/5/tinymce.min.js' referrerpolicy="origin"> </script>
   <script>
     tinymce.init({
       selector: '#mytextarea'
-    });
+    }); -->
+  
+
 </script>
 
 <!-- preview image-->
@@ -364,6 +366,10 @@ function yesnoCheck() {
 
     })
   </script>
+ 
+  <script src="{{url('assets/tinymce/plugin/tinymce/tinymce.min.js')}}" > </script>
+  <script src="{{url('assets/tinymce/plugin/tinymce/init-tinymce.js')}}" > </script>
+   
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.1.0-pre

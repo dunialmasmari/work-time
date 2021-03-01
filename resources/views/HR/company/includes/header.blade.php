@@ -128,17 +128,21 @@ h1 a {
      @if($role->role_id == 5)
     <div class="link"><a class=" px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a>    
     </div>
+    <div class="link"><a class="nav-link px-2" href="{{route('viweCompchangePassword')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.userInfo.changpassword')}}</span></a></div>
+   
     @elseif($role->role_id == 6)
     <div class="link"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a>
     </div>
+    <div class="link"><a class="nav-link px-2" href="{{route('viweCompchangePassword')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.userInfo.changpassword')}}</span></a></div>
+   
     @elseif($role->role_id == 7)
-    <div class="link"> <li class="nav-item"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a></li>
-              
+    <div class="link"> <li class="nav-item"><a class="nav-link px-2" href="{{route('viewTenders')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.companyInfo.tender')}}</span></a></li>       
     </div>
     <div>
-    <a class="nav-link px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a>
-           
+    <a class="nav-link px-2" href="{{route('viewJobs')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.companyInfo.job')}}</span></a>         
     </div>
+    <div class="link"><a class="nav-link px-2" href="{{route('viweCompchangePassword')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.userInfo.changpassword')}}</span></a></div>
+   
     @endif
           @endforeach 
   </li>

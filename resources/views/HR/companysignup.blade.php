@@ -177,18 +177,19 @@
                                             <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"/>
                                         </div> 
                                         <div class="form-group">
+                                            {{(__('fields_web.companyInfo.intersted'))}}
                                             <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="type_search" value="Jobs" checked>
-                                                    <span> Jobs </span> 
+                                                <label class="radio inline">
+                                                <input type="radio" name="type_search" value="Jobs" checked>
+                                                    <span>  {{(__('fields_web.Majors.Jobs'))}} </span>
                                                 </label>
-                                                <label class="radio inline"> 
+                                                <label class="radio inline">
                                                     <input type="radio" name="type_search" value="Tenders">
-                                                    <span>Tenders </span> 
+                                                    <span>{{(__('fields_web.Majors.Tenders'))}}  </span>
                                                 </label>
-                                                <label class="radio inline"> 
+                                                <label class="radio inline">
                                                     <input type="radio" name="type_search" value="Jobs&Tender">
-                                                    <span>Jobs&Tender</span> 
+                                                    <span>{{(__('fields_web.Majors.Jobs'))}} & {{(__('fields_web.Majors.Tenders'))}} </span>
                                                 </label>
                                             </div>
                                         </div>

@@ -237,8 +237,8 @@ return [
     'TitlePage'=> 'Create New Advertising',
     'image'=> 'Advertising image',
     'choose'=> 'Choose image',
-    'header'=> 'heard',
-    'footer'=> 'footer',
+    'Home'=> 'Home', 
+    'Siderbar'=> 'Siderbar',
     'Title'=> 'Title',
     'link'=> 'link',
     'Submit'=> 'Create Advertising',
@@ -319,6 +319,9 @@ return [
     'Title'=> 'Edite job',
     'Link'=> 'Apply Link',
     'Submit'=> 'Eidte job',
+    'register'=> 'Register by',
+    'website'=> 'Website',
+    'company'=> 'Company',
   ],
 
   /** Majors */
@@ -480,13 +483,17 @@ return [
     'seruserMang'=>'serche Users Manag',
     'userAll'=> 'Show All Users',
     'adduser'=> 'Add New User',
+    'addcomp'=> 'Add New Company',
+    'Allcomp'=> 'Show All Company',
     'logout'=> 'logout',
   ],
   'companyInfo'=>[
+    'intersted'=> 'intersted by',
     'Title'=> 'Company List',
     'companyinfo'=> 'Company info',
     'Changelogo'=> 'Change Organization Logo',
     'logo'=> 'Logo',
+    'Submit'=> 'Add Company',
     'CompanyName'=>'Name',
     'CompanyNames'=> 'Organization Name',
     'WebsiteLink'=> 'Website Link',
@@ -605,7 +612,8 @@ return [
     'ProjectsSupTitle'=>'Projects SupTitle',
     'Genderf'=>'Female',
     'Genderm'=>'Male',
-    ''=>'',
+    'changpassword'=>'Change ',
+    'chang'=>'Change ',
   ],
 
   'Notification'=>[
