@@ -74,7 +74,7 @@
                                                 style=" height:180px; width:100%;background-color:rgb(79, 157, 213);" />
                                             <div class="card-body">
                                                 <h5 class="card-title" style=" height: 70px; ">
-                                                    {{ \Illuminate\Support\Str::limit('this his is the test of the card that showes the tender detail is the test of the card that showes the tender detail' . $tender->title, $limit = 70, $end = '...') }}
+                                                    {{ \Illuminate\Support\Str::limit($tender->title, $limit = 70, $end = '...') }}
                                                 </h5>
                                                 <hr class='btn-primary'>
                                                 <span class="card-text"
