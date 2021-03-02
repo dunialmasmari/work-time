@@ -198,8 +198,9 @@ return [
     'others'=> 'Other Jobs',
     'applaylink'=> 'Visit website Applaying',
     'applayEmail'=> 'Sending Email Applaying',
-    'toapplying'=>'To visit the Link or Email of applying '
-
+    'toapplying'=>'To visit the Link or Email of applying ',
+    'Active'=>'Active',
+    'notActive'=>'Inactive'
   ],
 
   'Services'=> [

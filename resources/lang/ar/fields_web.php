@@ -18,7 +18,7 @@ return [
     'Footer'=> [
       'about_us'=> 'من نحن',
       'contact_us'=> 'تواصل معنا',
-      'allrights'=> 'جميع الحقوق محفوظة وورك تايم-2021'
+      'allrights'=> 'جميع الحقوق محفوظة Woketime-2021'
     ],
     'Header'=> [
       'language'=> [
@@ -198,8 +198,9 @@ return [
     'others' => 'مزيد من الوظائف ',
     'applaylink'=> 'لزيارة موقع التقديم  ',
     'applayEmail'=> 'لمراسلة ايميل التقديم ',
-    'toapplying'=>'لزيارة رابط او ايميل التقديم  '
-
+    'toapplying'=>'لزيارة رابط او ايميل التقديم  ',
+    'Active'=>'مفعل',
+    'notActive'=>'غير مفعل'
   ],
 
   'Services'=> [

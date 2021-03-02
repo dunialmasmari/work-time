@@ -29,11 +29,9 @@
 
                                     <div class="mx-auto">
                                         <a  href='tender/{{ $tender->tender_id }}' style="text-decoration: none; color:#000">
-                                            <div class="card" style="width:280px; height:460px;">
-                                                <div class=' my-auto'
-                                                    style="  background: url({{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}) no-repeat;
-                                                    background-size: cover; width: 100%; height:200px; background-color:rgb(79, 157, 213);">
-                                                </div>
+                                            <div class="card" style="width:280px; height:460px;"> 
+                                                <img   src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
+                                                style=" height:200px; width:100%;background-color:rgb(79, 157, 213);" />
                                                 <div class="card-body">
                                                     <h5 class="card-title" style=" height: 70px; ">
                                                         {{ \Illuminate\Support\Str::limit('this is the test of the card that showes the tender detail' . $tender->title, $limit = 70, $end = '...') }}
