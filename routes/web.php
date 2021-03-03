@@ -126,7 +126,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('createNotify','NotificationController@viewCreatNotify')->name('createNotify');
     Route::post('createNotification','NotificationController@createNotification')->name('createNotification');
     Route::get('getall','NotificationController@getall');
-});
+   });
 
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
