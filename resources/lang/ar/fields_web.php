@@ -18,7 +18,7 @@ return [
     'Footer'=> [
       'about_us'=> 'من نحن',
       'contact_us'=> 'تواصل معنا',
-      'allrights'=> 'جميع الحقوق محفوظة وورك تايم-2021'
+      'allrights'=> 'جميع الحقوق محفوظة Woketime-2021'
     ],
     'Header'=> [
       'language'=> [
@@ -239,9 +239,9 @@ return [
   'AdvertisingAdd'=>[
     'TitlePage'=> 'اضافة اعلان جديد',
     'image'=>'صورة الإعلان',
-    'choose'=> 'اختار صورة',
-    'header'=> 'بداية الصفحة',
-    'footer'=> 'اخر الصفحة',
+    'choose'=> 'اختار صورة', 
+    'Home'=> 'الصفحة الرئيسية',
+    'Siderbar'=> 'بجانب الصفحات',
     'Title'=> 'عنوان الاعلان',
     'link'=> 'الرابط',
     'Submit'=> 'اضافة الإعلان',
@@ -322,6 +322,9 @@ return [
     'Title'=> 'تعديل الوظيفة',
     'Link'=> 'رابط التقديم',
     'Submit'=>'تعديل الوظيفة',
+    'register'=> 'التسجيل عبر',
+    'website'=> 'الموقع',
+    'company'=> 'الشركة',
   ],
 
   /** Majors */
@@ -436,11 +439,21 @@ return [
     'Title'=> ' قائمة المستخدمين',
     'Name'=> 'الإسم',
     'UserName'=> 'اسم الستخدم',
-    'Email'=> 'الإيميل',
+    'fullName'=> 'إسم المستخدم الكامل',
+    'Email'=> 'البريد الالكتروني',
     'status'=> 'الحالة',
     'Actions'=> 'الحدث',
     'Active'=> 'مفعل',
     'notActive'=> 'غير مفعل',
+    'applyAsCompany'=>"التسجيل ك شركة",
+    'applyAsEmplyee'=>"الاشتراك في الموقع",
+    'Login'=>'تسجيل الدخول',
+    'dontHaveAccount'=>"لا تملك حسابا بعد؟",
+    'HaveAccount'=>"لديك حساب؟",
+    'or'=>'أو',
+    'register'=>'تسجيل',
+    'createUserAccount'=>'تسجيل حساب مشترك',
+    'createEmployerAccount'=>'تسجيل حساب شركة '
   ],
    /**Add Users */
    'UserAdd'=>[
@@ -481,18 +494,23 @@ return [
     'seruserMang'=>'ادارة الباحثين',
     'userAll'=> 'عرض كافة المستخدمين',
     'adduser'=> 'إضافة مستخدم جديد',
+    'Allcomp'=> 'عرض كافة الشركات',
+    'addcomp'=> 'إضافة شركة جديدة',
+    
     'logout' => 'تسجيل الخروج',
   ],
   'companyInfo'=>[
     'Title'=> 'قائمة الشركات',
+    'intersted'=> 'مهتم ب ',
     'companyinfo'=> 'معلومات عن الشركة',
     'Changelogo'=> 'تغير شعار الجهة ',
     'logo'=> 'الشعار',
+    'Submit'=> 'إضافة الشركة',
     'CompanyName' => 'الاسم  ',
     'CompanyNames' => 'اسم الجهة ',
     'WebsiteLink' => 'رابط الجهة ',
-    'Email' => 'الايميل ',
-    'Emails' => 'الايميل الخاص بالجهة ',
+    'Email' => 'البريد الالكتروني ',
+    'Emails' => 'البريد الالكتروني الخاص بالجهة ',
     'Phone'=>'الهاتف   ',
     'Phones'=>'هاتف الجهة ',
     'Country' => 'الدولة ',
@@ -609,6 +627,8 @@ return [
     'ProjectsSupTitle'=>'Projects SupTitle',
     'Genderf'=>'انثى',
     'Genderm'=>'ذكر',
+    'changpassword'=>'تغيير كلمة السر',
+    'chang'=>'تغيير ',
     ''=>'',
     ''=>'',
     ''=>'',

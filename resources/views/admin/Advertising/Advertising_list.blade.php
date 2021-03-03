@@ -60,13 +60,13 @@
                                 <td><span class="badge badge-success">{{__('fields_web.Advertising.Active')}}</span></td>
                                 <td>
                                     <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Advertising.notActive')}}</span></td>
                               <td>
                                     <a href="{{  route('controlpanel.Advertising.edite',$Advertising->Advertising_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('Advertisingactivation' ,$Advertising->Advertising_id) }}" class="btn btn-outline-primary" href="#"><i class="far fa-lightbulb"></i></a>
                               </td>
                               @endif  
                           </tr>

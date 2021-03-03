@@ -50,10 +50,10 @@
                     </div>
                     <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{__('fields_web.AdvertisingAdd.AdvertisingPosition')}} :</label>
+                                    <label>{{__('fields_web.Advertising.AdvertisingPosition')}} :</label>
                                     <select class="form-control select2" name='Advertising_Position' style="width: 100%;">
-                                      <option  value="1">{{__('fields_web.AdvertisingAdd.header')}}</option>
-                                      <option  value="2">{{__('fields_web.AdvertisingAdd.footer')}}</option>
+                                      <option  value="1">{{__('fields_web.AdvertisingAdd.Home')}}</option>
+                                      <option  value="2">{{__('fields_web.AdvertisingAdd.Siderbar')}}</option>
                                     </select>
                                   </div>
                             </div>

@@ -229,7 +229,8 @@
                     </li>
                   </ul>
               </li>
-          @foreach($role_users ?? '' as $role)
+
+          @foreach($role_users as $role)
               @if($role->role_id == 1)
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -266,15 +267,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                    <a href="{{ route('user_add') }}" class="nav-link">
+                    <a href="{{ route('Company_add') }}" class="nav-link">
                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{__('fields_web.Sidebar.adduser')}}</p>
+                        <p>{{__('fields_web.Sidebar.addcomp')}}</p>
                       </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{ route('controlpanel.CompanyUser.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>{{__('fields_web.Sidebar.userAll')}}</p>
+                        <p>{{__('fields_web.Sidebar.Allcomp')}}</p>
                       </a>
                     </li>
                   </ul>

@@ -28,7 +28,7 @@ class TenderDashboarController extends Controller
                 return view('admin.tender.tender_list',['tenders' => $tenders, 'role_users' => $role_users]);
         }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -43,7 +43,7 @@ class TenderDashboarController extends Controller
                 return view('admin.tender.tender_add',['majors' => $majors, 'role_users' => $role_users]);
          }
         else{
-            return response()->json(['message' => 'You do not have permation '], 404);   
+             return view('HR.Erroe');   
         }
     }
 
@@ -63,7 +63,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         }  
     }
 
@@ -123,7 +123,7 @@ class TenderDashboarController extends Controller
          }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         } 
 
     }
@@ -155,7 +155,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         } 
     }
 
@@ -247,7 +247,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         } 
     }
 
@@ -292,7 +292,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         }
     } 
 
@@ -319,7 +319,7 @@ class TenderDashboarController extends Controller
         }
         else
         {
-            return response()->json(['message' => 'You do not have permation'], 401);
+             return view('HR.Erroe');
         }
     }
 

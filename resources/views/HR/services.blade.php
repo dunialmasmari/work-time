@@ -16,9 +16,9 @@
             @foreach ($services as $ser)
                 <div class="col-md-4  col-md-4 ">
                     <div class=" card bg-white shadow-sm my-4" style="height: 400px;">
-                        <div class=' my-auto' style="  background: url({{ URL::asset('assets/uploads/services/images/' . $ser->image) }}) no-repeat;
-                            background-size: cover; height:200px; width:100%;background-color:rgb(79, 157, 213);">
-                        </div>
+                        <img   src="{{ URL::asset('assets/uploads/services/images/' . $ser->image) }}"
+                        style=" height:200px; width:100%;background-color:rgb(79, 157, 213);" />
+                       
                         <div class='card-body '>
 
                             <h4 class="my-2">{{ $ser->title }}</h4>

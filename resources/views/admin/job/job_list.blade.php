@@ -47,7 +47,15 @@
                           @foreach ($jobs  as $job)
                           <tr> 	   
                             <td> {{ $job->title}} </td>
-                            <td> {{ $job->location}} </td>
+
+                            <td>
+                            @php
+                            $values = explode(",",$job->location);
+                        @endphp
+                        @foreach ($values as $x)
+    <p>{{ $x }}</p>
+@endforeach
+                            </td>
                             <td> {{ $job->company}} </td>
                             <td> {{ $job->deadline}} </td>
                             
@@ -56,7 +64,7 @@
                                 <td>
                                     <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                                     <a href="{{  route('controlpanel.job.edite',$job->job_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{  route('jobactivation',$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{  route('jobactivation',$job->job_id) }}" class="btn btn-outline-primary" href="#"><i class="fas fa-lightbulb"></i></a>
                               </td>
                               @else 
                               <td><span class="badge badge-danger">{{__('fields_web.Jobsshow.notActive')}}</span></td>
@@ -64,7 +72,7 @@
                               <a href="{{  route('viewJobdetilse' ,$job->job_id) }}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                  
                                   <a href="{{  route('controlpanel.job.edite' ,$job->job_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
-                                  <a href="{{  route('jobactivation' ,$job->job_id) }}" class="btn btn-outline-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                  <a href="{{  route('jobactivation' ,$job->job_id) }}" class="btn btn-outline-primary" href="#"><i class="far fa-lightbulb"></i></a>
                               </td>
                               @endif  
                           </tr>

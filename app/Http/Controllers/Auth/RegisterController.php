@@ -22,8 +22,7 @@ use App\Models\Advertising;
 use App\Models\service;
 use App\Models\blog;
 use App\Models\RealTimeNotification;
-
-
+use App\Models\interstedTendersJob;
 
 
 class RegisterController extends Controller
@@ -75,7 +74,6 @@ class RegisterController extends Controller
     }
 
 
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -115,6 +113,15 @@ class RegisterController extends Controller
             }
             $user_role->user_type =  'App/User';
             $user_role->save();
+
+            $interstedTendersJob = new interstedTendersJob();
+            $interstedTendersJob->user_id = $user->user_id;
+            $interstedTendersJob->email = $user->email;
+            $interstedTendersJob->type = '3';
+            $interstedTendersJob->major_id = '0';
+            $interstedTendersJob->save();
+                
+              
     }
 
        /**
@@ -162,6 +169,7 @@ class RegisterController extends Controller
             $compnyInfo->email = $data['email'];
             $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
+            $compnyInfo->active = '2';
             $compnyInfo->save();
 
             $user_role = new role_user();
@@ -242,5 +250,70 @@ class RegisterController extends Controller
             $user_role->save();
 
             
+    } 
+
+           /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function adcompvalidator(array $data)
+    {
+        return Validator::make($data, [
+            'companyName' => ['required', 'string', 'max:255', 'unique:compnyinfo'],
+            'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
+            'phone'=> ['required', 'numeric', 'min:20', 'unique:compnyinfo'],
+            'address' => ['required', 'string', 'max:255'],
+            // 'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'alpha', 'max:75', 'unique:users,username'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function adcompcreate(array $data)
+    {
+      // dd($data);
+            // $data['active'] = 0;
+            $user = User::create([
+                'name' => $data['companyName'],
+                'email' => $data['email'],
+                'username' => $data['username'],
+                'active' => '1',
+                'password' => Hash::make($data['password']),
+            ]);  
+            $compnyInfo = new compnyInfo();
+            $compnyInfo->user_id = $user->user_id;
+            $compnyInfo->companyName = $data['companyName'];
+            $compnyInfo->phone = $data['phone'];
+            $compnyInfo->email = $data['email'];
+            $compnyInfo->websitelink = $data['websitelink'];
+            $compnyInfo->address = $data['address'];
+            $compnyInfo->active = '1';
+            $compnyInfo->save();
+
+            $user_role = new role_user();
+            $user_role->user_id = $user->user_id;
+            if($data['type_search'] == 'Jobs')
+            {
+                $user_role->role_id = '5';
+            }
+            elseif($data['type_search'] == 'Tenders')
+            {
+                $user_role->role_id = '6';
+            }
+            elseif($data['type_search'] == 'Jobs&Tender')
+            {
+                $user_role->role_id = '7';
+            }
+            $user_role->user_type =  'App/User';
+            $user_role->save();
     }
 }

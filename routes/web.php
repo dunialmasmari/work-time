@@ -24,7 +24,7 @@ Route::get('/hh', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 /**/
 Route::group(['prefix' => LaravelLocalization::setLocale(),
@@ -88,8 +88,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 ],
  function()
 {
-    Route::namespace('Users')->group(function(){
-        Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+    Route::namespace('Users')->group(function(){ 
+       Route::get('viwechangePassword','UsersController@viwechangePassword')->name('viwechangePassword');
+       Route::get('userProfile','UsersController@userInfo')->name('userProfile');
+       Route::post('UsercreateNotification','UsersController@UsercreateNotification')->name('UsercreateNotification');
+       Route::get('ViewUserNotifaction','UsersController@ViewUserNotifaction')->name('ViewUserNotifaction');
        Route::post('userProfile/updateInfo','UsersController@updateInfo')->name('updateUserInfo');
        Route::post('userProfile/updateLogo','UsersController@updateLogo')->name('updateUserLogo');
        Route::post('userProfile/AddCvDetails','UsersController@AddCvDetails')->name('AddCvDetails');
@@ -101,6 +104,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
        Route::post('userProfile/AddCvRecommendations','UsersController@AddCvRecommendations')->name('AddCvRecommendations');
        Route::post('userProfile/updateCvRecommendations','UsersController@updateCvRecommendations')->name('updateCvRecommendations');
        Route::post('userProfile/deleteCvRecommendations','UsersController@deleteCvRecommendations')->name('deleteCvRecommendations');
+       Route::post('changpassword','UsersController@changpassword')->name('changpassword');
        Route::get('userProfile/userResume','ResumeController@getUserCv')->name('userResume');
        Route::get('userProfile/viewCv1','ResumeController@viewCv1')->name('viewCv1');
        Route::get('userProfile/viewCv2','ResumeController@viewCv2')->name('viewCv2');
@@ -133,6 +137,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::namespace('Company')->group(function(){
         Route::get('userInfo','CompanyController@userInfo')->name('userInfo');
+        Route::post('Compchangpassword','CompanyController@Compchangpassword')->name('Compchangpassword');
+        Route::get('viweCompchangePassword','CompanyController@viweCompchangePassword')->name('viweCompchangePassword');
         Route::post('updateInfo','CompanyController@updateInfo')->name('updateInfo');
         Route::post('updateLogo','CompanyController@updateLogo')->name('updateLogo');
         Route::get('viewJobs','CompanyController@viewJobs')->name('viewJobs');

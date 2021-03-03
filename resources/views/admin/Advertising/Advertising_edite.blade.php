@@ -62,11 +62,11 @@
                                     <label>{{__('fields_web.Advertising.AdvertisingPosition')}} :</label>
                                     <select class="form-control select2" name='Advertising_Position' style="width: 100%;">
                                     @if($Advertising->Advertising_Position == 1)
-                                        <option value="{{ $Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.header')}}</opiton>
-                                        <option value='2'>{{__('fields_web.AdvertisingAdd.footer')}}</option>
+                                        <option value="{{ $Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.Home')}}</opiton>
+                                        <option value='2'>{{__('fields_web.AdvertisingAdd.Siderbar')}}</option>
                                         @elseif($Advertising->Advertising_Position == 2) 
-                                        <option value="{{$Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.footer')}}</opiton>
-                                        <option value='1'>{{__('fields_web.AdvertisingAdd.header')}}}</opiton>
+                                        <option value="{{$Advertising->Advertising_Position}}">{{__('fields_web.AdvertisingAdd.Siderbar')}}</opiton>
+                                        <option value='1'>{{__('fields_web.AdvertisingAdd.Home')}}}</opiton>
                                     @endif 
                                     </select>
                                   </div>
