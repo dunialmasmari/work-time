@@ -1,6 +1,5 @@
 @extends('HR.layouts.master')
 @section('content')
-    <br>
     @foreach ($services as $ser)
 
         <div class='container-fluid colors-logo'>
@@ -15,6 +14,44 @@
         <div class='mx-4 bg-light' >
             <div class="row ">
                 <div class=" col-lg-4">
+                     <!--/.Carousel Wrapper-->
+                     <div class="row  ">
+
+                        <div class="card  full-width py-3 px-3 ">
+                            {{-- <h3 class='label mb-5 label lable-background' style="text-align: center; background-color:#4F9DD590;">
+                              {{ __('fields_web.Advertising.title') }}</h3> --}}
+
+                            <!--slide -->
+                            <div class='second' style='max-height: '></div>
+                            <div id="demo" class="carousel slide " data-ride="carousel" data-interval="">
+                                <!-- The slideshow -->
+                                <div class="carousel-inner" style='max-height:  '>
+                                    @foreach ($advers as $adv)
+                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
+                                            <img src="{{ URL::asset('assets/uploads/Advertisement/images/' . $adv->image) }}"
+                                                class="d-block w-100" alt="" width="100%" height="20%">
+                                            <div class="carousel-caption d-md-block ">
+                                                <!--d-none-->
+                                                <!-- <h4>{{ $adv->title }}</h4> -->
+                                            </div>
+                                            <div class=" text-center"><br>
+                                                <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}
+                                                </h4>
+                                                @if ($adv->link != '' || $adv->link != null)
+
+                                                    <a href="https://www.{{ $adv->link }}"><button
+                                                            class='btn btn-primary btn-md my-2 '
+                                                            style="float: none;width:60%">
+                                                            {{ __('fields_web.Home.visti_website') }} </button></a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row ">
                         <div class="card  full-width " style="background-color:#4F9DD590;">
                             <div class=" card-body ">
@@ -61,51 +98,20 @@
                             </div>
                         </div>
                     </div>
-                    <!--/.Carousel Wrapper-->
-                    <div class="row  ">
-
-                        <div class="card  full-width py-3 px-3 ">
-                            {{-- <h3 class='label mb-5 label lable-background' style="text-align: center; background-color:#4F9DD590;">
-                              {{ __('fields_web.Advertising.title') }}</h3> --}}
-
-                            <!--slide -->
-                            <div class='second' style='max-height: '></div>
-                            <div id="demo" class="carousel slide " data-ride="carousel" data-interval="">
-                                <!-- The slideshow -->
-                                <div class="carousel-inner" style='max-height:  '>
-                                    @foreach ($advers as $adv)
-                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
-                                            <img src="{{ URL::asset('assets/uploads/Advertisement/images/' . $adv->image) }}"
-                                                class="d-block w-100" alt="" width="100%" height="20%">
-                                            <div class="carousel-caption d-md-block ">
-                                                <!--d-none-->
-                                                <!-- <h4>{{ $adv->title }}</h4> -->
-                                            </div>
-                                            <div class=" text-center"><br>
-                                                <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}
-                                                </h4>
-                                                @if ($adv->link != '' || $adv->link != null)
-
-                                                    <a href="https://www.{{ $adv->link }}"><button
-                                                            class='btn btn-primary btn-md my-2 '
-                                                            style="float: none;width:60%">
-                                                            {{ __('fields_web.Home.visti_website') }} </button></a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    @endforeach
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class=" col-lg-8">
                     <div class="row ">
                         <div class="card   bg-white full-width " style="min-height: 200px;">
                             <div class=" card-body ">
+                                @section('meta')
+                                <title>{{ $ser->title }}</title>
+                    
+                                <meta property="title" content="{{ $ser->title }}">
+                                <meta name="image" content="{{ URL::asset('assets/uploads/services/images/' . $ser->image) }}">
+                                @endsection
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
-                                    <h2 class='label py-3'> {{ $ser->title }}</h2><br>
+                                    <h4 class='label py-3'> {{ $ser->title }}</h4>
                                     <div class="imagewrap mx-2 my-2"><img src="{{ URL::asset('assets/uploads/services/images/' . $ser->image) }}"
                                         class="d-block" alt="" width="220" height="auto"></div> 
                                     {!! $ser->description !!} 
@@ -118,30 +124,7 @@
 
 
 
-                    <br><br><br><br><br>
-                    <!-- <div class="row container px-2 py-2" >
-                                     <div class="col-lg-12"> 
-                                         slide
-                                          <div id="demo" class="carousel slide " data-ride="carousel" data-interval="3002">
-                                           The slideshow
-                                                <div class="carousel-inner" style='max-height: 40vw !important;'>
-                                                  @foreach ($advers as $adv)
-                                                   <div class="carousel-item {{ $loop->first ? 'active' : '' }}" style=''>
-                                                       <div class=" ">
-                                                       <div class=" text-center">
-                                                          <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}</h4>
-                                                           @if ($adv->link != '' || $adv->link != null)
-                                                              <a href="https://www.{{ $adv->link }}"><button class=' btnRegister ' style="float: none;width:100%" >  {{ __('fields_web.Home.visti_website') }} </button></a>
-                                                           @endif
-                                                        </div>
-                                                     </div>
-                                                   </div>
-                                                 @endforeach
-
-                                                </div>
-
-                                          </div>
-                                     </div> -->
+               
                 </div>
             </div>
         </div>

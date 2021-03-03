@@ -99,7 +99,7 @@ class NotificationController extends Controller
         /* $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
         ->select('majors.major_name','tenders.*')
         ->where('tenders.tender_id', $id);
-        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+        $advers=Advertising::select('*')->where('active','1')->where('Advertising_Position','2')->get();
 
         if ($tenders->exists())
         {
@@ -171,6 +171,7 @@ class NotificationController extends Controller
 
     }
 
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -178,6 +179,7 @@ class NotificationController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'type' => ['required'],
             'major_id' => ['required'],
+
             
         ]);
     }
@@ -308,7 +310,204 @@ class NotificationController extends Controller
 
                  else 
                  {
+                 return response()->json(["message" => "Job not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
+
+        public function viewNewJobs()
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                //$users = User::join('role_users', 'users.user_id', '=', 'role_users.user_id')
+                $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+                        ->select('majors.major_name', 'jobs.*' )
+                        ->where('jobs.active', '2')
+                        ->get();
+                $usersAll=User::select('user_id','name')->get();
+                $date=Carbon::today();
+                $dateTodays=['today'=> $date];
+                   $data=[
+                          'jobs' => $jobs,
+                          'role_users' => $role_users,
+                          'usersAll'=> $usersAll,
+                          'dateTodays'=>$dateTodays,
+                   ];
+                   //return response()->json($data);
+                return view('admin.Notifications.posting_jobs_list',$data);
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+            //return view('admin.Notifications.notifications_list');
+    
+        }
+
+        public function acceptJob($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+                        ->where('jobs.job_id', $id)
+                        ->where('jobs.active', '2');
+                
+                 if ($jobs->exists())
+                 {
+                    $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+                    ->where('jobs.job_id', $id)
+                    ->Update(['jobs.active' => '1']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
                  return response()->json(["message" => "Account not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
+        public function rejectJob($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+                        ->where('jobs.job_id', $id)
+                        ->where('jobs.active', '2');
+                
+                 if ($jobs->exists())
+                 {
+                    $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
+                    ->where('jobs.job_id', $id)
+                    ->Update(['jobs.active' => '3']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
+                 return response()->json(["message" => "Job not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
+        public function viewNewTenders()
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                //$users = User::join('role_users', 'users.user_id', '=', 'role_users.user_id')
+                $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                        ->select('majors.major_name', 'tenders.*' )
+                        ->where('tenders.active', '2')
+                        ->get();
+                $usersAll=User::select('user_id','name')->get();
+                $date=Carbon::today();
+                $dateTodays=['today'=> $date];
+                   $data=[
+                          'tenders' => $tenders,
+                          'role_users' => $role_users,
+                          'usersAll'=> $usersAll,
+                          'dateTodays'=>$dateTodays,
+                   ];
+                   //return response()->json($data);
+                return view('admin.Notifications.posting_tenders_list',$data);
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+            //return view('admin.Notifications.notifications_list');
+    
+        }
+
+        public function acceptTender($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                        ->where('tenders.tender_id', $id)
+                        ->where('tenders.active', '2');
+                
+                 if ($tenders->exists())
+                 {
+                    $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    ->where('tenders.tender_id', $id)
+                    ->Update(['tenders.active' => '1']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
+                 return response()->json(["message" => "Tender not found!"], 404);
+                 }
+
+
+            }
+            else
+            {
+                return response()->json(['message' => 'You do not have permation '], 404);   
+            }
+        }
+
+        public function rejectTender($id)
+        {
+            $user_id = auth()->user()->user_id;
+            $role_users= role_user::select()->where('user_id',$user_id)->get();
+            foreach($role_users as $role_user)
+            if($role_user->role_id == 1 || $role_user->role_id == 8)
+            {
+                $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                        ->where('tenders.tender_id', $id)
+                        ->where('tenders.active', '2');
+                
+                 if ($tenders->exists())
+                 {
+                    $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                    ->where('tenders.tender_id', $id)
+                    ->Update(['tenders.active' => '3']);
+                   
+                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 }
+
+                 else 
+                 {
+                 return response()->json(["message" => "Tender not found!"], 404);
                  }
 
 

@@ -42,7 +42,7 @@ class JobController extends Controller
         ->where('start_date','<=',$date)
         ->orderByRaw('start_date DESC')
         ->get();
-        $advers=Advertising::select('*')->where('active','1')->inRandomOrder()->get();
+        $advers=Advertising::select('*')->where('active','1')->where('Advertising_Position','2')->get();
         //$data=['jobs' => $jobs];
         
         if ($jobs->exists())

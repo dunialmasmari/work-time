@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Shetabit\Visitor\Traits\Visitable;
 
 class compnyInfo extends Model
 {

@@ -10,7 +10,7 @@
                 <li data-target="#demo" data-slide-to="0" class="{{ $loop->first ? 'active' : '' }}"></li>
             @endforeach
         </ul>
-
+      
         <!-- The slideshow -->
         <div class="carousel-inner" style='max-height: 40vw !important;'>
             @foreach ($advers as $adv)
@@ -66,7 +66,7 @@
 
 
                             <div class="mx-auto">
-                                <div class="card" style="width:280px; height:460px;">
+                                <a  href='tender/{{ $tender->tender_id }}' style="text-decoration: none; color:#000"> <div class="card" style="width:280px; height:460px;">
                                     <div class=' my-auto'
                                         style="  background: url({{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}) no-repeat;
                                         background-size: cover; width: 100%; height:160px; background-color:rgb(79, 157, 213);">
@@ -99,6 +99,7 @@
                                                 class="btn btn-primary btn-sm my-2">{{ __('fields_web.Tenders.more') }}</button></a>
                                     </div>
                                 </div>
+                            </a>
                             </div>
                         @endforeach
 

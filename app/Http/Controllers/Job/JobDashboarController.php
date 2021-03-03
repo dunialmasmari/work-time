@@ -159,7 +159,6 @@ class JobDashboarController extends Controller
             $job = job::where('job_id',$request->job_id);
             if($job->exists())
             {
-
                 $job->title = $request->input('title');
                 $job->user_id = $user_id;
                 $job->major_id = $request->input('major_id');

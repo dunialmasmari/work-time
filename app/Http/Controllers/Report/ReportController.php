@@ -9,6 +9,7 @@ use App\Models\role_user;
 use App\Models\tender;
 use App\Models\userdetail;
 use App\User;
+use App\Models\Visit;
 use App\Models\cv_skill;
 use App\Models\cv_recommendation;
 use App\Models\cv_detail;
@@ -33,12 +34,10 @@ class ReportController extends Controller
     public function index()
     {       $user_id = auth()->user()->user_id;
             
-          //  dd($compnyInfo,$user_info);
-
-
-            
-            
-
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
             $user_info=userdetail::latest()->take(5)->get();
             $compnyInfo=compnyInfo::latest()->take(5)->get();
  
@@ -69,7 +68,9 @@ class ReportController extends Controller
             $totalusers=userdetail::get()->count();
             $resumetotal= resume_report::where('type','1')->get()->count();
             $coverletter= resume_report::where('type','2')->get()->count();
-             
+            $visit=new Visit;
+            $s=$visit->getAllUser();
+            //$s=  visitor()->visitLogs()->distinct('ip')->count('ip');
             $data=[
             'jobtotal' =>$jobtotal,
             'tendertotal'=>$tendertotal,
@@ -83,31 +84,22 @@ class ReportController extends Controller
             'compnyInfo'=>$compnyInfo,
             'jobsbycompany'=>$jobsbycompany,
             'tendersbycompany'=>$tendersbycompany,
-
+            'role_users' => $role_users,
+            'total_visitors' => $s
             ];
-            //dd($data);
-          //  return response()->json(['message' => 'service not found'], 404);
-          return view('admin.home', $data);
+           
+            return view('admin.home', $data);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
     public function reports()
     {       $user_id = auth()->user()->user_id;
             $role_users= role_user::select()->where('user_id',$user_id)->get();
-            $user_info=userdetail::where('active','1')
-            ->where('user_id','=',$user_id)->first();
-            $experiences= $user_info->cv_details()->where('active','1')->where('type','1')
-            ->get();
-            $projects= $user_info->cv_details()->where('active','1')->where('type','3')
-            ->get();
-            $educations= $user_info->cv_details()->where('active','1')->where('type','2')
-            ->get();
-            $cv_recommendations=$user_info->cv_recommendations()->where('active','1')
-            ->get();
-            $skills=$user_info->cv_skills()->where('active','1')->where('type','1')
-            ->get();
-            $languages=$user_info->cv_skills()->where('active','1')->where('type','2')
-            ->get();
-
-
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {  
             $Advertisement =  Advertising::get()->count();
             $Advertising_Positions =  Advertising::groupBy('Advertising_Position')->select('Advertising_Position', \DB::raw('count(*) as Total'))->get();
             $label=[];
@@ -163,7 +155,8 @@ class ReportController extends Controller
             $coverletter1= resume_report::where('name','coverletter1')->get()->count();
             $coverletter2= resume_report::where('name','coverletter2')->get()->count();
             $coverletter3= resume_report::where('name','coverletter3')->get()->count();
-
+            $visit=new Visit;
+            $s=$visit->getAllUser();
 
             $data=[
              'Advertisement' => $Advertisement,
@@ -200,11 +193,16 @@ class ReportController extends Controller
             'coverletter'=>$coverletter,
             'coverletter1'=>$coverletter1,
             'coverletter2'=>$coverletter2,
-            'coverletter3'=>$coverletter3
-              
+            'coverletter3'=>$coverletter3,
+            'role_users' => $role_users,
+            'total_visitors' => $s
             ];
             //dd($data);
           //  return response()->json(['message' => 'service not found'], 404);
           return view('admin.Reports', $data);
+        }
+        else{
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
     }
 }

@@ -72,7 +72,7 @@
                               <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
                             </td>
                               @elseif($user->active == 2) 
-                            <td><span class="badge badge-danger">{{__('fields_web.companyInfo.statucompany')}}</span></td>
+                            <td><span class="badge badge-warning">{{__('fields_web.companyInfo.statucompany')}}</span></td>
                             <td>
                               <a href="{{  route('viewCompanydetilse' ,$user->user_id) }}" > <i class="fas fa-eye"></i></a>
                             </td>

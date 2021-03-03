@@ -69,13 +69,15 @@
                     <li class="nav-item">
                   <a href="{{ route('TendersPosting') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>{{__('fields_web.Notification.MessagesAll')}}</p>
+                        <p>{{__('fields_web.Notification.waitTender')}}</p>
+
                       </a>
                     </li>
                     <li class="nav-item">
                   <a href="{{ route('JobsPosting') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>{{__('fields_web.Notification.waitAccount')}}</p>
+                        <p>{{__('fields_web.Notification.waitJob')}}</p>
+
                       </a>
                     </li>
                   </ul>

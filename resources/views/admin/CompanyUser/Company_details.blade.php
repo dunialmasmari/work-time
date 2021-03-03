@@ -9,7 +9,7 @@
 <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <!-- left column -->
+        <!-- left column --> 
         <div class="col-md-12">
              <!-- general form elements -->
              <div class="card card-row card-default">
@@ -73,7 +73,8 @@
                                                             </div>
                                                            <div class="modal-footer justify-content-between">
                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">{{(__('fields_web.Notification.rejectNo'))}}</button>
-                                                                 <a href="{{route('acceptAccount',$compnyInfo->user_id)}}"><button type="button" class="btn btn-success swalDefaultSuccess">{{(__('fields_web.Notification.acceptA'))}}</button></a>
+                                                                 <a href="{{route('acceptAccount',$compnyInfo->user_id)}}">
+                                                                            <button type="button" class="btn btn-success swalDefaultSuccess">{{(__('fields_web.Notification.acceptA'))}}</button></a>
                                                             </div>
                                                          </div>
                                                   <!-- /.modal-content -->
@@ -98,7 +99,8 @@
                                                       </div>
                                                       <div class="modal-footer justify-content-between">
                                                                         <button type="button" class="btn btn-default" data-dismiss="modal">{{(__('fields_web.Notification.rejectNo'))}}</button>
-                                                        <a href="{{route('rejectAccount',$compnyInfo->user_id)}}"><button type="button" class="btn btn-danger swalDefaultError">{{(__('fields_web.Notification.rejectYes'))}}</button></a>
+                                                        <a href="{{route('rejectAccount',$compnyInfo->user_id)}}">
+                                                                        <button type="button" class="btn btn-danger swalDefaultError">{{(__('fields_web.Notification.rejectYes'))}}</button></a>
                                                       </div>
                                                     </div>
                                             <!-- /.modal-content -->

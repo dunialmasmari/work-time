@@ -26,7 +26,7 @@ class Job extends Model
             'created_at',
             'updated_at',
         ];
-    
+        protected $guarded = ['active'];
       /*  protected $guarded = [];
 
         protected $casts = [

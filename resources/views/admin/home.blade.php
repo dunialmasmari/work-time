@@ -104,8 +104,8 @@
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">{{__('fields_web.reports.totalUsers')}}</span>
-                            <span class="info-box-number"> {{ $totalusers }}</span>
+                            <span class="info-box-text">{{__('fields_web.reports.total_visitors')}}</span>
+                            <span class="info-box-number"> {{ $total_visitors }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
