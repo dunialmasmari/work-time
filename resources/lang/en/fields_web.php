@@ -436,12 +436,22 @@ return [
   'Users'=>[
     'Title'=> 'Users list',
     'Name'=> 'Name',
-    'UserName'=> 'UserName',
+    'UserName'=> 'User Name',
+    'fullName'=> 'Full Name',
     'Email'=> 'Email',
     'status'=> 'status',
     'Actions'=> 'Actions',
     'Active'=> 'Active',
     'notActive'=> 'not Active',
+    'applyAsCompany'=>"Register as Employeer",
+    'applyAsEmplyee'=>"Register as User",
+    'Login'=>'Login',
+    'dontHaveAccount'=>"You don't have account",
+    'HaveAccount'=>"Have an account",
+    'or'=>'OR',
+    'register'=>'Register',
+    'createUserAccount'=>'Create User Account',
+    'createEmployerAccount'=>'Create Employer Account'
   ],
 
    /**Add Users */
