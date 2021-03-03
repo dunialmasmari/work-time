@@ -80,7 +80,7 @@
     $('.swalDefaultSuccess').click(function() {
       Toast.fire({
         icon: 'success',
-        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        title: "{{(__('fields_web.Notification.doneAccpt'))}}."
       })
     });
     $('.swalDefaultInfo').click(function() {
@@ -92,7 +92,7 @@
     $('.swalDefaultError').click(function() {
       Toast.fire({
         icon: 'error',
-        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        title: "{{(__('fields_web.Notification.doneReject'))}}."
       })
     });
     $('.swalDefaultWarning').click(function() {

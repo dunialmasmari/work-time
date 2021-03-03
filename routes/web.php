@@ -81,6 +81,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
 
 
+
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'visit'] , 'middleware' => 'auth'
@@ -118,7 +119,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
        Route::post('userProfile/generateCover1','ResumeController@generateCover1')->name('generateCover1');
        Route::post('userProfile/generateCover2','ResumeController@generateCover2')->name('generateCover2');
        Route::post('userProfile/generateCover3','ResumeController@generateCover3')->name('generateCover3');
-  });
+       
+   });
+
+   Route::namespace('Notification')->group(function(){
+    Route::get('createNotify','NotificationController@viewCreatNotify')->name('createNotify');
+    Route::post('createNotification','NotificationController@createNotification')->name('createNotification');
+    Route::get('getall','NotificationController@getall');
+   });
+
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),
 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'visit'] , 'middleware' => 'auth'
@@ -143,5 +152,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });
+
+    
 
 });

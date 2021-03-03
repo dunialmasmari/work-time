@@ -199,8 +199,10 @@ return [
     'applaylink'=> 'Visit website Applaying',
     'applayEmail'=> 'Sending Email Applaying',
     'toapplying'=>'To visit the Link or Email of applying ',
-    'Active'=>'Active',
-    'notActive'=>'Inactive'
+    'Active'=> 'Active',
+    'notActive'=> 'not Active',
+    'userAdd'=>'Add by'
+
   ],
 
   'Services'=> [
@@ -653,8 +655,38 @@ return [
     'postJob'=>'Job Details',
     'postJobmessage'=>'This job need some process',
     'postTendermessage'=>'This tender need some process',
-    ''=>'',
-    ''=>'',
+    'tender'=>'Tnder',
+    'job'=>'Job',
+    'both'=>'Tenders and Jobs ',
+    'All'=>'All Majors',
+    'crateNotify'=>'Create Notifications Of Tenders And Jobs',
+    'NotifyType'=>'Notifications Type ',
+    'explaine'=>'We will send notifictaions to your email every day please choose your interests type and its category ',
+    'createNotifyNow'=>'cerate notification',
+    'addAccountmessage'=>'This Account need some process',
+    'rejectAccount'=>'Rejecte Account',
+    'acceptAccount'=>'Accept Account',
+    'sureRejectAccount'=>'Are you sure you rejected Account?',
+    'sureAcceptAccount'=>'The Account will Subscriber in websit !',
+    'acceptA'=>'Accept Subscriber',
+    'activeAccount'=>'This Account is active and Subscriber',
+    'waitingAccount'=>'This Account is waiting ',
+    'waitAccount'=>'Accounts waiting ',
+    'rejectingAccount'=>'This Account not active and rejected',
+    'waitJob'=>'Jobs waiting ',
+    'waitTender'=>'Tenders waiting ',
+    'activeJob'=>'This Job is show in home ',
+    'activeTender'=>'This Tender is show in home ',
+    'waitingJob'=>'This Job is waiting ',
+    'waitingTender'=>'This Tender is waiting ',
+    'rejectingJob'=>'This Job not active and rejected',
+    'rejectingTender'=>'This Tender not active and rejected',
+    'deadline'=>'It is Expired  , The time has been finished',
+    'doneReject' => 'Rejecting done',
+    'doneAccpt' => 'Accepting done ',
+    
+
+
     ''=>'',
     ''=>'',
   ],

@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Models\Tender;
 use App\Models\userProf;
 use App\Models\userNotify;
+use App\Models\interstedTendersJob;
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\Notifies\NotifyEmail;
 use Carbon\Carbon;
@@ -50,11 +51,57 @@ class TenderNotify extends Command
             ->where('tenders.active','1')
             ->where('tenders.start_date',$date)->get(); //get all tenders where active and show today
             //print_r($tenders); echo $date;
+
           foreach($tenders as $tender)
             {
+                $users=interstedTendersJob::all();
+            foreach($users as $user)
+            {   if($user->type== 2  )
+               {
+                   if($user->major_id == 0 || $user->major_id == $tender->major_id)
+                   {
+                    $data=[
+                        'major_name'=>$tender->major_name,
+                        'tender_id'=> $tender->tender_id,
+                        'major_id'=> $tender->major_id,
+                        'title'=> $tender->title,
+                        'image'=>$tender->image,
+                        'company'=> $tender->company,
+                        'location'=> $tender->location,
+                        'email'=>$user->email,
+                    ];
+                    
+                    $delay=now()->addSeconds(20);
+                    Mail::To($user->email)->send(new NotifyEmail ($data) );
+                   }
+               }
+
+               if($user->type== 3  )
+               {
+                   if($user->major_id == 0 || $user->major_id == $tender->major_id )
+                   {
+                    $data=[
+                        'type'=>'tender',
+                        'major_name'=>$tender->major_name,
+                        'tender_id'=> $tender->tender_id,
+                        'major_id'=> $tender->major_id,
+                        'title'=> $tender->title,
+                        'image'=>$tender->image,
+                        'company'=> $tender->company,
+                        'location'=> $tender->location,
+                        'email'=>$user->email,
+                    ];
+                    
+                    $delay=now()->addSeconds(20);
+                    Mail::To($user->email)->send(new NotifyEmail ($data) );
+                   }
+               }
+            }
+        
+                //for more majors and more location 
                 //$user=userprof::select('userProfs_email')->get();
                 //$emails=userprof::pluck('userProfs_email')->toArray(); //get all email of table that want notify emails for all tenders
-                $users=userNotify::select('user_email','major_name','location_name')->get();
+/*                 $users=userNotify::select('user_email','major_name','location_name')->get();
                 foreach($users as $user)
                    { 
                     $major_ar=explode(',', $user->major_name);
@@ -109,7 +156,7 @@ class TenderNotify extends Command
                             }
                             
                         }
-                   }
+                   } */
             }
          }
     

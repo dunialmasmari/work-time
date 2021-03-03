@@ -9,6 +9,7 @@ use App\Models\role_user;
 use App\Models\job;
 use App\Models\tender;
 use App\Models\compnyInfo;
+
 class CompanyUserController extends Controller
 {
     /**

@@ -214,9 +214,9 @@
         if(data.type== 'add-company')
         {var url = "{{route('viewCompanydetilse', '')}}"+"/"+data.id;}
         if(data.type== 'post-job')
-        {var url = "{{route('viewJobdetilse', '')}}"+"/"+data.id;}
+        {var url = "{{route('postJob', '')}}"+"/"+data.id;}
         if(data.type== 'post-tender')
-        {var url = "{{route('viewTenderdetilse', '')}}"+"/"+data.id;}
+        {var url = "{{route('postTender', '')}}"+"/"+data.id;}
 
         var newNotificationHtml = `
         <div class="dropdown-divider"></div>

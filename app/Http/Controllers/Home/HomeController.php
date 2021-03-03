@@ -14,6 +14,7 @@ use App\Models\Advertising;
 use App\Models\service;
 use App\Models\blog;
 use App\Events\StatusLiked;
+use App\Events\AdminNotification;
 
 
 
@@ -54,11 +55,20 @@ class HomeController extends Controller
                    'blogs'=>$blogs,
                   ];
 
-                  $dataevent =[
+                  $dataevent1 =[
                     'user_name'  => 'haifaa nabeel',
                     'comment' => 'haifaa nabeel comment ',
                ];
-              event(new StatusLiked($dataevent));
+               $dataevent =
+                  [ 
+                    'type'=>'add company',
+                    'message'  => 'new message in your email',
+                    'time' => $date,
+                    'id'=>0,
+                  ];
+              event(new AdminNotification($dataevent)); 
+
+              event(new StatusLiked($dataevent1));
         return view('HR.home',$data);
     }
 }
