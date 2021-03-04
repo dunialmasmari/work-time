@@ -24,7 +24,8 @@ class BlogDashboarControlle extends Controller
             $blogs = blog::get();
             return view('admin.blog.blog_list',['blogs' => $blogs, 'role_users' => $role_users]);
         }
-        else{
+        else
+        {
             return response()->json(['message' => 'You do not have permation '], 404);   
         }
     }

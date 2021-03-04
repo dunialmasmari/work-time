@@ -122,10 +122,10 @@ margin: 0px 5px;
   padding-top: 102px;
 }
 
-.container-fluid,.container:lang(ar){
+.container-fluid:lang(ar),.container:lang(ar){
   text-align: right;    
 }
-.container-fluid,.container:lang(en){
+.container-fluid:lang(en),.container:lang(en){
   text-align: left;
 }
 .justify-content-end {
@@ -264,6 +264,10 @@ margin: 0px 5px;
   }
 
 
+.tender-card{
+
+  padding: 40px;
+}
 .btnSubmit
 {
     width: 50%;

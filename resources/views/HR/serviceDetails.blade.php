@@ -112,8 +112,8 @@
                                 @endsection
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12' style="width:100%">
                                     <h4 class='label py-3'> {{ $ser->title }}</h4>
-                                    <div class="imagewrap mx-2 my-2"><img src="{{ URL::asset('assets/uploads/services/images/' . $ser->image) }}"
-                                        class="d-block" alt="" width="220" height="auto"></div> 
+                                    <div class=" mx-2 my-2"><img src="{{ URL::asset('assets/uploads/services/images/' . $ser->image) }}"
+                                        class="d-block" alt="" width="100%" height="auto"></div> 
                                     {!! $ser->description !!} 
                                 </div>
                             </div>

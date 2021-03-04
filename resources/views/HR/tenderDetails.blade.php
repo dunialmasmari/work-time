@@ -13,7 +13,7 @@
         </div>
     </div>
     <hr>
-    <div class="container  md-light" style="overflow-x:hidden;">
+    <div class="container  md-light" >
       
          <div class="row">
 
@@ -28,10 +28,10 @@
                  
                   
 
-                        <div class="row ">
-                            <div class='card my-0 px-2'>
-                                <div class="row">
-                                    <div class='col-12 py-2 px-4'>
+                        <div class="row">
+                            <div class='card   my-0 tender-card'>
+                                <div class=" row ">
+                                    <div class='col-12 py-2 px-4 '>
                                         <h3 class='label' class='label'  > {{ $tender->title }}
                                             </h3>
 

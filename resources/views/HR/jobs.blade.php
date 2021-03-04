@@ -31,11 +31,9 @@
                                         <div class="col-lg-6 col-md-12 ">
                                             <div class="card py-0" > 
                                                 <div class="card-body mx-2 my-0">
-                                                    <div class='row'>
-                                                         <div class=' my-auto' style="  background: url({{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}) no-repeat;
-                                                         background-size: cover; height:70px; width:70px;background-color:rgb(79, 157, 213);">
-                                                            
-                                                           </div>
+                                                    <div class='row'> 
+                                                           <img   src="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}"
+                                                           style="  height:70px; width:70px;background-color:rgb(79, 157, 213);" />
                                                            <div class='col-9 my-auto' >
                                                                 <h5 >
                                                                 {{ \Illuminate\Support\Str::limit($job->title.'this is an additional text to view the page design', $limit = 45, $end = '...') }}
