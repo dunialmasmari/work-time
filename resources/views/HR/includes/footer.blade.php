@@ -125,7 +125,45 @@ min-height: 13rem; */
         height: 20px;
         text-align: center;
     }
+    ul {
+    margin: 0;
+    padding: 0;
+}
 
+.kilimanjaro_widget > li {
+    display: inline-block;
+}
+p, ul li, ol li {
+    font-weight: 300;
+}
+ol li, ul li {
+    list-style: outside none none;
+}
+.kilimanjaro_widget a {
+    border: 2px solid rgb(79, 157, 213);
+    border-radius: 6px;
+   background: rgb(156, 219, 238); 
+    color: rgb(20, 20, 20);
+    display: inline-block;
+    font-size: 17px ;
+    margin-bottom: 4px;
+    padding: 7px 12px;
+}
+.kilimanjaro_widget a:hover{
+    background: rgb(79, 157, 213);
+}
+.kilimanjaro_part {
+    color: #FFF
+        padding: 0px;
+        display: table;
+        margin-top: 10px;
+        margin-right: auto;
+        margin-bottom: 10px;
+        margin-left: auto;
+    }
+    .kilimanjaro_part span{
+        color: #FFF;
+    }
 </style>
 <footer class="footer">
     <div class="container bottom_border">
@@ -208,7 +246,11 @@ min-height: 13rem; */
             <li><a href="{{ route('contacthr') }}">{{ __('fields_web.Navbar.contact_us') }}</a></li>
         </ul>
         <!--foote_bottom_ul_amrc ends here-->
-
+        <div class="kilimanjaro_part">
+            <ul class=" kilimanjaro_widget">
+              <span>{{ __('fields_web.Footer.subscribemassage') }}</span>  <li><a href="{{ route('createNotify') }}">{{ __('fields_web.Footer.subscribe') }}</a></li>
+            </ul> 
+        </div>
         <ul class="social_footer_ul">
             <li><a href="https://www.facebook.com/worktimeym/"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="https://twitter.com/worktim43494692?s=09"><i class="fab fa-twitter"></i></a></li>
