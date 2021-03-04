@@ -79,7 +79,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('blog/{id}','BlogController@viewBlogId')->name('blog');
        // Route::post('sendingCV','JobController@sendCV');
     });
-
+    Route::namespace('Notification')->group(function(){
+        Route::get('createNotify','NotificationController@viewCreatNotify')->name('createNotify');
+        Route::post('createNotification','NotificationController@createNotification')->name('createNotification');
+        Route::get('getall','NotificationController@getall');
+       });
 
 
 });
@@ -122,11 +126,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
        
    });
 
-   Route::namespace('Notification')->group(function(){
-    Route::get('createNotify','NotificationController@viewCreatNotify')->name('createNotify');
-    Route::post('createNotification','NotificationController@createNotification')->name('createNotification');
-    Route::get('getall','NotificationController@getall');
-   });
+  
 
 });
 Route::group(['prefix' => LaravelLocalization::setLocale(),

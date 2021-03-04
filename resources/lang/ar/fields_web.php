@@ -18,6 +18,8 @@ return [
     'Footer'=> [
       'about_us'=> 'من نحن',
       'contact_us'=> 'تواصل معنا',
+      'subscribe'=>'اشتراك',
+      'subscribemassage'=>'الإشتراك في التنبيهات الإلكترونية للمناقصات والوظائف',
       'allrights'=> 'جميع الحقوق محفوظة Woketime-2021'
     ],
     'Header'=> [

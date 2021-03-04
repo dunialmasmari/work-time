@@ -18,6 +18,8 @@ return [
       'Footer'=> [
         'about_us'=> 'about WorkTime',
         'contact_us'=>'Contact us',
+        'subscribe'=>'Subscribe',
+        'subscribemassage'=>'Subscribe to get tender and job notices',
         'allrights'=> 'All Rights Reserved Worktime-2021'
       ],
       'Header'=> [

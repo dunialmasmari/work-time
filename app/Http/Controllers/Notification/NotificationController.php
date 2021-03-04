@@ -197,6 +197,7 @@ class NotificationController extends Controller
                 'type' => $request->type,
                 'major_id' => $request->major_id,
               ]);
+              return redirect()->route('homehr');
               //return Redirect()->back()->with(['message' => 'The Message']);
               /* session()->flash('success', __('fields_web.apisuccessmesages.title'));
                return redirect()->back(); */
