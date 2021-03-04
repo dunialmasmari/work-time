@@ -29,13 +29,13 @@
           @foreach ($jobs as $job)
            
            <div class="row">
-           @if($job->Deadline < @now())
+           {{-- <!-- @if($job->Deadline < @now())
            <div class="col-sm-12 col-md-12">
                 <div class="color-palette-set">
                   <div class="bg-danger color-palette"><h2 style='text-align:center'>{{(__('fields_web.Notification.deadline'))}}</h2></div>
                 </div>
               </div>
-              @endif
+              @endif -->--}}
            </div>
 
            <div class="row">
@@ -70,7 +70,7 @@
 
                                                     <a href="{{route('notReadNotification',['post-job',$job->job_id])}}">
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.NotificationLater'))}}
                                                     </button>
                                                     </a>
 

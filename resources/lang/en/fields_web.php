@@ -695,6 +695,8 @@ return [
     'Status'=>'Status of notification',
     'see' => 'See It ',
     'notsee' => 'Not See It ',
+    'NotificationLater'=>'Cencel, Remember me another time',
+
 
 
     ''=>'',

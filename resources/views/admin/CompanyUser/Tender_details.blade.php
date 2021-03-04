@@ -33,13 +33,13 @@
       @foreach ($tenders as $tender)
            
            <div class="row">
-           @if($tender->Deadline < @now())
+           {{--<!-- @if($tender->Deadline < @now())
            <div class="col-sm-12 col-md-12">
                 <div class="color-palette-set">
                   <div class="bg-danger color-palette"><h2 style='text-align:center'>{{(__('fields_web.Notification.deadline'))}}</h2></div>
                 </div>
               </div>
-              @endif
+              @endif -->--}}
            </div>
            <div class="row">
            @if($tender->active == 1)
@@ -72,7 +72,7 @@
 
                                                     <a href="{{route('notReadNotification',['post-tender',$tender->tender_id])}}">
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.NotificationLater'))}}
                                                     </button>
                                                     </a>
 

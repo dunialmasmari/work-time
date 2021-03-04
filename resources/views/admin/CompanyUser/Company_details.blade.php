@@ -56,7 +56,7 @@
 
                                                     <a href="{{route('notReadNotification',['add-company',$compnyInfo->user_id])}}">
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.NotificationLater'))}}
                                                     </button>
                                                     </a>
 <!-- /.modal -->
