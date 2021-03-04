@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>تنبية لمناقصة جديدة </title>
+    <title>قبول الاشتراك في الموقع</title>
 
     <style type="text/css"></style>
 
@@ -54,7 +54,7 @@
 
                             <div style="line-height: 35px">
 
-                                جديدة  <span style="color: #5caad2;">مناقصة </span>
+                             تم قبول <span style="color: #5caad2;">طلبك بالاشتراك</span>
 
                             </div>
                         </td>
@@ -87,11 +87,13 @@
 <!-- data of tender ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                        <h1>العنوان :{{$data['title']}} </h1>
-                                        <h2>الجهة المقدمة :{{$data['company']}} <h2>
-                                        <h3>القسم :{{$data['major_name']}}  <h3>
-                                        <!-- <h3>id :{{$data['tender_id']}}  <h3> -->
-                                        </div>
+                                        <h3>لقد تم قبول طلبكم بالاشتراك في موقع ورك تايم </h3>
+                                        {{--<!--<h2>اسم المستخدم : {{$data}} </h2>
+                                         <h2>الايميل الخاص بك  : {{$data['Email']}} <h2> -->--}}
+                                        <h3>للدخول الى الحساب قم بالنقر على زر تسجيل الدخول </h3>
+
+<!--                                         {{--<h3>id :{{$data['tender_id']}}  <h3>--}}
+ -->                                        </div>
                                     </td>
                                 </tr>
                             </table>
@@ -115,7 +117,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="https://worktime-ye.com/ar/tender/{{$data['tender_id']}}" style="color: #ffffff; text-decoration: none;">مزيد من المعلومات</a>
+                                            <a href="https://worktime-ye.com/ar/loginhr" style="color: #ffffff; text-decoration: none;">تسجيل الدخول </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -159,7 +161,7 @@
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
 
-                                            ايميل الموقع  <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
+                                            ايميل الموقع : <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
 
                                         </div>
                                     </td>

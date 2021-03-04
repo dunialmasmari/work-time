@@ -115,7 +115,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="https://worktime-ye.com/ar/job/{{$data['job_id']}}" style="color: #ffffff; text-decoration: none;">SEE MORE</a>
+                                            <a href="https://worktime-ye.com/ar/job/{{$data['job_id']}}" style="color: #ffffff; text-decoration: none;"> مزيد من المعلومات</a>
                                         </div>
                                     </td>
                                 </tr>
