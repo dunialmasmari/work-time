@@ -176,7 +176,7 @@ class NotificationController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'type' => ['required'],
             'major_id' => ['required'],
 
@@ -188,9 +188,23 @@ class NotificationController extends Controller
 
     public function createNotification(Request $request)
     { 
-             $this->validator($request->all())->validate();
-
-             
+             $this->validator($request->all())->validate(); 
+             $user_info=interstedTendersJob::where('email',$request->email);
+             if($user_info->exists())
+             {
+               // dd( $request); 
+               $user_info->Update([
+                  'name' => $request->name,
+                  'user_id' => '0',
+                  'email' => $request->email,
+                  'type' => $request->type,
+                  'major_id' =>  implode(",",  $request->major_id),
+                ]);
+              //  return redirect()->route('userProfile');
+          
+  
+            }
+            else{
              $interstedTendersJob = interstedTendersJob::create([
                 'name' => $request->name,
                 'user_id' => '0',
@@ -198,6 +212,7 @@ class NotificationController extends Controller
                 'type' => $request->type,
                 'major_id' =>  implode(",",  $request->major_id),
               ]);
+             }
               return redirect()->route('homehr');
               //return Redirect()->back()->with(['message' => 'The Message']);
               /* session()->flash('success', __('fields_web.apisuccessmesages.title'));
