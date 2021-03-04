@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifyEmailAcceptUser extends Mailable
+class NotifyEmailRejectUser extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +34,7 @@ class NotifyEmailAcceptUser extends Mailable
     {
         // if($type=='tender')
         // {
-            return $this->subject(' Notification Of Accept User ')->view('email.MailNotifyAcceptUser');
+            return $this->subject(' Notification Of Reject User ')->view('email.MailNotifyRejectUser');
         /* }
         elseif($type=='job')
         {return $this->subject(' Notifation Of Job ')->view('email.MailNotifyJob');}*/

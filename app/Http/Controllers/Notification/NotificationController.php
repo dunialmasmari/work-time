@@ -22,6 +22,7 @@ use App\Models\RealTimeNotification;
 use App\User;
 use App\Models\compnyInfo;
 use App\Mail\Notifies\NotifyEmailAcceptUser;
+use App\Mail\Notifies\NotifyEmailRejectUser;
 use Mail;
 
 
@@ -412,6 +413,15 @@ class NotificationController extends Controller
                     $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
                     ->where('users.user_id', $id)
                     ->Update(['users.active' => '3', 'compnyinfo.active' => '3']);
+
+                    $userAcceptname = User::select('name')->where('user_id', $id)->get();
+                    $userAcceptemail = User::select('email')->where('user_id', $id)->get();
+                       //dd($userAcceptname);
+                     $dataEmail=[
+                        'Name' => $userAcceptname,
+                        'Email'=> $userAcceptemail,
+                       ];
+                       Mail::to($userAcceptemail)->send(new NotifyEmailRejectUser($dataEmail));
                    
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }

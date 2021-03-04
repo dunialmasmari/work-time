@@ -38,7 +38,7 @@ class NotifyEmailJop extends Mailable
          }
         elseif($type=='job')
         {*/
-            return $this->subject(' Notifation Of Job ')->view('email.MailNotifyJob');
+            return $this->subject(' Notification Of Job ')->view('email.MailNotifyJob');
         // }
     } 
 }
