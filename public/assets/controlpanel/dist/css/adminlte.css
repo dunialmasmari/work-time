@@ -31359,3 +31359,14 @@ a.text-muted:hover {
   direction: ltr;
 
 }
+
+.dropdown-menu:lang(ar){
+  text-align:right;
+}
+.dropdown-menu:lang(en){
+  text-align:left;
+
+}
+.info-box1 {
+  box-shadow: 0 0 1px rgb(0 0 0 / 0), 0 0px 0px rgb(0 0 0 / 0);
+}

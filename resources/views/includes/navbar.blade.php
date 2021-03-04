@@ -92,6 +92,8 @@
           <div class='dropdown-menu-div' style='height:auto;word-wrap: break-word'>
           
         </div>
+ 
+
           <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
               <div class='row'>
@@ -145,7 +147,7 @@
         notificationsCountElem1.hide();
       }
 
-      // Enable pusher logging - don't include this in production
+      // Enable pusher logging - don't include this in production newPostingJob
        Pusher.logToConsole = true;
        
        var pusher = new Pusher('732c493a2daef83bcefa');
@@ -154,24 +156,26 @@
         //alert(('haifaa'));
         if(data.type == 'message')
       {
+        //var url = "{{route('Messages')}}";
+        var url = "{{route('Message', '')}}"+"/"+data.id;
+        var message="{{(__('fields_web.Notification.newMessage'))}}";
         var existingNotifications1 = notifications1.html();
         var newNotificationHtml1 = `
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <!-- <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <!-- <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span> -->
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm "><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-        
+              <a href="`+url+`" class="dropdown-item">
+              <div class="">
+                 <div class="info-box shadow-lg">
+                   <span class="info-box-icon bg-danger"><i class="fas fa-comments"></i></span>
+                 
+                   <div class="info-box-content">
+                     <span class="info-box-number">`+ message + `</span>
+                     <span class="info-box-text"> <i class="far fa-clock mr-1"></i>  ` + data.time + `</span>
+                 
+                   </div>
+                   <!-- /.info-box-content -->
+                 </div>
+                 <!-- /.info-box -->
+                 </div>
+              </a> 
         `;
         notifications1.html(newNotificationHtml1 + existingNotifications1);
 
@@ -212,21 +216,61 @@
         $id=data.id;
         var id=data.id;
         if(data.type== 'add-company')
-        {var url = "{{route('viewCompanydetilse', '')}}"+"/"+data.id;}
+        { 
+           var url = "{{route('viewCompanydetilse', '')}}"+"/"+data.id;
+           var icon ='fas fa-users';
+           var message="{{(__('fields_web.Notification.newUser'))}}";
+           }
         if(data.type== 'post-job')
-        {var url = "{{route('viewJobdetilse', '')}}"+"/"+data.id;}
+        {   var url = "{{route('viewJobdetilse', '')}}"+"/"+data.id;
+            var icon ='fas fa-info';
+            var message="{{(__('fields_web.Notification.newPostingJob'))}}";
+        }
         if(data.type== 'post-tender')
-        {var url = "{{route('viewTenderdetilse', '')}}"+"/"+data.id;}
+        {     var url = "{{route('viewTenderdetilse', '')}}"+"/"+data.id;
+              var icon ='fas fa-info';
+              var message="{{(__('fields_web.Notification.newPostingTender'))}}";
+              }
 
         var newNotificationHtml = `
-        <div class="dropdown-divider"></div>
+        <a href="`+url+`" class="dropdown-item">
+              <div class="">
+                 <div class="info-box shadow-lg">
+                   <span class="info-box-icon bg-danger"><i class="`+ icon + `"></i></span>
+                 
+                   <div class="info-box-content">
+                     <span class="info-box-number">`+ message + `</span>
+                     <span class="info-box-text"> <i class="far fa-clock mr-1"></i>  ` + data.time + `</span>
+                 
+                   </div>
+                   <!-- /.info-box-content -->
+                 </div>
+                 <!-- /.info-box -->
+                 </div>
+              </a> 
+       <!-- <a href="`+url+`" class="dropdown-item">
+             Message Start -->
+            <!--<div class="media">
+               <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
+              <!--<div class="media-body">
+                <h3 class="dropdown-item-title">
+                
+                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span> -->
+                <!-- </h3>
+                <p class="text-sm"> `+ message + `</p>
+                <p class="text-sm "><i class="far fa-clock mr-1"></i>` + data.time + `</p>
+              </div>
+            </div>
+            Message End -->
+          </a>
+        <!--<div class="dropdown-divider"></div>
           <a href="`+url+`" class="dropdown-item">
           <div class='row'>
                 <div class='col-2'><i class="fas fa-reply "></i></div> 
                 <div class='col-7' style='height:auto'><i style='height:auto;word-wrap: break-word'>` + data.id + `</i></div>
                 <div class='col-3'><i class="text-sm text-muted" style='height:auto;word-wrap: break-word'>` + data.message + `</i></div>
               </div>
-          </a>
+          </a>-->
         `;
         notifications.html(newNotificationHtml + existingNotifications);
 

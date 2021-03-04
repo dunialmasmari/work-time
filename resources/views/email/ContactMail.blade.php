@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>Contact Work-time</title>
+    <title>تواصل معنا  Work-time</title>
 
     <style type="text/css"></style>
 
@@ -55,7 +55,7 @@
                             <div style="line-height: 35px">
 
                             <h4 class=' py-3' >
-                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">MESSAGE</span>
+                                 &nbsp;&nbsp; جديدة  <span style="color: #5caad2;text-align:center">رسالة </span>
                                  </h4>
 
                             </div>
@@ -70,10 +70,10 @@
 <!-- data of contact ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                             <h1>Contact  <span style="color: #5caad2;text-align:center">Message </span></h1>
-                                             <p>Name:  {{$data['name']}}</p>
-                                             <p>Email: {{$data['Email']}}</p>
-                                             <p>Message:  {{$data['message']}}</p>
+                                             <h1>الرسالة  <span style="color: #5caad2;text-align:center">محتوى  </span></h1>
+                                             <p>الاسم :  {{$data['name']}}</p>
+                                             <p>الايميل : {{$data['Email']}}</p>
+                                             <p>الرسالة:  {{$data['message']}}</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -116,7 +116,7 @@
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
 
-                                            Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
+                                            ايميل الموقع: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
 
                                         </div>
                                     </td>

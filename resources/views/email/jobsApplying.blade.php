@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>Job Applying from Work-time</title>
+    <title>التقديم على وظيفةعبر work time </title>
 
     <style type="text/css"></style>
 
@@ -36,7 +36,7 @@
                                         <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width:110px;" src="{{ $message->embed(public_path().'/imgProj/hrlogo.png') }}" alt="" /></a>
 
                             <h4 class=' ' >
-                                 &nbsp;&nbsp; NEW  <span style="color: #5caad2;text-align:center">JOB APPLY</span>
+                                 &nbsp;&nbsp; جديد  <span style="color: #5caad2;text-align:center">تقديم وظيفة</span>
                                  </h4>
                                  <h4 class='' >
                                 <span style="color: #5caad2;text-align:center"> &nbsp;&nbsp; طلب</span>  تقديم وظيفة 
@@ -191,7 +191,7 @@
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
                                                   <p> مع تحيات work-time</p>
-                                            Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktime.com@gmail.com</a>
+                                            ايميل الموقع : <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
 
                                         </div>
                                     </td>

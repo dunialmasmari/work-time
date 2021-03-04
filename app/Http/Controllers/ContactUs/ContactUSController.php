@@ -40,8 +40,9 @@ class ContactUSController extends Controller
         
         Mail::to('infoworktimeym@gmail.com')->send(new ContactUsMail($data));
         /* add to notification  */
-          $date=Carbon::today();
-            $notify=RealTimeNotification::create([
+        $dateday=Carbon::today();
+        $date = Carbon::parse($dateday)->format('Y - m - d');
+          $notify=RealTimeNotification::create([
                 'type'=>'message',
                 'id_type'=>0,
                 'see_it'=>0,
@@ -54,7 +55,7 @@ class ContactUSController extends Controller
               'type'=>'message',
               'message'  => 'new message in your email',
               'time' => $date,
-              'id'=> 0
+              'id'=> $notify->id,
             ];
         event(new AdminNotification($dataevent)); 
         /* end add to notification  */

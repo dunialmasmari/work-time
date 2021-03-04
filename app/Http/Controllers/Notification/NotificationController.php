@@ -33,8 +33,13 @@ class NotificationController extends Controller
         foreach($role_users as $role_user)
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            //$blogs = blog::get();
-            return view('admin.Notifications.notifications_list',['role_users' => $role_users]);
+            $notifications=RealTimeNotification::where('type','!=','message')->get();
+
+             $data=[
+                'role_users' => $role_users,
+                'notifications' => $notifications,
+             ];
+            return view('admin.Notifications.notifications_list',$data);
         }
         else
         {
@@ -42,6 +47,54 @@ class NotificationController extends Controller
         }
         //return view('admin.Notifications.notifications_list');
 
+    }
+    public function readNotifcations($id)
+    {
+        $notRead=RealTimeNotification::where('id',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('Notifications');
+    }
+
+    public function notreadNotifcations($id)
+    {
+        $notRead=RealTimeNotification::where('id',$id)
+                    ->Update(['see_it' => '1']);
+
+            return redirect()->route('Notifications');
+    }
+
+    public function notReadNotification($type,$id)
+    {
+        if($type == 'add-company')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('Companies');
+        }
+        if($type == 'post-job')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('JobsPosting');
+        }
+        if($type == 'post-tender')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('TendersPosting');
+        }
+        if($type == 'message')
+        {
+            $notRead=RealTimeNotification::where('type','message')
+                   ->where('id',$id)
+                   ->Update(['see_it' => '0']);
+
+            return redirect()->route('Messages');
+        }
     }
 
     public function viewMessages()
@@ -51,8 +104,46 @@ class NotificationController extends Controller
         foreach($role_users as $role_user)
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            //$blogs = blog::get();
-            return view('admin.Notifications.messages_list',['role_users' => $role_users]);
+            $notifications=RealTimeNotification::where('type','message')->get();
+
+            $data=[
+               'role_users' => $role_users,
+               'notifications' => $notifications,
+            ];
+            return view('admin.Notifications.messages_list',$data);
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+        //return view('admin.Notifications.messages_list');
+
+    }
+
+    public function viewMessageDetails($id)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+
+            $notifications=RealTimeNotification::where('type','message')->where('id',$id)->get();
+
+            $readNotification=RealTimeNotification::where('type','message')
+            ->where('id',$id);
+             if ($readNotification->exists())
+                {
+                   $readNotification=RealTimeNotification::where('type','message')
+                   ->where('id',$id)
+                   ->Update(['see_it' => '1']);
+                   $data=[
+                    'role_users' => $role_users,
+                    'notifications' => $notifications,
+                 ];
+                   return view('admin.Notifications.message',$data);
+
+                }        
         }
         else
         {
@@ -210,7 +301,7 @@ class NotificationController extends Controller
  */
     }
 
-    public function getall()
+         public function getall()
         {
         //return response()->json($data,200);
         }

@@ -63,14 +63,16 @@
                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
                                                           <i class='far fa-check-square'></i> {{(__('fields_web.Notification.acceptJob'))}}
                                                     </button>
-                                                    <a href="{{route('JobsPosting')}}">
+                                                    
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectJob'))}}
+                                                    </button>
+
+                                                    <a href="{{route('notReadNotification',['post-job',$job->job_id])}}">
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
                                                         <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
                                                     </button>
                                                     </a>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectJob'))}}
-                                                    </button>
 
 
                                       <!-- /.modal -->
