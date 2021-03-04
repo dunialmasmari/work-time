@@ -9,6 +9,8 @@ use App\Models\role_user;
 use App\Models\job;
 use App\Models\tender;
 use App\Models\compnyInfo;
+use App\Models\RealTimeNotification;
+
 
 class CompanyUserController extends Controller
 {
@@ -143,6 +145,14 @@ class CompanyUserController extends Controller
             if ($jobs->exists())
             {
                 $jobs=$jobs->get();
+                   $readNotification=RealTimeNotification::where('type','post-job')
+                    ->where('id_type',$id);
+                     if ($readNotification->exists())
+                        {
+                           $readNotification=RealTimeNotification::where('type','post-job')
+                            ->where('id_type',$id)
+                            ->Update(['see_it' => '1']);
+                        }
                 return view('admin.CompanyUser.Job_details',['jobs' => $jobs, 'role_users' => $role_users]);
             } 
             else 
@@ -172,6 +182,14 @@ class CompanyUserController extends Controller
             if ($tenders->exists())
             {
                 $tenders=$tenders->get();
+                    $readNotification=RealTimeNotification::where('type','post-tender')
+                    ->where('id_type',$id);
+                     if ($readNotification->exists())
+                        {
+                           $readNotification=RealTimeNotification::where('type','post-tender')
+                            ->where('id_type',$id)
+                            ->Update(['see_it' => '1']);
+                        }
                     return view('admin.CompanyUser.Tender_details',['tenders' => $tenders, 'role_users' => $role_users]);           
             } 
             else 
@@ -197,6 +215,15 @@ class CompanyUserController extends Controller
             if ($compnyInfos->exists())
             {
                 $compnyInfos=$compnyInfos->get();
+                 $readNotification=RealTimeNotification::where('type','add-company')
+                    ->where('id_type',$id);
+                    if ($readNotification->exists())
+                       {
+                        $readNotification=RealTimeNotification::where('type','add-company')
+                            ->where('id_type',$id)
+                            ->Update(['see_it' => '1']);
+                       }
+
                     return view('admin.CompanyUser.Company_details',['compnyInfos' => $compnyInfos, 'role_users' => $role_users]);           
             } 
             else 

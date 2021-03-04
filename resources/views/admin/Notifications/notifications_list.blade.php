@@ -25,7 +25,7 @@
 
             <!-- <div class="row">
           <div class="col-md-12 col-sm-12 col-12">
-            <div class="info-box">
+            <div class="info-box  info-box1 ">
               <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
               <div class="info-box-content">
@@ -43,48 +43,74 @@
                   <tr>
                     <th>{{(__('fields_web.Notification.Notification'))}}</th>
                     <th>{{(__('fields_web.Notification.Time'))}}</th>
-                    <th>{{(__('fields_web.Notification.Type'))}}  </th>
+                    <th>{{(__('fields_web.Notification.Status'))}}  </th>
                     <th>{{(__('fields_web.Notification.SeeNew'))}}</th>
                   </tr>
                 </thead>
                 <tbody>
-
+                  @foreach($notifications as $notification)
                 <tr>
                     <td>
-                          <div class="info-box">
-                             <span class="info-box-icon bg-danger"><i class="far fa-envelope"></i></span>
+                          <div class="info-box  info-box1 ">
+                             <span class="info-box-icon bg-info"><i class="fas fa-bell"></i></span>
                               <div class="info-box-content">
-                                   <span class="info-box-text">Messages</span>
-                                   <span class="info-box-number">1,410</span>
+                                   <h6 class="info-box-number">{{$notification->type}}</h6>
+                                   <!-- <span class="info-box-text">1,410</span> -->
                               </div>
                                <!-- /.info-box-content -->
                            </div>
                                 <!-- /.info-box -->
                     </td>
                     <td>
-                          <div class="info-box">
+                          <div class="info-box  info-box1 ">
                               <div class="info-box-content">    
-                                   <p class="text-md "><i class="far fa-clock mr-2"></i> 4 Hours Ago</p>
+                                   <p class="text-md "><i class="far fa-clock mr-2"></i> {{$notification->create_time}}</p>
                               </div>
                                <!-- /.info-box-content -->
                            </div>
                                 <!-- /.info-box -->
                     </td>
                     <td>
-                          <div class="info-box">
+                          <div class="info-box  info-box1 ">
                               <div class="info-box-content">    
-                                   <p class="text-md "><i class="far fa-clock mr-2"></i> 4 Hours Ago</p>
+                                   @if($notification->see_it == 0)
+                                         <p class="text-md ">{{(__('fields_web.Notification.notsee'))}}</p>
+                                      @elseif($notification->see_it == 1)
+
+                                         <p class="text-md ">{{(__('fields_web.Notification.see'))}}</p>
+                                      @endif
                               </div>
                                <!-- /.info-box-content -->
                            </div>
                                 <!-- /.info-box -->
                     </td>
                     <td>
-                          <div class="info-box">
+                          <div class="info-box  info-box1 ">
                               <div class="info-box-content">    
                                      <div class="btn-group btn-group-sm">
-                                         <a href="#" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                          <a href="#" class="btn btn-warning"><i class="fas fa-eye-slash"></i></a>
+                                     @if($notification->see_it == 0)
+                                                    @if($notification->type == 'post-job')
+                                                              <a href="{{route('viewJobdetilse',$notification->id_type)}}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                                              <a href="{{route('notreadNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell"></i></a>
+                                                    @elseif($notification->type == 'post-tender')
+                                                              <a href="{{route('viewTenderdetilse',$notification->id_type)}}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                                              <a href="{{route('notreadNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell"></i></a>
+                                                    @elseif($notification->type == 'add-company')
+                                                              <a href="{{route('viewCompanydetilse',$notification->id_type)}}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                                              <a href="{{route('notreadNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell"></i></a>
+                                                              @endif
+                                      @elseif($notification->see_it == 1)
+                                                           @if($notification->type == 'post-job')
+                                                           <a href="{{route('viewJobdetilse',$notification->id_type)}}" class="btn btn-warning"><i class="fas fa-eye-slash"></i></a>
+                                                           <a href="{{route('readNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell-slash"></i></a>
+                                                           @elseif($notification->type == 'post-tender')
+                                                              <a href="{{route('viewTenderdetilse',$notification->id_type)}}" class="btn btn-warning"><i class="fas fa-eye-slash"></i></a>
+                                                              <a href="{{route('readNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell-slash"></i></a>
+                                                           @elseif($notification->type == 'add-company')
+                                                              <a href="{{route('viewCompanydetilse',$notification->id_type)}}" class="btn btn-warning"><i class="fas fa-eye-slash"></i></a>
+                                                              <a href="{{route('readNotifcations',$notification->id)}}" class="btn btn-danger"><i class="fas fa-bell-slash"></i></a>
+                                                           @endif
+                                      @endif
                                       </div>
                                     </div>             
                                <!-- /.info-box-content -->
@@ -92,7 +118,7 @@
                                 <!-- /.info-box -->
                     </td>
                 </tr>
-                  
+              @endforeach
               </tbody>
               </table> 
             </div>

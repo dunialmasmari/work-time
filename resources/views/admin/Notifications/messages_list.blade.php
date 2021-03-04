@@ -17,19 +17,25 @@
               
             </h1>
           </div>
+          @foreach($notifications as $notification)
           <div class="card-body">
                 <div class="info-box card-warning card-outline">
                 <span class="info-box-icon bg-info"><i class="fas fa-envelope"></i></span>
                   <div class="info-box-content">
-                       <span class="info-box-text">email</span>
-                       <span class="info-box-number">time</span>
+                       <span class="info-box-number">{{$notification->type}}</span>
+                       <span class="info-box-text">{{$notification->create_time}}</span>
                    </div>
-                   <span class="info-box-icon bg-info"><a href=""><i class="fas fa-envelope-open"></i></a></span>
+                    @if($notification->see_it == 0)
+                        <span class="info-box-icon bg-danger"><a href="{{route('Message', $notification->id)}}"><i class="fas fa-envelope"></i></a></span>
+                    @elseif($notification->see_it == 1)
+                        <span class="info-box-icon bg-success"><a href="mailto:infoworktimeym@gmail.com"><i class="fas fa-envelope-open"></i></a></span>
+                    @endif
 
                 </div>
           </div>
+          @endforeach
         </div>
-
+    
         </div>
       </div>
     </div>

@@ -291,7 +291,9 @@ class CompanyController extends Controller
                         //dd($job_id);
                 
                           /* add to notification */
-                                 $date=Carbon::today();
+                             $dateday=Carbon::today();
+                             $date = Carbon::parse($dateday)->format('Y - m - d');
+                
                                  $notify=RealTimeNotification::create([
                                      'type'=>'post-job',
                                      'id_type'=>$job_id,
@@ -522,7 +524,8 @@ class CompanyController extends Controller
 
                   
                         /* add to notification */
-                              $date=Carbon::today();
+                           $dateday=Carbon::today();
+                           $date = Carbon::parse($dateday)->format('Y - m - d');              
                               $notify=RealTimeNotification::create([
                                   'type'=>'post-tender',
                                   'id_type'=>$tender_id,

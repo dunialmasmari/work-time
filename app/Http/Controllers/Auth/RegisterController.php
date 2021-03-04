@@ -200,13 +200,14 @@ class RegisterController extends Controller
             $user_role->save();
 
                     /* add to notification  */
-          $date=Carbon::today();
-          $notify=RealTimeNotification::create([
-              'type'=>'add-company',
-              'id_type'=>$user->user_id,
-              'see_it'=>0,
-              'create_time'=>$date,
-          ]);
+                    $dateday=Carbon::today();
+                    $date = Carbon::parse($dateday)->format('Y - m - d');
+                    $notify=RealTimeNotification::create([
+                             'type'=>'add-company',
+                             'id_type'=>$user->user_id,
+                             'see_it'=>0,
+                             'create_time'=>$date,
+                             ]);
       
              
           $dataevent =

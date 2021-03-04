@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>Notify Of Job</title>
+    <title>تنبية للتقديم على وظيفة</title>
 
     <style type="text/css"></style>
 
@@ -54,7 +54,7 @@
 
                             <div style="line-height: 35px">
 
-                                NEW  <span style="color: #5caad2;">Job</span>
+                                جديدة  <span style="color: #5caad2;">وظيفة</span>
 
                             </div>
                         </td>
@@ -87,9 +87,9 @@
 <!-- data of tender ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                        <h1>Titel :{{$data['title']}} </h1>
-                                        <h2>Company :{{$data['company']}} <h2>
-                                        <h3>Major :{{$data['major_name']}}  <h3>
+                                        <h2>المسمى الوظيفي :{{$data['title']}} </h2>
+                                        <h2>الجهة المقدمة لها :{{$data['company']}} <h2>
+                                        <h3>القسم :{{$data['major_name']}}  <h3>
 <!--                                         {{--<h3>id :{{$data['tender_id']}}  <h3>--}}
  -->                                        </div>
                                     </td>
@@ -115,7 +115,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="https://worktime-ye.com/ar/job/{{$data['job_id']}}" style="color: #ffffff; text-decoration: none;">SEE MORE</a>
+                                            <a href="https://worktime-ye.com/ar/job/{{$data['job_id']}}" style="color: #ffffff; text-decoration: none;"> مزيد من المعلومات</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -159,7 +159,7 @@
                                     <td align="left" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 23px;" class="text_color">
                                         <div style="color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;">
 
-                                            Email us: <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktime.com@gmail.com</a>
+                                            ايميل الموقع : <br/> <a href="mailto:" style="color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;">infoworktimeym@gmail.com</a>
 
                                         </div>
                                     </td>

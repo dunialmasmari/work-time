@@ -49,14 +49,16 @@
                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
                                                           <i class='far fa-check-square'></i> {{(__('fields_web.Notification.acceptAccount'))}}
                                                     </button>
-                                                    <a href="{{route('Companies')}}">
-                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
-                                                    </button>
-                                                    </a>
+                                                    
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">
                                                         <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectAccount'))}}
                                                     </button>
+
+                                                    <a href="{{route('notReadNotification',['add-company',$compnyInfo->user_id])}}">
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.NotificationLater'))}}
+                                                    </button>
+                                                    </a>
 <!-- /.modal -->
 
                                           <div class="modal fade" id="modal-success">

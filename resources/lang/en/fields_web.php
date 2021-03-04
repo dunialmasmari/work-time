@@ -688,7 +688,15 @@ return [
     'deadline'=>'It is Expired  , The time has been finished',
     'doneReject' => 'Rejecting done',
     'doneAccpt' => 'Accepting done ',
-    
+    'newMessage'=>"New Message",
+    'newUser'=>"New User",
+    'newPostingJob'=>"New Posting Job",
+    'newPostingTender'=>"New Posting Tender",
+    'Status'=>'Status of notification',
+    'see' => 'See It ',
+    'notsee' => 'Not See It ',
+    'NotificationLater'=>'Cencel, Remember me another time',
+
 
 
     ''=>'',
