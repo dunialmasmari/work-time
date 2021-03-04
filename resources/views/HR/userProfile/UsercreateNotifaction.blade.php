@@ -28,7 +28,7 @@
                                         <div class="form-group">
                                         <label for="name">{{ __('fields_web.ContactUS.Name') }} </label>
                                         <input type="text" class="form-control" id="name"
-                                            placeholder="{{ __('fields_web.ContactUS.Name') }} " name="name" required>
+                                            placeholder="{{ __('fields_web.ContactUS.Name') }} " name="name" value="{{$user_info->name}}" required>
                                         <div class="invalid-feedback">{{ __('fields_web.validation.emptyfieldrequired') }}
                                      @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                                     <div class="form-group">
                                         <label for="email">{{ __('fields_web.ContactUS.Email') }} </label>
                                         <input type="email" class="form-control" id="email"
-                                            placeholder="{{ __('fields_web.ContactUS.Email') }}" name="email" required>
+                                            placeholder="{{ __('fields_web.ContactUS.Email') }}" name="email" required value="{{$user_info->email}}">
                                         <div class="invalid-feedback">{{ __('fields_web.validation.emailvalidation') }}
                                         @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -52,28 +52,28 @@
                                     
                                     <div class="form-group">
                                     <label for="name">{{ __('fields_web.Notification.NotifyType') }} </label>
-                                    <select class="form-control" name="type" id="major_type">
-                                           <option value="3" name="type">{{ __('fields_web.Notification.both') }}</option>
-                                           <option value="1" name="type">{{ __('fields_web.Notification.tender') }}</option>
-                                           <option value="2" name="type">{{ __('fields_web.Notification.job') }}</option>
+                                    <select class="form-control" name="type" id="major_type" value="{{$user_info->type}}">
+                                           <option value="3" name="type" @if ($user_info->type===3)selected @endif >{{ __('fields_web.Notification.both') }}</option>
+                                           <option value="1" name="type" @if ($user_info->type===1)selected @endif>{{ __('fields_web.Notification.tender') }}</option>
+                                           <option value="2" name="type" @if ($user_info->type===2)selected @endif>{{ __('fields_web.Notification.job') }}</option>
                                     </select>
                                     </div>
 
                                     <div class="form-group">
                                     <label>{{__('fields_web.JobsAdd.Major')}} :</label>
-                                         <select class="form-control select2" name="major_id" id='majors' style="width: 100%;">
-                                         <option value="000" name="major_id">{{ __('fields_web.Notification.All') }}</option>
+                                         <select class="form-control select2"   multiple="multiple" name="major_id[]" id='majors' style="width: 100%;">
+                                         <option value="0" @if (in_array( 0,explode(',',$user_info->major_id)))selected @endif  name="major_id">{{ __('fields_web.Notification.All') }}</option>
                                          @foreach ($majors as $major)
-                                             <option value="{{ $major->major_id}}" name="major_id">{{ $major->major_name}} </option> 
+                                             <option value="{{ $major->major_id}}"  @if (in_array( $major->major_id,explode(',',$user_info->major_id)))selected @endif name="major_id">{{ $major->major_name}} </option> 
                                          @endforeach'
                                          </select>
                                     </div>
                                     
 
                                     <script>
-                                        var majors_all='<option value="000" name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majors as $major) <option value="{{ $major->major_id}}" name="major_id">{{ $major->major_name}} </option> @endforeach';
-                                        var majors_tender='<option value="000" name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majorTender as $major) <option value="{{ $major->major_id}}" name="major_id">{{ $major->major_name}} </option> @endforeach';
-                                        var majors_job='<option value="000" name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majorJob as $major) <option value="{{ $major->major_id}}" name="major_id">{{ $major->major_name}} </option> @endforeach';
+                                        var majors_all='<option value="0" @if (in_array( 0,explode(",",$user_info->major_id)))selected @endif  name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majors as $major) <option value="{{ $major->major_id}}" @if (in_array( $major->major_id,explode(",",$user_info->major_id)))selected @endif name="major_id">{{ $major->major_name}} </option> @endforeach';
+                                        var majors_tender='<option value="0" @if (in_array( 0,explode(",",$user_info->major_id)))selected @endif  name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majorTender as $major) <option value="{{ $major->major_id}}"  @if (in_array( $major->major_id,explode(",",$user_info->major_id)))selected @endif name="major_id">{{ $major->major_name}} </option> @endforeach';
+                                        var majors_job='<option value="0" @if (in_array(0,explode(",",$user_info->major_id)))selected @endif  name="major_id">{{ __("fields_web.Notification.All") }}</option> @foreach ($majorJob as $major) <option value="{{ $major->major_id}}"  @if (in_array( $major->major_id,explode(",",$user_info->major_id)))selected @endif  name="major_id">{{ $major->major_name}} </option> @endforeach';
                                          var type = document.getElementById("major_type");
                                          var majors = document.getElementById("majors");
                                          type.addEventListener("change",function(){

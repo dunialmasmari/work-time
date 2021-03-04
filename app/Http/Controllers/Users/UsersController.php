@@ -177,12 +177,15 @@ class UsersController extends Controller
 
     public function ViewUserNotifaction()
     {
+        $user_id = auth()->user()->user_id;
+        $user_info=interstedTendersJob::where('user_id',$user_id)->first();
         $majorTender=Major::where('type','1')->where('active','1')->get();
         $majorJob=Major::where('type','0')->where('active','1')->get();
         $majors = Major::where('active','1')->get();
         $data=['majors' => $majors,
                'majorTender' =>$majorTender,
                'majorJob' =>$majorJob,
+               'user_info'=> $user_info
               ];
         return view('HR.userProfile.UsercreateNotifaction',$data);
 
@@ -203,18 +206,32 @@ class UsersController extends Controller
 
     public function UsercreateNotification(Request $request)
     { 
-             $this->validator($request->all())->validate();
-
-            
-             $interstedTendersJob = new interstedTendersJob;
-             $interstedTendersJob->Update([
+           //  $this->validator($request->all())->validate();
+           $user_id = auth()->user()->user_id;
+           $user_info=interstedTendersJob::where('user_id',$user_id);
+           if($user_info->exists())
+           {
+             // dd( $request); 
+             $user_info->Update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'type' => $request->type,
-                'major_id' => $request->major_id,
+                'major_id' =>  implode(",",  $request->major_id),
               ]);
-              return redirect()->route('userProfile');
-    
+            //  return redirect()->route('userProfile');
+            return redirect()->route('userProfile');
+
+          }
+          else{
+            $interstedTendersJob = new interstedTendersJob();
+            $interstedTendersJob->user_id = $user_id;
+            $interstedTendersJob->email = $request->email;
+            $interstedTendersJob->name = $request->name;
+            $interstedTendersJob->type = $request->type;
+            $interstedTendersJob->major_id =  implode(",",  $request->major_id);
+            $interstedTendersJob->save();
+            return redirect()->route('userProfile');
+          }
     }
     public function updateCvDetails(Request $request)
     {   $user_id = auth()->user()->user_id;

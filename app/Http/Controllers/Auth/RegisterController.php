@@ -81,8 +81,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
-        // $data['active'] = 0;
+    {     // $data['active'] = 0;
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -95,8 +94,7 @@ class RegisterController extends Controller
             $userdetail->fullname = $data['name'];
             $userdetail->active = '1';
             $userdetail->email = $data['email'];
-            $userdetail->save();
-                 
+            $userdetail->save();     
             $user_role = new role_user();
             $user_role->user_id = $user->user_id;
             if($data['type_search'] == 'Jobs')
@@ -113,13 +111,25 @@ class RegisterController extends Controller
             }
             $user_role->user_type =  'App/User';
             $user_role->save();
+            $current = interstedTendersJob::where('email','=',$data['email']);
+            if($current->exists()){
+                $current->Update([
+                    'user_id'=> $user->user_id,
+                    'name' =>$data['email'],  
+                  ]);
 
-            $interstedTendersJob = new interstedTendersJob();
+           
+            } else{
+                $interstedTendersJob = new interstedTendersJob();
             $interstedTendersJob->user_id = $user->user_id;
             $interstedTendersJob->email = $user->email;
+            $interstedTendersJob->name = $user->name;
             $interstedTendersJob->type = '3';
             $interstedTendersJob->major_id = '0';
             $interstedTendersJob->save();
+            }
+       
+           // return redirect()->route('userProfile')->with(['success' => __('fields_web.apisuccessmesages.title')]);
                 
               
     }
