@@ -193,9 +193,10 @@ class NotificationController extends Controller
              
              $interstedTendersJob = interstedTendersJob::create([
                 'name' => $request->name,
+                'user_id' => '0',
                 'email' => $request->email,
                 'type' => $request->type,
-                'major_id' => $request->major_id,
+                'major_id' =>  implode(",",  $request->major_id),
               ]);
               //return Redirect()->back()->with(['message' => 'The Message']);
               /* session()->flash('success', __('fields_web.apisuccessmesages.title'));

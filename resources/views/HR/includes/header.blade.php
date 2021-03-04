@@ -22,7 +22,7 @@
                  <button class="btn btn-primary ">
                     <a class=" btn btn-md " href="{{route('abouthr')}}">{{__('fields_web.Navbar.signup')}} </a>
                   </button> --}}
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav " style="margin: 5px">
                 <li class="nav-item">
                     <a class="nav-link menu  " href="{{ route('homehr') }}">{{ __('fields_web.Navbar.Home') }}</a>
                 </li>

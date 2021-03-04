@@ -287,7 +287,11 @@ class ResumeController extends Controller
         'companyphone' => '111-222-3333',
         'companyemail' => 'your.name@example.com',
         'deartTitle'=>'Dear',
-        'coverText' =>'<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p><p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p><div sr-r-fld="html"> <p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p></div>',
+        'coverText' =>'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.',
         'backgroundColor'=>'rgb(79, 157, 213)',
         'fontColor'=>'#fff'
         ];
@@ -346,7 +350,11 @@ class ResumeController extends Controller
         'companyphone' => '111-222-3333',
         'companyemail' => 'your.name@example.com',
         'deartTitle'=>'Dear',
-        'coverText' =>'<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p><p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p><div sr-r-fld="html"> <p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p></div>',
+        'coverText' =>'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.',
         'backgroundColor'=>'rgb(79, 157, 213)',
         'fontColor'=>'#fff'
         ];
@@ -366,7 +374,11 @@ class ResumeController extends Controller
         'companyphone' => '111-222-3333',
         'companyemail' => 'your.name@example.com',
         'deartTitle'=>'Dear',
-        'coverText' =>'<p sr-r-where><span sr-r-fld="where">Company Name</span>, <span sr-r-fld="location">Location</span></p><p sr-r-dates><span sr-r-fld="fromMonth">Jan</span> <span sr-r-fld="fromYear">2013</span> &ndash; <span sr-r-fld="toMonth">Dec</span> <span sr-r-fld="toYear">2013</span></p><div sr-r-fld="html"> <p>Describe your job responsibilities, accomplishments and technologies you have used. It is highly recommended that you use bullet points to describe your experience.</p></div>',
+        'coverText' =>'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rem placeat sapiente? Fuga quaerat odit, qui amet, nemo illum ut maxime quidem libero blanditiis voluptatem. Magni nobis dolore quibusdam sit.',
         'backgroundColor'=>'rgb(79, 157, 213)',
         'fontColor'=>'#fff'
         ];

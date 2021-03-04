@@ -56,7 +56,10 @@ class JobNotify extends Command
             foreach($users as $user)
             {   if($user->type== 2  )
                {
-                   if($user->major_id == 0 || $user->major_id == $job->major_id)
+                  $majorsArray= explode(', ', $user->major_id);
+                  foreach($majorsArray as $major)
+                  {
+                   if($major == 0 || $major == $job->major_id)
                    {
                     $data=[
                         'type'=>'job',
@@ -73,11 +76,15 @@ class JobNotify extends Command
                     $delay=now()->addSeconds(20);
                     Mail::To($user->email)->send(new NotifyEmailJop ($data) );
                    }
+                }
                }
 
                if($user->type== 3  )
                {
-                   if($user->major_id == 0 || $user->major_id == $job->major_id )
+                $majorsArray= explode(', ', $user->major_id);
+                foreach($majorsArray as $major)
+                {
+                   if($major == 0 || $major == $job->major_id )
                    {
                     $data=[
                         'major_name'=>$job->major_name,
@@ -94,6 +101,7 @@ class JobNotify extends Command
                     Mail::To($user->email)->send(new NotifyEmailJop ($data) );
                    }
                }
+            }
            }
         }
      
