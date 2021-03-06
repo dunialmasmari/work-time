@@ -17,7 +17,6 @@
 </div> --}}
 
  
-@foreach($user_info as $info)
     
       <div class="col">
         <div class="row">
@@ -31,7 +30,7 @@
                     <div class="col-12 col-sm-auto mb-3">
                       <div class="mx-auto" style="width: 140px;">
                         <div class="d-flex justify-content-center align-items-center rounded " style="height: 140px; ">
-                          <img id="logo-preview" src="{{URL::asset('assets/uploads/Logos/'.$info->logo)}}" style="width: 140px; height: 140px; background-color: rgb(233, 236, 239);" >
+                          <img id="logo-preview" src="{{URL::asset('assets/uploads/Logos/' .$info->logo)}}" style="width: 140px; height: 140px; background-color: rgb(233, 236, 239);" >
                         
                           <input  name="logo" id="logo" id="file-ip-1"  accept="image/*" style="display:none;" multiple="false" type="file" class="custom-file-input" onchange="changeLogo(event);" required>
                         </div>
@@ -90,7 +89,7 @@
                               <div class="col">
                                 <div class="form-group">
                                   <label>{{__('fields_web.companyInfo.CompanyName')}}</label>
-                                  <input class="form-control" type="text" id="companyName" name="companyName" placeholder="{{__('fields_web.companyInfo.CompanyNames')}}" value="{{ $info->companyName}}">
+                                  <input class="form-control" type="text" id="companyName" readonly name="companyName" placeholder="{{__('fields_web.companyInfo.CompanyNames')}}" value="{{ $info->companyName}}">
                                   <span id='companyName1' class='error-message'></span>
 
                                 </div>
@@ -108,7 +107,7 @@
                               <div class="col">
                                 <div class="form-group">
                                   <label>{{__('fields_web.companyInfo.Email')}}</label>
-                                  <input class="form-control" type="text" id="email" name="email" placeholder="{{__('fields_web.companyInfo.Emails')}}"   value="{{ $info->email}}">
+                                  <input class="form-control" type="text" id="email" readonly name="email" placeholder="{{__('fields_web.companyInfo.Emails')}}"   value="{{ $info->email}}">
                                   <span id='email1' class='error-message'></span>
 
                                 </div>
@@ -465,7 +464,6 @@
 
       </script>
 
-      @endforeach
 
 
 @stop

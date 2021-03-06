@@ -21,7 +21,7 @@ use App\Models\compnyInfo;
 use App\Models\service;
 use validator;
 use Carbon\Carbon;
-use App\Models\job;
+use App\Models\Job;
 use PDF;
 use Illuminate\Support\Facades\DB;
 

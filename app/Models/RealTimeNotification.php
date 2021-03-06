@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RealTimeNotification extends Model
 
 {
-    protected $table = "RealTimenotifications";
+    protected $table = "realtimenotifications";
     protected $fillable = [
         'id',
         'type',

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="row my-5 py-5 mx-0" >
+<div class="row my-5 py-5 mx-0 " >
     <div class="container ">
-        <div class="row flex-lg-nowrap">
+        <div class="row flex-xl-nowrap">
 @include('HR.company.includes.header')
 
 @yield('contents')

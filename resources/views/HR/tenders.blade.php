@@ -31,10 +31,10 @@
                                         <a  href='tender/{{ $tender->tender_id }}' style="text-decoration: none; color:#000">
                                             <div class="card" style="width:260px; height:430px;"> 
                                                 <img   src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
-                                                style=" height:180px; width:100%;background-color:rgb(79, 157, 213);" />
+                                                style=" height:180px; width:100%;" />
                                                 <div class="card-body">
                                                     <h5 class="card-title" style=" height: 70px; ">
-                                                        {{ \Illuminate\Support\Str::limit( $tender->title, $limit = 70, $end = '...') }}
+                                                        {{ \Illuminate\Support\Str::limit( $tender->title, $limit = 60, $end = '...') }}
                                                     </h5>
                                                     <hr class='btn-primary'>
                                                     <span class="card-text"

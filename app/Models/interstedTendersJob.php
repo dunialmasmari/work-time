@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class interstedTendersJob extends Model
 {
-    protected $table = "interstedTendersJobs";
+    protected $table = "interstedtendersjobs";
     protected $fillable = [
         'id',
         'name',

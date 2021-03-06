@@ -66,9 +66,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            // 'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'alpha', 'max:75', 'unique:users,username'],
+            'username' => ['required', 'string',  'max:75', 'unique:users,username'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -83,7 +83,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {     // $data['active'] = 0;
             $user = User::create([
-                'name' => $data['name'],
+                'name' => $data['username'],
                 'email' => $data['email'],
                 'username' => $data['username'],
                 'active' => '1',
@@ -91,7 +91,7 @@ class RegisterController extends Controller
             ]);  
             $userdetail = new userdetail();
             $userdetail->user_id = $user->user_id;
-            $userdetail->fullname = $data['name'];
+            $userdetail->fullname = $data['username'];
             $userdetail->active = '1';
             $userdetail->email = $data['email'];
             $userdetail->save();     
@@ -115,7 +115,6 @@ class RegisterController extends Controller
             if($current->exists()){
                 $current->Update([
                     'user_id'=> $user->user_id,
-                    'name' =>$data['email'],  
                   ]);
 
            
@@ -144,7 +143,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'companyName' => ['required', 'string', 'max:255', 'unique:compnyinfo'],
-            'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
+            // 'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
             'phone'=> ['required', 'numeric', 'min:20', 'unique:compnyinfo'],
             'address' => ['required', 'string', 'max:255'],
             // 'name' => ['required', 'string', 'max:255'],
@@ -177,7 +176,7 @@ class RegisterController extends Controller
             $compnyInfo->phone = $data['phone'];
             $compnyInfo->active = 2;
             $compnyInfo->email = $data['email'];
-            $compnyInfo->websitelink = $data['websitelink'];
+            // $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
             $compnyInfo->active = '2';
             $compnyInfo->save();
@@ -273,7 +272,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'companyName' => ['required', 'string', 'max:255', 'unique:compnyinfo'],
-            'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
+            // 'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
             'phone'=> ['required', 'numeric', 'min:20', 'unique:compnyinfo'],
             'address' => ['required', 'string', 'max:255'],
             // 'name' => ['required', 'string', 'max:255'],
@@ -305,7 +304,7 @@ class RegisterController extends Controller
             $compnyInfo->companyName = $data['companyName'];
             $compnyInfo->phone = $data['phone'];
             $compnyInfo->email = $data['email'];
-            $compnyInfo->websitelink = $data['websitelink'];
+            // $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
             $compnyInfo->active = '1';
             $compnyInfo->save();

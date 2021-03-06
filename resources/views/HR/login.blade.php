@@ -23,7 +23,7 @@
                           <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <label style="color:#000">{{__('fields_web.Users.Email')}}</label>
+                                            <label class="label" style="color:#000">{{__('fields_web.Users.Email')}}</label>
                                             <input id="email" type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
                                                 value="{{ old('email') }}" required autocomplete="email" autofocus />

@@ -13,17 +13,9 @@
         <div class="col-md-12">
              <!-- general form elements -->
              <div class="card card-row card-default">
-                    <div class="card-header bg-info">
-                          <h3 class="card-title">{{(__('fields_web.Notification.postTender'))}}</h3>
-                     </div>
-                     <div class="card-body">
-                       <div class="card card-info card-outline">
-                     
-
-     
-
-                </div>
-              </div>
+                    <div class="card-header ">
+                          <h4 class="card-title">{{(__('fields_web.Notification.postTender'))}}</h4>
+                     </div> 
               
               <div class="card-body">
                <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -33,8 +25,8 @@
             <div class="container-fluid">
                 @foreach ($tenders as $tender)
                     <div class="row">
-                        <div class='col-12 py-5'>
-                            <h2 class='label' class='label' style="text-align: center"> {{ $tender->title }} </h3>
+                        <div class='col-12 '>
+                            <h5 class='label' class='label'  > {{ $tender->title }} </h5>
                              
                         </div>
                     </div>
@@ -47,7 +39,7 @@
                             <!-- </div> -->
                         </div>
                         <div class='col-11 col-sm-11 col-md-8 col-lg-8 mx-2  my-auto'>
-                            <div class="card shadow-sm  bg-white">
+                            <div class=" shadow-sm  ">
                                 <div class="card-body">
                                     <div class='row'>
                                         <div class='col-12 col-sm-6 col-md-6 col-lg-6'>

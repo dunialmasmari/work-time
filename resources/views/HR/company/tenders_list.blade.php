@@ -59,14 +59,12 @@
                                            @if($tender->active == 1)
                                            <td><span class="badge badge-success">{{__('fields_web.Tender.Active')}}</span></td>
                                            <td>
-                                               <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}"class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                                <a href="{{  route('Tenderdetilse' ,$tender->tender_id) }}" > <i class="fas fa-eye"></i></a>
                                         
                                               </td>
                                          @else 
                                          <td><span class="badge badge-danger">{{__('fields_web.Tender.notActive')}}</span></td>
                                          <td>
-                                             <a href="{{  route('controlpanel.tender.edite' ,$tender->tender_id) }}" class="btn btn-outline-primary"> <i class="fas fa-edit"></i></a>
                                              <a href="{{  route('Tenderdetilse' ,$tender->tender_id) }}" > <i class="fas fa-eye"></i></a>
                                             </td>
                                          @endif  

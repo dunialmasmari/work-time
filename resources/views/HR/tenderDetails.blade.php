@@ -21,9 +21,13 @@
                 @foreach ($tenders as $tender)
                     @section('meta')
                         <title>{{ $tender->title }}</title>
-
-                        <meta property="title" content="{{ $tender->title }}">
-                        <meta name="image" content="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}">
+                        <meta name="keywords" content="{{ $tender->title }}">
+                        <meta name="description" content="{{ $tender->title }}"> 
+                        <meta property="og:url" content="http://worktime-ye.com/ar/tender/{{ $tender->tender_id }}">
+                        <meta property="og:description" content="{{ $tender->title }}"> 
+                        <meta property="og:type"               content="article" />
+                        <meta property="og:title" content="{{ $tender->title }}">
+                        <meta property="og:image" content="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}">
                       @endsection
                  
                   
