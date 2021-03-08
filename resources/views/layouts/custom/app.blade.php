@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/controlpanel/dist/css/adminlte.css')}}">
+  <link rel="stylesheet" href="{{url('assets/controlpanel/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -30,7 +31,7 @@
   </script>
   
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
 @include("includes.navbar")
@@ -43,6 +44,7 @@
 @yield('main')
       <!-- /.content -->
   </div>
+  @include("includes.footer")
 
    <!-- Control Sidebar -->
    <aside class="control-sidebar control-sidebar-dark">
@@ -224,9 +226,7 @@
 </script>
 
 <script  src="{{url('assets/controlpanel/plugins/chart.js/Chart.min.js')}}"></script>
-<script  src="{{url('assets/controlpanel/plugins/flot/jquery.flot.js')}}"></script>
-<script  src="{{url('assets/controlpanel/flot/plugins/jquery.flot.resize.js')}}"></script>
-<script  src="{{url('assets/controlpanel/plugins/query.flot.pie.js')}}"></script>
+<script  src="{{url('assets/controlpanel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 
 <script>
 $(function () {
@@ -239,6 +239,5 @@ $(function () {
 </html>
 
 
-  @include("includes.footer")
 
 
