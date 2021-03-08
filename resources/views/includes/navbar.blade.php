@@ -210,7 +210,7 @@
        var channel = pusher.subscribe('add-notify');
        pusher.bind('AdminNotification',function (data) {
         //alert(('haifaa'));
-        if(data.type != 'message')
+        if(data.type == 'add-company' || data.type == 'post-job' || data.type == 'post-tender' )
       { 
         var existingNotifications = notifications.html();//
         $id=data.id;

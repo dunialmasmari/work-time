@@ -149,6 +149,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('storeTender','CompanyController@storeTender')->name('storeTender');
         Route::get('/Tenderdetilse/{id}','CompanyController@viewTenderdetilse')->name('Tenderdetilse');
         Route::get('/Jobdetilse/{id}','CompanyController@viewJobdetilse')->name('Jobdetilse');
+        Route::get('rejectJobs','CompanyController@rejectJobs')->name('rejectJobs');
+        Route::get('acceptJobs','CompanyController@acceptJobs')->name('acceptJobs');
+
+        Route::get('rejectTenders','CompanyController@rejectTenders')->name('rejectTenders');
+        Route::get('acceptTenders','CompanyController@acceptTenders')->name('acceptTenders');
+
+
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });
