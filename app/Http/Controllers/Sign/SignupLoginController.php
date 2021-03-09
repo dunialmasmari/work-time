@@ -12,7 +12,7 @@ class SignupLoginController extends Controller
     {
         if(Auth::check())
         {
-            return view('HR.about');   
+            return redirect()->route('homehr');   
         }
         else
         {

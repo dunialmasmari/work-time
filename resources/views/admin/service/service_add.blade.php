@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="{{route('controlpanel.service.store')}}" method="post" enctype="multipart/form-data">
+                <form  name = "myForm" onsubmit = "return(validate());" action="{{route('controlpanel.service.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="card-body">
                       <div class="row">
@@ -40,7 +40,7 @@
                                 <label for="exampleInputFile">{{__('fields_web.ServiceAdd.image')}}</label>
                                 <div class="input-group">
                                   <div class="custom-file">
-                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);" required>
+                                  <input  name="image" id="file-ip-1"  accept="image/*" multiple="false" type="file" class="custom-file-input" onchange="showPreview(event);">
                                   <label class="custom-file-label" for="exampleInputFile">{{__('fields_web.ServiceAdd.choose')}} </label>
                                   </div>
                                </div>
@@ -50,7 +50,8 @@
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label>{{__('fields_web.ServiceAdd.Title')}} :</label>
-                                <input type="text" name="title" placeholder="{{__('fields_web.ServiceAdd.Title')}}" class="form-control"  required>
+                                <input type="text" name="title" placeholder="{{__('fields_web.ServiceAdd.Title')}}" class="form-control">
+                                <small class='error-message' id="titleMe"></small>
                               </div>
                         </div>
 
@@ -63,6 +64,7 @@
                               <div class="timeline-body preview">
                                 <img id="file-ip-1-preview" style="width: 150px;height: 150px;margin-top:10px;">
                               </div>
+                              <small class='error-message' id="imageMe"></small>
                           </div>
                          </div>
                     </div>    
@@ -72,7 +74,9 @@
                        <div class="col-md-12">
                           <div class="form-group">
                             <label>{{__('fields_web.ServiceAdd.description')}} :</label>
-                            <textarea cols="80" id="mytextarea" name="description"></textarea>
+                            <small class='error-message' id="descriptionMe"></small>
+                            <textarea class="tinymce" name="description" id='description'></textarea>
+                            {{-- <textarea cols="80" id="mytextarea" name="description"></textarea> --}}
                           </div>
                        </div>
                     </div>
@@ -91,6 +95,57 @@
       </div>
     </div>
 </section>
+<script type = "text/javascript">
+  var img = document.forms["myForm"]["image"];
+      function validate() {
+        
+         if( img.value == "" ) {
+           document.getElementById("imageMe").innerHTML = "{!! __('fields_web.TenderValidate.requerMassage') !!}";
+           //  alert( "{!! __('fields_web.TenderValidate.requerMassage') !!}" );
+            document.myForm.image.focus() ;
+            return false;
+         }
+ 
+         if(img.value != "" ) {
+          var reader = new FileReader();
+          reader.readAsDataURL(img.files[0]);
+          reader.onload = function (e) {
+               var image = new Image();
+               image.src = e.target.result;
+               image.onload = function () {
+                   var height = this.height;
+                   var width = this.width;
+                   if (height > 500 || height < 200 || width > 500 || width < 200) {
+                     document.getElementById("imageMe").innerHTML = "{!! __('fields_web.TenderValidate.imageMassage') !!}";
+          
+                       //alert("Height and Width must not exceed 500px.");
+                      document.myForm.image.focus() ;
+                      return false;
+                   } 
+                   else{
+                     return true;
+                   }
+               };
+           }
+         }
+ 
+         if( document.myForm.title.value == "" ) {
+         document.getElementById("titleMe").innerHTML= "{!! __('fields_web.TenderValidate.requerMassage') !!}" ;
+            document.myForm.title.focus() ;
+            return false;
+         } 
+ 
+         if( document.myForm.description.value == "" ) {
+           document.getElementById("descriptionMe").innerHTML = "{!! __('fields_web.TenderValidate.requerMassage') !!}";
+           // alert( "{!! __('fields_web.TenderValidate.requerMassage') !!}" );
+            document.myForm.description.focus() ;
+            return false;
+         } 
+         
+         return( true );
+      }
+ </script>
+ 
 @endSection
 
 

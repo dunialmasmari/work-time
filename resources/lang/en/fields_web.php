@@ -401,6 +401,9 @@ return [
   ],
   /**Add Tender */
   'TenderAdd'=>[
+    'choosemajor'=> 'Choose Major',
+    'chooseposition'=> 'Choose Position',
+    'chooseCity'=> 'Choose City',
     'TitlePage'=> 'Create New Tender',
     'Title'=> 'Title',
     'Major'=> 'Major',
@@ -426,9 +429,11 @@ return [
     'locationMassage'=> '*You can choose one or more location .',
     'otharLocationMassage'=> '*When writing more than one Location, please writing a comma (,) between them.',
     'companyMassage'=> '*The text must be charecter',
-    'linkMassage'=> '*Must be link or email',
-    'deadlineMassage'=> '*The tender deadline date should be smaller than the start date.',
-    'PosteDateMassage'=> '*The tender publication date should be smaller than the end date.',
+    'linkMassage'=> '*Enter the link in the correct format',
+    'imageMassage'=> '*Height and Width must Be Between 200 and 500px.',
+    'imageaderMassage' => '*Height and Width must Be Between 200 and 600px and *Width must Be Between 600 and 900px.',
+    'deadlineMassage'=> '*The tender deadline date should be Larger than the start date.',
+    'PosteDateMassage'=> '*The tender publication date should be smaller than the end date and Larger than the start date.',
   ],
    /**Edite Tender */
    'TenderEdite'=>[
