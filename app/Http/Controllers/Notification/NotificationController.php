@@ -21,6 +21,10 @@ use App\Models\role_user;
 use App\Models\RealTimeNotification;
 use App\User;
 use App\Models\compnyInfo;
+use App\Mail\Notifies\NotifyEmailAcceptUser;
+use App\Mail\Notifies\NotifyEmailRejectUser;
+use Mail;
+
 
 
 
@@ -33,8 +37,13 @@ class NotificationController extends Controller
         foreach($role_users as $role_user)
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            //$blogs = blog::get();
-            return view('admin.Notifications.notifications_list',['role_users' => $role_users]);
+            $notifications=RealTimeNotification::where('type','!=','message')->get();
+
+             $data=[
+                'role_users' => $role_users,
+                'notifications' => $notifications,
+             ];
+            return view('admin.Notifications.notifications_list',$data);
         }
         else
         {
@@ -42,6 +51,54 @@ class NotificationController extends Controller
         }
         //return view('admin.Notifications.notifications_list');
 
+    }
+    public function readNotifcations($id)
+    {
+        $notRead=RealTimeNotification::where('id',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('Notifications');
+    }
+
+    public function notreadNotifcations($id)
+    {
+        $notRead=RealTimeNotification::where('id',$id)
+                    ->Update(['see_it' => '1']);
+
+            return redirect()->route('Notifications');
+    }
+
+    public function notReadNotification($type,$id)
+    {
+        if($type == 'add-company')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('Companies');
+        }
+        if($type == 'post-job')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('JobsPosting');
+        }
+        if($type == 'post-tender')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '0']);
+
+            return redirect()->route('TendersPosting');
+        }
+        if($type == 'message')
+        {
+            $notRead=RealTimeNotification::where('type','message')
+                   ->where('id',$id)
+                   ->Update(['see_it' => '0']);
+
+            return redirect()->route('Messages');
+        }
     }
 
     public function viewMessages()
@@ -51,8 +108,46 @@ class NotificationController extends Controller
         foreach($role_users as $role_user)
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            //$blogs = blog::get();
-            return view('admin.Notifications.messages_list',['role_users' => $role_users]);
+            $notifications=RealTimeNotification::where('type','message')->get();
+
+            $data=[
+               'role_users' => $role_users,
+               'notifications' => $notifications,
+            ];
+            return view('admin.Notifications.messages_list',$data);
+        }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+        //return view('admin.Notifications.messages_list');
+
+    }
+
+    public function viewMessageDetails($id)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+
+            $notifications=RealTimeNotification::where('type','message')->where('id',$id)->get();
+
+            $readNotification=RealTimeNotification::where('type','message')
+            ->where('id',$id);
+             if ($readNotification->exists())
+                {
+                   $readNotification=RealTimeNotification::where('type','message')
+                   ->where('id',$id)
+                   ->Update(['see_it' => '1']);
+                   $data=[
+                    'role_users' => $role_users,
+                    'notifications' => $notifications,
+                 ];
+                   return view('admin.Notifications.message',$data);
+
+                }        
         }
         else
         {
@@ -176,7 +271,7 @@ class NotificationController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'type' => ['required'],
             'major_id' => ['required'],
 
@@ -188,15 +283,31 @@ class NotificationController extends Controller
 
     public function createNotification(Request $request)
     { 
-             $this->validator($request->all())->validate();
-
-             
+             $this->validator($request->all())->validate(); 
+             $user_info=interstedTendersJob::where('email',$request->email);
+             if($user_info->exists())
+             {
+               // dd( $request); 
+               $user_info->Update([
+                  'name' => $request->name,
+                  'user_id' => '0',
+                  'email' => $request->email,
+                  'type' => $request->type,
+                  'major_id' =>  implode(",",  $request->major_id),
+                ]);
+              //  return redirect()->route('userProfile');
+          
+  
+            }
+            else{
              $interstedTendersJob = interstedTendersJob::create([
                 'name' => $request->name,
+                'user_id' => '0',
                 'email' => $request->email,
                 'type' => $request->type,
-                'major_id' => $request->major_id,
+                'major_id' =>  implode(",",  $request->major_id),
               ]);
+             }
               return redirect()->route('homehr');
               //return Redirect()->back()->with(['message' => 'The Message']);
               /* session()->flash('success', __('fields_web.apisuccessmesages.title'));
@@ -211,7 +322,7 @@ class NotificationController extends Controller
  */
     }
 
-    public function getall()
+         public function getall()
         {
         //return response()->json($data,200);
         }
@@ -268,13 +379,25 @@ class NotificationController extends Controller
                ->where('users.active','2')
                ->where('compnyinfo.active','2');
                  if ($user->exists())
-                 {
+                 {   
+
                     $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
                     ->where('users.user_id', $id)
                     ->Update(['users.active' => '1', 'compnyinfo.active' => '1']);
-                   
-                     return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
-                 }
+                    /**/                         
+                    $userAcceptname = User::select('name')->where('user_id', $id)->get();
+                    $userAcceptemail = User::select('email')->where('user_id', $id)->get();
+                       //dd($userAcceptname);
+                     $dataEmail=[
+                        'Name' => $userAcceptname,
+                        'Email'=> $userAcceptemail,
+                       ];
+                       Mail::to($userAcceptemail)->send(new NotifyEmailAcceptUser($dataEmail));
+
+                    return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
+                 
+
+                }
 
                  else 
                  {
@@ -305,6 +428,15 @@ class NotificationController extends Controller
                     $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
                     ->where('users.user_id', $id)
                     ->Update(['users.active' => '3', 'compnyinfo.active' => '3']);
+
+                    $userAcceptname = User::select('name')->where('user_id', $id)->get();
+                    $userAcceptemail = User::select('email')->where('user_id', $id)->get();
+                       //dd($userAcceptname);
+                     $dataEmail=[
+                        'Name' => $userAcceptname,
+                        'Email'=> $userAcceptemail,
+                       ];
+                       Mail::to($userAcceptemail)->send(new NotifyEmailRejectUser($dataEmail));
                    
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }

@@ -35,10 +35,10 @@
 
         <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon" style='background-color:black;'></span>
+            <span class="carousel-control-prev-icon" style='background-color:black; padding:10px !important; border-radius:50%;'></span>
         </a>
         <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon" style='background-color:black;'></span>
+            <span class="carousel-control-next-icon" style='background-color:black; padding:10px !important; border-radius:50%;'></span>
         </a>
     </div>
     <!-- content-->
@@ -71,12 +71,12 @@
                                         <div class="card" style="width:260px; height:430px;">
 
                                             <img src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
-                                                style=" height:180px; width:100%;background-color:rgb(79, 157, 213);" />
+                                                style=" height:180px; width:100%;" />
                                             <div class="card-body">
-                                                <h5 class="card-title" style=" height: 70px; ">
-                                                    {{ \Illuminate\Support\Str::limit($tender->title, $limit = 70, $end = '...') }}
+                                                <h5  style=" height: 70px; ">
+                                                    {{ \Illuminate\Support\Str::limit($tender->title, $limit = 60, $end = '...') }}
                                                 </h5>
-                                                <hr class='btn-primary'>
+                                                <hr   style='background-color:rgb(79, 157, 213); height:1px;'>
                                                 <span class="card-text"
                                                     style="color:rgba(48, 48, 48, 0.8); font-weight:bold; ">
                                                     <i class='fa fa-home' style="width: 20px;"> </i>
@@ -141,8 +141,8 @@
                                     <div class="carousel-inner" style=''>
                                         @foreach ($services as $serv)
 
-                                            <div class="  carousel-item py-5 {{ $loop->first ? 'active' : '' }}"
-                                                style='background-color:rgba(0, 0, 0, 0.644)'>
+                                            <div class="  carousel-item  mx-auto py-5 {{ $loop->first ? 'active' : '' }}"
+                                                style='background-color:transparent'>
                                                 <div class=" container row mx-auto px-5">
                                                     <div class=' my-auto'
                                                         style="  background: url({{ URL::asset('assets/images/1.jpg') }}) no-repeat;
@@ -150,7 +150,7 @@
                                                     </div>
                                                     <div class="mx-5 my-auto">
                                                         <div>
-                                                            <h5 style="color: #fff;">{{ $serv->title }}
+                                                            <h5 style="color: #000;">{{ $serv->title }}
                                                             </h5>
                                                             {{-- <div style="color: #fff;">{!!  \Illuminate\Support\Str::limit($serv->description, $limit = 100, $end = '...') !!}
                                                         </div> --}}
@@ -166,10 +166,10 @@
                                     </div>
                                     <!-- Left and right controls -->
                                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" style=''></span>
+                                        <span class="carousel-control-prev-icon" style='background-color:rgb(79, 157, 213); padding:10px !important; border-radius:50%;'></span>
                                     </a>
                                     <a class="carousel-control-next" href="#demo" data-slide="next">
-                                        <span class="carousel-control-next-icon" style=''></span>
+                                        <span class="carousel-control-next-icon" style='background-color:rgb(79, 157, 213); padding:10px !important; border-radius:50%;'></span>
                                     </a>
                                 </div>
                             </section>
@@ -197,21 +197,23 @@
                         @foreach ($jobs as $job)
                             <div class="col-lg-6 col-md-12 ">
                                 <div class="card py-0">
-                                    <div class="card-body  mx-2 my-0 py-0">
-                                        <div class='row my-3'>
-                                            <div class=' my-auto'
-                                                style="  background: url({{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}) no-repeat;
-                                                            background-size: cover; height:70px; width:70px;background-color:rgb(79, 157, 213);">
+                                    <div class="card-body mx-2 my-0">
+                                        <a class='row' href='job/{{ $job->job_id }}'
+                                            style="text-decoration: none; color:#000">
 
-                                            </div>
+                                            <img src="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}"
+                                                style="  height:70px; width:70px;" />
                                             <div class='col-9 my-auto'>
                                                 <h5>
-                                                    {{ \Illuminate\Support\Str::limit($job->title . 'this is an additional text to view the page design', $limit = 45, $end = '...') }}
+                                                    {{ \Illuminate\Support\Str::limit($job->title , $limit = 45, $end = '...') }}
                                                 </h5>
                                             </div>
-                                        </div>
-                                        <div class='row '>
-                                            <div class='col-12 col-sm-5 col-md-5 col-lg-5  my-2'>
+                                        </a>
+                                        <div class='row my-2'>
+                                            <a class='col-12 col-sm-5 col-md-5 col-lg-5 my-auto'
+                                                href='job/{{ $job->job_id }}'
+                                                style="text-decoration: none; color:#000">
+
                                                 <span>
                                                     <i class='fa fa-home mx-auto' style="width:20px;"></i>
                                                     <span>{{ \Illuminate\Support\Str::limit($job->company, $limit = 15, $end = '...') }}</span>
@@ -223,38 +225,26 @@
                                                 <br>
                                                 <span><i class="far fa-calendar-times"
                                                         style="width:20px;  color:#e5383b; "></i>
-                                                    <span style="color:#e5383b; ">{{ __('fields_web.Jobs.Deadline') }} :
+                                                    <span
+                                                        style="color:#e5383b; ">{{ __('fields_web.Jobs.Deadline') }}
+                                                        :
                                                         {{ \Illuminate\Support\Str::limit($job->deadline, $limit = 15, $end = '...') }}</span>
                                                 </span>
-                                            </div>
-                                            <div class='col-12 col-sm-5 col-md-5 col-lg-5 my-2'>
-                                                <span>
-                                                    <i class='fa fa-home mx-auto' style="width:20px;"></i>
-                                                    <span>{{ $job->major_name }}</span>
-                                                </span>
-                                                <br>
-                                                <span><i class="fa fa-map-marker" style="width:20px;"></i>
-                                                    <span>{{ $job->start_date }}</span>
-                                            </div>
-                                            <div class='col-12 col-sm-12 col-md-12 col-lg-12'>
-                                                <div class='row modal-footer' style="border:none; ">
+                                            </a>
+                                            <div class='col-12 col-sm-7 col-md-7 col-lg-7  my-auto'>
+                                                <div class="row modal-footer " style="border:none; ">
                                                     @if ($job->apply_link != null)
                                                         <a href="{{ $job->apply_link }}"
                                                             style="text-decoration: none;"><button
-                                                                class='btn  btn-primary btn-sm btn-block  mx-auto'>{{ __('fields_web.Jobs.applyLink') }}</button></a>
+                                                                class='btn  btn-primary btn-small btn-block  mx-auto'>{{ __('fields_web.Jobs.applyLink') }}</button></a>
 
                                                     @endif
                                                     <a href="job/{{ $job->job_id }}"
                                                         style="text-decoration: none;"><button
-                                                            class="btn btn-outline-primary btn-sm btn-block  mx-auto">
+                                                            class="btn btn-outline-primary btn-small btn-block  mx-auto">
                                                             {{ __('fields_web.Jobs.more') }} </button></a>
-                                                    <a href="{{ route('jobs') }}"><button
-                                                            class='btn  btn-link btn-sm'>{{ __('fields_web.Jobs.Titles') }}</button></a>
-
-
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -266,63 +256,63 @@
 
                 </div>
 
-                <div class="container-fluid my-3">
-                    <div class="row">
-                        <div class='col-12'>
-                            <h3 class='label'> {{ __('fields_web.blogs.Titles') }}</h3>
-                        </div>
-                    </div>
+                <!--<div class="container-fluid my-3">-->
+                <!--    <div class="row">-->
+                <!--        <div class='col-12'>-->
+                <!--            <h3 class='label'> {{ __('fields_web.blogs.Titles') }}</h3>-->
+                <!--        </div>-->
+                <!--    </div>-->
 
-                    <div class="container-fluid btn-primary" style='background-color:rgb(79, 157, 213);'>
-                        <div class="row" style="height:15px">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid my-5">
-                    <div class="row">
-                        <div class='col-12'>
-                            <section>
+                <!--    <div class="container-fluid btn-primary" style='background-color:rgb(79, 157, 213);'>-->
+                <!--        <div class="row" style="height:15px">-->
+                <!--            &nbsp;-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <!--<div class="container-fluid my-5">-->
+                <!--    <div class="row">-->
+                <!--        <div class='col-12'>-->
+                <!--            <section>-->
                                 <!--slide -->
-                                <div id="demo" class="carousel slide " data-ride="carousel">
+                <!--                <div id="demo" class="carousel slide " data-ride="carousel">-->
                                     <!-- The slideshow -->
-                                    <div class="carousel-inner" style='max-height:25vw !important;'>
-                                        @foreach ($blogs as $blog)
-                                            <div class="  carousel-item py-5 {{ $loop->first ? 'active' : '' }}"
-                                                style='background-color:rgba(0, 0, 0, 0.644)'>
-                                                <div class=" container row mx-auto px-5">
-                                                    <div class=' my-auto'
-                                                        style="  background: url({{ URL::asset('assets/uploads/blogs/images/' . $blog->image) }}) no-repeat;
-                                                              background-size: cover; width: 250px; height:200px; background-color:rgba(0, 0, 0, 0.212);">
-                                                    </div>
-                                                    <div class="mx-5 my-auto">
-                                                        <div>
-                                                            <h5 style="color: #fff;">{{ $blog->title }}
-                                                            </h5>
-                                                            {{-- <div style="color: #fff;">{!!  \Illuminate\Support\Str::limit($serv->description, $limit = 100, $end = '...') !!}
-                                                      </div> --}}
-                                                            <a href="service/{{ $blog->blog_id }}"
-                                                                class='btn btn-primary my-2'>
-                                                                {{ __('fields_web.Tenders.more') }} </a>
-                                                        </div>
-                                                    </div>
+                <!--                    <div class="carousel-inner" style='max-height:25vw !important;'>-->
+                <!--                        @foreach ($blogs as $blog)-->
+                <!--                            <div class="  carousel-item py-5 {{ $loop->first ? 'active' : '' }}"-->
+                <!--                                style='background-color:rgba(0, 0, 0, 0.644)'>-->
+                <!--                                <div class=" container row mx-auto px-5">-->
+                <!--                                    <div class=' my-auto'-->
+                <!--                                        style="  background: url({{ URL::asset('assets/uploads/blogs/images/' . $blog->image) }}) no-repeat;-->
+                <!--                                              background-size: cover; width: 250px; height:200px; background-color:rgba(0, 0, 0, 0.212);">-->
+                <!--                                    </div>-->
+                <!--                                    <div class="mx-5 my-auto">-->
+                <!--                                        <div>-->
+                <!--                                            <h5 style="color: #fff;">{{ $blog->title }}-->
+                <!--                                            </h5>-->
+                <!--                                            {{-- <div style="color: #fff;">{!!  \Illuminate\Support\Str::limit($serv->description, $limit = 100, $end = '...') !!}-->
+                <!--                                      </div> --}}-->
+                <!--                                            <a href="service/{{ $blog->blog_id }}"-->
+                <!--                                                class='btn btn-primary my-2'>-->
+                <!--                                                {{ __('fields_web.Tenders.more') }} </a>-->
+                <!--                                        </div>-->
+                <!--                                    </div>-->
 
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        @endforeach-->
+                <!--                    </div>-->
                                     <!-- Left and right controls -->
-                                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" style=''></span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                                        <span class="carousel-control-next-icon" style=''></span>
-                                    </a>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
+                <!--                    <a class="carousel-control-prev" href="#demo" data-slide="prev">-->
+                <!--                        <span class="carousel-control-prev-icon" style=''></span>-->
+                <!--                    </a>-->
+                <!--                    <a class="carousel-control-next" href="#demo" data-slide="next">-->
+                <!--                        <span class="carousel-control-next-icon" style=''></span>-->
+                <!--                    </a>-->
+                <!--                </div>-->
+                <!--            </section>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
 
     </main>
     <!--end content-->

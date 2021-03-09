@@ -32,7 +32,7 @@ class TenderController extends Controller
             ->where('deadline','>=',$date)
             ->where('start_date','<=',$date)
             ->orderByRaw('start_date DESC')
-            ->paginate(4);
+            ->paginate(20);
             $data=['tenders' => $tenders];
 
         return view('HR.tenders',$data);

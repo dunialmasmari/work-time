@@ -138,17 +138,17 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <div class="form-group">
-                                            <label class="label" style="color:#000">{{__('fields_web.companyInfo.WebsiteLink')}}</label>
-                                            <input id="websitelink" placeholder="{{__('fields_web.companyInfo.WebsiteLink')}}" type="text"
-                                                    class="form-control @error('websitelink') is-invalid @enderror"
-                                                    name="websitelink" value="{{ old('websitelink') }}" />
-                                                @error('websitelink')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
+                                            <!--<div class="form-group">-->
+                                            <!--<label class="label" style="color:#000">{{__('fields_web.companyInfo.WebsiteLink')}}</label>-->
+                                            <!--<input id="websitelink" placeholder="{{__('fields_web.companyInfo.WebsiteLink')}}" type="text"-->
+                                            <!--        class="form-control @error('websitelink') is-invalid @enderror"-->
+                                            <!--        name="websitelink" value="{{ old('websitelink') }}" />-->
+                                            <!--    @error('websitelink')-->
+                                            <!--        <span class="invalid-feedback" role="alert">-->
+                                            <!--            <strong>{{ $message }}</strong>-->
+                                            <!--        </span>-->
+                                            <!--    @enderror-->
+                                            <!--</div>-->
 
                                         </div>
                                         <div class="col-md-11 mx-auto">

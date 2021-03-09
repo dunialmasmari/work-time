@@ -15,10 +15,11 @@ class InterstedTendersJobs extends Migration
     {
         Schema::create('interstedTendersJobs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->integer('type');
-            $table->integer('major_id');
+            $table->longText('major_id');
             $table->timestamps();
         });
     }

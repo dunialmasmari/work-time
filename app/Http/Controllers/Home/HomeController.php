@@ -9,7 +9,7 @@ use App\Models\Major;
 use Illuminate\Support\Collection;
 use validator;
 use Carbon\Carbon;
-use App\Models\job;
+use App\Models\Job;
 use App\Models\Advertising;
 use App\Models\service;
 use App\Models\blog;

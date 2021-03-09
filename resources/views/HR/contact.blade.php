@@ -31,13 +31,13 @@
                                                 rel="noopener noreferrer"><i class="fab fa-facebook" hh
                                                     style='font-size:22px;color:white'></i></a>&nbsp;&nbsp;&nbsp;
                                         </div>
-                                        <div class="mx-auto py-2" style='direction:ltr;'>
+                                        {{-- <div class="mx-auto py-2" style='direction:ltr;'>
 
                                             <span class=" my-2">+967 </span><br>
                                         </div>
                                         <div class="mx-auto py-2" style='direction:ltr;'>
                                             <span>+967 </span>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                 </div>

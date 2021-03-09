@@ -175,7 +175,6 @@
                             <small class='error-message' id="descriptionMe"></small>
                             <textarea class="tinymce" name="description" id='description'></textarea>
                             {{-- <textarea cols="80" id="mytextarea" name="description"></textarea> --}}
-                          
                           </div>
                        </div>
                     </div>

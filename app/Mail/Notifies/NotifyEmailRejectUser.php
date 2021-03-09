@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifyEmailJop extends Mailable
+class NotifyEmailRejectUser extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,13 +32,11 @@ class NotifyEmailJop extends Mailable
      */
     public function build()
     {
-        /*// if($type=='tender')
+        // if($type=='tender')
         // {
-            return $this->subject(' Notifation Of Tender ')->view('email.MailNotifyTender');
-         }
+            return $this->subject(' Notification Of Reject User ')->view('email.MailNotifyRejectUser');
+        /* }
         elseif($type=='job')
-        {*/
-            return $this->subject(' Notification Of Job ')->view('email.MailNotifyJob');
-        // }
+        {return $this->subject(' Notifation Of Job ')->view('email.MailNotifyJob');}*/
     } 
 }

@@ -34,7 +34,7 @@ class NotifyEmail extends Mailable
     {
         // if($type=='tender')
         // {
-            return $this->subject(' Notifation Of Tender ')->view('email.MailNotifyTender');
+            return $this->subject(' Notification Of Tender ')->view('email.MailNotifyTender');
         /* }
         elseif($type=='job')
         {return $this->subject(' Notifation Of Job ')->view('email.MailNotifyJob');}*/

@@ -171,6 +171,8 @@ Route::namespace('Major')->group(function(){
     Route::get('/Notifications','NotificationController@viewNotifications')->name('Notifications');
     Route::get('/Companies','NotificationController@viewNewCompany')->name('Companies');
     Route::get('/Messages','NotificationController@viewMessages')->name('Messages');
+    Route::get('/Message/{id}','NotificationController@viewMessageDetails')->name('Message');
+
     Route::get('/TendersPosting','NotificationController@viewNewTenders')->name('TendersPosting');
     Route::get('/acceptTender/{id}','NotificationController@acceptTender')->name('acceptTender');
     Route::get('/rejectTender/{id}','NotificationController@rejectTender')->name('rejectTender');
@@ -183,6 +185,10 @@ Route::namespace('Major')->group(function(){
     Route::get('/postJob/{id}','NotificationController@viewJob')->name('postJob');
     Route::get('/acceptAccount/{id}','NotificationController@acceptAccount')->name('acceptAccount');
     Route::get('/rejectAccount/{id}','NotificationController@rejectAccount')->name('rejectAccount');
+    //Route::get('/{brand}/{product}', 'AdvertismentController@show2');
+    Route::get('/notReadNotification/{type}/{id}','NotificationController@notReadNotification')->name('notReadNotification');
+    Route::get('/readNotifcations/{id}','NotificationController@readNotifcations')->name('readNotifcations');
+    Route::get('/notreadNotifcations/{id}','NotificationController@notreadNotifcations')->name('notreadNotifcations');
 
 });
 

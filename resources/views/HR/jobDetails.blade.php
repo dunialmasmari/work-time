@@ -10,15 +10,17 @@
 
                 </div>
             </div>
-        </div>
-        
-        @section('meta')
-            <title>{{ $job->title }}</title>
-
-            <meta property="title" content="{{ $job->title }}">
-            <meta name="image" content="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}">
-              @endsection
-
+        </div> 
+ @section('meta')
+                        <title>{{ $job->title }}</title>
+                        <meta name="keywords" content="{{ $job->title }}">
+                        <meta name="description" content="{{ $job->title }}"> 
+                        <meta property="og:url" content="http://worktime-ye.com/ar/job/{{ $job->job_id }}">
+                        <meta property="og:description" content="{{ $job->title }}"> 
+                        <meta property="og:type"               content="article" />
+                        <meta property="og:title" content="{{ $job->title }}">
+                        <meta property="og:image" content="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}">
+                      @endsection
 
             <div class="container-fluid  my-3">
                 <div class="row">

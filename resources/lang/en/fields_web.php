@@ -45,11 +45,11 @@ return [
         'blog'=> 'blogs',
       ],
       'aboutus'=> [
-        'description'=>'work time هو موقع الكتروني    مصمم علئ شبكه الانترنت متخصص في اعلان ونشر كل  المناقصات بكل انواعها سواء كانت مناقصات توريدات او مناقصات انشائيه خدميه اومناقصات اخرئ..واعلانات التأهيل المسبق للمقاولين والموردين ومقدمي الخدمات وكذالك اعلان الوظائف المهنيه لكي يصل اعلاننا للمناقصه والوظائف الئ اكبر شريحه ممكنه .. تم اطلاق موقع work time عام 2021 حيث يساعد جميع الافراد والشركات والمقاولين والموردين علئ متابعه العطاءات والوظائف الجديده ...',
-        'vesion'=>'Our vision',
-        'vesionDes'=>'نطمح الئ ان تكون الشركه اكبر واهم موقع اعلانات للمناقصات والوظائف لكل الافراد والمؤسسات في المجتمع كامل .. ويكون اسهل واسرع موقع يتم استخدامه ويستفيد منه الجميع بشكل كبير ..  وبأن نعمل علئ وصول المناقصات الئ جميع الشركات والمقاولين والموردين المهتمين بالعطاءات الجديده .. وايضا العمل علئ وصول اعلان الوظائف الئ اكبر شريحه من ذوي الخبرات والخريجين المؤهلين للمشاركه في اماكن العمل بكل ثقه ..',
-        'services'=>'Our services',
-        'servicesDes'=>'تزويد الباحثين عن العطاءات والمناقصات الجديده في كل المجالات من خلال موقعنا بكل سهوله وسرعه وبميزه وصولهم تنبيه اشعارات بكل المناقصات الجديده...  وكذالك تزويد الباحث عن عمل بالقدره علئ العثور علئ الوظيفه التي يرئ نفسه مؤهل لها من خلال ادوات البحث عن جميع الوظائف المصنفه في موقعنا وبخدمه شعارات التنبيهات للوظائف والاشتراك بالفرص الجديده ..'
+        'description'=>' Work Time is one of the websites specialized in advertising and announcing all construction tenders and supplies. Pre-qualification announcements for contractors, suppliers, and service providers, as well as the link between job seekers and employers intending to hire. The Worktime website was launched in 2021, helping employers, "companies" and non-profit organizations in Yemen, by adding many vacancies on the Worktime platform to reach the largest possible segment and easy follow-up of new tenders and jobs...',
+      'vesion'=>'Our vision:',
+      'vesionDes'=>' Work Time aspires to be the most distinguished company in providing the best services and competitive offers for all individuals and institutions in an easier and faster way..',
+      // 'services'=>'Our services',
+      //   'servicesDes'=>'تزويد الباحثين عن العطاءات والمناقصات الجديده في كل المجالات من خلال موقعنا بكل سهوله وسرعه وبميزه وصولهم تنبيه اشعارات بكل المناقصات الجديده...  وكذالك تزويد الباحث عن عمل بالقدره علئ العثور علئ الوظيفه التي يرئ نفسه مؤهل لها من خلال ادوات البحث عن جميع الوظائف المصنفه في موقعنا وبخدمه شعارات التنبيهات للوظائف والاشتراك بالفرص الجديده ..'
       ],
       'Drawer'=> [
         'Dashboard'=> 'Dashboard',
@@ -625,12 +625,12 @@ return [
     'personname'=>'Responsible Person',
     'date'=>'Writing Date',
     'CoverLetters'=>'Your Letter',
-    'ExperienceTitle'=>'Experience Title',
-    'ExperienceSupTitle'=>'Experience SupTitle',
-    'EducationTitle'=>'Education Title',
-    'EducationSupTitle'=>'Education SupTitle',
-    'ProjectsTitle'=>'Projects Title',
-    'ProjectsSupTitle'=>'Projects SupTitle',
+    'ExperienceTitle'=>'Job Title',
+    'ExperienceSupTitle'=>'Employer',
+    'EducationTitle'=>'Field\Course Name',
+    'EducationSupTitle'=>'School',
+    'ProjectsTitle'=>'Projects Name',
+    'ProjectsSupTitle'=>'Projects Link',
     'Genderf'=>'Female',
     'Genderm'=>'Male',
     'changpassword'=>'Change ',
@@ -691,7 +691,15 @@ return [
     'deadline'=>'It is Expired  , The time has been finished',
     'doneReject' => 'Rejecting done',
     'doneAccpt' => 'Accepting done ',
-    
+    'newMessage'=>"New Message",
+    'newUser'=>"New User",
+    'newPostingJob'=>"New Posting Job",
+    'newPostingTender'=>"New Posting Tender",
+    'Status'=>'Status of notification',
+    'see' => 'See It ',
+    'notsee' => 'Not See It ',
+    'NotificationLater'=>'Cencel, Remember me another time',
+
 
 
     ''=>'',

@@ -13,7 +13,7 @@
         </div>
         <div class='mx-4 bg-light' >
             <div class="row ">
-                <div class=" col-lg-4">
+                <div class=" col-lg-4  order-1  order-xl-1  order-lg-1">
                      <!--/.Carousel Wrapper-->
                      <div class="row  ">
 
@@ -40,8 +40,8 @@
                                                 @if ($adv->link != '' || $adv->link != null)
 
                                                     <a href="https://www.{{ $adv->link }}"><button
-                                                            class='btn btn-primary btn-md my-2 '
-                                                            style="float: none;width:60%">
+                                                            class='btn btn-primary btn-sm my-2 '
+                                                            style="float: none;">
                                                             {{ __('fields_web.Home.visti_website') }} </button></a>
                                                 @endif
                                             </div>
@@ -65,28 +65,22 @@
                                         @foreach ($allservices->chunk(4) as $servicesslides)
                                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                                 @foreach ($servicesslides as $service)
-                                                    <div class="row ">
-                                                        <div class="col-md-12  d-md-block ">
-                                                            <div class='card-body bg-white px-0 py-0 mb-4 mx-auto' style="border-radius:2px;">
-                                                               <div class="row">
-                                                                <div class=' my-auto'
-                                                                style="border-radius:2px; background: url({{ URL::asset('assets/uploads/services/images/' . $service->image) }}) no-repeat;
-                                                                  background-size: cover; height:130px; width:170px; background-color:rgb(79, 157, 213);">
+                                                    <div class="row bg-white px-0 py-0 mb-4 mx-auto" style="border-radius:2px;"> 
+                                                                 
+                                                                <img class=' my-auto'
+                                                                style="border-radius:2px; height:130px; width:170px; " src="{{ URL::asset('assets/uploads/services/images/' . $service->image) }}" />
 
-                                                            </div>
+                                                           
                                                             
                                                            <div>
                                                             <h5 class="mx-2 my-2" style="height: 65px;">{{ $service->title }}</h5>
                                                             <a class="mx-2 my-2"
                                                                 href="../service/{{ $service->service_id }}"><button
-                                                                    class='btn btn-primary btn-sm btn-md my-2 '
+                                                                    class='btn btn-primary btn-sm my-2 '
                                                                     style="float: none;">
                                                                     {{ __('fields_web.Tenders.more') }} </button></a>
 
-                                                           </div>
-                                                               </div>
-                                                            </div>
-                                                        </div>
+                                                           </div> 
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -100,7 +94,7 @@
                     </div>
                    
                 </div>
-                <div class=" col-lg-8">
+                <div class=" col-lg-8  order-0 order-xl-1 order-lg-2">
                     <div class="row ">
                         <div class="card   bg-white full-width " style="min-height: 200px;">
                             <div class=" card-body ">

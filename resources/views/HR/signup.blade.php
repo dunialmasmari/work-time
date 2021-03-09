@@ -34,11 +34,11 @@
                                 <div class="row register-form" style="color:#000;">
                                     <div class="col-md-11 mx-auto">
                                         <div class="form-group">
-                                            <label style="color:#000">{{__('fields_web.Users.fullName')}}</label>
-                                            <input id="name" placeholder="{{__('fields_web.Users.fullName')}}" type="text"
-                                                class="form-control @error('name') is-invalid @enderror" name="name"
-                                                value="{{ old('name') }}" required autocomplete="name" autofocus />
-                                            @error('name')
+                                            <label class="label" style="color:#000">{{__('fields_web.Users.UserName')}}</label>
+                                            <input id="username" placeholder="{{__('fields_web.Users.UserName')}}" type="text"
+                                                class="form-control @error('username') is-invalid @enderror" name="username"
+                                                value="{{ old('username') }}" required />
+                                            @error('username')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -55,17 +55,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <label style="color:#000">{{__('fields_web.Users.UserName')}}</label>
-                                            <input id="username" placeholder="{{__('fields_web.Users.UserName')}}" type="text"
-                                                class="form-control @error('username') is-invalid @enderror" name="username"
-                                                value="{{ old('username') }}" required />
-                                            @error('username')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                                       
 
                                     </div>
                                     <div class="col-md-11  mx-auto">

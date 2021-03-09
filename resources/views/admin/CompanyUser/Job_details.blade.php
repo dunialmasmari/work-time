@@ -29,13 +29,13 @@
           @foreach ($jobs as $job)
            
            <div class="row">
-           @if($job->Deadline < @now())
+           {{-- <!-- @if($job->Deadline < @now())
            <div class="col-sm-12 col-md-12">
                 <div class="color-palette-set">
                   <div class="bg-danger color-palette"><h2 style='text-align:center'>{{(__('fields_web.Notification.deadline'))}}</h2></div>
                 </div>
               </div>
-              @endif
+              @endif -->--}}
            </div>
 
            <div class="row">
@@ -63,14 +63,16 @@
                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
                                                           <i class='far fa-check-square'></i> {{(__('fields_web.Notification.acceptJob'))}}
                                                     </button>
-                                                    <a href="{{route('JobsPosting')}}">
-                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
-                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectNo'))}}
-                                                    </button>
-                                                    </a>
+                                                    
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">
                                                         <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.rejectJob'))}}
                                                     </button>
+
+                                                    <a href="{{route('notReadNotification',['post-job',$job->job_id])}}">
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
+                                                        <i class='	far fa-window-close'></i> {{(__('fields_web.Notification.NotificationLater'))}}
+                                                    </button>
+                                                    </a>
 
 
                                       <!-- /.modal -->

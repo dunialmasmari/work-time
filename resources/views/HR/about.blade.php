@@ -21,8 +21,8 @@
    <p class="py-2">{{__('fields_web.aboutus.description')}}</p>
    <h5 style="color:rgb(79, 157, 213);" class="py-2">{{__('fields_web.aboutus.vesion')}}</h5>
    <p class="py-2">{{__('fields_web.aboutus.vesionDes')}}</p>
-   <h5 style="color:rgb(79, 157, 213);" class="py-2">{{__('fields_web.aboutus.services')}}</h5>
-   <p class="py-2">{{__('fields_web.aboutus.servicesDes')}}</p>  
+   {{-- <h5 style="color:rgb(79, 157, 213);" class="py-2">{{__('fields_web.aboutus.services')}}</h5>
+   <p class="py-2">{{__('fields_web.aboutus.servicesDes')}}</p>   --}}
 </div>
 </div>
    </div>

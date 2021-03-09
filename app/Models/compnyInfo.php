@@ -7,7 +7,7 @@ use Shetabit\Visitor\Traits\Visitable;
 
 class compnyInfo extends Model
 {
-    protected $table = "compnyInfo";
+    protected $table = "compnyinfo";
 
     protected $fillable = [
         'company_id',

@@ -66,9 +66,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            // 'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'alpha', 'max:75', 'unique:users,username'],
+            'username' => ['required', 'string',  'max:75', 'unique:users,username'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -81,10 +81,9 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
-        // $data['active'] = 0;
+    {     // $data['active'] = 0;
             $user = User::create([
-                'name' => $data['name'],
+                'name' => $data['username'],
                 'email' => $data['email'],
                 'username' => $data['username'],
                 'active' => '1',
@@ -92,11 +91,10 @@ class RegisterController extends Controller
             ]);  
             $userdetail = new userdetail();
             $userdetail->user_id = $user->user_id;
-            $userdetail->fullname = $data['name'];
+            $userdetail->fullname = $data['username'];
             $userdetail->active = '1';
             $userdetail->email = $data['email'];
-            $userdetail->save();
-                 
+            $userdetail->save();     
             $user_role = new role_user();
             $user_role->user_id = $user->user_id;
             if($data['type_search'] == 'Jobs')
@@ -114,13 +112,25 @@ class RegisterController extends Controller
             }
             $user_role->user_type =  'App/User';
             $user_role->save();
+            $current = interstedTendersJob::where('email','=',$data['email']);
+            if($current->exists()){
+                $current->Update([
+                    'user_id'=> $user->user_id,
+                  ]);
 
-            $interstedTendersJob = new interstedTendersJob();
+           
+            } else{
+                $interstedTendersJob = new interstedTendersJob();
             $interstedTendersJob->user_id = $user->user_id;
             $interstedTendersJob->email = $user->email;
+            $interstedTendersJob->name = $user->name;
             $interstedTendersJob->type = '3';
             $interstedTendersJob->major_id = '0';
             $interstedTendersJob->save();
+    }
+       
+           // return redirect()->route('userProfile')->with(['success' => __('fields_web.apisuccessmesages.title')]);
+         
     }
 
        /**
@@ -133,7 +143,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'companyName' => ['required', 'string', 'max:255', 'unique:compnyinfo'],
-            'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
+            // 'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
             'phone'=> ['required', 'numeric', 'min:20', 'unique:compnyinfo'],
             'address' => ['required', 'string', 'max:255'],
             // 'name' => ['required', 'string', 'max:255'],
@@ -166,7 +176,7 @@ class RegisterController extends Controller
             $compnyInfo->phone = $data['phone'];
             $compnyInfo->active = 2;
             $compnyInfo->email = $data['email'];
-            $compnyInfo->websitelink = $data['websitelink'];
+            // $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
             $compnyInfo->active = '2';
             $compnyInfo->save();
@@ -189,13 +199,14 @@ class RegisterController extends Controller
             $user_role->save();
 
                     /* add to notification  */
-          $date=Carbon::today();
-          $notify=RealTimeNotification::create([
-              'type'=>'add-company',
-              'id_type'=>$user->user_id,
-              'see_it'=>0,
-              'create_time'=>$date,
-          ]);
+                    $dateday=Carbon::today();
+                    $date = Carbon::parse($dateday)->format('Y - m - d');
+                    $notify=RealTimeNotification::create([
+                             'type'=>'add-company',
+                             'id_type'=>$user->user_id,
+                             'see_it'=>0,
+                             'create_time'=>$date,
+                             ]);
       
              
           $dataevent =
@@ -261,7 +272,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'companyName' => ['required', 'string', 'max:255', 'unique:compnyinfo'],
-            'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
+            // 'websitelink' => ['string', 'url', 'max:255', 'unique:compnyinfo'],
             'phone'=> ['required', 'numeric', 'min:20', 'unique:compnyinfo'],
             'address' => ['required', 'string', 'max:255'],
             // 'name' => ['required', 'string', 'max:255'],
@@ -293,7 +304,7 @@ class RegisterController extends Controller
             $compnyInfo->companyName = $data['companyName'];
             $compnyInfo->phone = $data['phone'];
             $compnyInfo->email = $data['email'];
-            $compnyInfo->websitelink = $data['websitelink'];
+            // $compnyInfo->websitelink = $data['websitelink'];
             $compnyInfo->address = $data['address'];
             $compnyInfo->active = '1';
             $compnyInfo->save();

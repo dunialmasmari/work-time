@@ -24,6 +24,7 @@
 
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
+
     <!-- Navbar-->
     <nav class="navbar navbar-expand-md bg-light navbar-light shadow-sm fixed-top  bg-white px-4"  
         style="margin-top:0px; border-bottom:3px solid rgb(79, 157, 213);">
@@ -46,7 +47,7 @@
                  <button class="btn btn-primary ">
                     <a class=" btn btn-md " href="{{route('abouthr')}}">{{__('fields_web.Navbar.signup')}} </a>
                   </button> --}}
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav " style="margin: 5px">
                 <li class="nav-item">
                     <a class="nav-link menu  " href="{{ route('homehr') }}">{{ __('fields_web.Navbar.Home') }}</a>
                 </li>

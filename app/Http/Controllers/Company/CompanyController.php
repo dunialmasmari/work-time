@@ -12,7 +12,7 @@ use App\Models\Major;
 use Illuminate\Support\Collection;
 // use validator;
 use Carbon\Carbon;
-use App\Models\job;
+use App\Models\Job;
 use App\User;
 use App\Models\Advertising;
 use App\Events\AdminNotification;
@@ -41,17 +41,17 @@ class CompanyController extends Controller
 
              $user_id = auth()->user()->user_id;
              $role_users= role_user::select()->where('user_id',$user_id)->get();
-             $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+             $user_info = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')->select('compnyinfo.*')
                ->where('users.user_id', $user_id)
                ->where('users.active','1')
-               ->where('compnyinfo.active','1');
-               if ($user->exists())
+               ->where('compnyinfo.active','1')->first();
+               if ( $user_info !=null)
                {  
-                  $user =User::get();
-                  $user_info=User::where('active','1')
-                    ->where('user_id','=',$user_id)
-                    ->get();
-                  $data=['user_info' => $user_info, 'role_users' => $role_users];
+                //   $user =User::get();
+                //   $user_info=User::where('active','1')
+                //     ->where('user_id','=',$user_id)
+                //     ->get();
+                  $data=['info' => $user_info, 'role_users' => $role_users];
                   return view('HR.company.userInfo',$data);
                 }
                else 
@@ -59,15 +59,7 @@ class CompanyController extends Controller
               // return response()->json(['message' => 'You do not have permation '], 404);   
               return view('HR.Erroe'); 
             }
-             /* $user_info=User::where('active','1')
-             ->where('user_id','=',$user_id)
-             ->get(); */
-              
-
-        // }
-        // else{
-        //      return view('HR.Erroe');   
-        // }
+            
     }
     public function updateInfo(Request $request)
     {  
@@ -113,7 +105,7 @@ class CompanyController extends Controller
                 $compnyInfo = compnyInfo::where('active','1')
                 ->where('user_id','=',$user_id)
                 ->get();
-                return redirect()->route('userInfo')->with(['compnyInfo' => $compnyInfo, 'role_users' => $role_users]);
+                return redirect()->route('userInfo');
                 //return view('admin.job.job_list',['jobs' => $jobs]);
             }
             else{
@@ -146,6 +138,8 @@ class CompanyController extends Controller
                     }
                     $compnyInfo->Update([
                     'logo' => $compnyInfo->logo]);
+                    
+                         return redirect()->route('userInfo');
             }
             else{
                 return response()->json(['message' => 'job nott found'], 404);
@@ -293,7 +287,9 @@ class CompanyController extends Controller
                         //dd($job_id);
                 
                           /* add to notification */
-                                 $date=Carbon::today();
+                             $dateday=Carbon::today();
+                             $date = Carbon::parse($dateday)->format('Y - m - d');
+                
                                  $notify=RealTimeNotification::create([
                                      'type'=>'post-job',
                                      'id_type'=>$job_id,
@@ -529,7 +525,8 @@ class CompanyController extends Controller
 
                   
                         /* add to notification */
-                              $date=Carbon::today();
+                           $dateday=Carbon::today();
+                           $date = Carbon::parse($dateday)->format('Y - m - d');              
                               $notify=RealTimeNotification::create([
                                   'type'=>'post-tender',
                                   'id_type'=>$tender_id,
