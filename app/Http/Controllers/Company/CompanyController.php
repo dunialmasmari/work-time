@@ -56,7 +56,8 @@ class CompanyController extends Controller
                 }
                else 
             {
-              return response()->json(['message' => 'You do not have permation '], 404);   
+              // return response()->json(['message' => 'You do not have permation '], 404);   
+              return view('HR.Erroe'); 
             }
             
     }
@@ -206,7 +207,8 @@ class CompanyController extends Controller
                }
               else 
            {
-             return response()->json(['message' => 'You do not have permation '], 404);   
+            //  return response()->json(['message' => 'You do not have permation '], 404);  
+            return view('HR.Erroe');  
            }
 
                   // }
@@ -311,7 +313,8 @@ class CompanyController extends Controller
              }
             else 
          {
-           return response()->json(['message' => 'You do not have permation '], 404);   
+          //  return response()->json(['message' => 'You do not have permation '], 404);  
+          return view('HR.Erroe');  
          }
         // }
         // else{
@@ -348,7 +351,8 @@ class CompanyController extends Controller
                     }
                 else 
                  {
-                   return response()->json(['message' => 'You do not have permation '], 404);   
+                  //  return response()->json(['message' => 'You do not have permation '], 404);  
+                  return view('HR.Erroe');  
                  }
         // }
         // else{
@@ -390,7 +394,8 @@ class CompanyController extends Controller
                     }
                 else 
                    {
-                     return response()->json(['message' => 'You do not have permation '], 404);   
+                    //  return response()->json(['message' => 'You do not have permation '], 404); 
+                    return view('HR.Erroe');   
                    }
         // }
         // else{
@@ -431,7 +436,8 @@ class CompanyController extends Controller
                     }
                 else 
                     {
-                      return response()->json(['message' => 'You do not have permation '], 404);   
+                      // return response()->json(['message' => 'You do not have permation '], 404);  
+                      return view('HR.Erroe');  
                     }
         // }
         // else{
@@ -464,7 +470,8 @@ class CompanyController extends Controller
                    }
                 else 
                    {
-                     return response()->json(['message' => 'You do not have permation '], 404);   
+                    //  return response()->json(['message' => 'You do not have permation '], 404); 
+                    return view('HR.Erroe');   
                    }
         // }
         // else{
@@ -543,7 +550,8 @@ class CompanyController extends Controller
                 }
                 else 
                 {
-                  return response()->json(['message' => 'You do not have permation '], 404);   
+                  // return response()->json(['message' => 'You do not have permation '], 404); 
+                  return view('HR.Erroe');   
                 }
           
         // }

@@ -25,9 +25,6 @@
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
 
-
-
-
     <!-- Navbar-->
     <nav class="navbar navbar-expand-md bg-light navbar-light shadow-sm fixed-top  bg-white px-4"  
         style="margin-top:0px; border-bottom:3px solid rgb(79, 157, 213);">

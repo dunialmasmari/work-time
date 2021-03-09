@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="{{route('updateservice')}}" method="post" enctype="multipart/form-data">
+                <form name = "myForm" onsubmit = "return(validate());" action="{{route('updateservice')}}" method="post" enctype="multipart/form-data">
                 @foreach ($services as $service)
                     @csrf
                   <div class="card-body">
@@ -67,6 +67,7 @@
                               <div class="timeline-body preview">
                               <img id="file-ip-1-preview" src="{{URL::asset('assets/uploads/services/images/'.$service->image)}}" style="width: 150px;height: 150px;margin-top:10px;">
                               </div>
+                              <small class='error-message' id="imageMe"></small>
                           </div>
                          </div>
                     </div>    
@@ -95,6 +96,35 @@
       </div>
     </div>
 </section>
+<script type = "text/javascript">
+  var img = document.forms["myForm"]["image"];
+      function validate() {
+         if(img.value != "" ) {
+          var reader = new FileReader();
+          reader.readAsDataURL(img.files[0]);
+          reader.onload = function (e) {
+               var image = new Image();
+               image.src = e.target.result;
+               image.onload = function () {
+                   var height = this.height;
+                   var width = this.width;
+                   if (height > 500 || height < 200 || width > 500 || width < 200) {
+                     document.getElementById("imageMe").innerHTML = "{!! __('fields_web.TenderValidate.imageMassage') !!}";
+          
+                       //alert("Height and Width must not exceed 500px.");
+                      document.myForm.image.focus() ;
+                      return false;
+                   } 
+                   else{
+                     return true;
+                   }
+               };
+           }
+         }
+ 
+         return( true );
+      }
+ </script>
 @endSection
 
 

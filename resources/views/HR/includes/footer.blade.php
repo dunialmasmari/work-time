@@ -13,6 +13,25 @@
 <script src="{{url('assets/controlpanel/dist/js/demo.js')}}"></script>
 <!-- Page specific script -->
 
+<script> 
+    function yesnoCheck() {
+      
+        var filed=document.getElementById("div");
+        var no = '<div class="form-group"><label>{{__("fields_web.JobsAdd.link")}} :</label><input type="link" name="apply_link"  placeholder="{{__("fields_web.JobsAdd.link")}}" class="form-control"  required><small class="error-message" id="apply_linkMe"></small></div>';
+        var yes = '<div class="form-group"><label>{{__("fields_web.JobsAdd.email")}} :</label><input type="email" name="email"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div> <div class=""><label>{{__("fields_web.JobsAdd.Recommendation")}} ?</label><div class="col-sm-4"><div class="form-check form-check-inline"> <input class="form-check-input" type="radio"  name="recommendation" value="1" ><label class="form-check-label" for="inlineRadio1">{{__("fields_web.JobsAdd.Yes")}}</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio"  name="recommendation" value="0" ><label class="form-check-label" for="inlineRadio2">{{__("fields_web.JobsAdd.No")}}</label></div></div></div>'; 
+       var both = '<div class="form-group"><label>{{__("fields_web.JobsAdd.link")}} :</label><input type="link" name="apply_link"  placeholder="{{__("fields_web.JobsAdd.link")}}" class="form-control"  required><small class="error-message" id="apply_linkMe"></small></div><div class="form-group"><label>{{__("fields_web.JobsAdd.email")}} :</label><input type="email" name="email"  placeholder="{{__("fields_web.JobsAdd.email")}}" class="form-control"  required></div> <div class=""><label>{{__("fields_web.JobsAdd.Recommendation")}} ?</label><div class="col-sm-4"><div class="form-check form-check-inline"> <input class="form-check-input" type="radio"  name="recommendation" value="1" ><label class="form-check-label" for="inlineRadio1">{{__("fields_web.JobsAdd.Yes")}}</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio"  name="recommendation" value="0" ><label class="form-check-label" for="inlineRadio2">{{__("fields_web.JobsAdd.No")}}</label></div></div></div>';
+        if (document.getElementById('yesCheck').checked) {
+          filed.innerHTML=yes;
+         }
+        else if (document.getElementById('noCheck').checked) {
+          filed.innerHTML=no;
+         }
+        else if (document.getElementById('BothCheck').checked) {
+          filed.innerHTML=both;
+         }
+      
+    }
+    </script>
 <style>
     .col_white_amrc {
         color: #FFF;

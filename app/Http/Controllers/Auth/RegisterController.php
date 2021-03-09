@@ -104,6 +104,7 @@ class RegisterController extends Controller
             elseif($data['type_search'] == 'Tenders')
             {
                 $user_role->role_id = '3';
+                
             }
             elseif($data['type_search'] == 'Jobs&Tender')
             {
@@ -126,11 +127,10 @@ class RegisterController extends Controller
             $interstedTendersJob->type = '3';
             $interstedTendersJob->major_id = '0';
             $interstedTendersJob->save();
-            }
+    }
        
            // return redirect()->route('userProfile')->with(['success' => __('fields_web.apisuccessmesages.title')]);
-                
-              
+         
     }
 
        /**
