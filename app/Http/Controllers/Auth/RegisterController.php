@@ -205,7 +205,7 @@ class RegisterController extends Controller
                              'type'=>'add-company',
                              'id_type'=>$user->user_id,
                              'see_it'=>0,
-                             'create_time'=>$date,
+                             'create_time'=>$dateday,
                              ]);
       
              

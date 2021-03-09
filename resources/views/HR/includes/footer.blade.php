@@ -1,3 +1,18 @@
+<script src="{{url('assets/tinymce/plugin/tinymce/tinymce.min.js')}}" > </script>
+<script src="{{url('assets/tinymce/plugin/tinymce/init-tinymce.js')}}" > </script>
+<script src="{{url('assets/controlpanel/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{url('assets/controlpanel/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('assets/controlpanel/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{url('assets/controlpanel/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
+<!-- AdminLTE App -->
+<script src="{{url('assets/controlpanel/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url('assets/controlpanel/dist/js/demo.js')}}"></script>
+<!-- Page specific script -->
+
 <style>
     .col_white_amrc {
         color: #FFF;

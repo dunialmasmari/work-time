@@ -22,7 +22,11 @@ use App\Models\RealTimeNotification;
 use App\User;
 use App\Models\compnyInfo;
 use App\Mail\Notifies\NotifyEmailAcceptUser;
+use App\Mail\Notifies\NotifyEmailAcceptTender;
+use App\Mail\Notifies\NotifyEmailAcceptJob;
 use App\Mail\Notifies\NotifyEmailRejectUser;
+use App\Mail\Notifies\NotifyEmailRejectTender;
+use App\Mail\Notifies\NotifyEmailRejectJob;
 use Mail;
 
 
@@ -37,7 +41,8 @@ class NotificationController extends Controller
         foreach($role_users as $role_user)
         if($role_user->role_id == 1 || $role_user->role_id == 8)
         {
-            $notifications=RealTimeNotification::where('type','!=','message')->get();
+            $notifications=RealTimeNotification::where('type','post-tender')
+            ->orwhere('type','post-job')->orwhere('type','add-company')->get();
 
              $data=[
                 'role_users' => $role_users,
@@ -503,6 +508,21 @@ class NotificationController extends Controller
                     $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
                     ->where('jobs.job_id', $id)
                     ->Update(['jobs.active' => '1']);
+                    
+                       $userAcceptemail=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->select('compnyinfo.email')->where('jobs.job_id', $id)->get();
+                       $title=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->where('jobs.job_id', $id)->pluck('jobs.title');
+                       $company=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->where('jobs.job_id', $id)->pluck('jobs.company');
+                   
+                       $data=[
+                        'job_id'=> $id,
+                        'title'=> $title,
+                        'company'=> $company,
+                    ];
+                        Mail::to($userAcceptemail)->send(new NotifyEmailAcceptJob($data));
+                   
                    
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }
@@ -536,6 +556,20 @@ class NotificationController extends Controller
                     $jobs = Job::join('majors', 'jobs.major_id', '=', 'majors.major_id')
                     ->where('jobs.job_id', $id)
                     ->Update(['jobs.active' => '3']);
+
+                       $userAcceptemail=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->select('compnyinfo.email')->where('jobs.job_id', $id)->get();
+                       $title=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->where('jobs.job_id', $id)->pluck('jobs.title');
+                       $company=Job::join('compnyinfo', 'jobs.user_id', '=', 'compnyinfo.user_id')
+                       ->where('jobs.job_id', $id)->pluck('jobs.company');
+                   
+                       $data=[
+                        'job_id'=> $id,
+                        'title'=> $title,
+                        'company'=> $company,
+                         ];
+                        Mail::to($userAcceptemail)->send(new NotifyEmailRejectJob($data));
                    
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }
@@ -602,6 +636,21 @@ class NotificationController extends Controller
                     ->where('tenders.tender_id', $id)
                     ->Update(['tenders.active' => '1']);
                    
+                    $userAcceptemail=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->select('compnyinfo.email')->where('tenders.tender_id', $id)->get();
+                    $title=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->where('tenders.tender_id', $id)->pluck('tenders.title');
+                    $company=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->where('tenders.tender_id', $id)->pluck('tenders.company');
+                
+                    $data=[
+                     'tender_id'=> $id,
+                     'title'=> $title,
+                     'company'=> $company,
+                 ];
+                     Mail::to($userAcceptemail)->send(new NotifyEmailAcceptTender($data));
+                
+
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }
 
@@ -635,6 +684,21 @@ class NotificationController extends Controller
                     ->where('tenders.tender_id', $id)
                     ->Update(['tenders.active' => '3']);
                    
+                    $userAcceptemail=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->select('compnyinfo.email')->where('tenders.tender_id', $id)->get();
+                    $title=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->where('tenders.tender_id', $id)->pluck('tenders.title');
+                    $company=tender::join('compnyinfo', 'tenders.user_id', '=', 'compnyinfo.user_id')
+                    ->where('tenders.tender_id', $id)->pluck('tenders.company');
+                
+                    $data=[
+                     'tender_id'=> $id,
+                     'title'=> $title,
+                     'company'=> $company,
+                 ];
+                     Mail::to($userAcceptemail)->send(new NotifyEmailRejectTender($data));
+
+
                      return redirect()->back()->with(['success' => __('fields_web.apisuccessmesages.title')]);
                  }
 

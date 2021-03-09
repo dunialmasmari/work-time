@@ -9,6 +9,7 @@ use App\Models\userNotify;
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\Notifies\NotifyEmailJop;
 use Carbon\Carbon;
+use App\Models\RealTimeNotification;
 
 class JobNotify extends Command
 {
@@ -72,6 +73,15 @@ class JobNotify extends Command
                         'location'=> $job->location,
                         'email'=>$user->email,
                     ];
+
+                    /* $dateday=Carbon::today();
+                    $dateNow = Carbon::parse($dateday)->format('Y - m - d');
+                      $notify=RealTimeNotification::create([
+                            'type'=>'add-job',
+                            'id_type'=>$job->job_id,
+                            'see_it'=>0,
+                            'create_time'=>$dateday,
+                        ]); */
                     
                     $delay=now()->addSeconds(20);
                     Mail::To($user->email)->send(new NotifyEmailJop ($data) );
@@ -97,12 +107,29 @@ class JobNotify extends Command
                         'email'=>$user->email,
                     ];
                     
+                    /* $dateday=Carbon::today();
+                    $dateNow = Carbon::parse($dateday)->format('Y - m - d');
+                      $notify=RealTimeNotification::create([
+                            'type'=>'add-job',
+                            'id_type'=>$job->job_id,
+                            'see_it'=>0,
+                            'create_time'=>$dateday,
+                        ]); */
+
                     $delay=now()->addSeconds(20);
                     Mail::To($user->email)->send(new NotifyEmailJop ($data) );
                    }
                }
             }
            }
+                  $dateday=Carbon::today();
+                    $dateNow = Carbon::parse($dateday)->format('Y - m - d');
+                      $notify=RealTimeNotification::create([
+                            'type'=>'add-job',
+                            'id_type'=>$job->job_id,
+                            'see_it'=>0,
+                            'create_time'=>$dateday,
+                        ]);
         }
      
     }

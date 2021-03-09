@@ -45,11 +45,9 @@ return [
         'blog'=> 'blogs',
       ],
       'aboutus'=> [
-        'description'=>'ورك تايم هو من اكبر الموقع الكترونية المتخصصة إعلان ونشر جميع المناقصات الأنشائية والتوريدات.. وإعلانات التأهيل المسبق للمقاولين والموردين ومقدمي الخدمات وكذالك هو صلة الوصل بين الباحثين عن عمل وأصحاب العمل الذين ينوون التوظيف.
-
-      تم اطلاق موقع وورك تايم عام 2021، حيث انه يساعد أصحاب العمل، الشركات، وألمنظمات الغير ربحية في اليمن بإضافة العديد من الوظائف الشاغرة على منصة وارك تايم للوصول الى اكبر شريحة ممكنه وسهولة متابعة العطاءات والوظائف الجديده..',
-      'vesion'=>'رؤيتنا',
-      'vesionDes'=>'وورك تايم تتطمح الى ان تكون الشركة الأكثر تميزا في تقديم افضل الخدمات والعروض المنافسة لكل الافراد والمؤسسات بشكل اسهل واسرع..',
+        'description'=>' Work Time is one of the websites specialized in advertising and announcing all construction tenders and supplies. Pre-qualification announcements for contractors, suppliers, and service providers, as well as the link between job seekers and employers intending to hire. The Worktime website was launched in 2021, helping employers, "companies" and non-profit organizations in Yemen, by adding many vacancies on the Worktime platform to reach the largest possible segment and easy follow-up of new tenders and jobs...',
+      'vesion'=>'Our vision:',
+      'vesionDes'=>' Work Time aspires to be the most distinguished company in providing the best services and competitive offers for all individuals and institutions in an easier and faster way..',
       // 'services'=>'Our services',
       //   'servicesDes'=>'تزويد الباحثين عن العطاءات والمناقصات الجديده في كل المجالات من خلال موقعنا بكل سهوله وسرعه وبميزه وصولهم تنبيه اشعارات بكل المناقصات الجديده...  وكذالك تزويد الباحث عن عمل بالقدره علئ العثور علئ الوظيفه التي يرئ نفسه مؤهل لها من خلال ادوات البحث عن جميع الوظائف المصنفه في موقعنا وبخدمه شعارات التنبيهات للوظائف والاشتراك بالفرص الجديده ..'
       ],
@@ -700,6 +698,8 @@ return [
     'jobAccept'=>'Posted Jobs',
     'tenderRejrct'=>'Reject Tenders',
     'tenderAccept'=>'Posted Tenders',
+    'NotificationsSet'=> 'Notifications Setting For Email',
+    'newNotifications' => 'New Notifications',
 
 
 

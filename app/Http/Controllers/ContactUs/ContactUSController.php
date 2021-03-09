@@ -46,7 +46,7 @@ class ContactUSController extends Controller
                 'type'=>'message',
                 'id_type'=>0,
                 'see_it'=>0,
-                'create_time'=>$date,
+                'create_time'=>$dateday,
             ]);
         
                

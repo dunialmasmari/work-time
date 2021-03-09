@@ -705,6 +705,8 @@ return [
     'see' => 'تمت مشاهدتها  ',
     'notsee' => 'لم تتم مشاهدتها ',
     'NotificationLater'=>'إغلاق وذكرني مرة اخرى',
+    'NotificationsSet'=>'ضبط اشعارات الايميل ',
+    'newNotifications' => 'تنبيهات جديدة '
 
 
 

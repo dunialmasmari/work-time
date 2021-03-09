@@ -10,6 +10,7 @@ use App\Models\interstedTendersJob;
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\Notifies\NotifyEmail;
 use Carbon\Carbon;
+use App\Models\RealTimeNotification;
 
 class TenderNotify extends Command
 {
@@ -98,6 +99,16 @@ class TenderNotify extends Command
                         'location'=> $tender->location,
                         'email'=>$user->email,
                     ];
+
+                    /* $dateday=Carbon::today();
+                    $dateNow = Carbon::parse($dateday)->format('Y - m - d');
+                      $notify=RealTimeNotification::create([
+                            'type'=>'add-tender',
+                            'id_type'=>$tender->tender_id,
+                            'see_it'=>0,
+                            'create_time'=>$dateday,
+                        ]); */
+
                     
                     $delay=now()->addSeconds(20);
                     Mail::To($user->email)->send(new NotifyEmail ($data) );
@@ -105,6 +116,15 @@ class TenderNotify extends Command
                 }
                }
             }
+               
+            $dateday=Carbon::today();
+            $dateNow = Carbon::parse($dateday)->format('Y - m - d');
+              $notify=RealTimeNotification::create([
+                    'type'=>'add-tender',
+                    'id_type'=>$tender->tender_id,
+                    'see_it'=>0,
+                    'create_time'=>$dateday,
+                ]);
         
                 //for more majors and more location 
                 //$user=userprof::select('userProfs_email')->get();

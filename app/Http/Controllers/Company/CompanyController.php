@@ -292,7 +292,7 @@ class CompanyController extends Controller
                                      'type'=>'post-job',
                                      'id_type'=>$job_id,
                                      'see_it'=>0,
-                                     'create_time'=>$date,
+                                     'create_time'=>$dateday,
                                  ]);
                              //dd($notify);
                                  $dataevent =
@@ -524,7 +524,7 @@ class CompanyController extends Controller
                                   'type'=>'post-tender',
                                   'id_type'=>$tender_id,
                                   'see_it'=>0,
-                                  'create_time'=>$date,
+                                  'create_time'=>$dateday,
                               ]);
                             //dd ($notify);
                               $dataevent =

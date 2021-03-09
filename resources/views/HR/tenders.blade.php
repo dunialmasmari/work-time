@@ -33,10 +33,10 @@
                                                 <img   src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
                                                 style=" height:180px; width:100%;" />
                                                 <div class="card-body">
-                                                    <h5 class="card-title" style=" height: 70px; ">
+                                                    <h5  style=" height: 70px; ">
                                                         {{ \Illuminate\Support\Str::limit( $tender->title, $limit = 60, $end = '...') }}
                                                     </h5>
-                                                    <hr class='btn-primary'>
+                                                    <hr  style='background-color:rgb(79, 157, 213); height:1px;'>
                                                     <span class="card-text"
                                                         style="color:rgba(48, 48, 48, 0.8); font-weight:bold; ">
                                                         <i class='fa fa-home' style="width: 20px;"> </i>

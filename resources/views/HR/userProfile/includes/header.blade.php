@@ -85,7 +85,13 @@ h1 a {
     <div class="link">   <a class="nav-link px-2" href="{{route('userResume')}}"><i class="fa fa-fw fa-th mr-1"></i><span>{{__('fields_web.userInfo.Resumes')}}</span></a></div>
     <div class="link"><a class="nav-link px-2" href="{{route('userLetters')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.userInfo.Letters')}}</span></a></div>
     <div class="link"><a class="nav-link px-2" href="{{route('viwechangePassword')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.userInfo.changpassword')}}</span></a></div>
-    <div class="link"><a class="nav-link px-2" href="{{route('ViewUserNotifaction')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.Notification.Notifications')}}</span></a></div>
+    <div class="link"><a class="nav-link px-2" href="{{route('userNotifications')}}">
+        <i class="fas fa-bell"></i>
+    <span>{{__('fields_web.Notification.newNotifications')}}</span>
+    </a></div>
+    <div class="link"><a class="nav-link px-2" href="{{route('ViewUserNotifaction')}}"><i class="fa fa-fw fa-cog mr-1"></i><span>{{__('fields_web.Notification.NotificationsSet')}}</span></a></div>
+
+
    
   </li>
 </ul>
