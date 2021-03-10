@@ -10,8 +10,9 @@
             </div>
         </div>
     </div>
-
-
+    <style>
+        
+    </style>
     <div class="container-fluid bg-light">
         <div class="row">
             <div class="container-fluid">
@@ -21,7 +22,66 @@
                         <br><br>
                         <div class="row container" style="background-color:">
                         </div>
-                        <hr> <br>
+                        <hr> 
+                        <form action="{{ route('jobs') }}" method="get">
+                            <div class="row">
+                                <div class="col-md-3 mx-auto">
+                                    <div class="form-group">
+                                        <label>{{ __('fields_web.Tenders.major') }} :</label>
+                                        <select class="select2" multiple="multiple" name="major_id[]" style="width: 100%;">
+                                            @foreach ($majors as $major)
+                                                @if ($major_id)
+                                                    <option value="{{ $major['id'] }}" @if (in_array($major['id'], $major_id)) selected @endif>{{ $major['name'] }}</option>
+                                                @endif
+                                                @if (!$major_id)
+                                                    <option value="{{ $major['id'] }}">{{ $major['name'] }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mx-auto">
+                                    <div class="form-group">
+                                        <label>{{ __('fields_web.Tenders.company') }} :</label>
+                                        <select class="select2" multiple="multiple" name="company[]" style="width: 100%;">
+                                            @foreach ($companies as $comp)
+                                                @if ($company)
+                                                    <option value="{{ $comp }}" @if (in_array($comp, $company)) selected @endif>{{ $comp }}</option>
+                                                @endif
+                                                @if (!$company)
+                                                    <option value="{{ $comp }}">{{ $comp }}</option>
+                                                @endif
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mx-auto">
+                                    <div class="form-group">
+                                        <label>{{ __('fields_web.Tenders.location') }} :</label>
+                                        <select class="select2" multiple="multiple" name="location[]" style="width: 100%;">
+                                            @foreach ($locations as $loc)
+                                                @if ($location)
+                                                    <option value="{{ $loc }}" @if (in_array($loc, $location)) selected @endif>{{ $loc }}</option>
+                                                @endif
+                                                @if (!$location)
+                                                    <option value="{{ $loc }}">{{ $loc }}</option>
+                                                @endif
+                                                {{-- @if (in_array($loc, $location))selected  @endif --}}
+                                            @endforeach
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 mt-auto mb-1 mx-auto">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-sm btn-primary">{{ __('fields_web.Tenders.filter') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
 
 
                         <div class="container-fluid cards bg-light">
@@ -100,10 +160,20 @@
     </div>
     <div class="container-fluid bg-light">
         <div class="row">
-            <div class="col-12 pagination pagination-lg justify-content-center" style="margin-top:20px;padding:5px ">
+            <div class="col-12 pagination pagination-lg justify-content-center  " style="margin-top:20px;padding:5px ">
                 {!! $jobs->links() !!}
             </div>
         </div>
     </div>
-
+<script>
+       $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2()
+  
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })
+       })
+</script>
 @stop

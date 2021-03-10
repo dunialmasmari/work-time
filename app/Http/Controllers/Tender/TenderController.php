@@ -25,15 +25,52 @@ use App\Mail\Notifies\NotifyEmail;
 
 class TenderController extends Controller
 {
-    public function viewTenders()
+    public function viewTender()
     {
+
         $date=Carbon::today();
         $tenders=tender::where('active','1')
             ->where('deadline','>=',$date)
             ->where('start_date','<=',$date)
             ->orderByRaw('start_date DESC')
-            ->paginate(20);
-            $data=['tenders' => $tenders];
+            ->paginate(20); 
+
+            $majors=Major::get();
+            $major_ar=array();
+            $compa_ar=array();
+            $loca_ar=array();
+            foreach($majors as $major)
+            {  
+                foreach($tenders as $tender)
+                {
+                    if($tender->major_id == $major->major_id)
+                    {
+                        $name=$major->major_name ; 
+                        $id=$major->major_id;
+                        $major_ar[]=['id'=>$id,'name'=>$name];
+                    break;
+                    }
+                }
+            }
+            foreach($tenders as $tender)
+                {
+                    $compa_ar[]=$tender->company;
+                }
+                //$compa_ar=array_unique($compa_ar);
+            $compa_ar = array_values( array_flip( array_flip( $compa_ar ) ) );
+            foreach($tenders as $tender)
+            {
+                $loca_ar[]=$tender->location;
+            }
+            //$loca_ar=array_unique($loca_ar);
+            $loca_ar = array_values( array_flip( array_flip( $loca_ar ) ) );
+            $key=['major','company','location'];
+            $value=[$major_ar,$compa_ar,$loca_ar];
+            $filters=array_combine($key,$value);
+
+            $data=['tenders' => $tenders ,'filters'=>$filters];
+
+
 
         return view('HR.tenders',$data);
     }
@@ -132,117 +169,14 @@ class TenderController extends Controller
         } */
       }
 
-      public function filterAllActiveTender(Request $request)
-      {
-          $id=$request->input('major_id');
-          $comp=$request->input('company');
-          $loc=$request->input('location');
-          $id_ar=explode(',', $id);
-          $comp_ar=explode(',', $comp);
-          $loc_ar=explode(',', $loc);
-          //////no filters 
-          if($id == '' && $comp == '' && $loc == '') 
-          {
-              $tender=tender::where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate();
-              return response()->json($tender,200);
-      
-          }
-          //////////filtter by major_id
-          if($id != '' && $comp == '' && $loc == '')
-          {
-              return response()->json(tender::where(function ($query) use ($id_ar) 
-              {
-                  foreach($id_ar as $va)
-                     $query->orwhere('major_id', '=', $va);
-                  })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-                  //////////filtter by company name
-          if($id == '' && $comp != '' && $loc == '')
-          {
-              return response()->json(tender::where(function ($query) use ($comp_ar) 
-              {
-                  foreach($comp_ar as $va)
-                     $query->orwhere('company', '=', $va);
-                  })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-          //////////filtter by location 
-          if($id == '' && $comp == '' && $loc != '')
-          {
-              return response()->json(tender::where(function ($query) use ($loc_ar) 
-              {
-                  foreach($loc_ar as $va)
-                     $query->orwhere('location', '=', $va);
-                  })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-          //////////filtter by major_id and company name
-          if($id != '' && $comp != '' && $loc == '')
-          {
-              return response()->json(tender::where(function ($query) use ($id_ar) 
-              {
-                  foreach($id_ar as $va)
-                     $query->orwhere('major_id', '=', $va);
-                  })->where(function ($query) use ($comp_ar) 
-                  {
-                      foreach($comp_ar as $va)
-                         $query->orwhere('company', '=', $va);
-                      })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-          //////////filtter by major_id and location
-          if($id != '' && $comp == '' && $loc != '')
-          {
-              return response()->json(tender::where(function ($query) use ($id_ar) 
-              {
-                  foreach($id_ar as $va)
-                     $query->orwhere('major_id', '=', $va);
-                  })->where(function ($query) use ($loc_ar) 
-                  {
-                      foreach($loc_ar as $va)
-                         $query->orwhere('location', '=', $va);
-                      })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-          //////////filtter by company name and location
-          if($id == '' && $comp != '' && $loc != '')
-          {
-              return response()->json(tender::where(function ($query) use ($comp_ar) 
-              {
-                  foreach($comp_ar as $va)
-                     $query->orwhere('company', '=', $va);
-                  })->where(function ($query) use ($loc_ar) 
-                  {
-                      foreach($loc_ar as $va)
-                         $query->orwhere('location', '=', $va);
-                      })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')->paginate(),200);
-      
-          }
-          //////////filtter by major id , company name and location
-          if($id != '' && $comp != '' && $loc != '')
-          {
-              return response()->json(tender::where(function ($query) use ($id_ar) 
-              {
-                  foreach($id_ar as $va)
-                     $query->orwhere('major_id', '=', $va);
-                  })->where(function ($query) use ($comp_ar) 
-                  {
-                      foreach($comp_ar as $va)
-                         $query->orwhere('company', '=', $va);
-                      })->where(function ($query) use ($loc_ar) 
-                             {
-                                foreach($loc_ar as $va)
-                                   $query->orwhere('location', '=', $va);
-                              })->where('active','1')->where('deadline','>=',now())->where('start_date','<=',now())->orderByRaw('start_date DESC')
-                            ->paginate(),200);
-          }
-      }
       
     public function filterActiveTenderField()
     {
-        $tenders=tender::where('active','1')->get();
-        $majors=Major::where('active','1')->get();
+        $date=Carbon::today();
+        $tenders=tender::where('active','1')
+        ->where('deadline','>=',$date)
+        ->where('start_date','<=',$date)->get();
+        $majors=Major::get();
         $major_ar=array();
         $compa_ar=array();
         $loca_ar=array();
@@ -267,16 +201,18 @@ class TenderController extends Controller
         $compa_ar = array_values( array_flip( array_flip( $compa_ar ) ) );
         foreach($tenders as $tender)
         {
-            $loca_ar[]=$tender->location;
+           $ar= explode(',',$tender->location);
+           foreach($ar as $a){
+            $loca_ar[]=$a;
+           }
         }
         //$loca_ar=array_unique($loca_ar);
         $loca_ar = array_values( array_flip( array_flip( $loca_ar ) ) );
-        $key=['major','company','location'];
-        $value=[$major_ar,$compa_ar,$loca_ar];
-        $filters=array_combine($key,$value);
+         
+        $filters=['majors'=>$major_ar,'companies'=>$compa_ar,'locations'=>$loca_ar];
         //print_r($filters);
 
-        return response()->json($filters,200);
+        return $filters;
     } 
 
     public function dowenloadFile($filename)
@@ -284,78 +220,231 @@ class TenderController extends Controller
             return response()->download(public_path('assets/uploads/tenders/pdf/'.$filename));
     }
     
-    /* public function userNotify()
+    public function viewTenders(Request $request)
     {
-        {
-            $date=Carbon::today();
-            $tenders=tender::join('majors','tenders.major_id','=','majors.major_id')
-            ->select('majors.major_name','tenders.*')
-            ->where('tenders.active','1')
-            ->where('tenders.start_date',$date)->get(); //get all tenders where active and show today
-            //print_r($tenders); echo $date;
-          foreach($tenders as $tender)
-            {
-                //$user=userprof::select('userProfs_email')->get();
-                //$emails=userprof::pluck('userProfs_email')->toArray(); //get all email of table that want notify emails for all tenders
-                $users=userNotify::select('user_email','major_name','location_name')->get();
-                foreach($users as $user)
-                   { 
-                    $major_ar=explode(',', $user->major_name);
-                    $location_ar=explode(',', $user->location_name);
-                    $tender_loc_ar=explode(',', $tender->location);
-                        foreach($major_ar as $maj)
-                        { 
-                            
-                            if($tender->major_name == $maj)
-                            {
-                                foreach($location_ar as $loc)
-                                {
-                                    foreach($tender_loc_ar as $loc_tend)
 
-                                   { 
-                                       if($loc_tend == $loc)
-                                    {
-                                        $data=[
-                                                    'major_name'=>$tender->major_name,
-                                                    'tender_id'=> $tender->tender_id,
-                                                    'major_id'=> $tender->major_id,
-                                                    'title'=> $tender->title,
-                                                    'image'=>$tender->image,
-                                                    'company'=> $tender->company,
-                                                    'location'=> $tender->location,
-                                                ];
-                                                 echo $user->user_email;
-                                                 print_r($data);
-                                                 $delay=now()->addSeconds(20);
-                                                 Mail::To($user->user_email)->send(new NotifyEmail ($data) );
-                                                $job = (Mail::To($user->user_email)->send(new NotifyEmail ($data) ))
-                                                ->delay($delay);
-                                                 //echo $delay;
-                                                    
-                                                 
-                                    
-                                           dispatch($job);
-                                                
-                                            break;
-                                    }
-                                    else
-                                    {
-                                      continue;
-                                    }
-                                   }
-                                }
-                                
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                            
+        $filterFileds=  $this->filterActiveTenderField();
+        $date=Carbon::today();
+
+        $id=$request->input('major_id');
+        $comp=$request->input('company');
+        $loc=$request->input('location');
+        $id_ar=$id;
+        $comp_ar= $comp;
+        $loc_ar=$loc;
+        //////no filters 
+        if($id == '' && $comp == '' && $loc == '') 
+        {
+            $tenders=tender::where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+            $data=[
+                'major_id'=>$id,
+                'company'=>$comp,
+                'location'=>$loc,
+                'tenders'=>$tenders,
+               
+            ]+  $filterFileds;
+           return view('HR.tenders',$data);
+    
+        }
+        //////////filtter by major_id
+        if($id != '' && $comp == '' && $loc == '')
+        {
+           $tenders= tender::whereIn('major_id',$id_ar)->where('active','1')
+           ->where('deadline','>=',$date)
+           ->where('start_date','<=',$date)
+           ->orderByRaw('start_date DESC')
+           ->paginate(20);
+                $data=[
+                    'major_id'=>$id,
+                    'company'=>$comp,
+                    'location'=>$loc,
+                    'tenders'=>$tenders,
+                    
+            ]+  $filterFileds;
+               return view('HR.tenders',$data);
+    
+        }
+                //////////filtter by company name
+        if($id == '' && $comp != '' && $loc == '')
+        {
+            $tenders=   tender::whereIn('company',$comp_ar)->where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+                $data=[
+                    'major_id'=>$id,
+                    'company'=>$comp,
+                    'location'=>$loc,
+                    'tenders'=>$tenders,
+                   
+            ]+  $filterFileds;
+               return view('HR.tenders',$data);
+        }
+        //////////filtter by location 
+        if($id == '' && $comp == '' && $loc != '')
+        {
+            $tend=[];
+            $ten =tender::where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+               foreach($ten as $tender){
+                   $tend_loc = explode(',', $tender->location);
+                  
+                 foreach($loc_ar as $va){
+                     foreach( $tend_loc as $tendloc)
+                    if($tendloc == $va){
+                        $tend[]=$tender->tender_id;
+                       
+                    }
+                    }
+               }
+               $tenders =tender::whereIn('tender_id',  $tend)->where('active','1')
+               ->where('deadline','>=',$date)
+               ->where('start_date','<=',$date)
+               ->orderByRaw('start_date DESC')
+               ->paginate(20);
+            $data=[
+                    'major_id'=>$id,
+                    'company'=>$comp,
+                    'location'=>$loc,
+                    'tenders'=>$tenders,
+                   
+            ]+  $filterFileds;
+             
+               return view('HR.tenders',$data);
+        }
+        //////////filtter by major_id and company name
+        if($id != '' && $comp != '' && $loc == '')
+        {
+            $tenders= tender::whereIn('major_id',$id_ar)->whereIn('company',$comp_ar)->where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+                    $data=[
+                        'major_id'=>$id,
+                        'company'=>$comp,
+                        'location'=>$loc,
+                        'tenders'=>$tenders,
+                       
+            ]+  $filterFileds;
+                   return view('HR.tenders',$data);
+        }
+        //////////filtter by major_id and location
+        if($id != '' && $comp == '' && $loc != '')
+        {
+            $ten= tender::whereIn('major_id',$id_ar)->where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+
+
+                $tend=[];
+              
+                   foreach($ten as $tender){
+                       $tend_loc = explode(',', $tender->location);
+                      
+                     foreach($loc_ar as $va){
+                         foreach( $tend_loc as $tendloc)
+                        if($tendloc == $va){
+                            $tend[]=$tender->tender_id;
+                           
+                        }
                         }
                    }
-            }
-         }
-    
-    } */
+                   $tenders =tender::whereIn('tender_id',  $tend)->where('active','1')
+                   ->where('deadline','>=',$date)
+                   ->where('start_date','<=',$date)
+                   ->orderByRaw('start_date DESC')
+                   ->paginate(20);
+                    $data=[
+                        'major_id'=>$id,
+                        'company'=>$comp,
+                        'location'=>$loc,
+                        'tenders'=>$tenders,
+                        
+            ]+  $filterFileds;
+                   return view('HR.tenders',$data);
+        }
+        //////////filtter by company name and location
+        if($id == '' && $comp != '' && $loc != '')
+        {
+            $ten= tender::whereIn('company',$comp_ar)->where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+
+                $tend=[];
+              
+                foreach($ten as $tender){
+                    $tend_loc = explode(',', $tender->location);
+                   
+                  foreach($loc_ar as $va){
+                      foreach( $tend_loc as $tendloc)
+                     if($tendloc == $va){
+                         $tend[]=$tender->tender_id;
+                        
+                     }
+                     }
+                }
+                $tenders =tender::whereIn('tender_id',  $tend)->where('active','1')
+                ->where('deadline','>=',$date)
+                ->where('start_date','<=',$date)
+                ->orderByRaw('start_date DESC')
+                ->paginate(20);
+                    $data=[
+                        'major_id'=>$id,
+                        'company'=>$comp,
+                        'location'=>$loc,
+                        'tenders'=>$tenders,
+                        
+            ]+  $filterFileds;
+                   return view('HR.tenders',$data);
+        }
+        //////////filtter by major id , company name and location
+        if($id != '' && $comp != '' && $loc != '')
+        {
+            $ten= tender::whereIn('major_id',$id_ar)->whereIn('company',$comp_ar)->where('active','1')
+            ->where('deadline','>=',$date)
+            ->where('start_date','<=',$date)
+            ->orderByRaw('start_date DESC')
+            ->paginate(20);
+                          $tend=[];
+              
+                          foreach($ten as $tender){
+                              $tend_loc = explode(',', $tender->location);
+                             
+                            foreach($loc_ar as $va){
+                                foreach( $tend_loc as $tendloc)
+                               if($tendloc == $va){
+                                   $tend[]=$tender->tender_id;
+                                  
+                               }
+                               }
+                          }
+                          $tenders =tender::whereIn('tender_id',  $tend)->where('active','1')
+                          ->where('deadline','>=',$date)
+                          ->where('start_date','<=',$date)
+                          ->orderByRaw('start_date DESC')
+                          ->paginate(20);
+                          $data=[
+                            'major_id'=>$id,
+                            'company'=>$comp,
+                            'location'=>$loc,
+                            'tenders'=>$tenders,
+                           
+            ]+  $filterFileds;
+                       return view('HR.tenders',$data);
+        }
+    }
     
 }

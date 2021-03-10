@@ -102,19 +102,36 @@
 
 
                 @if (Auth::check())
+                @if (session()->exists('role_users')) 
+               @foreach (session('role_users') as $item)
+               @if($item->role_id == 5 || $item->role_id == 6 || $item->role_id == 7)
+            
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"> <i class=" fa fa-sign-out-alt"></i></a>
+                        <a class="nav-link" href="{{ route('userInfo') }}">  {{ __('fields_web.Header.Menu.account') }}</a>
                     </li>
+                    @break
+
+                    @endif
+                    @if($item->role_id == 2 || $item->role_id == 3 || $item->role_id == 4)
+            
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"> <i class=" fa fa-user"></i></a>
+                        <a class="nav-link" href="{{ route('userProfile') }}">  {{ __('fields_web.Header.Menu.account') }}</a>
+                    </li>
+                    @break
+                    @endif
+                    @endforeach
+                   
+                @endif
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"> {{ __('fields_web.Header.Menu.logOut') }}</a>
                     </li>
                 @else
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('signuphr') }}"><i
-                          class="fa fa-user-plus"></i> </a>
+                  <a class="nav-link" href="{{ route('signuphr') }}">{{ __('fields_web.Navbar.signup') }}</a>
               </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('loginhr') }}"><i class="fa fa-sign-in-alt"></i> </a>
+                        <a class="nav-link" href="{{ route('loginhr') }}">{{ __('fields_web.Navbar.login') }}</a>
                     </li>
                 @endif
             </ul>
