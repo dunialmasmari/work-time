@@ -32,6 +32,7 @@ public function authenticated()
 {
     $user_id = auth()->user()->user_id;
     $role_users= role_user::select()->where('user_id',$user_id)->get();
+    session(['role_users' =>$role_users]);
     foreach($role_users as $role_user)
     {
         if($role_user->role_id == 1 || $role_user->role_id == 8)

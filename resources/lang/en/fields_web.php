@@ -29,7 +29,8 @@ return [
         ],
         'Menu'=> [
           'accountSetting'=> 'Account settings',
-          'logOut'=> 'log out '
+          'logOut'=> 'log out',
+          'account'=> 'Profile'
         ]
       ],
       'Navbar'=> [

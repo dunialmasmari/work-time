@@ -28,7 +28,8 @@ return [
       ],
       'Menu'=> [
         'accountSetting'=> 'إعدادات الحساب',
-        'logOut'=> 'تسجيل الخروج'
+        'logOut'=> 'تسجيل الخروج',
+        'account'=> 'الحساب الشخصي'
       ]
     ],
     'Navbar'=> [
@@ -104,9 +105,9 @@ return [
     'image'=> 'صورة المناقصه',
     'downloadpdfs'=> 'تحميل الملفات',
     'major'=> 'القسم',
+    'company'=> 'الجهة',
     'more'=> 'مزيد من المعلومات',
-    'location'=> 'المنطقة',
-    'company'=> 'الشركة/المنظمة',
+    'location'=> 'المنطقة', 
     'applyLink'=> 'رابط التقديم',
     'startDate'=> 'تاريخ البدء',
     'postedDate'=> 'تاريخ النشر',
@@ -115,7 +116,7 @@ return [
     'save'=> 'حفظ',
     'action'=> 'الحدث',
     'AddNew'=> 'إضافة مناقصة جديد',
-    'filter'=> 'فرز حسب'
+    'filter'=> 'فرز'
   ],
   'Majors'=> [
     'Title'=> 'الأقسام',
