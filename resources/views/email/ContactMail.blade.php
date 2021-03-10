@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>تواصل معنا  Work-time</title>
+    <title>تواصل معنا  Work-time </title>
 
     <style type="text/css"></style>
 
@@ -55,7 +55,7 @@
                             <div style="line-height: 35px">
 
                             <h4 class=' py-3' >
-                                 &nbsp;&nbsp; جديدة  <span style="color: #5caad2;text-align:center">رسالة </span>
+                                 &nbsp;&nbsp; رسالة <span style="color: #5caad2;text-align:center"> جديدة </span>
                                  </h4>
 
                             </div>
@@ -70,7 +70,7 @@
 <!-- data of contact ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
-                                             <h1>الرسالة  <span style="color: #5caad2;text-align:center">محتوى  </span></h1>
+                                             <h1> محتوى <span style="color: #5caad2;text-align:center"> الرسالة </span></h1>
                                              <p>الاسم :  {{$data['name']}}</p>
                                              <p>الايميل : {{$data['Email']}}</p>
                                              <p>الرسالة:  {{$data['message']}}</p>

@@ -40,7 +40,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     
     Route::namespace('Tender')->group(function(){
         Route::get('tenders','TenderController@viewTenders')->name('tenders');
-        Route::get('tender/{id}','TenderController@viewTenderid')->name('tender/{id}');
+        Route::get('tender/{id}','TenderController@viewTenderid')->name('tender');
         Route::get('Tender/dowenloadFile/{filename}','TenderController@dowenloadFile');
 
     });
@@ -123,6 +123,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
        Route::post('userProfile/generateCover1','ResumeController@generateCover1')->name('generateCover1');
        Route::post('userProfile/generateCover2','ResumeController@generateCover2')->name('generateCover2');
        Route::post('userProfile/generateCover3','ResumeController@generateCover3')->name('generateCover3');
+       Route::get('userProfile/userNotifications','UsersController@userNotifications')->name('userNotifications');
+       Route::get('readNotifications/{type}/{id}','UsersController@readNotifications')->name('readNotifications');
+
        
    });
 
@@ -149,6 +152,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('storeTender','CompanyController@storeTender')->name('storeTender');
         Route::get('/Tenderdetilse/{id}','CompanyController@viewTenderdetilse')->name('Tenderdetilse');
         Route::get('/Jobdetilse/{id}','CompanyController@viewJobdetilse')->name('Jobdetilse');
+        Route::get('rejectJobs','CompanyController@rejectJobs')->name('rejectJobs');
+        Route::get('acceptJobs','CompanyController@acceptJobs')->name('acceptJobs');
+
+        Route::get('rejectTenders','CompanyController@rejectTenders')->name('rejectTenders');
+        Route::get('acceptTenders','CompanyController@acceptTenders')->name('acceptTenders');
+
+
      // Route::get('service/{id}','CompanyController@viewServiceId')->name('service');
 
     });

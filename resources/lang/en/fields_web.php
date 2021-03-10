@@ -699,6 +699,12 @@ return [
     'see' => 'See It ',
     'notsee' => 'Not See It ',
     'NotificationLater'=>'Cencel, Remember me another time',
+    'jobRejrct'=>'Reject Jobs',
+    'jobAccept'=>'Posted Jobs',
+    'tenderRejrct'=>'Reject Tenders',
+    'tenderAccept'=>'Posted Tenders',
+    'NotificationsSet'=> 'Notifications Setting For Email',
+    'newNotifications' => 'New Notifications',
 
 
 

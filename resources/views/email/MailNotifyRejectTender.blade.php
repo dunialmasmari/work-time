@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>تنبية لمناقصة جديدة </title>
+    <title> تنبية رفض مناقصة </title>
 
     <style type="text/css"></style>
 
@@ -54,7 +54,7 @@
 
                             <div style="line-height: 35px">
 
-                                 مناقصة <span style="color: #5caad2;"> جديدة </span>
+                                 تنبية <span style="color: #5caad2;"> جديد </span>
 
                             </div>
                         </td>
@@ -87,10 +87,11 @@
 <!-- data of tender ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
+                                        <h3>عذراً لقد تم رفض المناقصة التي انزلتها يرجى التاكد من كل معلوماتك فيها واعادة ادخالها من جديد<h3>
                                         <h1>العنوان :{{$data['title']}} </h1>
                                         <h2>الجهة المقدمة :{{$data['company']}} <h2>
-                                        <h3>القسم :{{$data['major_name']}}  <h3>
-                                        <!-- <h3>id :{{$data['tender_id']}}  <h3> -->
+                                        {{-- <!-- <h3>القسم :{{$data['major_name']}}<h3> -->--}}
+                                        {{-- <!-- <h3>id :{{$data['tender_id']}}  <h3> -->--}}
                                         </div>
                                     </td>
                                 </tr>
@@ -115,7 +116,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="https://worktime-ye.com/ar/tender/{{$data['tender_id']}}" style="color: #ffffff; text-decoration: none;">مزيد من المعلومات</a>
+                                            <a href="https://worktime-ye.com/ar/Tenderdetilse/{{$data['tender_id']}}" style="color: #ffffff; text-decoration: none;">مزيد من المعلومات</a>
                                         </div>
                                     </td>
                                 </tr>

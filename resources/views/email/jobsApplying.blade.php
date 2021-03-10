@@ -36,7 +36,7 @@
                                         <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100"  style="display: block; width:110px;" src="{{ $message->embed(public_path().'/imgProj/hrlogo.png') }}" alt="" /></a>
 
                             <h4 class=' ' >
-                                 &nbsp;&nbsp; جديد  <span style="color: #5caad2;text-align:center">تقديم وظيفة</span>
+                                 &nbsp;&nbsp;  تقديم وظيفة <span style="color: #5caad2;text-align:center"> جديد</span>
                                  </h4>
                                  <h4 class='' >
                                 <span style="color: #5caad2;text-align:center"> &nbsp;&nbsp; طلب</span>  تقديم وظيفة 
@@ -105,7 +105,7 @@
 <!--  ////////////////////////////////////////////////////-->
                                   
                                             <div style="line-height: 26px;">
-                                            <p style="color: #ffffff; text-decoration: none;">لتنزيل السيرة الذاتية للمستخدم</p>
+                                            <p style="color: #ffffff; text-decoration: none;">لتنزيل السيرة الذاتية </p>
                                               <a href="{{$message->embed(public_path('assets/Jobs_req/user_cv/'.$data['user_cv']))}}" style="color: #ffffff; text-decoration: none;">User CV</a>
                                            </div>
                                            @endif
@@ -136,7 +136,7 @@
 <!--  ////////////////////////////////////////////////////-->
                                         
                                            <div style="line-height: 26px;">
-                                           <p style="color: #ffffff; text-decoration: none;">لتنزيل توصيات المقدم </p>
+                                           <p style="color: #ffffff; text-decoration: none;">لتنزيل خطاب النوايا  </p>
                                               <a href="{{$message->embed(public_path('assets/Jobs_req/user_recom/'.$data['user_recom']))}}" style="color: #ffffff; text-decoration: none;">User Recommendation</a>
                                            </div>
                                            @endif

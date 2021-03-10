@@ -174,7 +174,7 @@ class CompanyController extends Controller
                 ->select('majors.major_name','jobs.*')
                 ->where('jobs.user_id','>=',$user_id)
                 ->orderByRaw('jobs.start_date DESC')
-                ->paginate(8);
+                ->get();
                 
                 $data=[
                     'jobs' => $jobs,
@@ -294,7 +294,7 @@ class CompanyController extends Controller
                                      'type'=>'post-job',
                                      'id_type'=>$job_id,
                                      'see_it'=>0,
-                                     'create_time'=>$date,
+                                     'create_time'=>$dateday,
                                  ]);
                              //dd($notify);
                                  $dataevent =
@@ -531,7 +531,7 @@ class CompanyController extends Controller
                                   'type'=>'post-tender',
                                   'id_type'=>$tender_id,
                                   'see_it'=>0,
-                                  'create_time'=>$date,
+                                  'create_time'=>$dateday,
                               ]);
                             //dd ($notify);
                               $dataevent =
@@ -560,6 +560,129 @@ class CompanyController extends Controller
         // }
     }
 
+   public function rejectJobs()
+   {
+     $user_id = auth()->user()->user_id;
+     $role_users= role_user::select()->where('user_id',$user_id)->get();
+     $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+     ->where('users.user_id', $user_id)
+     ->where('users.active','1')
+     ->where('compnyinfo.active','1');
+        if ($user->exists())
+               {
+                  $user_id = auth()->user()->user_id;
+                  $role_users= role_user::select()->where('user_id',$user_id)->get();
+                  $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
+                  ->select('majors.major_name','jobs.*')
+                  ->where('jobs.user_id','>=',$user_id)
+                  ->orderByRaw('jobs.start_date DESC')
+                  ->get();
+                      $data=[
+                        'jobs' => $jobs,
+                        'role_users' => $role_users
+                        ];
+                 return view('HR.company.jobReject_list',$data);
+               }
+              
+        else 
+        {
+          return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+      }   
+
+
+      public function acceptJobs()
+      {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+        ->where('users.user_id', $user_id)
+        ->where('users.active','1')
+        ->where('compnyinfo.active','1');
+           if ($user->exists())
+                  {
+                     $user_id = auth()->user()->user_id;
+                     $role_users= role_user::select()->where('user_id',$user_id)->get();
+                     $jobs=job::join('majors','jobs.major_id','=','majors.major_id')
+                     ->select('majors.major_name','jobs.*')
+                     ->where('jobs.user_id','>=',$user_id)
+                     ->orderByRaw('jobs.start_date DESC')
+                     ->get();
+                         $data=[
+                           'jobs' => $jobs,
+                           'role_users' => $role_users
+                           ];
+                    return view('HR.company.jobAccept_list',$data);
+                  }
+                 
+           else 
+           {
+             return response()->json(['message' => 'You do not have permation '], 404);   
+           }
+         }   
+
+ public function rejectTenders()
+   {
+     $user_id = auth()->user()->user_id;
+     $role_users= role_user::select()->where('user_id',$user_id)->get();
+     $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+     ->where('users.user_id', $user_id)
+     ->where('users.active','1')
+     ->where('compnyinfo.active','1');
+        if ($user->exists())
+               {
+                  $user_id = auth()->user()->user_id;
+                  $role_users= role_user::select()->where('user_id',$user_id)->get();
+                  $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                     ->select('majors.major_name', 'tenders.*' )
+                     ->where('tenders.user_id','=',$user_id)
+                     ->orderByRaw('tenders.start_date DESC')
+                     ->get();
+                     $data=[
+                         'tenders' => $tenders,
+                         'role_users' => $role_users,
+                     ];
+                     
+                 return view('HR.company.tenderReject_list',$data);
+               }
+              
+        else 
+        {
+          return response()->json(['message' => 'You do not have permation '], 404);   
+        }
+      }   
+
+
+      public function acceptTenders()
+      {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        $user = User::join('compnyinfo', 'users.user_id', '=', 'compnyinfo.user_id')
+        ->where('users.user_id', $user_id)
+        ->where('users.active','1')
+        ->where('compnyinfo.active','1');
+           if ($user->exists())
+                  {
+                     $user_id = auth()->user()->user_id;
+                     $role_users= role_user::select()->where('user_id',$user_id)->get();
+                     $tenders = tender::join('majors', 'tenders.major_id', '=', 'majors.major_id')
+                     ->select('majors.major_name', 'tenders.*' )
+                     ->where('tenders.user_id','=',$user_id)
+                     ->orderByRaw('tenders.start_date DESC')
+                     ->get();
+                     $data=[
+                         'tenders' => $tenders,
+                         'role_users' => $role_users,
+                     ];
+                     
+                    return view('HR.company.tenderAccept_list',$data);
+                  }
+                 
+           else 
+           {
+             return response()->json(['message' => 'You do not have permation '], 404);   
+           }
+    }   
 
 
 

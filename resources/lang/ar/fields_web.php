@@ -543,6 +543,10 @@ return [
     'companydetails'=>'تفاصيل عن الشركة',
     'companyName'=>'اسم الشركة',
     'statucompany'=>'قيد الإنتظار',
+    'jobRejrct'=>'وظائف ملغية  ',
+    'jobAccept'=>'وظائف نشرت  ',
+    'tenderRejrct'=>'مناقصات ملغية',
+    'tenderAccept'=>'مناقصات نشرت ',
     ''=>'',
     ''=>'',
     ''=>'',
@@ -706,6 +710,8 @@ return [
     'see' => 'تمت مشاهدتها  ',
     'notsee' => 'لم تتم مشاهدتها ',
     'NotificationLater'=>'إغلاق وذكرني مرة اخرى',
+    'NotificationsSet'=>'ضبط اشعارات الايميل ',
+    'newNotifications' => 'تنبيهات جديدة '
 
 
 

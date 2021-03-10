@@ -54,7 +54,7 @@
 
                             <div style="line-height: 35px">
 
-                                جديدة  <span style="color: #5caad2;">وظيفة</span>
+                            وظيفة <span style="color: #5caad2;"> جديدة </span>
 
                             </div>
                         </td>

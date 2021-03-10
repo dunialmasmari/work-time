@@ -220,28 +220,30 @@
     var channel = pusher.subscribe('add-notify');
     pusher.bind('AdminNotification', function(data) {
         //alert(('haifaa'));
-        if (data.type != 'message') {
-            var existingNotifications = notifications.html(); //
-            $id = data.id;
-            var id = data.id;
-            if (data.type == 'add-company') {
-                var url = "{{ route('viewCompanydetilse', '') }}" + "/" + data.id;
-                var icon = 'fas fa-users';
-                var message = "{{ __('fields_web.Notification.newUser') }}";
-            }
-            if (data.type == 'post-job') {
-                var url = "{{ route('viewJobdetilse', '') }}" + "/" + data.id;
-                var icon = 'fas fa-info';
-                var message = "{{ __('fields_web.Notification.newPostingJob') }}";
-            }
-            if (data.type == 'post-tender') {
-                var url = "{{ route('viewTenderdetilse', '') }}" + "/" + data.id;
-                var icon = 'fas fa-info';
-                var message = "{{ __('fields_web.Notification.newPostingTender') }}";
-            }
+        if(data.type == 'add-company' || data.type == 'post-job' || data.type == 'post-tender' )
+      { 
+        var existingNotifications = notifications.html();//
+        $id=data.id;
+        var id=data.id;
+        if(data.type== 'add-company')
+        { 
+           var url = "{{route('viewCompanydetilse', '')}}"+"/"+data.id;
+           var icon ='fas fa-users';
+           var message="{{(__('fields_web.Notification.newUser'))}}";
+           }
+        if(data.type== 'post-job')
+        {   var url = "{{route('viewJobdetilse', '')}}"+"/"+data.id;
+            var icon ='fas fa-info';
+            var message="{{(__('fields_web.Notification.newPostingJob'))}}";
+        }
+        if(data.type== 'post-tender')
+        {     var url = "{{route('viewTenderdetilse', '')}}"+"/"+data.id;
+              var icon ='fas fa-info';
+              var message="{{(__('fields_web.Notification.newPostingTender'))}}";
+              }
 
-            var newNotificationHtml = `
-        <a href="` + url + `" class="dropdown-item">
+        var newNotificationHtml = `
+        <a href="`+url+`" class="dropdown-item">
               <div class="">
                  <div class="info-box shadow-lg">
                    <span class="info-box-icon bg-danger"><i class="` + icon + `"></i></span>

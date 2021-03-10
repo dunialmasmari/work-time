@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\interstedTendersJob;
 use Illuminate\Support\Facades\Validator;
 use PDF;
+use App\Models\RealTimeNotification;
 
 
 
@@ -487,5 +488,57 @@ class UsersController extends Controller
         $data = ['title' => 'Welcome to ItSolutionStuff.com'];
         $pdf = PDF::loadView('HR.userProfile.coverletter.coverTemplete3', $data);
         return $pdf->download('cvTemplete3.pdf');
+    }
+
+    public function userNotifications()
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+/*         foreach($role_users as $role_user)
+ */       /*  if($role_user->role_id == 2 || $role_user->role_id == 3 || $role_user->role_id == 4)
+         {*/
+            $notifications=RealTimeNotification::where('type','add-tender')
+            ->orwhere('type','add-job')->get();
+
+            /* $users=interstedTendersJob::where('user_id',$user_id)->all();
+            $majorsArray= explode(', ', $user->major_id);
+                  foreach($majorsArray as $major)
+                  {
+                   if($major == 0 || $major == $job->major_id)
+                   {
+                       
+                   } */
+
+            $dateday=Carbon::today();
+            $trialExpires = $dateday->addDays(30);
+             $data=[
+                 'NotActive' => $trialExpires ,
+                'notifications' => $notifications,
+             ];
+             return view('HR.userProfile.userNotifications_list',$data);
+        /* }
+        else
+        {
+            return response()->json(['message' => 'You do not have permation '], 404);   
+        } */
+
+    }
+    public function readNotifications($type,$id)
+    {
+        if($type == 'add-tender')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '1']);
+
+            return redirect()->route('tender',$id);
+        }
+        if($type == 'add-job')
+        {
+            $notRead=RealTimeNotification::where('type',$type)->where('id_type',$id)
+                    ->Update(['see_it' => '1']);
+
+            return redirect()->route('job',$id);
+        }
+
     }
 }

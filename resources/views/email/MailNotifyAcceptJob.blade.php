@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-    <title>تنبية لمناقصة جديدة </title>
+    <title> تنبية قبول وظيفة </title>
 
     <style type="text/css"></style>
 
@@ -54,7 +54,7 @@
 
                             <div style="line-height: 35px">
 
-                                 مناقصة <span style="color: #5caad2;"> جديدة </span>
+                                 تنبية <span style="color: #5caad2;"> جديد </span>
 
                             </div>
                         </td>
@@ -87,10 +87,11 @@
 <!-- data of tender ////////////////////////////////////////////////////-->
 
                                         <div style="line-height: 24px">
+                                        <h3> لقد تم نشر الوظيفة التي تم انزلها بواسطتكم نشكركم على استخدام خدمتنا <h3>
                                         <h1>العنوان :{{$data['title']}} </h1>
                                         <h2>الجهة المقدمة :{{$data['company']}} <h2>
-                                        <h3>القسم :{{$data['major_name']}}  <h3>
-                                        <!-- <h3>id :{{$data['tender_id']}}  <h3> -->
+                                        {{-- <!-- <h3>القسم :{{$data['major_name']}}<h3> -->--}}
+                                        {{-- <!-- <h3>id :{{$data['tender_id']}}<h3> -->--}}
                                         </div>
                                     </td>
                                 </tr>
@@ -115,7 +116,7 @@
 
 <!-- link of tender ////////////////////////////////////////////////////-->
                                         <div style="line-height: 26px;">
-                                            <a href="https://worktime-ye.com/ar/tender/{{$data['tender_id']}}" style="color: #ffffff; text-decoration: none;">مزيد من المعلومات</a>
+                                            <a href="https://worktime-ye.com/ar/job/{{$data['job_id']}}" style="color: #ffffff; text-decoration: none;">مزيد من المعلومات</a>
                                         </div>
                                     </td>
                                 </tr>

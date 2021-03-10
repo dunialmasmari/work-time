@@ -118,6 +118,36 @@
                   </a>
                  </div> --}}
               @endif
+
+              @if ($role->role_id == 5 || $role->role_id == 7)
+                <div class="link">
+                  <a class=" px-2" href="{{ route('rejectJobs') }}">
+                    <i class="fa fa-fw fa-cog mr-1"></i>
+                    <span>{{ __('fields_web.companyInfo.jobRejrct') }}</span>
+                  </a>
+                </div>
+                <div class="link">
+                  <a class=" px-2" href="{{ route('acceptJobs') }}">
+                    <i class="fa fa-fw fa-cog mr-1"></i>
+                    <span>{{ __('fields_web.companyInfo.jobAccept') }}</span>
+                  </a>
+                </div>
+            @endif
+            @if($role->role_id == 6 || $role->role_id == 7)
+            <div class="link">
+                  <a class=" px-2" href="{{ route('rejectTenders') }}">
+                    <i class="fa fa-fw fa-cog mr-1"></i>
+                    <span>{{ __('fields_web.companyInfo.tenderRejrct') }}</span>
+                  </a>
+                </div>
+                <div class="link">
+                  <a class=" px-2" href="{{ route('acceptTenders') }}">
+                    <i class="fa fa-fw fa-cog mr-1"></i>
+                    <span>{{ __('fields_web.companyInfo.tenderAccept') }}</span>
+                  </a>
+                </div>
+                @endif
+
          @endforeach
     </li>
 </ul>
