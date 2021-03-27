@@ -8,7 +8,7 @@
         <!-- left column -->
         <div class="col-md-12">
              <!-- general form elements -->
-             <div class="card card-primary">
+             <div class="card ">
                 <div class="card-header">
                   <h3 class="card-title">{{__('fields_web.TenderAdd.TitlePage')}}</h3>
                 </div>

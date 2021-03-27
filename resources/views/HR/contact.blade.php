@@ -6,7 +6,7 @@
         <div class="container">
             <div class='row'>
                 <div class="container">
-                    <div class='row container shadow-sm  bg-white nopaddingnomagrin border border-primary'>
+                    <div class='row container shadow-sm  bg-white nopaddingnomagrin border border-primary' style="    padding: 0">
 
                         <div class='col-sm-12 col-md-6 col-lg-6 btn-primary ' style='background-color:rgb(79, 157, 213);'>
                             <div class='row'>

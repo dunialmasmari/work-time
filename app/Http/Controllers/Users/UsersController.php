@@ -138,9 +138,10 @@ class UsersController extends Controller
         {
             return view('HR.userProfile.changePassword');
         }
-        else{
-             return view('HR.Erroe');   
-        }    
+             
+        
+        return view('HR.Erroe');   
+       
     }
     public function changpassword(Request $request)
     {

@@ -23,7 +23,7 @@
                         <div class="carousel-caption d-block">
                             <h4 class="text-center my-3">{{ $adv->title }}</h4>
                             @if ($adv->link != '' || $adv->link != null)
-                                <a href="https://www.{{ $adv->link }}"><button class=' btn btn-primary my-3'>
+                                <a href="{{ $adv->link }}"><button class=' btn btn-primary my-3'>
                                         {{ __('fields_web.Home.visti_website') }} </button></a>
                             @endif
                         </div>
@@ -70,8 +70,8 @@
                                     <a href='tender/{{ $tender->tender_id }}' style="text-decoration: none; color:#000">
                                         <div class="card" style="width:260px; height:430px;">
 
-                                            <img src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
-                                                style=" height:180px; width:100%;" />
+                                            <img class=" mx-auto d-block" src="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}"
+                                                style=" height:180px;  max-width:260px;" />
                                             <div class="card-body">
                                                 <h5  style=" height: 70px; ">
                                                     {{ \Illuminate\Support\Str::limit($tender->title, $limit = 60, $end = '...') }}

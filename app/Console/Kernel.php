@@ -30,7 +30,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('user:notify_email')
                  ->daily();
         $schedule->command('user:notify_email2')
-                 ->daily();
+                    ->dailyAt('01:05');
+                 //->daily();
                  //->daily()->at('01:00');
     }
 

@@ -16,19 +16,30 @@
     <div class="container  md-light" >
       
          <div class="row">
-
+            <?php
+            use \App\Http\Controllers\TryController;
+            ?>
              <div class=" col-12 col-sm-12 col-md-12 col-lg-9  my-2 ">
                 @foreach ($tenders as $tender)
+              
+                {{-- @inject('TryController', \App\Http\Controllers\TryController::class) --}}
                     @section('meta')
+                   
                         <title>{{ $tender->title }}</title>
                         <meta name="keywords" content="{{ $tender->title }}">
                         <meta name="description" content="{{ $tender->title }}"> 
-                        <meta property="og:url" content="http://worktime-ye.com/ar/tender/{{ $tender->tender_id }}">
+                        <meta property="og:url" content="http://worktime-ye.com/{{app()->getLocale()}}/tender/{{ $tender->tender_id }}">
                         <meta property="og:description" content="{{ $tender->title }}"> 
                         <meta property="og:type"               content="article" />
-                        <meta property="og:title" content="{{ $tender->title }}">
-                        <meta property="og:image" content="{{ URL::asset('assets/uploads/tenders/images/' . $tender->image) }}">
-                      @endsection
+                        <meta property="og:title" content="{{ $tender->title }}"/>
+                        <meta property="og:image"
+                        
+                        content="http://worktime-ye.com{{TryController::getNewSizeFromImage('assets/uploads/tenders/images' , $tender->image,450,450)}}"
+                        
+                       />
+
+                     
+                        @endsection
                  
                   
 
@@ -74,7 +85,7 @@
                                                 @if ($tender->apply_link != null)
                                                     <p><i class='fas fa-link'> &nbsp;
                                                         </i>{{ __('fields_web.Tenders.applyLink') }}:<a
-                                                            href="https://www.{{ $tender->apply_link }}">{{ $tender->apply_link }}</a>
+                                                            href="{{ $tender->apply_link }}">{{ $tender->apply_link }}</a>
                                                     </p>
                                                 @endif
                                                 <p style="color:red"><i class="far fa-calendar-times"> &nbsp;
@@ -82,10 +93,12 @@
                                                         {{ $tender->deadline }}</i> </p>
                                             </div>
                                         </div>
-
-                                    </div>
+                                          </div>
 
                                 </div>
+<!--                                <div class="row justify-content-center align-content-center">-->
+<!--                <a   href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;" -->
+<!--class="font-20  facebook faicon btn btn-primary ml-1 "><i class="fab fa-facebook-f"></i></a></div>-->
                                 <div class="row justify-content-between  px-3 py-3">
 
                                     <div class=''>
@@ -100,7 +113,7 @@
                                     @endif
 
                                 </div>
-                                <div class="row  px-3 py-3">
+                                <div>
                                     {!! $tender->description !!}
                                 </div>
                             </div>
@@ -109,10 +122,11 @@
                 @endforeach
          
             </div>
+             @if ($advers)
             <div class='col-12 col-sm-12 col-md-12 col-lg-3 my-2'>
 
                 <div class="row ">
-
+ 
                     <div class="col-lg-12 lable-background py-3">
                         {{-- <h2 class='label mb-5 label ' style="text-align: center;">
                             {{ __('fields_web.Advertising.title') }}</h3> --}}
@@ -131,10 +145,10 @@
                                             <!-- <h4>{{ $adv->title }}</h4> -->
                                         </div>
                                         <div class=" text-center">
-                                            <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}
+                                            <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 100, $end = '...') }}
                                             </h4>
                                             @if ($adv->link != '' || $adv->link != null)
-                                                <a href="https://www.{{ $adv->link }}"><button class=' btn btn-light '
+                                                <a href="{{ $adv->link }}"><button class=' btn btn-light '
                                                         style="float: none;width:100%">
                                                         {{ __('fields_web.Home.visti_website') }} </button></a>
                                             @endif
@@ -145,10 +159,11 @@
                             </div>
                         </div>
                     </div>
+                   
                 </div>
 
             </div>
-
+ @endif
          
         </div>
     </div>

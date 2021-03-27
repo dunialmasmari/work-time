@@ -18,7 +18,7 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ url(app()->getLocale() . '/controlpanel/home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{ __('fields_web.Sidebar.Dashboard') }}
 
@@ -27,7 +27,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url(app()->getLocale() . '/controlpanel/reports') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             {{ __('fields_web.Sidebar.Reports') }}
 
@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-bell"></i>
                         <p>
                             {{ __('fields_web.Notification.Notifications') }}
                             <i class="right fas fa-angle-left"></i>
@@ -80,7 +80,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-tools"></i>
                         <p>
                             {{ __('fields_web.Sidebar.majorMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -103,7 +103,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-envelope-square"></i>
                         <p>
                             {{ __('fields_web.Sidebar.tenderMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -127,7 +127,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-user-md"></i>
                         <p>
                             {{ __('fields_web.Sidebar.jobMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -151,7 +151,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-concierge-bell"></i>
                         <p>
                             {{ __('fields_web.Sidebar.serviceMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -175,7 +175,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-scroll"></i>
                         <p>
                             {{ __('fields_web.Sidebar.blogMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -199,7 +199,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-ad"></i>
                         <p>
                             {{ __('fields_web.Sidebar.adverMang') }}
                             <i class="right fas fa-angle-left"></i>
@@ -221,11 +221,19 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('veiwChangePassword') }}" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>
+                        {{__('fields_web.UserEdite.ChangePassword')}}
+                      </p>
+                    </a>
+              </li>
                 @foreach ($role_users as $role)
                     @if ($role->role_id == 1)
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     {{ __('fields_web.Sidebar.dashuserMang') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -249,7 +257,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     {{ __('fields_web.Sidebar.compuserMang') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -273,7 +281,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-id-card-alt"></i>
                                 <p>
                                     {{ __('fields_web.Sidebar.seruserMang') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -293,7 +301,7 @@
                 @endforeach
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             {{ __('fields_web.Sidebar.logout') }}
                         </p>

@@ -162,7 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -178,6 +177,7 @@ return [
 
         Laravel\Passport\PassportServiceProvider::class,
         Shetabit\Visitor\Provider\VisitorServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         
     ],
 
@@ -232,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Visitor' => Shetabit\Visitor\Facade\Visitor::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
+
 
 ];

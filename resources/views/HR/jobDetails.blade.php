@@ -58,7 +58,7 @@
                                                         <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}
                                                         </h4>
                                                         @if ($adv->link != '' || $adv->link != null)
-                                                            <a href="https://www.{{ $adv->link }}"><button
+                                                            <a href="{{ $adv->link }}"><button
                                                                     class=' btn btn-primary '
                                                                     style="float: none;width:100%">
                                                                     {{ __('fields_web.Home.visti_website') }}
@@ -183,7 +183,7 @@
                                                     @if ($job->apply_link != null)
                                                         <p><i class='fas fa-link'> &nbsp;
                                                             </i>{{ __('fields_web.Jobs.applyLink') }}:<a
-                                                                href="https://www.{{ $job->apply_link }}">{{ $job->apply_link }}</a>
+                                                                href="{{ $job->apply_link }}">{{ $job->apply_link }}</a>
                                                         </p>
                                                     @endif
                                                     <p style="color:red"><i class="far fa-calendar-times"> &nbsp;

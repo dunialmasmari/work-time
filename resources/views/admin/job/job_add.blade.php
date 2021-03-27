@@ -45,7 +45,7 @@
                                 <label>{{__('fields_web.JobsAdd.Major')}} :</label>
                                 <select class="form-control select2" name="major_id" style="width: 100%;">
                                   @foreach ($majors as $major)  
-                                  @if($major->type == 1)
+                                  @if($major->type == 0)
                                   <option value="-1">{{__('fields_web.TenderAdd.choosemajor')}} </option>
                                   <option value="{{ $major->major_id}} ">{{ $major->major_name}} </option>
                                   @endif
@@ -80,7 +80,9 @@
                                   <option value="{{__('fields_web.cities.AmanatAlAsimah')}}">{{__('fields_web.cities.AmanatAlAsimah')}}</option>
                                   <option value="{{__('fields_web.cities.Shabwah')}}">{{__('fields_web.cities.Shabwah')}}</option>
                                   <option value="{{__('fields_web.cities.Socotra')}}">{{__('fields_web.cities.Socotra')}}</option> 
-                                  <option value="{{__('fields_web.cities.Taiz')}}">{{__('fields_web.cities.Taiz')}}</option>   
+                                  <option value="{{__('fields_web.cities.Taiz')}}">{{__('fields_web.cities.Taiz')}}</option>
+                                  <option value="{{__('fields_web.cities.AlHodaida')}}">{{__('fields_web.cities.AlHodaida')}}</option>
+                                  <option value="{{__('fields_web.cities.Yemen')}}">{{__('fields_web.cities.Yemen')}}</option>
                                 </select>
                                 <small class='error-message'>{{__('fields_web.TenderValidate.locationMassage')}}</small>
                               </div>

@@ -529,10 +529,10 @@ background: -webkit-linear-gradient(right, #4f9dd5bb, #5f6d9bbd);
         }
 
 .colors-logo{
-   /* background: -webkit-linear-gradient(left, rgb(79, 157, 213),white) ; color:black; */
+  padding: 0 !important;
 color:white;
   background-image: url('../images/2.jpg');
-  padding: 0px;;
+ 
   /* /*background: -webkit-linear-gradient(top,black,rgb(79, 157, 213),white, rgb(79, 157, 213),black); */
 }
 .color-logo{

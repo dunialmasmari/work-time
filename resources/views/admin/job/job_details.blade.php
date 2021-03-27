@@ -34,7 +34,7 @@
                         <div class=' my-auto' style="height:200px;width:200px;">
                             <!-- <div class="card-body "> -->
                             <img class="card-img-top  " style="height:200px;width:200px;"
-                                src="{{ URL::asset('assets/uploads/Jobs/images/' . $job->image) }}">
+                                src="{{ URL::asset('assets/uploads/jobs/images/' . $job->image) }}">
                             <!-- </div> -->
                         </div>
                         <div class='col-11 col-sm-11 col-md-8 col-lg-8 mx-2  my-auto'>
@@ -83,10 +83,10 @@
                                         <h4> {{ __('fields_web.Jobs.description') }}: </h4>
                                     </div>
                                 </div>
-                                <div class="row  px-3 py-3">
+                                <div>
                                     {!! $job->description !!}
                                 </div>
-
+                                 
                 @endforeach
 
             </div>

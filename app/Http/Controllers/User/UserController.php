@@ -212,4 +212,54 @@ class UserController extends Controller
              return view('HR.Erroe');   
         }
     } 
+     public function veiwChangePassword()
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+            return view('admin.changePassword',['role_users' => $role_users]); 
+        }
+        else{
+             return view('HR.Erroe');   
+        }
+    }
+    public function ChangePassword(Request $request)
+    {
+        $user_id = auth()->user()->user_id;
+        $role_users= role_user::select()->where('user_id',$user_id)->get();
+        foreach($role_users as $role_user)
+        if($role_user->role_id == 1 || $role_user->role_id == 8)
+        {
+           
+            $user_id = auth()->user()->user_id;
+            $user = User::where('user_id',$user_id);
+            $password = auth()->user()->password;
+            if($user->exists())
+            {  
+                    if(Hash::check($request->input('old_password'), $password))
+                
+                    {
+                        $user->password = Hash::make($request->input('password'));
+                        $user->Update(['password' => $user->password]);
+                        $users = User::get();
+                        echo "chang password successfully";
+                        return redirect()->route('logout')->with(['users' => $users]);
+                    }
+                    else
+                    {
+                        echo "soryy old password not correct";
+                        return redirect()->route('veiwChangePassword',['role_users' => $role_users]); 
+                   }
+                
+            }
+            else{
+                return response()->json(['message' => 'user not found'], 404);
+            }
+        }
+        else{
+             return view('HR.Erroe');   
+        }
+    }
 }

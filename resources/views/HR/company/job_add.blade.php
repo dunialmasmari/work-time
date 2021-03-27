@@ -8,7 +8,7 @@
         <!-- left column -->
         <div class="col-md-12">
              <!-- general form elements -->
-             <div class="card card-primary">
+             <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">{{__('fields_web.JobsAdd.TitlePage')}}</h3>
                 </div>
@@ -46,7 +46,7 @@
                                 <label>{{__('fields_web.JobsAdd.Major')}} :</label>
                                 <select class="form-control select2" name="major_id" style="width: 100%;">
                                   @foreach ($majors as $major)  
-                                  @if($major->type == 1)
+                                  @if($major->type == 0)
                                   <option value="-1">{{__('fields_web.TenderAdd.choosemajor')}} </option>
                                   <option value="{{ $major->major_id}} ">{{ $major->major_name}} </option>
                                   @endif

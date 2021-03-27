@@ -1065,16 +1065,16 @@
                 function validate(fieldName, isRequired, value, value2) {
 
                     if (isRequired == true) {
-                        if (value == null || value == '') return 'required'
+                        if (value == null || value == '') return "{!! __('fields_web.TenderValidate.requerMassage') !!}"
                     }
                     if (fieldName != '') {
                         if (fieldName == 'email') {
                             reg = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
                             if (!reg.test(value)) {
-                                return 'lang.Validation.email'
+                                return "{!! __('fields_web.TenderValidate.emailMassage') !!}"
                             }
                             if (value.length > 20) {
-                                return 'lang.Validation.exceded'
+                                return "{!! __('fields_web.TenderValidate.emailMassage') !!}"
                             }
                         }
                         if (fieldName == 'url') {
@@ -1082,10 +1082,10 @@
                                 '((\\d{1,3}\\.){3}\\d{1,3}))' + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
                                 '(\\?[;&a-z\\d%_.~+=-]*)?' + '(\\#[-a-z\\d_]*)?$', 'i');
                             if (!reg.test(value)) {
-                                return 'lang.Validation.url'
+                                return "{!! __('fields_web.TenderValidate.linkMassage') !!}"
                             }
                             if (value.length > 150) {
-                                return 'lang.Validation.exceded'
+                                return "{!! __('fields_web.TenderValidate.linkMassage') !!}"
                             }
                         }
                         if (fieldName == 'password') {
@@ -1112,28 +1112,28 @@
                         if (fieldName === 'phone') {
                             reg = /^(?=[1-9])$/;
                             if (!reg.test(value)) {
-                                return 'lang.Validation.phone'
+                                return "{!! __('fields_web.TenderValidate.phoneMassage') !!}"
                             }
-                            if (value.length < 5) {
-                                return 'lang.Validation.phonelength'
+                            if (value.length < 9) {
+                                return "{!! __('fields_web.TenderValidate.phoneMassage') !!}"
                             }
                         }
                         if (fieldName == 'name') {
                             if (value.length > 25) {
-                                return 'lang.Validation.sizename'
+                                return "{!! __('fields_web.TenderValidate.nameMassage') !!}"
                             }
                         }
                         if (fieldName == 'longText') {
                             if (value.length < 50) {
-                                return 'lang.Validation.sizedescrption'
+                                return "{!! __('fields_web.TenderValidate.longText') !!}"
                             }
                         }
                         if (fieldName == 'midText') {
                             if (value.length < 10) {
-                                return 'lang.Validation.kk'
+                                return "{!! __('fields_web.TenderValidate.midText') !!}"
                             }
                             if (value.length > 50) {
-                                return 'lang.Validation.gg'
+                                return "{!! __('fields_web.TenderValidate.midText') !!}"
                             }
                         }
                         /* if (fieldName =='date') 

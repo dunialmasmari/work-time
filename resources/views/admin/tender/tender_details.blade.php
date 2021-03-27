@@ -98,7 +98,7 @@
                                 </div>
 
 
-                                <div class="row  px-3 py-3">
+                                <div >
                                     {!! $tender->description !!}
                                 </div>
 

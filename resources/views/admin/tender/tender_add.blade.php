@@ -103,6 +103,8 @@
                                   <option value="{{__('fields_web.cities.Shabwah')}}">{{__('fields_web.cities.Shabwah')}}</option>
                                   <option value="{{__('fields_web.cities.Socotra')}}">{{__('fields_web.cities.Socotra')}}</option> 
                                   <option value="{{__('fields_web.cities.Taiz')}}">{{__('fields_web.cities.Taiz')}}</option>
+                                  <option value="{{__('fields_web.cities.AlHodaida')}}">{{__('fields_web.cities.AlHodaida')}}</option>
+                                  <option value="{{__('fields_web.cities.Yemen')}}">{{__('fields_web.cities.Yemen')}}</option>
                                 </select>
                                 <small class='error-message'>{{__('fields_web.TenderValidate.locationMassage')}}</small>
                               </div>

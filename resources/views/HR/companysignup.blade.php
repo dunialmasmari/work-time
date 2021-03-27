@@ -13,7 +13,7 @@
                             <a href="{{ route('loginhr') }}"
                                 class="  btn  btn-light mx-2 my-2">{{ __('fields_web.Users.Login') }}</a></span>
                         <p class="ForgetPwd" value="signup">{{ __('fields_web.Users.or') }}</p>
-                        <a href="{{ route('companysignup') }}"
+                        <a href="{{ route('signuphr') }}"
                             class="btn btn-light ">{{ __('fields_web.Users.applyAsEmplyee') }}</a>
 
 

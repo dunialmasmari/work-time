@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-md"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.totalJobs')}}</span>
@@ -39,7 +39,7 @@
                 <!-- /.col -->
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-envelope-square"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.totalTenders')}}</span>
@@ -56,7 +56,7 @@
 
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-scroll"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.totalBlogs')}}</span>
@@ -70,7 +70,7 @@
                 <!-- /.col -->
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-concierge-bell"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text"> {{__('fields_web.reports.totalServices')}}</span>
@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-building"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.totalCompanies')}}</span>
@@ -101,7 +101,7 @@
                 <!-- /.col -->
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.total_visitors')}}</span>
@@ -118,7 +118,7 @@
 
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.resumeDownload')}}</span>
@@ -132,7 +132,7 @@
                 <!-- /.col -->
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-envelope-open-text"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">{{__('fields_web.reports.coverLetterDownload')}}</span>

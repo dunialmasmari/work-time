@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tender;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TryController;
 use Illuminate\Http\Request;
 use App\Models\tender;
 use App\Models\Major;

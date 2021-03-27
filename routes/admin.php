@@ -130,6 +130,8 @@ Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()
     Route::post('/updateuser','UserController@updateuser')->name('updateuser');
     Route::get('/user_add', 'UserController@user_add')->name('user_add'); 
     Route::get('/useractivation/{id}','UserController@useractivation')->name('useractivation');
+     Route::get('/veiwChangePassword', 'UserController@veiwChangePassword')->name('veiwChangePassword');
+    Route::post('/ChangePassword', 'UserController@ChangePassword')->name('ChangePassword'); 
 });
 
 Route::group(['namespace' => 'User', 'prefix' => 'controlpanel' ],function()

@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pagination Language Lines
+    | Pagination Language Linesci
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the paginator library to build
@@ -73,6 +73,7 @@ return [
       'phoneno'=> 'This field must be filled in correctly',
       'imagename'=> 'The file you chose is not an image',
       'imagesize'=> 'File size should be 500 * 500',
+        'requredEnglish'  =>'You can download just by English language ',
       'imagetype'=> 'The image should be png, jpg, jpeg',
       'PasswordValidation'=> 'It should be more than 8 and contain lowercase letters, upper case letters, numbers and at least one symbol.',
       'example'=> [
@@ -170,7 +171,9 @@ return [
       'AmanatAlAsimah'=> 'Amanat Al Asimah (Sanaa City)',
       'Shabwah'=> 'Shabwah',
       'Socotra'=> 'Socotra',
-      'Taiz'=> 'Taiz'
+      'Taiz'=> 'Taiz',
+      'AlHodaida'=>'Al Hodaida',
+      'Yemen'=>'Yemen'
     ],
 
   'Jobs'=> [
@@ -431,6 +434,11 @@ return [
     'otharLocationMassage'=> '*When writing more than one Location, please writing a comma (,) between them.',
     'companyMassage'=> '*The text must be charecter',
     'linkMassage'=> '*Enter the link in the correct format',
+    'emailMassage'=> '*Enter the Email in the correct format',
+    'phoneMassage'=> '*Enter the phone in the correct format',
+    'nameMassage'=> '*Must be smoler 25',
+    'longText'=> '*Must be Larger 50',
+    'midText'=> '*Must be Larger 10 and smoler 25 ',
     'imageMassage'=> '*Height and Width must Be Between 200 and 500px.',
     'imageaderMassage' => '*Height and Width must Be Between 200 and 600px and *Width must Be Between 600 and 900px.',
     'deadlineMassage'=> '*The tender deadline date should be Larger than the start date.',
@@ -469,6 +477,7 @@ return [
     'TitlePage'=> 'Add New User',
     'Password'=> 'Password',
     'ConfirmPassword'=> 'Confirm Password',
+    'ChangePassword'=> 'Change Password',
     'Submit'=> 'Add User',
   ],
   /**Edite Users */
@@ -476,6 +485,7 @@ return [
     'Title'=> 'Edite User',
     'oldPassword'=> 'Old Password',
     'NewPassword'=> 'New Password',
+    'ChangePassword'=> 'Change Password',
     'Submit'=> 'Edite User',
   ],
 
@@ -545,6 +555,10 @@ return [
     'companydetails'=>'Company Details',
     'companyName'=>'Company Name',
     'statucompany'=>'Wating',
+    'jobRejrct'=>'Rejected Jobs',
+    'jobAccept'=>'Accepted Jobs',
+    'tenderRejrct'=>'Rejected Tenders',
+    'tenderAccept'=>'Accepted Tenders',
   ],
   'userInfo'=>[
     'userdetials'=> 'User Detials',

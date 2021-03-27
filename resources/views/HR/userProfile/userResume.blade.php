@@ -24,6 +24,9 @@
                             {{ session('success') }}
                             </div>
                         @endif
+                                     <div class="  alert alert-success" role='alert'>
+                                        {{ __('fields_web.validation.requredEnglish') }}
+                                    </div>
                           </div>
                       </div>
                     <div class="row">

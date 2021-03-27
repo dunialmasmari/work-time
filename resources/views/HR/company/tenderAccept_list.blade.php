@@ -6,7 +6,7 @@
         <!-- left column -->
         <div class="col-md-12">
              <!-- general form elements -->
-             <div class="card card-primary">
+             <div class="card ">
                 <div class="card-header">
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                     <h3 class="card-title">{{__('fields_web.Tender.TitlePage')}}</h3>

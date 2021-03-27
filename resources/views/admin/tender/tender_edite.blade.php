@@ -68,31 +68,42 @@
                                   <option selected value="{{ $x }}">{{ $x }}</option>
                                     
                                   @endforeach
-                                  <option value="Sanaa">Sanaa</option>
-                                  <option value="Amran">Amran</option>
-                                  <option value="Abyan">Abyan</option>
-                                  <option value="AlMahrah">AlMahrah</option>
-                                  <option value="AlMahwit">AlMahwit</option>
-                                  <option value="Dhale">Dhale</option>
-                                  <option value="Aden">Aden</option>
-                                  <option value="Amran">Amran</option>
-                                  <option value="Dhamar">Dhamar</option>
-                                  <option value="Hadramaut">Hadramaut</option>
-                                  <option value="AlJawf">AlJawf</option>
-                                  <option value="Hajjah">Hajjah</option>
-                                  <option value="Ibb">Ibb</option>
-                                  <option value="Lahij">Lahij</option>
-                                  <option value="Marib">Marib</option>
-                                  <option value="AlBayda">AlBayda</option>
-                                  <option value="Raymah">Raymah</option>
-                                  <option value="Sadah">Sadah</option>
-                                  <option value="Amanat AlAsimah">Amanat AlAsimah</option>
-                                  <option value="Shabwah">Shabwah</option>
-                                  <option value="Socotra">Socotra</option> 
-                                  <option value="Taiz">Taiz</option>
+                                 <option value="{{__('fields_web.cities.Sanaa')}}">{{__('fields_web.cities.Sanaa')}}</option>
+                                  <option value="{{__('fields_web.cities.Amran')}}">{{__('fields_web.cities.Amran')}}</option>
+                                  <option value="{{__('fields_web.cities.Abyan')}}">{{__('fields_web.cities.Abyan')}}</option>
+                                  <option value="{{__('fields_web.cities.AlMahrah')}}">{{__('fields_web.cities.AlMahrah')}}</option>
+                                  <option value="{{__('fields_web.cities.AlMahwit')}}">{{__('fields_web.cities.AlMahwit')}}</option>
+                                  <option value="{{__('fields_web.cities.Dhale')}}">{{__('fields_web.cities.Dhale')}}</option>
+                                  <option value="{{__('fields_web.cities.Aden')}}">{{__('fields_web.cities.Aden')}}</option>
+                                  <option value="{{__('fields_web.cities.Amran')}}">{{__('fields_web.cities.Amran')}}</option>
+                                  <option value="{{__('fields_web.cities.Dhamar')}}">{{__('fields_web.cities.Dhamar')}}</option>
+                                  <option value="{{__('fields_web.cities.Hadramaut')}}">{{__('fields_web.cities.Hadramaut')}}</option>
+                                  <option value="{{__('fields_web.cities.AlJawf')}}">{{__('fields_web.cities.AlJawf')}}</option>
+                                  <option value="{{__('fields_web.cities.Hajjah')}}">{{__('fields_web.cities.Hajjah')}}</option>
+                                  <option value="{{__('fields_web.cities.Ibb')}}">{{__('fields_web.cities.Ibb')}}</option>
+                                  <option value="{{__('fields_web.cities.Lahij')}}">{{__('fields_web.cities.Lahij')}}</option>
+                                  <option value="{{__('fields_web.cities.Marib')}}">{{__('fields_web.cities.Marib')}}</option>
+                                  <option value="{{__('fields_web.cities.AlBayda')}}">{{__('fields_web.cities.AlBayda')}}</option>
+                                  <option value="{{__('fields_web.cities.Raymah')}}">{{__('fields_web.cities.Raymah')}}</option>
+                                  <option value="{{__('fields_web.cities.Sadah')}}">{{__('fields_web.cities.Sadah')}}</option>
+                                  <option value="{{__('fields_web.cities.AmanatAlAsimah')}}">{{__('fields_web.cities.AmanatAlAsimah')}}</option>
+                                  <option value="{{__('fields_web.cities.Shabwah')}}">{{__('fields_web.cities.Shabwah')}}</option>
+                                  <option value="{{__('fields_web.cities.Socotra')}}">{{__('fields_web.cities.Socotra')}}</option> 
+                                  <option value="{{__('fields_web.cities.Taiz')}}">{{__('fields_web.cities.Taiz')}}</option>
+                                  <option value="{{__('fields_web.cities.AlHodaida')}}">{{__('fields_web.cities.AlHodaida')}}</option>
+                                  <option value="{{__('fields_web.cities.Yemen')}}">{{__('fields_web.cities.Yemen')}}</option>
                                 </select>
                               </div>
                         </div>
+                        
+                            <div class="col-md-4">
+                            <div class="form-group">
+                                <label>{{__('fields_web.TenderAdd.OtharLocation')}} :</label>
+                                <input id="otharlocation" type="text" name="location[]" placeholder="{{__('fields_web.TenderAdd.OtharLocation')}}"  class="form-control" >
+                               
+                            </div>
+                        </div>
+                        
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.TenderAdd.Company')}} :</label>
@@ -100,16 +111,18 @@
                               </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label> {{__('fields_web.TenderAdd.Link')}} :</label>
-                                <input type="text" name="apply_link" placeholder="{{__('fields_web.TenderAdd.Link')}}" class="form-control" value="{{$tender->apply_link}}" required>
-                              </div>
-                        </div>
+                       
 
                     </div>
 
                     <div class="row">
+                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label> {{__('fields_web.TenderAdd.Link')}} :</label>
+                                <input type="text" name="apply_link" placeholder="{{__('fields_web.TenderAdd.Link')}}" class="form-control" value="{{$tender->apply_link}}" >
+                              </div>
+                        </div>
+                        
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.TenderAdd.start_date')}}:</label>
@@ -124,14 +137,15 @@
                               </div>
                         </div>
 
-                        <div class="col-md-4">
+                      
+                    </div>
+                    <div class="row">
+                          <div class="col-md-4">
                             <div class="form-group">
                                 <label> {{__('fields_web.TenderAdd.PostedDate')}}:</label>
                                 <input type="date" name="posted_date"  class="form-control" value="{{$tender->posted_date}}"  required>
                               </div>
                         </div>
-                    </div>
-                    <div class="row">
                     <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleInputFile">{{__('fields_web.TenderAdd.image')}} </label>

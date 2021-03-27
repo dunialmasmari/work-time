@@ -39,7 +39,7 @@
                                                 </h4>
                                                 @if ($adv->link != '' || $adv->link != null)
 
-                                                    <a href="https://www.{{ $adv->link }}"><button
+                                                    <a href="{{ $adv->link }}"><button
                                                             class='btn btn-primary btn-sm my-2 '
                                                             style="float: none;">
                                                             {{ __('fields_web.Home.visti_website') }} </button></a>

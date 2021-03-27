@@ -87,7 +87,7 @@
                                                 <h4>{{ \Illuminate\Support\Str::limit($adv->title, $limit = 10, $end = '...') }}
                                                 </h4>
                                                 @if ($adv->link != '' || $adv->link != null)
-                                                    <a href="https://www.{{ $adv->link }}"><button
+                                                    <a href="{{ $adv->link }}"><button
                                                             class='btn btn-primary btn-md my-2 '
                                                             style="float: none;width:60%">
                                                             {{ __('fields_web.Home.visti_website') }} </button></a>
